@@ -500,7 +500,8 @@ function renderHome(){
         <h3>训练场 · 自选和弦针对练习</h3>
         <div class="desc">按类别随机练，或锁定某一个和弦型反复打磨。可先「练习」熟悉声音，再「测试」检验。</div>
       </span>
-    </button>`;
+    </button>
+    <p style="text-align:center;color:#4a4470;font-size:11px;margin:18px 0 6px">所用模型：Opus 4.8　　乐理指导：福楼</p>`;
   document.querySelectorAll(".lvl").forEach(b=>{
     if(b.disabled) return;
     b.onclick=()=> openModule(MODULES[+b.dataset.i].id);
