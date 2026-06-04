@@ -3744,24 +3744,28 @@ function lightAlong(rootSel="#piano"){
   const root=document.querySelector(rootSel); if(!root) return;
   const clearAll=()=>root.querySelectorAll('.key').forEach(k=>k.classList.remove('reveal','lit'));
   const clearHint=()=>root.querySelectorAll('.key.hint').forEach(k=>k.classList.remove('hint'));
+  // 取消上一轮所有待执行的亮/熄定时器，避免快速连按时旧的"熄灯"盖掉新的"点亮"
+  if(root._lightTimers) root._lightTimers.forEach(clearTimeout);
+  root._lightTimers=[];
+  const later=(fn,ms)=>root._lightTimers.push(setTimeout(fn,ms));
   clearAll();
   lastPlayed.forEach((ev,idx)=>{
     const at=Math.round(ev.t*1000);
     if(ev.hint){ // 黄色"当前和弦"提示：换和弦时整组切换，不参与逐音的熄灯节奏
-      setTimeout(()=>{ clearHint();
+      later(()=>{ clearHint();
         ev.midis.forEach(m=>{ const k=root.querySelector(`.key[data-m="${m}"]`); if(k) k.classList.add('hint'); });
       }, at);
       return;
     }
-    setTimeout(clearAll, at);            // 每个音/和弦响起前先全熄
-    setTimeout(()=>{                      // 稍后再点亮 → 共有音也会"重新亮一下"
+    later(clearAll, at);                 // 每个音/和弦响起前先全熄
+    later(()=>{                          // 稍后再点亮 → 共有音也会"重新亮一下"
       ev.midis.forEach(m=>{
         const exact=root.querySelector(`.key[data-m="${m}"]`);
         const keys = exact ? [exact] : [...root.querySelectorAll(`.key[data-pc="${m%12}"]`)];
         keys.forEach(k=>k.classList.add("reveal"));
       });
     }, at+70);
-    if(idx===lastPlayed.length-1) setTimeout(()=>{ clearAll(); clearHint(); }, at+70+durToMs(ev.dur)); // 末尾全部熄灭
+    if(idx===lastPlayed.length-1) later(()=>{ clearAll(); clearHint(); }, at+70+durToMs(ev.dur)); // 末尾全部熄灭
   });
 }
 // 讲解区静态键盘示意图：lo..hi 范围，marks={midi:类名} 给指定键上色(sel=音阶内/绿，hint=重点/黄)
@@ -3816,19 +3820,21 @@ function renderScaleStrip(){
   }
   return h+'</div>';
 }
+let scaleStripTimers=[]; // 台阶动画的待执行定时器：新一轮开始时先全部取消，避免上一轮的"熄灯"盖掉这一轮的"点亮"
 function animateScaleStrip(gap=400){
+  scaleStripTimers.forEach(clearTimeout); scaleStripTimers=[];
   for(let i=0;i<8;i++){ const sn=document.getElementById("sn"+i); if(sn) sn.classList.remove("on"); }
   for(let i=0;i<7;i++){ const sg=document.getElementById("sg"+i); if(sg) sg.classList.remove("on"); }
   for(let i=0;i<8;i++){
-    setTimeout(()=>{
+    scaleStripTimers.push(setTimeout(()=>{
       const sn=document.getElementById("sn"+i); if(sn) sn.classList.add("on");
       if(i>0){ const sg=document.getElementById("sg"+(i-1)); if(sg) sg.classList.add("on"); }
-    }, i*gap);
+    }, i*gap));
   }
-  setTimeout(()=>{
+  scaleStripTimers.push(setTimeout(()=>{
     for(let i=0;i<8;i++){ const sn=document.getElementById("sn"+i); if(sn) sn.classList.remove("on"); }
     for(let i=0;i<7;i++){ const sg=document.getElementById("sg"+i); if(sg) sg.classList.remove("on"); }
-  }, 8*gap+900);
+  }, 8*gap+900));
 }
 // 找到某个 midi 对应的琴键(优先精确音高，否则按音级匹配)
 function keysForMidi(m){
