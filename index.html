@@ -3578,7 +3578,7 @@ const SEQS = {
   // ⑫解决教学：V7 各转位 → 主和弦（四声部逐声部落位；倾向音 si↗do、fa↘mi）
   rsRoot:  [[-5,2,5,11],[-12,0,4,12]],  // G7原位(G3 D4 F4 B4)→C(C3 C4 E4 C5)：三倍根音省五音
   rsBadG:  [[-5,2,5,11],[-12,0,7,12]],  // 反例：fa 不落 mi 反跳上 sol——空、悬、没收住
-  rs65:    [[-1,5,7,14],[0,4,7,12]],    // G7/B(第一转位)→C 完整(C4 E4 G4 C5)：sol 保留为共同音
+  rs65:    [[-1,2,5,7],[0,4,7]],        // G7/B(第一转位 B3 D4 F4 G4)→C(C4 E4 G4)：G 保留为共同音，音区贴近主线
   rs43:    [[2,7,11,17],[0,7,12,16]],   // G7/D(第二转位)→C 完整(C4 G4 C5 E5)
   rs42:    [[-7,2,7,11],[-8,0,7,12]],   // G7/F(第三转位)→C/E=I6(E3 C4 G4 C5)：低音 fa 半音落 mi
   rs42bad: [[-7,2,7,11],[0,4,7,12]],    // 反例：G7/F 硬接原位 C——低音 F3 大跳上 C4，磁力断裂
@@ -4599,8 +4599,8 @@ const RS_INV=[ // 四种 V7 形态 → 解决目标（教学与出题共用；de
    det:"逐声部看（G3·D4·F4·B4）：低音 G3 走根音<b>下跳到 C3</b>（规则三；上跳到 C4 同样合法——只会与五音的落点重叠，而重叠并不违规，这里选下跳是要句号最重、四条路也全错开看得清）；五音 D4 就近落 C4（规则二）；七音 F4 半音落 E4（规则一）；导音 B4 半音蹭进 C5（规则一）。落点 C3·C4·E4·C5——三个 C 加一个 E，省五音。C3 听着很低，但那正是低音区的家。",
    detEn:"Voice by voice (G3·D4·F4·B4): the bass G3 takes the root leap <b>down to C3</b> (rule 3; leaping up to C4 is equally legal — it merely overlaps the 5th's landing, and overlapping breaks no rule. Down is chosen here for the heaviest period, and so all four paths stay visibly separate); the 5th D4 settles on C4 (rule 2); the 7th F4 falls a half step to E4 (rule 1); the leading tone B4 slides into C5 (rule 1). Landing: C3·C4·E4·C5 — three C's plus one E, 5th omitted. C3 sounds deep, but that's exactly where a bass lives."},
   {sym:"G7/B", inv:"第一转位", invEn:"1st inversion", seq:"rs65",   to:"C（完整原位）", toEn:"C (complete, root position)", toSym:"C",   bass:"B→C(半音)", bassEn:"B→C (half step)",
-   det:"逐声部看（B3·F4·G4·D5）：低音 B3 本身就是导音，半音上行到 C4（规则一兼低音）；七音 F4 半音落 E4（规则一）；G4 是共同音，原地保留（规则二）；五音 D5 就近落 C5（规则二）。四个声部没有一个跳进，落点 C4·E4·G4·C5——完整的原位 C。",
-   detEn:"Voice by voice (B3·F4·G4·D5): the bass B3 is itself the leading tone and rises a half step to C4 (rule 1, in the bass); the 7th F4 falls to E4 (rule 1); G4 is the common tone and stays (rule 2); the 5th D5 settles on C5 (rule 2). Not a single leap — landing C4·E4·G4·C5, a complete root-position C."},
+   det:"逐声部看（B3·D4·F4·G4）：低音 B3 是导音，半音上行到 C4（规则一兼低音）；五音 D4 就近落 C4（与导音重叠，合法）；七音 F4 半音落 E4（规则一）；G4 是共同音，原地保留（规则二）。没有一个声部跳进，落点 C4·E4·G4——完整的原位 C。",
+   detEn:"Voice by voice (B3·D4·F4·G4): the bass B3 is the leading tone and rises a half step to C4 (rule 1, in the bass); the 5th D4 settles on C4 (overlapping the leading tone — legal); the 7th F4 falls to E4 (rule 1); G4 is the common tone and stays (rule 2). Not a single leap — landing C4·E4·G4, a complete root-position C."},
   {sym:"G7/D", inv:"第二转位", invEn:"2nd inversion", seq:"rs43",   to:"C（完整原位）", toEn:"C (complete, root position)", toSym:"C",   bass:"D→C(级进)", bassEn:"D→C (step)",
    det:"逐声部看（D4·G4·B4·F5）：低音 D4 级进落到 C4（规则二，低音此时走的就是最近的主音）；G4 共同音保留（规则二）；导音 B4 半音上 C5（规则一）；七音 F5 半音落 E5（规则一）。落点 C4·G4·C5·E5——完整的原位 C。",
    detEn:"Voice by voice (D4·G4·B4·F5): the bass D4 steps down to C4 (rule 2 — here the nearest tonic IS the bass's target); G4 the common tone stays (rule 2); the leading tone B4 rises to C5 (rule 1); the 7th F5 falls to E5 (rule 1). Landing C4·G4·C5·E5 — a complete root-position C."},
