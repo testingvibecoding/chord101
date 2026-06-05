@@ -1289,6 +1289,7 @@ function teachEN(mId){
       ${loopBar()}`;
     case "resolve": return `
       <p>This level is about one word: <b>resolution</b>. It's where everything converges — V7's tension from level ⑥, inversions and slash notation from ⑨⑩, and the leading tone from ⑪ all get assembled into one craft here. But before learning "how", the first job is understanding <b>what it is and why it exists</b>.</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>Scope, up front:</b> resolution isn't G7's private property — it's what <b>every "tense chord before going home" must do</b>: V7, V, vii°, level ⑩'s F/G, the borrowed ♭VII, even minor's E7 (level ⑱). <b>Any tense chord wanting to fall back onto the stable tonic follows the same laws of resolution.</b> We use <b>G7→I as the specimen</b>: its tension is maximal (carrying both a leading tone and a tritone), so its voice motion is the most complete and easiest to hear — the ideal case for nailing the laws. Learn it and every other tense chord copies the same playbook.</p>
 
       <details class="note" open><summary><b>What is "resolution"? Why does music need it?</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -1319,11 +1320,16 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p>Voice leading has exactly three rules. Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic as the running example — hear it once, then unpack rule by rule:</p>
+      <p>Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic — hear it once:</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 First hear G7 (G3 B3 D4 F4)</span>
         <span class="chip" data-play="seq:rsClose">🔊 Then hear it resolve to C</span>
       </div>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
+        <b>The whole thing in one sentence: resolution is letting each note of G7 move to the nearest — and legal — tonic-chord tone (C·E·G).</b><br>
+        G7 is the drawn bow, I is the relaxed home — each of the four notes picks a tonic tone to land on, by the shortest reasonable path, and the chord is "home". "<b>Legal</b>" carries two clauses: ① notes gripped by the half-step magnet (the tendency tones) have their direction <b>locked</b> — you can't go the wrong way just because it's closer; ② several notes <b>landing on the same tonic tone (overlap) is fully allowed</b>. The three rules below simply break "nearest + legal" into three cases — whose direction is locked, who may go nearest freely, and whose path (the bass voice) is special.
+      </p>
+      <p>Unpack rule by rule:</p>
 
       <details class="note" open><summary><b>Rule 1 · tendency tones must move — direction locked</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -1345,7 +1351,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Rule 2 · other upper voices: nearest, either way — landings may overlap</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Terms first: of a chord's several voices, <b>the lowest is the "bass voice" (a.k.a. the bass / lower voice); all the others are "upper voices"</b>. In the running example G3 B3 D4 F4 — G3 is the bass voice; B3, D4 and F4 are all upper voices.</p>
+          <p>Terms first: of a chord's several voices, <b>the lowest is the "bass voice" (a.k.a. the bass / lower voice); all the others are "upper voices"</b>. Take the G7 above (G3 B3 D4 F4) — G3 is the bass voice; B3, D4 and F4 are all upper voices.</p>
           <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>those free of the magnets simply move nearby</b>: <b>G, the common tone of G7 and the C chord, stays put</b> (zero motion is smoothest); <b>D may go either way</b> — down to C or up to E, both legal:</p>
           <div class="row">
             <span class="chip" data-play="seq:rs65">🔊 Common-tone demo: G7/B → C (G4 never moves)</span>
@@ -1375,7 +1381,7 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: rules 1 and 2 merged into one sentence — the "distance field" view</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Once the separate rules are learned, you can fold them together. The upper voices really follow just one rule: <b>check each note's shortest distance to a tonic-chord tone (C·E·G)</b> —</p>
+          <p>This is just the precise form of the opening master rule — "<b>each note goes to the nearest, legal tonic tone</b>". The upper voices need only <b>check each note's shortest distance to a tonic-chord tone (C·E·G)</b>:</p>
           <p>· <b>Distance 0</b> (it IS a chord tone) → <b>stay put</b>: G.<br>
              · <b>A half step</b> (hugging a chord tone) → <b>must resolve onto it</b>: B→C, F→E — no direction to memorize; it points at the neighbor automatically.<br>
              · <b>A whole step</b> (chord tones equidistant on both sides) → <b>nearest, either way</b>: D→C or D→E.</p>
@@ -1404,7 +1410,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Where does each inversion resolve? (this level's highlight)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Changing inversion = changing the bass, but the three rules never change — so each shape's landing is <b>uniquely determined</b>:</p>
+          <p>Changing inversion = changing the bass, but the master rule never changes — <b>each note still moves to the nearest, legal tonic tone</b>. So each shape's landing is <b>uniquely determined</b>:</p>
           <table class="ctab"><tr><th>Shape</th><th>Symbol (level ⑩)</th><th>Bass motion</th><th>Landing</th></tr>
             <tr><td>Root position</td><td>G7</td><td>G→C leap</td><td><b>root-position C</b> (C·C·C·E)</td></tr>
             <tr><td>1st inversion</td><td>G7/B</td><td>B→C half step</td><td><b>complete root-position C</b> (G stays)</td></tr>
@@ -1439,6 +1445,27 @@ function teachEN(mId){
           </div>
           ${loopStyleBar()}
           <p>⚠ <b>The common mislabel</b>: calling "resolving to C/G" a half cadence. Wrong — a half cadence by definition <b>stops on the dominant</b>; reaching the tonic in a weak shape is an <b>imperfect authentic cadence</b>. Weak ≠ half.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: swap in another tense chord — resolving V, vii° and ♭VII</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>As said up front, resolution isn't G7's private property. Apply the master rule (<b>each note moves to the nearest, legal tonic tone</b>) to other "tense chords before home" and it still holds. Hear each, all in the same register as G7→C:</p>
+          <p><b>① V (plain triad G B D) → C</b>: it lacks G7's 7th F, so it has <b>only one tendency tone, the leading tone B</b> (B↗C, locked); D goes nearest to C, G stays or moves to E. Without the F→E sting to dissolve, the period is still there but <b>slightly less tense than G7</b> — precisely the difference between V and V7.</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsV">🔊 V → C (one tendency tone, a lighter period)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (two tendency tones, the heaviest period)</span>
+          </div>
+          <p><b>② vii° (diminished triad B D F) → C</b>: it holds <b>both B and F — the very same tritone as G7</b>, so it resolves almost identically: B↗C, F↘E, D↘C. Think of it as "<b>G7 minus its root G</b>" — the spike-and-release of the tendency tones is untouched, just without the bass G's support, so it sounds lighter and more airborne.</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsVii">🔊 vii° → C (same B/F tritone, resolves like G7)</span>
+          </div>
+          <p><b>③ ♭VII (the borrowed B♭ major triad B♭ D F) → C</b>: the "open-hearted rock" chord from level ⑳. Note it has <b>no leading tone</b> (its root is B♭, not B) — the bass B♭ strides into C by a <b>whole step</b>, not a half-step squeeze; no half-step magnet, no tritone. So it still goes home, but <b>relaxed and unhurried</b> — a stroll through the door, not a push. This shows: <b>not every tense chord resolves via a leading tone</b>; a whole-step approach is a legal homecoming too.</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsbVII">🔊 ♭VII → C (no leading tone, whole-step approach, relaxed)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (leading tone, half-step squeeze, urgent)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Recap: chords with a leading tone (V, V7, vii°) resolve most urgently, heaviest period; those without (♭VII, and F/G in the next extra) come home more softly. But <b>every note still moves to the nearest, legal tonic tone</b> — the master rule never changed.</p>
         </div>
       </details>
 
@@ -1737,7 +1764,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Voice leading: how V7 lands in minor (the mirror of level ⑫'s rules)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Level ⑫'s three rules transfer untouched into minor (A minor's <b>E7 = E·G♯·B·D</b> as the example):</p>
+          <p>Level ⑫'s master rule — <b>each note moves to the nearest, legal tonic-chord tone</b> — transfers untouched into minor; only "home" becomes the minor triad i (A minor's i = A·C·E). Take A minor's <b>E7 = E·G♯·B·D</b>:</p>
           <p>· <b>Tendency tones must move</b>: the man-made leading tone <b>G♯ rises a half step to A</b>; the 7th, <b>D, falls to C</b> (dissolving the G♯–D tritone);<br>
              · <b>Common tone stays</b>: E belongs to both E7 and Am — upper voices keep it; B settles nearby on A (or C);<br>
              · <b>The bass is the exception</b>: it carries roots — the E→A leap is full of force.</p>
@@ -2643,6 +2670,7 @@ function teachCN(mId){
 
     case "resolve": return `
       <p>这一关只讲一个词：<b>解决 (Resolution)</b>。它是前面所有课的汇合点——⑥关的 V7 张力、⑨⑩关的转位与斜杠、⑪关的导音，都将在这里拼成一门手艺。但先别急着学"怎么做"，第一件事是搞清楚<b>它是什么、为什么存在</b>。</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>先说清适用范围：</b>"解决"不是 G7 的专利，而是<b>每一个"回家前的紧张和弦"都要做的事</b>——V7、V、vii°、⑩关的 F/G、借来的 ♭VII，乃至小调的 E7（⑱关），<b>凡是想落回稳定主和弦的紧张和弦，都遵循同一套解决规律</b>。我们这一关用 <b>G7→I 当标本</b>：它的紧张做到了极致（同时含导音和三全音），声部走向最完整、最好听辨，所以最适合拿来把规律讲透。学会它，其余紧张和弦照搬即可。</p>
 
       <details class="note" open><summary><b>什么是"解决"？音乐为什么需要它？</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -2673,11 +2701,16 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p>声部进行一共三条规则。以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为公共例子，先听一遍，再逐条拆：</p>
+      <p>以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为例，先听一遍：</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 先听 G7（G3 B3 D4 F4）</span>
         <span class="chip" data-play="seq:rsClose">🔊 再听它解决到 C</span>
       </div>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
+        <b>一句话总纲：解决，就是让 G7 的每个音，各自走到最近、又合规的那个 I 和弦内音（C·E·G）上。</b><br>
+        G7 是绷紧的弓、I 是放松的家——四个音各自挑一个 I 的内音落脚，走最短的合理路线，整个和弦就"到家"了。"<b>合规</b>"有两层意思：① 被半音磁铁拽住的音（倾向音）方向是<b>锁死</b>的，不能图近走反了；② 几个音<b>落到同一个内音上（重叠）完全允许</b>。下面三条规则，就是把"最近 + 合规"这件事拆成三种情形讲清——谁方向被锁死、谁可以就近随意、谁（低声部）走法特殊。
+      </p>
+      <p>逐条拆：</p>
 
       <details class="note" open><summary><b>规则一 · 倾向音必走——方向锁死</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -2699,7 +2732,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>规则二 · 其余上声部：就近走或不走——落点可以重叠</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>先说清称呼：和弦的几个声部里，<b>最低的那个叫"低声部"（也叫低音、下声部），其余的都叫"上声部"</b>。以公共例子 G3 B3 D4 F4 为例——G3 是低声部，B3、D4、F4 三个都是上声部。</p>
+          <p>先说清称呼：和弦的几个声部里，<b>最低的那个叫"低声部"（也叫低音、下声部），其余的都叫"上声部"</b>。以上面的 G7（G3 B3 D4 F4）为例——G3 是低声部，B3、D4、F4 三个都是上声部。</p>
           <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>不被磁铁拽住的只须就近</b>：<b>G 是 G7 与 C 和弦的共同音——原地保留</b>（零移动最平滑）；<b>D 上下皆可</b>——下行到 C 或上行到 E 都合法，走哪边看安排：</p>
           <div class="row">
             <span class="chip" data-play="seq:rs65">🔊 共同音示范：G7/B → C（G4 一动不动）</span>
@@ -2729,7 +2762,7 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：把规则一和规则二合成一句话——"距离场"统一视角</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>学完分开的三条，可以再合起来记。上方声部其实只有一条规则：<b>看每个音到 I 和弦内音（C·E·G）的最短距离</b>——</p>
+          <p>这其实就是开头那句总纲——"<b>每个音走到最近、又合规的 I 内音</b>"——的精确版。上方声部只须<b>看每个音到 I 和弦内音（C·E·G）的最短距离</b>：</p>
           <p>· <b>距离 0</b>（自己就是内音）→ <b>原地保留</b>：G。<br>
              · <b>半音</b>（紧贴着某个内音）→ <b>必须就近解决到它</b>：B→C、F→E——方向不用背，自动朝着那个邻居。<br>
              · <b>全音</b>（两边的内音等距）→ <b>任选就近</b>：D→C 或 D→E 皆可。</p>
@@ -2758,7 +2791,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>四个转位各自解决到哪？（本关高光）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>换转位=换低音，但三条规则一条不变——于是每个形态的落点都被规则<b>唯一地决定</b>：</p>
+          <p>换转位=换低音，但总纲不变——<b>每个音还是各走到最近、又合规的那个 I 内音</b>。于是每个形态的落点都被<b>唯一地决定</b>：</p>
           <table class="ctab"><tr><th>形态</th><th>记号(⑩关)</th><th>低音怎么走</th><th>落点</th></tr>
             <tr><td>原位</td><td>G7</td><td>G→C 跳进</td><td><b>C 原位</b>（C·C·C·E）</td></tr>
             <tr><td>第一转位</td><td>G7/B</td><td>B→C 半音</td><td><b>完整的 C 原位</b>（G 保留）</td></tr>
@@ -2793,6 +2826,27 @@ function teachCN(mId){
           </div>
           ${loopStyleBar()}
           <p>⚠ <b>常见错称</b>：把"解决到 C/G"叫成"半终止"。错——半终止的定义是<b>停在属和弦上</b>；解决到主和弦但不完满，叫<b>不完满正格终止</b>。弱 ≠ 半。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：换个紧张和弦也一样——V、vii°、♭VII 的解决</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>开头说过：解决不是 G7 的专利。把总纲（<b>每个音走到最近、又合规的那个 I 内音</b>）原样套到别的"回家前的紧张和弦"上，照样成立。逐个听，都和 G7→C 同音区对照：</p>
+          <p><b>① V（纯三和弦 G B D）→ C</b>：比 G7 少了七音 F，所以<b>只剩导音 B 一个倾向音</b>（B↗C 锁死），D 就近落 C、G 保留或落 E。少了 F→E 那根刺的化解，句号依旧但<b>张力比 G7 略小</b>——这正是 V 和 V7 的区别。</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsV">🔊 V → C（一个倾向音，句号略轻）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（两个倾向音，句号最重）</span>
+          </div>
+          <p><b>② vii°（减三和弦 B D F）→ C</b>：它<b>同时含 B 和 F 这对三全音</b>（和 G7 的那对一模一样！），所以解决方式与 G7 几乎相同：B↗C、F↘E、D↘C。可以理解成"<b>去掉了根音 G 的 G7</b>"——倾向音那套刺与化解原封不动，只是少了低音 G 的支撑，听起来更轻飘。</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsVii">🔊 vii° → C（同一对三全音 B/F，解决同 G7）</span>
+          </div>
+          <p><b>③ ♭VII（借来的 B♭ 大三和弦 B♭ D F）→ C</b>：⑳关学过的"豁达摇滚"。注意它<b>没有导音</b>（根音是 B♭，不是 B）——低音 B♭ 是<b>全音</b>迈进 C，不是半音蹭进；没有那根半音磁铁，也没有三全音。所以它照样回家，却<b>松弛、不催</b>，是"散步进门"而非"推门"。这说明：<b>不是所有紧张和弦都靠导音解决</b>，全音迈进也是一种合规的回家。</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsbVII">🔊 ♭VII → C（无导音，全音迈进，松弛）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（有导音，半音蹭进，催）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">小结：含导音的（V、V7、vii°）解决最"催"、句号最重；不含导音的（♭VII、下一个拓展的 F/G）回家更柔。但<b>每个音仍是走到最近、又合规的 I 内音</b>——总纲一字未变。</p>
         </div>
       </details>
 
@@ -3095,7 +3149,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>声部进行：V7 在小调怎么落（第⑫关规则的镜像）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>第⑫关的三条规则原封不动搬进小调（以 A 小调的 <b>E7 = E·G♯·B·D</b> 为例）：</p>
+          <p>第⑫关的总纲——<b>每个音走到最近、又合规的那个主和弦内音</b>——原封不动搬进小调，只是"家"换成了小三和弦 i（A 小调的 i = A·C·E）。以 A 小调的 <b>E7 = E·G♯·B·D</b> 为例：</p>
           <p>· <b>倾向音必走</b>：人造导音 <b>G♯ 半音上行到 A</b>；七音 <b>D 下行到 C</b>（G♯–D 三全音就此化解）；<br>
              · <b>共同音保留</b>：E 同属 E7 和 Am——在上声部原地不动；B 就近落 A（或 C）；<br>
              · <b>低音例外</b>：低音走根音，E→A 跳进有力。</p>
@@ -3512,6 +3566,11 @@ const SEQS = {
   rsRootUp:[[-5,2,5,11],[0,0,4,12]],    // 低音上跳四度版：G3→C4(与五音落点重叠，合法)，整体更轻
   rsStag:  [[0,4,7],[0,4,7],[0,4,7],[0,4,7]],                    // 一直稳定：I 反复——一潭死水，没有去向
   rsTense: [[4,8,11,14],[9,13,16,19],[2,6,9,12],[7,11,14,17]],   // 一直紧张：属七链 E7→A7→D7→G7，每个都许诺回家、永远不兑现
+  // 其他紧张和弦的解决（都在 C 大调，与主线同音区 G3 B3 D4 F4 → C 对照）
+  rsV:     [[-5,-1,2,7],[-12,0,4,7]],                            // V(三和弦) G3 B3 D4 G4 → C：只比 G7 少了七音 F，B3↗C4、D4↘C4、G4 保留/落 E
+  rsVii:   [[-1,2,5,11],[0,0,4,12]],                             // vii° B3 D4 F4 B4 → C：减三和弦，B↗C、D↘C、F↘E、高 B↗C，两个倾向音 B/F 同 G7
+  rsbVII:  [[-2,2,5,10],[-12,0,4,7]],                            // ♭VII(B♭ 大三) B♭3 D4 F4 B♭4 → C：无导音、低音全音迈进，松弛回家
+  rsFG2:   [[-5,5,9,12],[-12,4,7,12]],                           // F/G(G3 F4 A4 C5) → C：无导音的柔和属→主，与⑩关一致
   rsArrow: [[7,11,14,17],[0,12,12,16]],                          // 放箭：G7(G4 B4 D5 F5)按三规则就近解决→C4 C5 C5 E5(B、D 同落 C5)
   // ⑱小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
@@ -4662,8 +4721,8 @@ function q_resolve(concept){
                   `Following voice-leading rules, where should <b>${R.sym}</b> (the dominant 7th in ${R.invEn}) land?`),
         play:()=>playChordSeq(SEQS[R.seq]),
         options:opts,
-        explain:tr(`${R.sym} 解决到 <b>${R.to}</b>。${R.det}`,
-                   `${R.sym} resolves to <b>${R.toEn}</b>. ${R.detEn}`)};
+        explain:tr(`${R.sym} 解决到 <b>${R.to}</b>。总纲：每个音走到最近、又合规的那个 I 内音（C·E·G）。${R.det}`,
+                   `${R.sym} resolves to <b>${R.toEn}</b>. Master rule: each note moves to the nearest, legal tonic tone (C·E·G). ${R.detEn}`)};
     }
     return {kind:"choice",concept,qtype:tr("转位的解决 · 为什么 V42 特殊","Inversions · why V42 is special"),
       prompt:tr("为什么 <b>G7/F</b>（七音 F 在低音）只能解决到 <b>C/E(I6)</b>、不能解决到原位 C？","Why can <b>G7/F</b> (the 7th, F, in the bass) only resolve to <b>C/E (I6)</b>, never to root-position C?"),
