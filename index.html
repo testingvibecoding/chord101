@@ -1314,16 +1314,56 @@ function teachEN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>Three voice-leading rules: where each note goes</b></summary>
+      <p>Voice leading has exactly three rules. Take C major's <b>G7 = G·B·D·F</b> resolving to the tonic as the running example — hear it once, then unpack rule by rule:</p>
+      <div class="row">
+        <span class="chip" data-play="notes:-5,2,5,11">🔊 First hear G7 (G3 D4 F4 B4)</span>
+        <span class="chip" data-play="seq:rsRoot">🔊 Then hear it resolve to C</span>
+      </div>
+
+      <details class="note" open><summary><b>Rule 1 · tendency tones must move — direction locked</b></summary>
         <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
-          <p>Take C major's <b>G7 = G·B·D·F</b> resolving to the tonic:</p>
-          <p><b>Rule 1 · tendency tones must move</b>: <b>B (the leading tone) rises a half step to C</b>; <b>F (the 7th) falls a half step to E</b> — B and F are exactly the tritone pair, and each stepping back a half step dissolves the sting:</p>
+          <p>G7 holds two <b>tendency tones</b> gripped by half-step magnets: <b>B (the leading tone) must rise a half step to C</b>; <b>F (the 7th) must fall a half step to E</b>. Mind the word "must" — <b>the directions are locked</b>, not a by-product of proximity:</p>
           <div class="row">
             <span class="chip" data-play="mel:11,12">🔊 B → C (half step up)</span>
             <span class="chip" data-play="mel:5,4">🔊 F → E (half step down)</span>
+            <span class="chip" data-play="mel:-1,0">🔊 Any octave, same story: B3 → C4 (the leading tone always rises)</span>
           </div>
-          <p><b>Rule 2 · other upper voices move nearby or not at all</b>: <b>G is the common tone of G7 and the C chord — in an upper voice it stays put</b>; D moves nearby, most often down to C (up to E is also legal).</p>
-          <p><b>Rule 3 · the bass is the exception — it may leap</b>: "move nearby" governs the upper voices; <b>the bass's job is carrying roots</b>, and the G→C leap of a 4th/5th is not just legal but the very source of cadential power. The same G <b>leaps to C when it's the bass, stays put in an upper voice</b> — two different rules; don't merge them.</p>
+          <p><b>Why locked?</b> B and F are the tritone (the spikiest interval), and the only way to dissolve it is <b>contrary motion inward</b>: B↑ and F↓, landing together on C–E (a major third). Shift both the same way and the gap — and the sting — survives:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:5,11">🔊 The tritone F4+B4 (the sting)</span>
+            <span class="chip" data-play="notes:4,12">🔊 Closed inward: E4+C5 (sting gone)</span>
+            <span class="chip" data-play="seq:rsBadG">🔊 Violation: F leaps to G instead of falling to E (hollow, hanging)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Their locked directions happen to be the nearest half-step landings — coincidence, not cause. However convenient, the leading tone may not fall and the 7th may not rise.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Rule 2 · other upper voices: nearest, either way — landings may overlap</b></summary>
+        <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
+          <p>Voices free of the magnets simply move <b>nearby</b>: <b>G, the common tone of G7 and the C chord, stays put</b> (zero motion is smoothest); <b>D may go either way</b> — down to C or up to E, both legal:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rs65">🔊 Common-tone demo: G7/B → C (G4 never moves)</span>
+            <span class="chip" data-play="mel:2,0">🔊 D → C (down, joining the root)</span>
+            <span class="chip" data-play="mel:2,4">🔊 D → E (up, becoming the 3rd — equally legal)</span>
+          </div>
+          <p><b>An important addendum: landings may overlap.</b> The rules demand that <b>every note have a proper destination</b> — not that destinations differ. Two voices landing on the same note (a unison) is fully legal. Hear close-position G7 (G3 B3 D4 F4) resolve: <b>B3 and D4 land together on C4</b>, merging into one note:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsClose">🔊 Close G7 → C (B3 and D4 both land on C4 — overlap is legal)</span>
+            <span class="chip" data-play="seq:rsDecC">🔊 Another example: G7 → Am (deceptive cadence; B3 and D4 land on C4 — vi's 3rd doubled, the textbook move)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Most demos in this level use spread voicings only so you can <b>see each voice's path clearly</b> — not because overlapping is illegal.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Rule 3 · the bass is the exception: it may leap — a 4th up = a 5th down</b></summary>
+        <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
+          <p>"Move nearby" governs the upper voices; <b>the bass's job is carrying roots</b>, and the G→C leap of a 4th/5th is not just legal but the very source of cadential power. Moreover, <b>a 4th up and a 5th down reach the same note name</b> — the directions are equivalent; choose by register and by how much weight you want:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsRoot">🔊 Bass leaps a 5th down, G3→C3 (deep — the heaviest period)</span>
+            <span class="chip" data-play="seq:rsRootUp">🔊 Bass leaps a 4th up, G3→C4 (lighter; lands with the 5th on the same C4 — overlap is legal)</span>
+          </div>
+          <p>The same G <b>leaps to C when it's the bass, stays put in an upper voice</b> — two different rules; don't merge them.</p>
+          <p><b>Recap · "up or down?" comes in three grades of freedom</b>: <b>tendency tones obey the pull</b> (directions locked), <b>ordinary voices obey distance</b> (nearest either way, overlap allowed), <b>the bass obeys the note name</b> (4th up = 5th down).</p>
         </div>
       </details>
 
@@ -2610,16 +2650,56 @@ function teachCN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>声部进行三规则：每个音去哪里</b></summary>
+      <p>声部进行一共三条规则。以 C 大调的 <b>G7 = G·B·D·F</b> 解决到主和弦为公共例子，先听一遍，再逐条拆：</p>
+      <div class="row">
+        <span class="chip" data-play="notes:-5,2,5,11">🔊 先听 G7（G3 D4 F4 B4）</span>
+        <span class="chip" data-play="seq:rsRoot">🔊 再听它解决到 C</span>
+      </div>
+
+      <details class="note" open><summary><b>规则一 · 倾向音必走——方向锁死</b></summary>
         <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
-          <p>以 C 大调的 <b>G7 = G·B·D·F</b> 解决到主和弦为例：</p>
-          <p><b>规则一 · 倾向音必走</b>：<b>B(导音)半音上行到 C</b>；<b>F(七音)半音下行到 E</b>——B 和 F 正是那对三全音，各退半步，刺就化解了：</p>
+          <p>G7 里有两个被半音磁铁拽住的<b>倾向音</b>：<b>B(导音)必须半音上行到 C</b>；<b>F(七音)必须半音下行到 E</b>。注意"必须"二字——<b>方向是锁死的</b>，不是就近的副产品：</p>
           <div class="row">
             <span class="chip" data-play="mel:11,12">🔊 B → C（半音上）</span>
             <span class="chip" data-play="mel:5,4">🔊 F → E（半音下）</span>
+            <span class="chip" data-play="mel:-1,0">🔊 换个八度照样：B3 → C4（导音永远上行）</span>
           </div>
-          <p><b>规则二 · 其余上声部就近走或不走</b>：<b>G 是 G7 与 C 和弦的共同音——在上声部时原地保留</b>；D 就近走，下行到 C 最常见（上行到 E 也合法）。</p>
-          <p><b>规则三 · 低音例外，可以跳</b>："就近走"管的是上方声部；<b>低音的职责是走根音</b>，G→C 的四五度跳进不但合法，还是终止式力量的来源。同一个 G，<b>当低音时跳到 C、在上声部时保留</b>——是两条不同的规则，别混。</p>
+          <p><b>方向为什么锁死？</b>B 和 F 正是那对三全音（最刺的音程），化解的唯一办法是<b>两根刺反向收拢</b>：B↑、F↓，一起落到 C–E（大三度）。同向平移，间隔不变、刺原封不动：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:5,11">🔊 三全音 F4+B4（刺）</span>
+            <span class="chip" data-play="notes:4,12">🔊 反向收拢后 E4+C5（刺消失）</span>
+            <span class="chip" data-play="seq:rsBadG">🔊 反例：F 不落 E 反跳 G（违规——空、悬）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">它们的锁定方向恰好都是最近的半音落点，但那是巧合不是原因——再顺手，导音也不许下行、七音也不许上行。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>规则二 · 其余上声部：就近走或不走——落点可以重叠</b></summary>
+        <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
+          <p>不被磁铁拽住的上声部只须<b>就近</b>：<b>G 是 G7 与 C 和弦的共同音——原地保留</b>（零移动最平滑）；<b>D 上下皆可</b>——下行到 C 或上行到 E 都合法，走哪边看安排：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rs65">🔊 共同音示范：G7/B → C（G4 一动不动）</span>
+            <span class="chip" data-play="mel:2,0">🔊 D → C（下行，并入根音）</span>
+            <span class="chip" data-play="mel:2,4">🔊 D → E（上行，成为三音，同样合法）</span>
+          </div>
+          <p><b>重要补充：落点可以重叠。</b>规则要求的是"<b>每个音都有合规的去处</b>"，并不要求"去处各不相同"——两个声部落到同一个音（同度）完全合法。听密集排列的 G7（G3 B3 D4 F4）解决：<b>B3 和 D4 同落 C4</b>，重叠成一个音：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsClose">🔊 密集 G7 → C（B3、D4 同落 C4，重叠合法）</span>
+            <span class="chip" data-play="seq:rsDecC">🔊 再举一例：G7 → Am（阻碍终止，B3、D4 同落 C4——vi 的三音加倍，教科书标准做法）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">本课多数示范用错开的排列，只是为了让你<b>看清每条声部的路</b>——不是重叠不合法。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>规则三 · 低音例外：可以跳——上四度 = 下五度</b></summary>
+        <div style="font-size:13.5px;line-height:1.8;color:#e9e3ff">
+          <p>"就近走"管的是上方声部；<b>低音的职责是走根音</b>，G→C 的四五度跳进不但合法，还是终止式力量的来源。而且<b>上跳四度和下跳五度到达同一个音名</b>，两个方向等价，选哪边看音域和想要的分量：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsRoot">🔊 低音下跳五度 G3→C3（沉、句号最重）</span>
+            <span class="chip" data-play="seq:rsRootUp">🔊 低音上跳四度 G3→C4（轻一些；与五音同落 C4——重叠合法）</span>
+          </div>
+          <p>同一个 G，<b>当低音时跳到 C、在上声部时保留</b>——是两条不同的规则，别混。</p>
+          <p><b>小结 · "上行还是下行"的自由度分三个等级</b>：<b>倾向音听引力的</b>（方向锁死）、<b>普通声部听距离的</b>（就近随意、可重叠）、<b>低音听音名的</b>（上四下五等价）。</p>
         </div>
       </details>
 
@@ -3390,7 +3470,10 @@ const SEQS = {
   rs43:    [[2,7,11,17],[0,7,12,16]],   // G7/D(第二转位)→C 完整(C4 G4 C5 E5)
   rs42:    [[-7,2,7,11],[-8,0,7,12]],   // G7/F(第三转位)→C/E=I6(E3 C4 G4 C5)：低音 fa 半音落 mi
   rs42bad: [[-7,2,7,11],[0,4,7,12]],    // 反例：G7/F 硬接原位 C——低音 F3 大跳上 C4，磁力断裂
-  rsIAC:   [[-5,2,5,11],[-5,0,4,12]],   // G7→C/G：解决了但低音留 sol——不完满终止(不是半终止！)
+  rsIAC:   [[-5,2,5,11],[-5,0,4,12]],   // G7→C/G：解决了但低音留 G——不完满终止(不是半终止！)
+  rsClose: [[-5,-1,2,5],[-12,0,0,4]],   // 密集排列 G7(G3 B3 D4 F4)→C：B3 与 D4 同落 C4——落点重叠完全合法
+  rsDecC:  [[-5,-1,2,5],[-3,0,0,4]],    // 密集 G7→Am(阻碍终止)：B3、D4 同落 C4，vi 的三音被加倍——教科书标准做法
+  rsRootUp:[[-5,2,5,11],[0,0,4,12]],    // 低音上跳四度版：G3→C4(与五音落点重叠，合法)，整体更轻
   // ⑱小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
   rsm65:   [[-4,2,4,11],[-3,0,4,9]],    // E7/G♯→Am 完整(A3 C4 E4 A4)：mi 保留为共同音
@@ -4393,8 +4476,8 @@ function q_slash(concept){
 /* ---- 第12关 解决 ---- */
 const RS_INV=[ // 四种 V7 形态 → 解决目标（教学与出题共用；det=逐声部讲解）
   {sym:"G7",   inv:"原位",   invEn:"root position", seq:"rsRoot", to:"C（原位）",  toEn:"C (root position)", toSym:"C",   bass:"G→C(跳进)", bassEn:"G→C (leap)",
-   det:"逐声部看（G3·D4·F4·B4）：低音 G3 走根音<b>下跳到 C3</b>（规则三低音可跳；不上跳 C4，因为 C4 已被五音的落点占用，上跳会两个声部撞在同一个键上）；五音 D4 就近落 C4（规则二）；七音 F4 半音落 E4（规则一）；导音 B4 半音蹭进 C5（规则一）。落点 C3·C4·E4·C5——三个 C 加一个 E，省五音。C3 听着很低，但那正是低音区的家。",
-   detEn:"Voice by voice (G3·D4·F4·B4): the bass G3 takes the root leap <b>down to C3</b> (rule 3 — not up to C4, which is already claimed by the 5th's landing; leaping up would put two voices on the same key); the 5th D4 settles on C4 (rule 2); the 7th F4 falls a half step to E4 (rule 1); the leading tone B4 slides into C5 (rule 1). Landing: C3·C4·E4·C5 — three C's plus one E, 5th omitted. C3 sounds deep, but that's exactly where a bass lives."},
+   det:"逐声部看（G3·D4·F4·B4）：低音 G3 走根音<b>下跳到 C3</b>（规则三；上跳到 C4 同样合法——只会与五音的落点重叠，而重叠并不违规，这里选下跳是要句号最重、四条路也全错开看得清）；五音 D4 就近落 C4（规则二）；七音 F4 半音落 E4（规则一）；导音 B4 半音蹭进 C5（规则一）。落点 C3·C4·E4·C5——三个 C 加一个 E，省五音。C3 听着很低，但那正是低音区的家。",
+   detEn:"Voice by voice (G3·D4·F4·B4): the bass G3 takes the root leap <b>down to C3</b> (rule 3; leaping up to C4 is equally legal — it merely overlaps the 5th's landing, and overlapping breaks no rule. Down is chosen here for the heaviest period, and so all four paths stay visibly separate); the 5th D4 settles on C4 (rule 2); the 7th F4 falls a half step to E4 (rule 1); the leading tone B4 slides into C5 (rule 1). Landing: C3·C4·E4·C5 — three C's plus one E, 5th omitted. C3 sounds deep, but that's exactly where a bass lives."},
   {sym:"G7/B", inv:"第一转位", invEn:"1st inversion", seq:"rs65",   to:"C（完整原位）", toEn:"C (complete, root position)", toSym:"C",   bass:"B→C(半音)", bassEn:"B→C (half step)",
    det:"逐声部看（B3·F4·G4·D5）：低音 B3 本身就是导音，半音上行到 C4（规则一兼低音）；七音 F4 半音落 E4（规则一）；G4 是共同音，原地保留（规则二）；五音 D5 就近落 C5（规则二）。四个声部没有一个跳进，落点 C4·E4·G4·C5——完整的原位 C。",
    detEn:"Voice by voice (B3·F4·G4·D5): the bass B3 is itself the leading tone and rises a half step to C4 (rule 1, in the bass); the 7th F4 falls to E4 (rule 1); G4 is the common tone and stays (rule 2); the 5th D5 settles on C5 (rule 2). Not a single leap — landing C4·E4·G4·C5, a complete root-position C."},
@@ -4408,7 +4491,28 @@ const RS_INV=[ // 四种 V7 形态 → 解决目标（教学与出题共用；de
 function q_resolve(concept){
   if(concept==="tend"){
     const v=Math.random();
-    if(v<0.34){
+    if(v<0.6 && v>=0.4){ // 方向自由度三等级
+      return {kind:"choice",concept,qtype:tr("方向 · 上行还是下行有规律吗","Direction · is up vs down patterned"),
+        prompt:tr("解决时\"往上走还是往下走\"，下列哪种说法是对的？","When resolving, which statement about \"up or down\" is correct?"),
+        options:shuffle([
+          {label:tr("分三档：倾向音方向锁死（导音必上、七音必下），其余上声部就近上下皆可，低音上四下五等价","Three grades: tendency tones are locked (leading tone up, 7th down); other upper voices go nearest either way; the bass's 4th-up equals 5th-down"),correct:true},
+          {label:tr("所有音都只要就近，上下随意","Every note just moves nearest, either direction"),sub:tr("倾向音的方向可不随意","tendency tones beg to differ"),correct:false},
+          {label:tr("所有音都必须朝主音方向走","Every note must move toward the tonic"),correct:false},
+        ]),
+        explain:tr("方向自由度分三档——<b>倾向音听引力的</b>：导音必上、七音必下（它们是三全音，必须反向收拢化解）；<b>普通声部听距离的</b>：D 落 C 或升 E 皆可；<b>低音听音名的</b>：上四度=下五度，按音域挑。倾向音的固定方向恰好都是最近落点，但那是巧合不是原因——再顺手导音也不许下行。","Three grades of freedom — <b>tendency tones obey the pull</b>: leading tone up, 7th down (they're the tritone and must close in contrary motion); <b>ordinary voices obey distance</b>: D may fall to C or rise to E; <b>the bass obeys the note name</b>: a 4th up equals a 5th down, chosen by register. The locked directions happen to be the nearest landings — coincidence, not cause: however convenient, the leading tone may never fall.")};
+    }
+    if(v<0.8 && v>=0.6){ // 三全音为何反向
+      return {kind:"choice",concept,qtype:tr("方向 · B 和 F 为什么必须反着走","Direction · why must B and F move opposite ways"),
+        prompt:tr("G7 里的 B 和 F（三全音）解决时，为什么必须<b>一个向上、一个向下</b>？","Why must B and F (the tritone) in G7 resolve <b>one upward, one downward</b>?"),
+        play:async()=>{ await playSemis([5,11],60,true); await new Promise(r=>setTimeout(r,400)); await playSemis([4,12],60,true); },
+        options:shuffle([
+          {label:tr("三全音要化解必须反向收拢，一起落到 C–E 上；同向走刺还在","Dissolving a tritone requires contrary motion inward, landing together on C–E; move them the same way and the sting stays"),correct:true},
+          {label:tr("因为键盘不够宽","Because the keyboard isn't wide enough"),correct:false},
+          {label:tr("只是习惯，反向不反向无所谓","Just convention — direction doesn't matter"),sub:tr("同向走试试，刺没化解","try parallel motion: the sting survives"),correct:false},
+        ]),
+        explain:tr("三全音是最刺的音程，化解的本质是<b>两根刺彼此让开</b>：B 被主音引力拉<b>上</b>半音、F 被迫<b>下</b>半音，反向收拢落到 C–E（大三度，刺消失）。若两个音同向平移，间隔还是三全音——刺原封不动。这就是倾向音方向锁死的声学根源。","The tritone is the spikiest interval, and dissolving it means <b>the two spikes step out of each other's way</b>: B is pulled <b>up</b> a half step by the tonic, F is pushed <b>down</b> one — contrary motion closing onto C–E (a major third; sting gone). Shift both the same way and the gap is still a tritone — sting intact. That's the acoustic root of the locked directions.")};
+    }
+    if(v<0.2){
       return {kind:"choice",concept,qtype:tr("倾向音 · B 去哪","Tendency tones · where does B go"),
         prompt:tr("G7（G B D F）解决到主和弦时，导音 <b>B</b> 必须去哪里？","When G7 (G B D F) resolves to the tonic, where must the leading tone <b>B</b> go?"),
         play:()=>playSemis([11,12],60,true,"2n",{stack:false,gap:0.5}),
@@ -4441,7 +4545,29 @@ function q_resolve(concept){
   }
   if(concept==="voices"){
     const v=Math.random();
-    if(v<0.25){
+    if(v<0.5 && v>=0.34){ // 落点可以重叠
+      return {kind:"choice",concept,qtype:tr("规则 · 落点可以重叠吗","Rules · may landings overlap"),
+        prompt:tr("密集排列的 G7（G3 B3 D4 F4）解决时，<b>B3 和 D4 都落到 C4</b>——两个声部重叠在同一个音上。这合规吗？","Resolving close-position G7 (G3 B3 D4 F4), <b>B3 and D4 both land on C4</b> — two voices overlapping on one note. Is that legal?"),
+        play:()=>playChordSeq(SEQS.rsClose),
+        options:shuffle([
+          {label:tr("合规：规则只要求每个音都有去处，不要求去处各不相同","Legal: the rules demand every note have a destination — not that destinations differ"),correct:true},
+          {label:tr("不合规：每个声部必须落在不同的键上","Illegal: each voice must land on its own key"),sub:tr("那是为了看清示范才错开的","demos spread out only for visibility"),correct:false},
+          {label:tr("只有低音可以和别人重叠","Only the bass may overlap others"),correct:false},
+        ]),
+        explain:tr("完全合规：B3 上行到 C4（规则一）、D4 下行到 C4（规则二），<b>同度重叠不违反任何规则</b>。再如阻碍终止 G7→Am，B 和 D 同落 C，正好把 vi 的三音加倍——教科书标准做法。本课示范多用错开排列只是为了看清每条路。","Fully legal: B3 rises to C4 (rule 1), D4 falls to C4 (rule 2), and <b>a unison overlap breaks no rule</b>. Likewise in the deceptive cadence G7→Am, B and D land together on C, doubling vi's 3rd — the textbook move. This level's demos spread the voices out only so each path stays visible.")};
+    }
+    if(v<0.66 && v>=0.5){ // 低音上四=下五
+      return {kind:"choice",concept,qtype:tr("规则 · 低音上跳还是下跳","Rules · bass up or down"),
+        prompt:tr("原位 G7 解决时，低音 G3 可以<b>下跳五度到 C3</b>，也可以<b>上跳四度到 C4</b>。两者的关系是？","Resolving root-position G7, the bass G3 may <b>leap a 5th down to C3</b> or <b>a 4th up to C4</b>. How do the two relate?"),
+        play:async()=>{ await playChordSeq(SEQS.rsRoot); await new Promise(r=>setTimeout(r,500)); await playChordSeq(SEQS.rsRootUp); },
+        options:shuffle([
+          {label:tr("等价——到达同一个音名，选哪边看音域和想要的分量","Equivalent — same note name; pick by register and desired weight"),sub:tr("下五度更沉，上四度更轻","5th down weighs more, 4th up lighter"),correct:true},
+          {label:tr("必须下跳，上跳违规","Must leap down; up is illegal"),correct:false},
+          {label:tr("必须上跳，下跳太低了","Must leap up; down is too low"),correct:false},
+        ]),
+        explain:tr("低音的目标是<b>根音 C 这个音名</b>，上四度与下五度殊途同归（规则三）。区别只在效果：下跳 C3 句号最重；上跳 C4 更轻、且与五音落点重叠——重叠合法（规则二）。对比里两版你都听到了。","The bass's target is <b>the note name C</b>, and a 4th up reaches it just as a 5th down does (rule 3). The only difference is effect: down to C3 gives the heaviest period; up to C4 is lighter and overlaps the 5th's landing — which is legal (rule 2). You heard both in the comparison.")};
+    }
+    if(v<0.17){
       return {kind:"choice",concept,qtype:tr("规则 · 低音可以跳吗","Rules · may the bass leap"),
         prompt:tr("解决讲究\"就近走\"，可原位 G7→C 的低音是 <b>G3→C3 的跳进</b>——矛盾吗？","Resolution favors stepwise motion, yet root-position G7→C has the bass <b>leaping G3→C3</b> — a contradiction?"),
         play:()=>playChordSeq(SEQS.rsRoot),
@@ -4450,7 +4576,7 @@ function q_resolve(concept){
           {label:tr("矛盾，这样弹是错的","Yes, playing it this way is wrong"),correct:false},
           {label:tr("低音也必须半音走","The bass must also move by half step"),correct:false},
         ]),
-        explain:tr("\"就近走\"管的是<b>上方声部和倾向音</b>；<b>低音的职责是走根音</b>（规则三），G→C 的四五度跳进正是终止式力量的来源。本例低音 G3 选择<b>下跳到 C3</b> 而不是上跳 C4——因为 C4 已被五音 D4 的落点占用，上跳会让两个声部撞在同一个键上。C3 听着很低，但低音区本来就住在那里。","Stepwise motion governs the <b>upper voices and tendency tones</b>; the <b>bass's job is carrying roots</b> (rule 3), and the G→C leap of a 4th/5th is the very source of cadential power. Here the bass G3 leaps <b>down to C3</b> rather than up to C4 — C4 is already claimed by the 5th D4's landing, and leaping up would put two voices on one key. C3 sounds deep, but that's where a bass lives.")};
+        explain:tr("\"就近走\"管的是<b>上方声部和倾向音</b>；<b>低音的职责是走根音</b>（规则三），G→C 的四五度跳进正是终止式力量的来源。上跳四度和下跳五度<b>等价</b>（同一个音名）：本例选下跳 C3 是要句号最重；上跳 C4 同样合法——只会与五音的落点重叠，而<b>落点重叠不违规</b>（规则二）。C3 听着很低，但低音区本来就住在那里。","Stepwise motion governs the <b>upper voices and tendency tones</b>; the <b>bass's job is carrying roots</b> (rule 3), and the G→C leap of a 4th/5th is the very source of cadential power. A 4th up and a 5th down are <b>equivalent</b> (same note name): down to C3 is chosen for the heaviest period, while up to C4 is equally legal — it merely overlaps the 5th's landing, and <b>overlapping landings break no rule</b> (rule 2). C3 sounds deep, but that's where a bass lives.")};
     }
     if(v<0.5){
       return {kind:"choice",concept,qtype:tr("规则 · G 在上声部怎么走","Rules · G in an upper voice"),
@@ -4463,7 +4589,7 @@ function q_resolve(concept){
         ]),
         explain:tr("G 同时属于 G7 和 C 两个和弦——是<b>共同音</b>。本例 G7/B（B3·F4·G4·D5）里 G4 在上声部：解决时原地保留，直接变成 C 和弦的五音——零移动是最平滑的路（规则二）。\"G 跳到 C\"只是它<b>当低音</b>时的规则三，两条别混。","G belongs to both G7 and the C chord — it's the <b>common tone</b>. In this G7/B voicing (B3·F4·G4·D5), G4 sits in an upper voice: at resolution it stays put and simply becomes the C chord's 5th — zero motion is the smoothest path (rule 2). \"G leaps to C\" is its rule <b>only as the bass</b> (rule 3); keep the two apart.")};
     }
-    if(v<0.75){
+    if(v<0.83){
       return {kind:"choice",concept,qtype:tr("规则 · D 去哪","Rules · where does D go"),
         prompt:tr("G7 的五音 <b>D</b> 解决时去哪里？","Where does G7's 5th, <b>D</b>, go at resolution?"),
         play:()=>playSemis([2,0],60,true,"2n",{stack:false,gap:0.5}),
@@ -4546,7 +4672,7 @@ function q_resolve(concept){
     targetPC:[0,4,7], bassPc: isI6?4:0, rootSemi:0,
     explain: isI6
       ? tr("逐声部回放：低音 F3 是七音，规则一逼它半音落到 E3——<b>落点和弦因此被锁死为 C/E（I6）</b>；其余声部 D4→C4（规则二）、G4 保留（共同音）、B4↗C5（规则一）。所以你要搭的形态是：<b>E 在最低</b>，上面 C、G 任意排、不限八度。","Replay voice by voice: the bass F3 is the 7th — rule 1 forces it down a half step to E3, <b>locking the landing to C/E (I6)</b>; the other voices go D4→C4 (rule 2), G4 stays (common tone), B4↗C5 (rule 1). So the shape to build is: <b>E lowest</b>, C and G above, any octave.")
-      : tr("逐声部回放：低音 G3 走根音<b>下跳到 C3</b>（不上跳 C4——那个键已被五音 D4 的落点占用）；D4→C4（规则二）、F4↘E4、B4↗C5（规则一）。落点是<b>原位 C</b>：C 在最低，C、E、G 不限八度。","Replay voice by voice: the bass G3 takes the root leap <b>down to C3</b> (not up to C4 — that key is claimed by the 5th D4's landing); D4→C4 (rule 2), F4↘E4 and B4↗C5 (rule 1). The landing is <b>root-position C</b>: C lowest; C, E, G in any octave.")};
+      : tr("逐声部回放：低音 G3 走根音<b>下跳到 C3</b>（上跳 C4 也合法，只是与五音落点重叠、句号更轻——重叠不违规）；D4→C4（规则二）、F4↘E4、B4↗C5（规则一）。落点是<b>原位 C</b>：C 在最低，C、E、G 不限八度。","Replay voice by voice: the bass G3 takes the root leap <b>down to C3</b> (up to C4 is also legal — it just overlaps the 5th's landing and weighs lighter; overlap breaks no rule); D4→C4 (rule 2), F4↘E4 and B4↗C5 (rule 1). The landing is <b>root-position C</b>: C lowest; C, E, G in any octave.")};
 }
 
 /* ---- 第13关 流行套路 ---- */
