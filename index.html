@@ -1292,16 +1292,21 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>What is "resolution"? Why does music need it?</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>Music's engine is the alternation of tension and release.</b> Music that's always stable is a stagnant pond; music that's always tense is suffocating — good music <b>draws the bow fully, then lets the arrow fly</b>. An unstable note or chord (like V7) is the drawn bow: hearing it, the ear automatically <b>expects</b> a stable landing. First, feel "drawn but never released":</p>
+          <p><b>Music's engine is the alternation of tension and release.</b> Music that's always stable is a stagnant pond; music that's always tense is suffocating — hear both extremes for yourself:</p>
           <div class="row">
-            <span class="chip" data-play="kseq:hangV7">🔊 G7 alone, then silence (bow drawn — hanging, uncomfortable)</span>
-            <span class="chip" data-play="kseq:auth">🔊 G7 → C (the arrow flies — exhale)</span>
+            <span class="chip" data-play="seq:rsStag">🔊 Always stable: the C chord on repeat (a stagnant pond, going nowhere)</span>
+            <span class="chip" data-play="seq:rsTense">🔊 Always tense: E7→A7→D7→G7 (each promises home, none delivers — suffocating)</span>
+          </div>
+          <p>Good music <b>draws the bow fully, then lets the arrow fly</b>. An unstable note or chord (like V7) is the drawn bow: hearing it, the ear automatically <b>expects</b> a stable landing. First, feel "drawn but never released":</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2,5">🔊 G7 alone (G3 B3 D4 F4), then silence (bow drawn — hanging, uncomfortable)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 The same G7 → C (the arrow flies — exhale)</span>
           </div>
           <p><b>Resolution is the answer to that expectation</b>: the instant an unstable note <b>lands</b> on its proper stable home and the tension releases. Its purpose is equally plain — punctuation: with resolution a phrase is "finished"; without it, the music hangs forever (level ⑪'s cadences are, at bottom, resolutions of various strengths).</p>
           <p><b>But why does a note "want" to go somewhere?</b> Because <b>the pull comes from distance</b>. When two notes sit a half step apart, the unstable one gets strongly sucked toward the stable one — the closer, the harder the pull; a whole step away and the pull slackens. Not a rule — an instinct of the ear (you compared it in level ⑪):</p>
           <div class="row">
-            <span class="chip" data-play="mel:11,12">🔊 B → C (a half step away — sucked through the door)</span>
-            <span class="chip" data-play="mel:10,12">🔊 B♭ → C (a whole step — the pull goes slack)</span>
+            <span class="chip" data-play="mel:-1,0">🔊 B3 → C4 (a half step away — sucked through the door)</span>
+            <span class="chip" data-play="mel:-2,0">🔊 B♭3 → C4 (a whole step — the pull goes slack)</span>
           </div>
           <p><b>The last puzzle piece: resolution happens note by note.</b> A chord isn't a blob of sound but <b>several simultaneous "voices"</b> — like singers in a small choir. Saying "play C after G7" only names the destination; the real resolving happens inside each voice — <b>every note must find its own landing</b>, and only when each one has a place to go is the "resolution" complete. Yet the roads are already drawn by the pull: notes gripped by a half step must settle onto their neighbor; ungripped notes step to the nearest chord tone or stay put. Every voice takes the shortest, smoothest path — spelled out rule by rule below.</p>
         </div>
@@ -1324,23 +1329,24 @@ function teachEN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>G7 holds two <b>tendency tones</b> gripped by half-step magnets: <b>B (the leading tone) must rise a half step to C</b>; <b>F (the 7th) must fall a half step to E</b>. Mind the word "must" — <b>the directions are locked</b>, not a by-product of proximity:</p>
           <div class="row">
-            <span class="chip" data-play="mel:11,12">🔊 B → C (half step up)</span>
-            <span class="chip" data-play="mel:5,4">🔊 F → E (half step down)</span>
-            <span class="chip" data-play="mel:-1,0">🔊 Any octave, same story: B3 → C4 (the leading tone always rises)</span>
+            <span class="chip" data-play="mel:-1,0">🔊 B3 → C4 (half step up)</span>
+            <span class="chip" data-play="mel:5,4">🔊 F4 → E4 (half step down)</span>
+            <span class="chip" data-play="mel:11,12">🔊 Any octave, same story: B4 → C5 (the leading tone always rises)</span>
           </div>
-          <p><b>Why locked?</b> B and F are the tritone (the spikiest interval), and the only way to dissolve it is <b>contrary motion inward</b>: B↑ and F↓, landing together on C–E (a major third). Shift both the same way and the gap — and the sting — survives:</p>
+          <p><b>Why locked?</b> B and F are the tritone (the spikiest interval), and the only way to dissolve it is <b>contrary motion inward</b>: B↑ and F↓, landing together on C–E (a major third) — that's when the sting goes. <b>Send F upward too (parallel motion)</b> — B3→C4, F4→G4 — and you get the hollow perfect fifth C–G: the 3rd E is gone, so it rings empty and unresolved; the sting is gone but the sentence isn't closed either:</p>
           <div class="row">
-            <span class="chip" data-play="notes:5,11">🔊 The tritone F4+B4 (the sting)</span>
-            <span class="chip" data-play="notes:4,12">🔊 Closed inward: E4+C5 (sting gone)</span>
-            <span class="chip" data-play="seq:rsBadG">🔊 Violation: F leaps to G instead of falling to E (hollow, hanging)</span>
+            <span class="chip" data-play="notes:-1,5">🔊 The tritone B3+F4 (the sting)</span>
+            <span class="chip" data-play="notes:0,4">🔊 ✅ Contrary motion → C4+E4 (a major third — sting gone, closes solidly)</span>
+            <span class="chip" data-play="notes:0,7">🔊 ❌ F leaps up → C4+G4 (a bare fifth — hollow, unresolved)</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">Their locked directions happen to be the nearest half-step landings — coincidence, not cause. However convenient, the leading tone may not fall and the 7th may not rise.</p>
+          <p style="font-size:12.5px;color:var(--muted)">A caution: don't mis-file "the required direction" as "move nearest". The leading tone B actually has a half step on both sides (C above, B♭ below), yet only <b>rising to the tonic C</b> counts as resolution — the direction is fixed by the <b>pull</b> (toward a stable tone in the key), not by distance. Likewise the 7th F may only fall to E.</p>
         </div>
       </details>
 
       <details class="note" open><summary><b>Rule 2 · other upper voices: nearest, either way — landings may overlap</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Voices free of the magnets simply move <b>nearby</b>: <b>G, the common tone of G7 and the C chord, stays put</b> (zero motion is smoothest); <b>D may go either way</b> — down to C or up to E, both legal:</p>
+          <p>Terms first: of a chord's several voices, <b>the lowest is the "bass voice" (a.k.a. the bass / lower voice); all the others are "upper voices"</b>. In the running example G3 B3 D4 F4 — G3 is the bass voice; B3, D4 and F4 are all upper voices.</p>
+          <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>those free of the magnets simply move nearby</b>: <b>G, the common tone of G7 and the C chord, stays put</b> (zero motion is smoothest); <b>D may go either way</b> — down to C or up to E, both legal:</p>
           <div class="row">
             <span class="chip" data-play="seq:rs65">🔊 Common-tone demo: G7/B → C (G4 never moves)</span>
             <span class="chip" data-play="mel:2,0">🔊 D → C (down, joining the root)</span>
@@ -2640,16 +2646,21 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>什么是"解决"？音乐为什么需要它？</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>音乐的发动机是"紧张与放松"的交替。</b>一直稳定的音乐像一潭死水，一直紧张的音乐让人窒息——好听的音乐是<b>先把弓拉满，再把箭放出去</b>。不稳定的音或和弦（比如 V7）就是拉满的弓：耳朵听到它，会自动<b>期待</b>一个稳定的落点。先体验一次"拉满不放"：</p>
+          <p><b>音乐的发动机是"紧张与放松"的交替。</b>一直稳定的音乐像一潭死水，一直紧张的音乐让人窒息——亲耳听听这两种极端：</p>
           <div class="row">
-            <span class="chip" data-play="kseq:hangV7">🔊 只奏 G7，然后停住（弓拉满，悬着难受）</span>
-            <span class="chip" data-play="kseq:auth">🔊 G7 → C（箭放出去了，松一口气）</span>
+            <span class="chip" data-play="seq:rsStag">🔊 一直稳定：C 和弦反复（一潭死水，哪儿也不去）</span>
+            <span class="chip" data-play="seq:rsTense">🔊 一直紧张：E7→A7→D7→G7（每个都许诺回家，永远不兑现——窒息）</span>
+          </div>
+          <p>好听的音乐是<b>先把弓拉满，再把箭放出去</b>。不稳定的音或和弦（比如 V7）就是拉满的弓：耳朵听到它，会自动<b>期待</b>一个稳定的落点。先体验一次"拉满不放"：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2,5">🔊 只奏 G7（G3 B3 D4 F4），然后停住（弓拉满，悬着难受）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 同一个 G7 → C（箭放出去了，松一口气）</span>
           </div>
           <p><b>"解决"就是给这个期待一个答案</b>：不稳定的音<b>落到</b>它该去的稳定位置、张力释放的那一瞬间。它的目的也很直白——给音乐画"标点"：有解决，一句话才算"说完"；没有解决，音乐永远悬在半空（⑪关的终止式，本质全是各种力度的解决）。</p>
           <p><b>那为什么音会"想去"某个地方？</b>因为<b>引力来自距离</b>。两个音只差半音时，不稳定的那个会被强烈地"吸"向稳定的那个——离得越近，拽得越狠；隔一个全音，引力就弱得多。这不是规定，是耳朵的本能（⑪关亲耳比过）：</p>
           <div class="row">
-            <span class="chip" data-play="mel:11,12">🔊 B → C（半音紧贴，被吸进门）</span>
-            <span class="chip" data-play="mel:10,12">🔊 B♭ → C（隔全音，引力松弛）</span>
+            <span class="chip" data-play="mel:-1,0">🔊 B3 → C4（半音紧贴，被吸进门）</span>
+            <span class="chip" data-play="mel:-2,0">🔊 B♭3 → C4（隔全音，引力松弛）</span>
           </div>
           <p><b>最后一块拼图：解决是"逐个音"完成的。</b>一个和弦不是一团声音，而是<b>几个同时发声的"声部"</b>——像合唱队里的几个人。说"V7 后面接个 C"只报了目的地的名字；真正的解决发生在每个声部里——<b>每个音都要有自己的着落</b>，给每个音找到去处，这个过程才叫完成了"解决"。而路其实早被引力画好了：被半音拽住的音必须就近落位，没被拽的音就近挪一步或原地不动。每个声部都走最短、最顺的路——下面逐条讲清。</p>
         </div>
@@ -2672,23 +2683,24 @@ function teachCN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>G7 里有两个被半音磁铁拽住的<b>倾向音</b>：<b>B(导音)必须半音上行到 C</b>；<b>F(七音)必须半音下行到 E</b>。注意"必须"二字——<b>方向是锁死的</b>，不是就近的副产品：</p>
           <div class="row">
-            <span class="chip" data-play="mel:11,12">🔊 B → C（半音上）</span>
-            <span class="chip" data-play="mel:5,4">🔊 F → E（半音下）</span>
-            <span class="chip" data-play="mel:-1,0">🔊 换个八度照样：B3 → C4（导音永远上行）</span>
+            <span class="chip" data-play="mel:-1,0">🔊 B3 → C4（半音上）</span>
+            <span class="chip" data-play="mel:5,4">🔊 F4 → E4（半音下）</span>
+            <span class="chip" data-play="mel:11,12">🔊 换个八度照样：B4 → C5（导音永远上行）</span>
           </div>
-          <p><b>方向为什么锁死？</b>B 和 F 正是那对三全音（最刺的音程），化解的唯一办法是<b>两根刺反向收拢</b>：B↑、F↓，一起落到 C–E（大三度）。同向平移，间隔不变、刺原封不动：</p>
+          <p><b>方向为什么锁死？</b>B 和 F 正是那对三全音（最刺的音程），化解的唯一办法是<b>两根刺反向收拢</b>：B↑、F↓，一起落到 C–E（大三度），刺才消失。<b>若让 F 也往上走（同向）</b>，B3→C4、F4→G4，得到的是空洞的纯五度 C–G——三音 E 没了，反而"空、悬"，刺虽然没了但句子也没收住：</p>
           <div class="row">
-            <span class="chip" data-play="notes:5,11">🔊 三全音 F4+B4（刺）</span>
-            <span class="chip" data-play="notes:4,12">🔊 反向收拢后 E4+C5（刺消失）</span>
-            <span class="chip" data-play="seq:rsBadG">🔊 反例：F 不落 E 反跳 G（违规——空、悬）</span>
+            <span class="chip" data-play="notes:-1,5">🔊 三全音 B3+F4（刺）</span>
+            <span class="chip" data-play="notes:0,4">🔊 ✅ 反向收拢 → C4+E4（落到大三度，刺消失·收得稳）</span>
+            <span class="chip" data-play="notes:0,7">🔊 ❌ F 反跳上行 → C4+G4（纯五度，空、悬·没收住）</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">它们的锁定方向恰好都是最近的半音落点，但那是巧合不是原因——再顺手，导音也不许下行、七音也不许上行。</p>
+          <p style="font-size:12.5px;color:var(--muted)">提醒：别把"必须的方向"误记成"就近走"。导音 B 两边其实都贴着半音（上是 C、下是 B♭），可只有<b>上行到主音 C</b> 才算解决——方向是被<b>引力</b>定死的（朝调内稳定音走），不是被距离定的。同理七音 F 只许下行到 E。</p>
         </div>
       </details>
 
       <details class="note" open><summary><b>规则二 · 其余上声部：就近走或不走——落点可以重叠</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>不被磁铁拽住的上声部只须<b>就近</b>：<b>G 是 G7 与 C 和弦的共同音——原地保留</b>（零移动最平滑）；<b>D 上下皆可</b>——下行到 C 或上行到 E 都合法，走哪边看安排：</p>
+          <p>先说清称呼：和弦的几个声部里，<b>最低的那个叫"低声部"（也叫低音、下声部），其余的都叫"上声部"</b>。以公共例子 G3 B3 D4 F4 为例——G3 是低声部，B3、D4、F4 三个都是上声部。</p>
+          <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>不被磁铁拽住的只须就近</b>：<b>G 是 G7 与 C 和弦的共同音——原地保留</b>（零移动最平滑）；<b>D 上下皆可</b>——下行到 C 或上行到 E 都合法，走哪边看安排：</p>
           <div class="row">
             <span class="chip" data-play="seq:rs65">🔊 共同音示范：G7/B → C（G4 一动不动）</span>
             <span class="chip" data-play="mel:2,0">🔊 D → C（下行，并入根音）</span>
@@ -3498,6 +3510,9 @@ const SEQS = {
   rsClose: [[-5,-1,2,5],[-12,0,0,4]],   // 密集排列 G7(G3 B3 D4 F4)→C：B3 与 D4 同落 C4——落点重叠完全合法
   rsDecC:  [[-5,-1,2,5],[-3,0,0,4]],    // 密集 G7→Am(阻碍终止)：B3、D4 同落 C4，vi 的三音被加倍——教科书标准做法
   rsRootUp:[[-5,2,5,11],[0,0,4,12]],    // 低音上跳四度版：G3→C4(与五音落点重叠，合法)，整体更轻
+  rsStag:  [[0,4,7],[0,4,7],[0,4,7],[0,4,7]],                    // 一直稳定：I 反复——一潭死水，没有去向
+  rsTense: [[4,8,11,14],[9,13,16,19],[2,6,9,12],[7,11,14,17]],   // 一直紧张：属七链 E7→A7→D7→G7，每个都许诺回家、永远不兑现
+  rsArrow: [[7,11,14,17],[0,12,12,16]],                          // 放箭：G7(G4 B4 D5 F5)按三规则就近解决→C4 C5 C5 E5(B、D 同落 C5)
   // ⑱小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
   rsm65:   [[-4,2,4,11],[-3,0,4,9]],    // E7/G♯→Am 完整(A3 C4 E4 A4)：mi 保留为共同音
