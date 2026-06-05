@@ -1314,10 +1314,10 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p>Voice leading has exactly three rules. Take C major's <b>G7 = G·B·D·F</b> resolving to the tonic as the running example — hear it once, then unpack rule by rule:</p>
+      <p>Voice leading has exactly three rules. Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic as the running example — hear it once, then unpack rule by rule:</p>
       <div class="row">
-        <span class="chip" data-play="notes:-5,2,5,11">🔊 First hear G7 (G3 D4 F4 B4)</span>
-        <span class="chip" data-play="seq:rsRoot">🔊 Then hear it resolve to C</span>
+        <span class="chip" data-play="notes:-5,-1,2,5">🔊 First hear G7 (G3 B3 D4 F4)</span>
+        <span class="chip" data-play="seq:rsClose">🔊 Then hear it resolve to C</span>
       </div>
 
       <details class="note" open><summary><b>Rule 1 · tendency tones must move — direction locked</b></summary>
@@ -1380,15 +1380,16 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Root-position G7 → C: why does it land on C·C·C·E?</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Apply all three rules at once (voices G3 D4 F4 B4):</p>
+          <p>Apply all three rules at once (root-position stacking G3 B3 D4 F4):</p>
           <table class="ctab"><tr><th>Note in G7</th><th>Role</th><th>Destination</th></tr>
             <tr><td>G3 (bass)</td><td>root</td><td>leaps to <b>C3</b> (rule 3)</td></tr>
-            <tr><td>D4</td><td>5th</td><td>settles on <b>C4</b> (rule 2)</td></tr>
-            <tr><td>F4</td><td>7th</td><td>falls to <b>E4</b> (rule 1)</td></tr>
-            <tr><td>B4</td><td>3rd = leading tone</td><td>slides into <b>C5</b> (rule 1)</td></tr></table>
-          <p>The result is <b>C3·C4·E4·C5</b> — three C's and one E, <b>no G (5th omitted)</b>. Nothing was "left out": it's the natural outcome of four voices each taking their place — and it actually closes the tightest:</p>
+            <tr><td>B3</td><td>3rd = leading tone</td><td>slides into <b>C4</b> (rule 1)</td></tr>
+            <tr><td>D4</td><td>5th</td><td>settles on <b>C4</b> — <b>overlapping</b> the leading tone's landing, legal (rule 2)</td></tr>
+            <tr><td>F4</td><td>7th</td><td>falls to <b>E4</b> (rule 1)</td></tr></table>
+          <p>The result is <b>C3·C4·C4·E4</b> — three C's and one E (two voices overlapping on C4), <b>no G (5th omitted)</b>. Nothing was "left out": it's the natural outcome of four voices each taking their place — and it actually closes the tightest:</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 Standard: G7 → C·C·C·E</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Standard: G7 → C·C·C·E (B3 and D4 land together on C4)</span>
+            <span class="chip" data-play="seq:rsRoot">🔊 Spread version (each path on its own key — clearest on the keyboard)</span>
             <span class="chip" data-play="seq:rsBadG">🔊 Violation: F leaps to G instead of falling to E (hollow, hanging)</span>
           </div>
           ${loopStyleBar()}
@@ -2661,10 +2662,10 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p>声部进行一共三条规则。以 C 大调的 <b>G7 = G·B·D·F</b> 解决到主和弦为公共例子，先听一遍，再逐条拆：</p>
+      <p>声部进行一共三条规则。以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为公共例子，先听一遍，再逐条拆：</p>
       <div class="row">
-        <span class="chip" data-play="notes:-5,2,5,11">🔊 先听 G7（G3 D4 F4 B4）</span>
-        <span class="chip" data-play="seq:rsRoot">🔊 再听它解决到 C</span>
+        <span class="chip" data-play="notes:-5,-1,2,5">🔊 先听 G7（G3 B3 D4 F4）</span>
+        <span class="chip" data-play="seq:rsClose">🔊 再听它解决到 C</span>
       </div>
 
       <details class="note" open><summary><b>规则一 · 倾向音必走——方向锁死</b></summary>
@@ -2727,15 +2728,16 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>原位 G7 → C：解决出来为什么是 C·C·C·E？</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>把三条规则同时套上（声部 G3 D4 F4 B4）：</p>
+          <p>把三条规则同时套上（原位叠置 G3 B3 D4 F4）：</p>
           <table class="ctab"><tr><th>G7 的音</th><th>身份</th><th>去向</th></tr>
             <tr><td>G3（低音）</td><td>根音</td><td>跳到 <b>C3</b>（规则三）</td></tr>
-            <tr><td>D4</td><td>五音</td><td>就近落 <b>C4</b>（规则二）</td></tr>
-            <tr><td>F4</td><td>七音</td><td>半音落 <b>E4</b>（规则一）</td></tr>
-            <tr><td>B4</td><td>三音=导音</td><td>半音蹭进 <b>C5</b>（规则一）</td></tr></table>
-          <p>结果是 <b>C3·C4·E4·C5</b>——三个 C 加一个 E，<b>没有 G（省五音）</b>。这不是少弹了，而是四个声部各就各位的自然结果；听感反而最"关得严"：</p>
+            <tr><td>B3</td><td>三音=导音</td><td>半音蹭进 <b>C4</b>（规则一）</td></tr>
+            <tr><td>D4</td><td>五音</td><td>就近落 <b>C4</b>——与导音的落点<b>重叠</b>，合法（规则二）</td></tr>
+            <tr><td>F4</td><td>七音</td><td>半音落 <b>E4</b>（规则一）</td></tr></table>
+          <p>结果是 <b>C3·C4·C4·E4</b>——三个 C 加一个 E（其中两个声部重叠在 C4），<b>没有 G（省五音）</b>。这不是少弹了，而是四个声部各就各位的自然结果；听感反而最"关得严"：</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 标准解决：G7 → C·C·C·E</span>
+            <span class="chip" data-play="seq:rsClose">🔊 标准解决：G7 → C·C·C·E（B3、D4 同落 C4）</span>
+            <span class="chip" data-play="seq:rsRoot">🔊 摊开排列版（四条路各占一键，键盘上看得最清）</span>
             <span class="chip" data-play="seq:rsBadG">🔊 反例：F 不落 E 反跳 G（空、悬）</span>
           </div>
           ${loopStyleBar()}
