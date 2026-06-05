@@ -1328,14 +1328,15 @@ function teachEN(mId){
       <p>Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic — hear it once:</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 First hear G7 (G3 B3 D4 F4)</span>
+        <span class="chip" data-play="seq:rsClose">🔊 Then the resolution (G7 → C)</span>
       </div>
-      <p style="margin-bottom:4px">Resolve to C voice by voice (<b style="color:#ff7a59">orange = departing note</b> → <b style="color:#5ce6a0">green = arrival note</b>); after the four, hear them together:</p>
+      <p style="margin-bottom:4px">Let's look closely at how it resolves to C, voice by voice (<b style="color:#ff7a59">orange = departing note</b> → <b style="color:#5ce6a0">green = arrival note</b>); after the four, hear them together:</p>
       <div class="row">
-        <span class="chip" data-play="vlead:0">🔊 G3 → C3 (bass)</span>
-        <span class="chip" data-play="vlead:1">🔊 B3 → C4 (leading tone)</span>
-        <span class="chip" data-play="vlead:2">🔊 D4 → C4 (5th)</span>
-        <span class="chip" data-play="vlead:3">🔊 F4 → E4 (7th)</span>
-        <span class="chip" data-play="vlead:chord">🎹 All together: C·C·E</span>
+        <span class="chip" data-play="vlead:0">🔊 G3→C3</span>
+        <span class="chip" data-play="vlead:1">🔊 B3→C4</span>
+        <span class="chip" data-play="vlead:2">🔊 D4→C4</span>
+        <span class="chip" data-play="vlead:3">🔊 F4→E4</span>
+        <span class="chip" data-play="vlead:chord">🎹 Full chords</span>
       </div>
       <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
         <b>The whole thing in one sentence: resolution is letting each note of G7 move to the nearest — and legal — tonic-chord tone (C·E·G).</b><br>
@@ -2716,14 +2717,15 @@ function teachCN(mId){
       <p>以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为例，先听一遍：</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 先听 G7（G3 B3 D4 F4）</span>
+        <span class="chip" data-play="seq:rsClose">🔊 再听解决（G7 → C）</span>
       </div>
-      <p style="margin-bottom:4px">逐声部解决到 C（<b style="color:#ff7a59">橙=出发音</b> → <b style="color:#5ce6a0">绿=到达音</b>），点完四条再听齐奏：</p>
+      <p style="margin-bottom:4px">让我们仔细看看它是如何逐声部解决到 C 的（<b style="color:#ff7a59">橙=出发音</b> → <b style="color:#5ce6a0">绿=到达音</b>），点完四条再听齐奏：</p>
       <div class="row">
-        <span class="chip" data-play="vlead:0">🔊 G3 → C3（低音）</span>
-        <span class="chip" data-play="vlead:1">🔊 B3 → C4（导音）</span>
-        <span class="chip" data-play="vlead:2">🔊 D4 → C4（五音）</span>
-        <span class="chip" data-play="vlead:3">🔊 F4 → E4（七音）</span>
-        <span class="chip" data-play="vlead:chord">🎹 最后齐奏 C·C·E</span>
+        <span class="chip" data-play="vlead:0">🔊 G3→C3</span>
+        <span class="chip" data-play="vlead:1">🔊 B3→C4</span>
+        <span class="chip" data-play="vlead:2">🔊 D4→C4</span>
+        <span class="chip" data-play="vlead:3">🔊 F4→E4</span>
+        <span class="chip" data-play="vlead:chord">🎹 完整和弦</span>
       </div>
       <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
         <b>一句话总纲：解决，就是让 G7 的每个音，各自走到最近、又合规的那个 I 和弦内音（C·E·G）上。</b><br>
@@ -6152,11 +6154,14 @@ async function playVoiceLead(arg){
   const unlite=(s)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.remove('vfrom'); };
   const now=Tone.now();
   clr();
-  if(arg==="chord"){                              // 柱式齐奏：C3 C4 E4，全亮绿
-    const finalCh=[-12,0,4];
-    synth.triggerAttackRelease(finalCh.map(s=>semiToName(s,60)),"1n",now);
-    later(()=>{ clr(); finalCh.forEach(s=>lite(s,'vto')); }, 0);
-    later(clr, 1600);
+  if(arg==="chord"){                              // 完整和弦：先齐奏 G7(橙) 再齐奏解决和弦 C·C·E(绿)
+    const g7=[-5,-1,2,5], finalCh=[-12,0,4];
+    synth.triggerAttackRelease(g7.map(s=>semiToName(s,60)),"2n",now);
+    later(()=>{ clr(); g7.forEach(s=>lite(s,'vfrom')); }, 0);
+    const t=0.95;
+    synth.triggerAttackRelease(finalCh.map(s=>semiToName(s,60)),"1n",now+t);
+    later(()=>{ clr(); finalCh.forEach(s=>lite(s,'vto')); }, Math.round(t*1000));
+    later(clr, Math.round(t*1000)+1600);
     return;
   }
   const pairs=[[-5,-12],[-1,0],[2,0],[5,4]];      // G3→C3 · B3→C4 · D4→C4 · F4→E4
