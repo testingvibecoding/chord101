@@ -515,13 +515,18 @@ function setLang(l){
   document.getElementById("xpword").textContent = tr("经验","XP");
   refreshUI();
 }
-function refreshUI(){ // 按当前所在界面就地重绘
+function refreshUI(){ // 按当前所在界面就地重绘：保持滚动位置、当前题目与全部进度
+  const y = window.scrollY || document.documentElement.scrollTop || 0;
   stopLoop();
-  if(state.flow==="config") return renderTraining();
-  if(state.flow==="test"){ buildTestScreen(); nextTestQuestion(); return; }
-  if(state.flow==="prac" || state.flow==="practice"){ startPractice(); return; }
-  if(state.screen==="lesson" && state.moduleId) return openModule(state.moduleId);
-  renderHome();
+  if(state.screen==="lesson" && state.moduleId){
+    lessonChrome(state.moduleId);            // 重绘教学正文(新语言)；teachKey/playStyle/掌握度均保留
+    if(cur) renderQuestion(); else nextQuestion(); // 同一题原样重挂，进度条照旧
+  }
+  else if(state.flow==="test"){ state.testLabel=computeTestLabel(); buildTestScreen(); if(cur) renderQuestion(); else nextTestQuestion(); }
+  else if(state.flow==="prac" || state.flow==="practice"){ startPractice(true); }
+  else if(state.flow==="config"){ renderTraining(); }
+  else renderHome();
+  requestAnimationFrame(()=>window.scrollTo(0,y)); // 回到切换前的位置
 }
 
 /* ============================================================
@@ -563,7 +568,7 @@ const FREQ = {
 
 function renderHome(){
   window.scrollTo(0,0); hideDock();
-  state.screen="home";
+  state.screen="home"; state.flow="home"; // 清掉训练场/测验遗留的 flow，避免切语言时被劫持
   let cards = MODULES.map((m,i)=>{
     const p = moduleProgress(m.id); const unlocked = moduleUnlocked(i);
     const finished = p.pct===100;
@@ -3092,10 +3097,7 @@ async function playProgression(kind){
    关卡：练习引擎
    ============================================================ */
 let cur=null; // 当前题
-function openModule(mId){
-  window.scrollTo(0,0); // 进入关卡时回到页面顶部
-  stopLoop(); // 切换关卡时停止循环播放
-  state.screen="lesson"; state.moduleId=mId; state.flow="level"; lastSig=null; autoplay=false; teachKey="C"; teachMinKey="A"; playStyle="block";
+function lessonChrome(mId){ // 关卡页骨架（教学正文 + 题目面板容器），不改动任何进度状态
   const m = MODULES.find(x=>x.id===mId);
   app.innerHTML = `
     <button class="back" id="backbtn">← ${tr("返回关卡地图","Back to Map")}</button>
@@ -3107,6 +3109,12 @@ function openModule(mId){
     <div class="panel" id="quizpanel"></div>`;
   document.getElementById("backbtn").onclick=renderHome;
   bindTeachPlays(document.getElementById("teach"));
+}
+function openModule(mId){
+  window.scrollTo(0,0); // 进入关卡时回到页面顶部
+  stopLoop(); // 切换关卡时停止循环播放
+  state.screen="lesson"; state.moduleId=mId; state.flow="level"; lastSig=null; autoplay=false; teachKey="C"; teachMinKey="A"; playStyle="block";
+  lessonChrome(mId);
   nextQuestion();
 }
 
@@ -4740,7 +4748,7 @@ function bindSeg(id, cb){
 }
 function renderTraining(){
   window.scrollTo(0,0); hideDock();
-  state.flow="config";
+  state.flow="config"; state.screen="train";
   const modeSeg = seg("modeSeg", [["practice",tr("📚 练习","📚 Practice")],["test",tr("📝 测试","📝 Test")]], state.train.mode);
   const wSeg = seg("wSeg", [["real",tr("实战频率","Real-world mix")],["even",tr("均匀全面","Even coverage")]], state.weightMode);
   let sections="";
@@ -4915,12 +4923,15 @@ function pickTrainConcept(){
 }
 
 /* ---- 测试（评分） ---- */
+function computeTestLabel(){ // 测验标题随当前语言即时生成（切语言时可重算）
+  const {cat,pick}=state.train;
+  return state.train.comprehensive ? tr("综合测验 · 全部类别混合","Comprehensive · all categories")
+    : (pick==="all" ? (tr("全部","All ")+tr(TRAIN_CATS[cat].title,CAT_EN[cat])+tr("（随机）"," (random)")) : trainChipLabel(cat,pick));
+}
 function startTest(){
   state.flow="test"; autoplay=false;
   state.score={correct:0,total:0,streak:0,best:0,byCat:{},byDim:{}};
-  const {cat,pick}=state.train;
-  state.testLabel = state.train.comprehensive ? tr("综合测验 · 全部类别混合","Comprehensive · all categories")
-    : (pick==="all" ? (tr("全部","All ")+tr(TRAIN_CATS[cat].title,CAT_EN[cat])+tr("（随机）"," (random)")) : trainChipLabel(cat,pick));
+  state.testLabel = computeTestLabel();
   buildTestScreen();
   nextTestQuestion();
 }
@@ -5024,8 +5035,8 @@ function nextTestQuestion(){
 }
 
 /* ---- 练习（熟悉声音，不评分） ---- */
-function startPractice(){
-  window.scrollTo(0,0);
+function startPractice(keep){ // keep=true：切语言就地重绘，保留当前题目/卡片
+  if(!keep) window.scrollTo(0,0);
   const {cat,pick}=state.train;
   const t=TRAIN_CATS[cat].type;
   // 声音类(音程/和弦/调内)用卡片式"认识声音"练习；其余模块用做题式练习(不计分)
@@ -5038,7 +5049,7 @@ function startPractice(){
         <p class="hint">${tr("不计分的自由练习——答错也没关系，看解析就好；准备好了再去「测试」检验。","Unscored free practice — mistakes are fine, just read the explanations. Switch to Test when ready.")}</p></div>
       <div class="panel" id="quizpanel"></div>`;
     document.getElementById("backbtn").onclick=renderTraining;
-    nextPracQuestion();
+    if(keep && cur) renderQuestion(); else nextPracQuestion();
     return;
   }
   state.flow="practice"; autoplay=false;
@@ -5051,7 +5062,7 @@ function startPractice(){
     </div>
     <div class="panel" id="quizpanel"></div>`;
   document.getElementById("backbtn").onclick=renderTraining;
-  nextPractice();
+  if(keep && curPrac) renderPracCard(curPrac); else nextPractice();
 }
 function nextPracQuestion(){
   let q,sig,tries=0;
@@ -5062,13 +5073,17 @@ function nextPracQuestion(){
   } while(sig===lastSig && tries<12);
   lastSig=sig; cur=q; renderQuestion();
 }
+let curPrac=null; // 当前闪卡（切语言时就地重挂）
 function nextPractice(){
   const {cat}=state.train;
   let concept,tries=0;
   do{ concept=pickTrainConcept(); tries++; }
   while(state.train.pick==="all" && concept===lastSig && tries<12);
   lastSig=concept;
-  const it=practiceItem(cat, concept);
+  curPrac=practiceItem(cat, concept);
+  renderPracCard(curPrac);
+}
+function renderPracCard(it){
   const panel=document.getElementById("quizpanel");
   panel.innerHTML=`
     <div class="card-study">
