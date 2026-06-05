@@ -233,7 +233,7 @@
    ============================================================ */
 const NOTE_NAMES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 const NOTE_CN    = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-// 简谱(以C为do)：每个半音
+// 数字标记(以C为1号)：每个半音对应的级数写法，用于键盘上排数字行
 const JIANPU = ["1","♯1","2","♯2","3","4","♯4","5","♯5","6","♯6","7"];
 // 显示用：把内部音名里的 ASCII # 换成音乐升号 ♯（内部仍用 # 供 Tone.js 发声）
 function sharp(s){ return (""+s).replace(/#/g,"♯"); }
@@ -4877,6 +4877,19 @@ function trainChipSub(cat,c){
 function practiceItem(cat, concept){
   const t=TRAIN_CATS[cat].type;
   if(t==="interval"){
+    if(concept==="degree"){ // 度数与记号：知识闪卡
+      const cards=[
+        {name:tr("三度 C→E","Third C→E"), jian:tr("按字母数：C① D② E③","count letters: C① D② E③"), meta:tr("宽 4 个半音 = 大三度（开朗）","4 half steps wide = major 3rd (cheerful)"), semis:[0,4]},
+        {name:tr("三度 C→E♭","Third C→E♭"), jian:tr("字母仍是 C D E——还叫三度","letters still C D E — still a third"), meta:tr("窄 3 个半音 = 小三度（伤感）","3 half steps = minor 3rd (sad)"), semis:[0,3]},
+        {name:tr("五度 C→G","Fifth C→G"), jian:tr("按字母数：C① D② E③ F④ G⑤","count letters: C① D② E③ F④ G⑤"), meta:tr("宽 7 个半音 = 纯五度（空旷稳定）","7 half steps = perfect 5th (open, stable)"), semis:[0,7]},
+        {name:"E♭", jian:tr("♭ = 降半音（往左一个键）","♭ = a half step down (one key left)"), meta:tr("E♭ 就是 E 左边的黑键；先听 E 再听 E♭","E♭ is the black key left of E; hear E then E♭"), semis:[4,3]},
+        {name:"F♯", jian:tr("♯ = 升半音（往右一个键）","♯ = a half step up (one key right)"), meta:tr("F♯ 就是 F 右边的黑键；先听 F 再听 F♯","F♯ is the black key right of F; hear F then F♯"), semis:[5,6]},
+        {name:tr("三度 D→F","Third D→F"), jian:tr("换起点照样数：D① E② F③","any start works: D① E② F③"), meta:tr("字母数法不挑起点——名字按字母，宽窄按半音","letter counting works from any note — name by letters, width by half steps"), semis:[2,5]},
+      ];
+      const c=cards[Math.random()*cards.length|0];
+      return {title:tr("度数与记号 · 认一认","Names & accidentals · get to know"), name:c.name, jian:c.jian, meta:c.meta,
+        midis:c.semis.map(x=>60+x), semis:c.semis, base:60, melodic:true};
+    }
     const iv=INTERVALS[concept].iv;
     const base=Math.floor(Math.random()*(PIANO_HIGH-60-iv+1));
     return {title:tr("音程 · 认识声音","Intervals · know the sound"), name:tx(INTERVALS[concept].name), jian:tr(`相差 ${iv} 个半音`,`${iv} semitones apart`),
@@ -5190,7 +5203,7 @@ function lightAlong(rootSel="#piano"){
   });
 }
 // 讲解区静态键盘示意图：lo..hi 范围，marks={midi:类名} 给指定键上色(sel=音阶内/绿，hint=重点/黄)
-// 只标音名(不标简谱避免重叠)；黑键全部标名(此处用降号名)；整体收窄居左
+// 只标音名(不标数字行避免重叠)；黑键全部标名(此处用降号名)；整体收窄居左
 const FLAT_NAMES=["C","D♭","D","E♭","E","F","G♭","G","A♭","A","B♭","B"];
 function renderMiniMap(lo, hi, marks){
   let whites=[]; for(let m=lo;m<=hi;m++){ if(![1,3,6,8,10].includes(m%12)) whites.push(m); }
@@ -5207,7 +5220,7 @@ function renderMiniMap(lo, hi, marks){
   }
   return `<div class="pianowrap minipw" style="max-width:560px"><div class="piano mini">${inner}</div></div>`;
 }
-// 讲解区迷你键盘（C4–C6，只标简谱）
+// 讲解区迷你键盘（C4–C6，只标数字行）
 function renderMiniPiano(id){
   let whites=[]; for(let mm=PIANO_LOW; mm<=PIANO_HIGH; mm++){ if(![1,3,6,8,10].includes(mm%12)) whites.push(mm); }
   const wpct=100/whites.length;
