@@ -113,6 +113,11 @@
   /* 演示键点亮：明显的发光高亮 */
   .key.w.reveal{background:linear-gradient(180deg,#d6b3ff,#c98bff) !important;box-shadow:0 0 16px 3px #c98bff inset, 0 0 12px #c98bff}
   .key.b.reveal{background:linear-gradient(180deg,#a86bff,#7a3aff) !important;box-shadow:0 0 14px 2px #a86bff}
+  /* 逐声部解决：出发音=橙(不稳定)，到达音=绿(到家) */
+  .key.w.vfrom{background:linear-gradient(180deg,#ffd0bf,#ff7a59) !important;box-shadow:0 0 14px 2px #ff7a59 inset}
+  .key.b.vfrom{background:linear-gradient(180deg,#ff9b7e,#e0512c) !important;box-shadow:0 0 12px 2px #ff7a59}
+  .key.w.vto{background:linear-gradient(180deg,#bff0e0,#5ce6a0) !important;box-shadow:0 0 16px 3px #5ce6a0 inset}
+  .key.b.vto{background:linear-gradient(180deg,#7fe3bf,#2bbf8c) !important;box-shadow:0 0 12px 2px #5ce6a0}
   /* 起始音提示：忽闪忽现，点击后才算选中 */
   @keyframes hintpulse{0%,100%{box-shadow:inset 0 0 0 0 rgba(201,139,255,0)}50%{box-shadow:inset 0 0 0 3px var(--p5), 0 0 12px var(--p5)}}
   .key.hintblink{animation:hintpulse .9s ease-in-out infinite}
@@ -1323,8 +1328,9 @@ function teachEN(mId){
       <p>Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic — hear it once:</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 First hear G7 (G3 B3 D4 F4)</span>
-        <span class="chip" data-play="seq:rsClose">🔊 Then hear it resolve to C</span>
+        <span class="chip" data-play="voicelead">🔊 Resolve to C voice by voice: G3→C3 · B3→C4 · D4→C4 · F4→E4, then all together</span>
       </div>
+      <p style="font-size:12.5px;color:var(--muted)">The keyboard below lights up pair by pair: <b style="color:#ff7a59">orange = the departing note (a note of G7)</b>, <b style="color:#5ce6a0">green = the arrival note (the tonic tone it lands on)</b>.</p>
       <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
         <b>The whole thing in one sentence: resolution is letting each note of G7 move to the nearest — and legal — tonic-chord tone (C·E·G).</b><br>
         G7 is the drawn bow, I is the relaxed home — each of the four notes picks a tonic tone to land on, by the shortest reasonable path, and the chord is "home". "<b>Legal</b>" carries two clauses: ① notes gripped by the half-step magnet (the tendency tones) have their direction <b>locked</b> — you can't go the wrong way just because it's closer; ② several notes <b>landing on the same tonic tone (overlap) is fully allowed</b>. The three rules below simply break "nearest + legal" into three cases — whose direction is locked, who may go nearest freely, and whose path (the bass voice) is special.
@@ -2704,8 +2710,9 @@ function teachCN(mId){
       <p>以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为例，先听一遍：</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 先听 G7（G3 B3 D4 F4）</span>
-        <span class="chip" data-play="seq:rsClose">🔊 再听它解决到 C</span>
+        <span class="chip" data-play="voicelead">🔊 逐声部解决到 C：G3→C3 · B3→C4 · D4→C4 · F4→E4，最后齐奏</span>
       </div>
+      <p style="font-size:12.5px;color:var(--muted)">底部键盘会逐对亮灯：<b style="color:#ff7a59">橙色=出发音（G7 的音）</b>，<b style="color:#5ce6a0">绿色=到达音（落到的 I 内音）</b>。</p>
       <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px">
         <b>一句话总纲：解决，就是让 G7 的每个音，各自走到最近、又合规的那个 I 和弦内音（C·E·G）上。</b><br>
         G7 是绷紧的弓、I 是放松的家——四个音各自挑一个 I 的内音落脚，走最短的合理路线，整个和弦就"到家"了。"<b>合规</b>"有两层意思：① 被半音磁铁拽住的音（倾向音）方向是<b>锁死</b>的，不能图近走反了；② 几个音<b>落到同一个内音上（重叠）完全允许</b>。下面三条规则，就是把"最近 + 合规"这件事拆成三种情形讲清——谁方向被锁死、谁可以就近随意、谁（低声部）走法特殊。
@@ -3496,6 +3503,7 @@ function bindTeachPlays(root){
         toast(playStyle==="arp"?tr("🌊 已切换：分解和弦(琶音)","🌊 Switched: arpeggiated"):playStyle==="mix"?tr("🎼 已切换：柱式+分解综合(低音落底·上方铺开·槽尾点题)","🎼 Switched: combo (bass lands, top unfolds, block accent)"):tr("🎹 已切换：柱式(齐奏)","🎹 Switched: block chords"));
         return;
       }
+      else if(cmd==="voicelead"){ await playVoiceLead(); return; } // 逐声部解决：自己点灯，不走末尾 lightAlong
       else if(cmd.startsWith("seq:")){ const nm=cmd.slice(4);
         if(SEQS[nm].length>1 && !loopTimer) loopSpec={kind:"seq",name:nm};
         await playChordSeq(SEQS[nm]); }
@@ -6064,7 +6072,7 @@ function durToMs(d){ return {"8n":340,"4n":620,"2n":1000,"1n":2000}[d] || 600; }
 // 跟随 lastPlayed 的时间线点亮键盘(可指定哪一个键盘容器)：先全熄，再随每个音响起点亮、到时熄灭
 function lightAlong(rootSel="#piano"){
   const root=document.querySelector(rootSel); if(!root) return;
-  const clearAll=()=>root.querySelectorAll('.key').forEach(k=>k.classList.remove('reveal','lit'));
+  const clearAll=()=>root.querySelectorAll('.key').forEach(k=>k.classList.remove('reveal','lit','vfrom','vto'));
   const clearHint=()=>root.querySelectorAll('.key.hint').forEach(k=>k.classList.remove('hint'));
   // 取消上一轮所有待执行的亮/熄定时器，避免快速连按时旧的"熄灯"盖掉新的"点亮"
   if(root._lightTimers) root._lightTimers.forEach(clearTimeout);
@@ -6119,6 +6127,31 @@ function renderMiniPiano(id){
     if([1,3,6,8,10].includes(pc)){ const sh={1:-0.12,3:0.12,6:-0.15,8:0,10:0.15}[pc]; const left=wIdx*wpct - wpct*0.30 + sh*wpct; inner+=`<div class="key b" data-m="${mm}" data-pc="${pc}" style="left:${left}%;width:${wpct*0.60}%"></div>`; }
     else wIdx++; }
   return `<div class="pianowrap minipw"><div class="piano mini" id="${id}">${inner}</div></div>`;
+}
+// 逐声部演示 G7→C 的解决：每对"出发音(橙)→到达音(绿)"先后弹出，最后齐奏到达和弦
+async function playVoiceLead(){
+  await initAudio();
+  const piano=document.querySelector("#piano");
+  const clr=()=>{ if(piano) piano.querySelectorAll('.key').forEach(k=>k.classList.remove('reveal','lit','vfrom','vto')); };
+  if(piano){ if(piano._lightTimers) piano._lightTimers.forEach(clearTimeout); piano._lightTimers=[]; }
+  const later=(fn,ms)=>{ const id=setTimeout(fn,ms); if(piano){ piano._lightTimers=piano._lightTimers||[]; piano._lightTimers.push(id);} };
+  const lite=(s,cls)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.add(cls); };
+  const unlite=(s)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.remove('vfrom'); };
+  const pairs=[[-5,-12],[-1,0],[2,0],[5,4]];   // G3→C3 · B3→C4 · D4→C4 · F4→E4（相对 60 的半音）
+  const finalCh=[-12,0,4];                       // 末尾齐奏 C3 C4 E4
+  const now=Tone.now(), STEP=1.15, GAP=0.45;
+  clr(); let t=0;
+  pairs.forEach(([from,to])=>{
+    synth.triggerAttackRelease(semiToName(from,60),"4n",now+t);          // 出发音
+    later(()=>{ clr(); lite(from,'vfrom'); }, Math.round(t*1000));
+    synth.triggerAttackRelease(semiToName(to,60),"4n",now+t+GAP);        // 到达音
+    later(()=>{ unlite(from); lite(to,'vto'); }, Math.round((t+GAP)*1000));
+    t+=STEP;
+  });
+  t+=0.35;                                                                // 末尾齐奏
+  synth.triggerAttackRelease(finalCh.map(s=>semiToName(s,60)),"1n",now+t);
+  later(()=>{ clr(); finalCh.forEach(s=>lite(s,'vto')); }, Math.round(t*1000));
+  later(clr, Math.round(t*1000)+1500);
 }
 // 让起始音开始忽闪提示（已被选中的不闪）
 function startHintBlink(midis){
