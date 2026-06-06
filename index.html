@@ -1429,50 +1429,81 @@ function teachEN(mId){
           <p>The result is <b>C3·C4·C4·E4</b> — three C's and one E (two voices overlapping on C4), <b>no G (5th omitted)</b>. Nothing was "left out": it's the natural outcome of four voices each taking their place — and it actually closes the tightest:</p>
           <div class="row">
             <span class="chip" data-play="seq:rsClose">🔊 Standard: G7 → C·C·C·E (B3 and D4 land together on C4)</span>
-            <span class="chip" data-play="seq:rsRoot">🔊 Spread version (each path on its own key — clearest on the keyboard)</span>
+          </div>
+          <p>The same resolution can also be <b>spread out</b> (no two voices on the same key), so you can watch each voice's path clearly on the keyboard — it sounds the same, just laid out wider:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsRoot">🔊 Spread version (each path on its own key)</span>
+          </div>
+          <p><b>And a counter-example</b>: if the 7th F doesn't dutifully fall to E but leaps up to G instead, the tendency-tone rule is broken — the landing loses its 3rd E, leaving a hollow C and G: empty, hanging, unresolved:</p>
+          <div class="row">
             <span class="chip" data-play="seq:rsBadG">🔊 Violation: F leaps to G instead of falling to E (hollow, hanging)</span>
           </div>
           ${loopStyleBar()}
         </div>
       </details>
 
-      <details class="note" open><summary><b>Where does each inversion resolve? (this level's highlight)</b></summary>
+      <details class="note" open><summary><b>How does each shape resolve? (this level's highlight)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Changing inversion = changing the bass, but the master rule never changes — <b>each note still moves to the nearest, legal tonic tone</b>. So each shape's landing is <b>uniquely determined</b>:</p>
-          <table class="ctab"><tr><th>Shape</th><th>Symbol (level ⑩)</th><th>Bass motion</th><th>Landing</th></tr>
-            <tr><td>Root position</td><td>G7</td><td>G→C leap</td><td><b>root-position C</b> (C·C·C·E)</td></tr>
-            <tr><td>1st inversion</td><td>G7/B</td><td>B→C half step</td><td><b>complete root-position C</b> (G stays)</td></tr>
-            <tr><td>2nd inversion</td><td>G7/D</td><td>D→C step</td><td><b>complete root-position C</b></td></tr>
-            <tr><td>3rd inversion</td><td>G7/F</td><td><b>F→E half step</b></td><td><b>C/E (I6) — the only option</b></td></tr></table>
+          <p>G7 can be stacked in <b>four shapes</b>: root position, plus three inversions with B / D / F in the bass (symbols in level ⑩). Changing inversion = changing the bass, but <b>the master rule never changes</b> — each note still moves to the nearest, legal tonic tone. Let's take the four <b>one at a time</b> to see how a new bass reshuffles the resolution, then compare.</p>
+
+          <p><b>① Root position G7 (bass G)</b>　Voicing G3 B3 D4 F4. The bass G is <b>not a tendency tone</b>; by rule 3 it carries the root, leaping to the nearest C. Above it B3↗C4 (leading tone), F4↘E4 (7th), D4 joins C. Since both the leading tone and the 5th merge into C and the 5th G is omitted, the landing is the <b>5th-omitted C·C·C·E</b> — already dissected voice by voice in the "root-position" box above; here's just the full picture:</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 G7 → C</span>
-            <span class="chip" data-play="seq:rs65">🔊 G7/B → C (complete)</span>
-            <span class="chip" data-play="seq:rs43">🔊 G7/D → C (complete)</span>
-            <span class="chip" data-play="seq:rs42">🔊 G7/F → C/E (I6)</span>
+            <span class="chip" data-play="vchord:-5,-1,2,5;-12,0,4">🎹 Full picture: G7 → C (orange→green)</span>
+            <span class="chip" data-play="vpair:-5,-12">🔊 Bass G3→C3 (root leap)</span>
           </div>
-          <p><b>Why is the 3rd inversion special?</b> Its bass IS the 7th, F — and rule 1 says the 7th <b>must fall a half step</b>, so the bass lands on E and the tonic automatically arrives in 1st inversion, <b>C/E</b>. Force root-position C instead and the bass must leap from F3 — the magnetism snaps:</p>
+
+          <p><b>② First inversion G7/B (bass B)</b>　B at the bottom = B3 D4 F4 G4. Now <b>the bass IS the leading tone</b>, sliding up a half step into C4; above it F4↘E4 (7th), <b>G4 is the common tone and stays</b>, D4 settles on C or E. Every voice is a step or a hold — <b>no leaps</b> — and G is retained, so the landing is a <b>complete root-position C (with the 5th G)</b>, fuller than the root-position "5th-omitted" version.</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:-1,2,5,7;0,4,7">🎹 Full picture: G7/B → C (orange→green)</span>
+            <span class="chip" data-play="vpair:-1,0">🔊 Bass B3→C4 (leading tone up)</span>
+          </div>
+
+          <p><b>③ Second inversion G7/D (bass D)</b>　D at the bottom = D4 G4 B4 F5. The bass D is the 5th, <b>stepping down</b> to C; above it G4 stays, B4↗C5 (leading tone), F5↘E5 (7th). Equally smooth, again a <b>complete root-position C</b>. It differs from the first inversion only in "who's in the bass"; the resolution logic is identical.</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:2,7,11,17;0,7,12,16">🎹 Full picture: G7/D → C (orange→green)</span>
+            <span class="chip" data-play="vpair:2,0">🔊 Bass D4→C4 (steps down)</span>
+          </div>
+
+          <p><b>④ Third inversion G7/F (bass F) — the special one</b>　F at the bottom = F3 D4 G4 B4. The bass IS the <b>7th, F</b>, and rule 1 is iron: the 7th <b>must fall a half step</b> to E. So <b>the bass is forced onto E</b> — the tonic's lowest note becomes the 3rd E, and the whole landing is <b>locked to first-inversion C/E (I6), with no choice</b>. The rest proceed normally: D4 joins C, G4 stays, B4↗C5.</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:-7,2,7,11;-8,0,7,12">🎹 Full picture: G7/F → C/E (orange→green)</span>
+            <span class="chip" data-play="vpair:-7,-8">🔊 Bass F3→E3 (7th must fall!)</span>
+          </div>
+          <p>What if you force G7/F onto <b>root-position C</b>? The bass F3 would have to abandon its half-step fall to E and leap to C instead — the tendency-tone rule breaks, the magnetism snaps, and it sounds clunky. Compare:</p>
           <div class="row">
             <span class="chip" data-play="seq:rs42">🔊 Correct: G7/F → C/E (bass slides F→E)</span>
             <span class="chip" data-play="seq:rs42bad">🔊 Violation: G7/F → root-position C (bass leaps — broken)</span>
           </div>
           ${loopStyleBar()}
+
+          <p><b>The four shapes compared:</b> whoever is in the bass fixes the landing — not by decree, but as an automatic consequence of "each note to the nearest legal tonic tone".</p>
+          <table class="ctab"><tr><th>Shape</th><th>Symbol (level ⑩)</th><th>Bass · how it moves</th><th>Landing</th></tr>
+            <tr><td>Root position</td><td>G7</td><td>G (root) → leaps to C</td><td><b>root-position C</b> (5th-omitted C·C·C·E)</td></tr>
+            <tr><td>1st inversion</td><td>G7/B</td><td>B (leading tone) → up to C</td><td><b>complete root-position C</b> (G stays)</td></tr>
+            <tr><td>2nd inversion</td><td>G7/D</td><td>D (5th) → steps to C</td><td><b>complete root-position C</b></td></tr>
+            <tr><td>3rd inversion</td><td>G7/F</td><td><b>F (7th) → must fall to E</b></td><td><b>C/E (I6) only</b></td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">This is the true origin of the C/E and C/G in level ⑩'s Canon descent: inversions aren't decoration — they're <b>products of voice-leading rules</b>.</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>Cadence grades: perfect / imperfect / half (and a common mislabel)</b></summary>
+      <details class="note"><summary>Extra: cadence grades — same homecoming, several degrees of "closing the door"</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Endings close the door with three degrees of firmness:</p>
-          <p>· <b>Perfect authentic cadence</b>: V7→I with the tonic in <b>root position</b>, bass landing on the tonic note — the strongest period.<br>
-             · <b>Imperfect authentic cadence</b>: the tonic <b>is reached</b>, but in a weak shape — bass stuck on G (C/G) or an inversion. Home, door ajar.<br>
-             · <b>Half cadence</b>: the phrase <b>stops ON V</b> and never goes home — a comma.</p>
-          <div class="row">
-            <span class="chip" data-play="seq:rsRoot">. Perfect: G7 → C (bass lands on C)</span>
-            <span class="chip" data-play="seq:rsIAC">. Imperfect: G7 → C/G (bass stays on G)</span>
-            <span class="chip" data-play="seq:half">, Half: C → G (stops on V)</span>
-          </div>
+          <p>With resolution covered, step up a level to <b>how a whole phrase ends</b>. Even within "dominant → tonic", different landing configurations give the "period" different weight. The chords that close a phrase have a name — the <b>cadence</b>. Three common ones:</p>
+
+          <p><b>① Perfect authentic cadence (strongest period)</b><br>
+            The strictest: <b>V (or V7) → I</b>, with the <b>tonic chord in root position and the bass landing right on the tonic C</b> (and usually the top voice on the tonic too). Only when all conditions hold is it "perfect". It sounds crisp and final — the close most pieces end on.</p>
+          <div class="row"><span class="chip" data-play="seq:rsRoot">. Perfect: G7 → C (bass on the tonic C)</span></div>
+
+          <p><b>② Imperfect authentic cadence (home, door ajar)</b><br>
+            It <b>does reach the tonic</b> (V→I direction unchanged), but in a less "full" shape: the bass isn't on the tonic (it stays on G, i.e. <b>C/G</b>), the tonic is inverted, or the top voice isn't the tonic. Home is reached, just less emphatically — handy for a mid-phrase pause that leaves room for the next line.</p>
+          <div class="row"><span class="chip" data-play="seq:rsIAC">. Imperfect: G7 → C/G (reaches the tonic, but bass stays on G)</span></div>
+
+          <p><b>③ Half cadence (a comma · sentence unfinished)</b><br>
+            Unlike the two above, a half cadence <b>doesn't return to the tonic at all</b> — the phrase <b>stops on the dominant V</b>. It sounds like a comma: clearly "more to say", holding the ear for the next line. The "intro parks on V before the verse" move we met earlier is exactly this.</p>
+          <div class="row"><span class="chip" data-play="seq:half">, Half: C → G (stops on the dominant V)</span></div>
           ${loopStyleBar()}
-          <p>⚠ <b>The common mislabel</b>: calling "resolving to C/G" a half cadence. Wrong — a half cadence by definition <b>stops on the dominant</b>; reaching the tonic in a weak shape is an <b>imperfect authentic cadence</b>. Weak ≠ half.</p>
+
+          <p style="font-size:12.5px;color:var(--muted)">In one line: <b>perfect and imperfect</b> both <b>reach the tonic</b>, differing only in how fully they close; a <b>half cadence stops on the dominant — never goes home</b>. The first two are periods (one firm, one soft); the last is a comma.</p>
         </div>
       </details>
 
@@ -2833,50 +2864,81 @@ function teachCN(mId){
           <p>结果是 <b>C3·C4·C4·E4</b>——三个 C 加一个 E（其中两个声部重叠在 C4），<b>没有 G（省五音）</b>。这不是少弹了，而是四个声部各就各位的自然结果；听感反而最"关得严"：</p>
           <div class="row">
             <span class="chip" data-play="seq:rsClose">🔊 标准解决：G7 → C·C·C·E（B3、D4 同落 C4）</span>
-            <span class="chip" data-play="seq:rsRoot">🔊 摊开排列版（四条路各占一键，键盘上看得最清）</span>
+          </div>
+          <p>同一个解决，也可以把四个声部<b>摊开</b>排列（不让任何两条落在同一个键上），方便你在键盘上看清每条声部各自走了哪条路——听感和上面一样，只是排得开：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:rsRoot">🔊 摊开排列版（四条路各占一键）</span>
+          </div>
+          <p><b>对照一个反例</b>：如果七音 F 不老实下行到 E、反而跳上去 G，倾向音规则就被破坏了——落点缺了三音 E、只剩空洞的 C 和 G，听起来空、悬、没收住：</p>
+          <div class="row">
             <span class="chip" data-play="seq:rsBadG">🔊 反例：F 不落 E 反跳 G（空、悬）</span>
           </div>
           ${loopStyleBar()}
         </div>
       </details>
 
-      <details class="note" open><summary><b>四个转位各自解决到哪？（本关高光）</b></summary>
+      <details class="note" open><summary><b>四个形态各自怎么解决？（本关高光）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>换转位=换低音，但总纲不变——<b>每个音还是各走到最近、又合规的那个 I 内音</b>。于是每个形态的落点都被<b>唯一地决定</b>：</p>
-          <table class="ctab"><tr><th>形态</th><th>记号(⑩关)</th><th>低音怎么走</th><th>落点</th></tr>
-            <tr><td>原位</td><td>G7</td><td>G→C 跳进</td><td><b>C 原位</b>（C·C·C·E）</td></tr>
-            <tr><td>第一转位</td><td>G7/B</td><td>B→C 半音</td><td><b>完整的 C 原位</b>（G 保留）</td></tr>
-            <tr><td>第二转位</td><td>G7/D</td><td>D→C 级进</td><td><b>完整的 C 原位</b></td></tr>
-            <tr><td>第三转位</td><td>G7/F</td><td><b>F→E 半音</b></td><td><b>只能是 C/E（I6）</b></td></tr></table>
+          <p>G7 可以叠成<b>四种形态</b>：原位，以及把 B / D / F 分别放到最低音的三种转位（记号见⑩关）。换转位=换低音，但<b>总纲一字不变</b>——每个音仍各走到最近、又合规的那个 I 内音。下面把四种形态<b>分开各讲一遍</b>，看清"换了低音、解决路线怎么跟着重排"，最后再对照。</p>
+
+          <p><b>① 原位 G7（低音 G）</b>　声位 G3 B3 D4 F4。低音 G <b>不是倾向音</b>，按规则三走根音、跳到最近的 C；上方 B3↗C4（导音）、F4↘E4（七音）、D4 并入 C。因为导音和五音都被并进 C、五音 G 被省，落点是<b>省五音的 C·C·C·E</b>——这一条上面"原位块"已逐声部拆透，这里只回放全貌：</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 G7 → C</span>
-            <span class="chip" data-play="seq:rs65">🔊 G7/B → C（完整）</span>
-            <span class="chip" data-play="seq:rs43">🔊 G7/D → C（完整）</span>
-            <span class="chip" data-play="seq:rs42">🔊 G7/F → C/E（I6）</span>
+            <span class="chip" data-play="vchord:-5,-1,2,5;-12,0,4">🎹 全貌：G7 → C（橙→绿）</span>
+            <span class="chip" data-play="vpair:-5,-12">🔊 低音 G3→C3（根音跳进）</span>
           </div>
-          <p><b>为什么第三转位最特殊？</b>它的低音正是七音 F——规则一说七音<b>必须半音下行</b>，于是低音落在 E 上，主和弦自动变成第一转位 <b>C/E</b>。硬接原位 C 会怎样？低音 F3 被迫大跳，磁力当场断裂：</p>
+
+          <p><b>② 第一转位 G7/B（低音 B）</b>　把 B 放到最低 = B3 D4 F4 G4。这回<b>低音正是导音</b>，半音上行蹭进 C4；上方 F4↘E4（七音）、<b>G4 是共同音原地保留</b>、D4 就近落 C 或 E。四条全是级进或保留、<b>没有一个跳进</b>，G 也保留下来，所以落点是<b>完整的原位 C（含五音 G）</b>，比原位那种"省五音"更饱满。</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:-1,2,5,7;0,4,7">🎹 全貌：G7/B → C（橙→绿）</span>
+            <span class="chip" data-play="vpair:-1,0">🔊 低音 B3→C4（导音半音上）</span>
+          </div>
+
+          <p><b>③ 第二转位 G7/D（低音 D）</b>　把 D 放到最低 = D4 G4 B4 F5。低音 D 是五音，<b>级进下行</b>落到 C；上方 G4 保留、B4↗C5（导音）、F5↘E5（七音）。同样平滑、同样得到<b>完整的原位 C</b>。它和第一转位的差别只在"谁当低音"，解决逻辑完全一致。</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:2,7,11,17;0,7,12,16">🎹 全貌：G7/D → C（橙→绿）</span>
+            <span class="chip" data-play="vpair:2,0">🔊 低音 D4→C4（级进下行）</span>
+          </div>
+
+          <p><b>④ 第三转位 G7/F（低音 F）——本关最特殊</b>　把 F 放到最低 = F3 D4 G4 B4。低音正是<b>七音 F</b>，而规则一铁律：七音<b>必须半音下行</b>到 E。于是<b>低音被逼着落在 E 上</b>——主和弦的最低音成了三音 E，整个落点<b>被锁死为第一转位 C/E（I6），别无选择</b>。其余声部照常：D4 并入 C、G4 保留、B4↗C5。</p>
+          <div class="row">
+            <span class="chip" data-play="vchord:-7,2,7,11;-8,0,7,12">🎹 全貌：G7/F → C/E（橙→绿）</span>
+            <span class="chip" data-play="vpair:-7,-8">🔊 低音 F3→E3（七音必下！）</span>
+          </div>
+          <p>如果硬把 G7/F 接到<b>原位 C</b> 会怎样？低音 F3 就得放弃"半音下行到 E"、被迫大跳到 C——倾向音规则被破坏，磁力当场断裂，听感生硬。对照听：</p>
           <div class="row">
             <span class="chip" data-play="seq:rs42">🔊 正解：G7/F → C/E（低音 F→E 半音滑落）</span>
             <span class="chip" data-play="seq:rs42bad">🔊 反例：G7/F → 原位 C（低音大跳，断裂）</span>
           </div>
           ${loopStyleBar()}
+
+          <p><b>四种形态对照：</b>低音换了谁，落点就跟着定死——这不是规定，是"每个音走到最近合规 I 内音"自动推出来的。</p>
+          <table class="ctab"><tr><th>形态</th><th>记号(⑩关)</th><th>低音是谁·怎么走</th><th>落点</th></tr>
+            <tr><td>原位</td><td>G7</td><td>G（根音）→ 跳到 C</td><td><b>C 原位</b>（省五音 C·C·C·E）</td></tr>
+            <tr><td>第一转位</td><td>G7/B</td><td>B（导音）→ 半音上 C</td><td><b>完整的 C 原位</b>（G 保留）</td></tr>
+            <tr><td>第二转位</td><td>G7/D</td><td>D（五音）→ 级进到 C</td><td><b>完整的 C 原位</b></td></tr>
+            <tr><td>第三转位</td><td>G7/F</td><td><b>F（七音）→ 必须半音下 E</b></td><td><b>只能是 C/E（I6）</b></td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">这就是⑩关卡农下行里 C/E、C/G 们真正的出身：转位不是花样，是<b>声部进行规则的产物</b>。</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>终止分级：完满 / 不完满 / 半终止（一个常见错称）</b></summary>
+      <details class="note"><summary>拓展：终止分级——同样回家，"关门"有几种严实程度</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>同样"结束"，关门的严实程度分三级：</p>
-          <p>· <b>完满正格终止</b>：V7→I，主和弦<b>原位</b>、低音落在主音上——最强句号。<br>
-             · <b>不完满正格终止</b>：解决<b>到了</b>主和弦，但形态不完满——比如低音留在 G（C/G）或落在转位上。到家了，门没关严。<br>
-             · <b>半终止</b>：乐句<b>停在 V 上</b>，根本没回家——是"逗号"。</p>
-          <div class="row">
-            <span class="chip" data-play="seq:rsRoot">。完满：G7 → C（低音落 C）</span>
-            <span class="chip" data-play="seq:rsIAC">。不完满：G7 → C/G（低音留 G）</span>
-            <span class="chip" data-play="seq:half">， 半终止：C → G（停在 V）</span>
-          </div>
+          <p>解决讲完了，再上一层看<b>整句话怎么收尾</b>。同样是"属→主"的回家，落点配置不同，"句号"的分量也不同。给乐句结尾的这几个和弦起个名字，就叫<b>终止式</b>。常见有三种：</p>
+
+          <p><b>① 完满正格终止（最强句号）</b><br>
+            条件最严：<b>V（或 V7）→ I</b>，而且<b>主和弦是原位、低音正好落在主音 C 上</b>，最高声部通常也落到主音。三个条件都满足，才算"完满"。听感是干脆利落、毫无悬念的句号——绝大多数乐曲的最终收束用它。</p>
+          <div class="row"><span class="chip" data-play="seq:rsRoot">。完满：G7 → C（低音落在主音 C）</span></div>
+
+          <p><b>② 不完满正格终止（到家了，门没关严）</b><br>
+            进行<b>确实回到了主和弦</b>（V→I 的方向没变），但形态<b>不那么"满"</b>：比如低音没落在主音上（停在 G，写成 <b>C/G</b>）、主和弦用了转位、或最高声部不是主音。家是到了，只是收得没那么斩钉截铁——常用在乐句中段的小停顿，留点余地接下一句。</p>
+          <div class="row"><span class="chip" data-play="seq:rsIAC">。不完满：G7 → C/G（回到了主和弦，但低音留在 G）</span></div>
+
+          <p><b>③ 半终止（逗号·话没说完）</b><br>
+            和上面两种不同，半终止<b>根本不回主和弦</b>——乐句<b>停在属和弦 V 上</b>就打住。听感像逗号：明显"有话还没说完"，吊着耳朵等下一句来接。前面讲过的"前奏停在 V 再进主歌"，用的就是它。</p>
+          <div class="row"><span class="chip" data-play="seq:half">， 半终止：C → G（停在属和弦 V）</span></div>
           ${loopStyleBar()}
-          <p>⚠ <b>常见错称</b>：把"解决到 C/G"叫成"半终止"。错——半终止的定义是<b>停在属和弦上</b>；解决到主和弦但不完满，叫<b>不完满正格终止</b>。弱 ≠ 半。</p>
+
+          <p style="font-size:12.5px;color:var(--muted)">一句话区分：<b>完满 / 不完满</b>都<b>回到了主和弦</b>，差别只在"收得满不满"；<b>半终止</b>则<b>停在属和弦、没回家</b>。前两者是句号（一重一轻），后者是逗号。</p>
         </div>
       </details>
 
