@@ -378,15 +378,18 @@ const MODULES = [
    title:"暗夜家族 · 小调顺阶和弦", desc:"小减大小小大大；小调罗马数字 i–VII",
    concepts:["min_diatonic","min_roman","build","family"]},
   {id:"minv", num:"⑲", emoji:"🌠", color:"var(--p1)",
-   title:"小调的回家路 · v 与 V7", desc:"升第7音→和声小调→v变V/V7→大小写记号",
-   concepts:["raise7","chord5","harmonic_resolve","hear","notation","cad","buildv7","vlead","vinv"]},
-  {id:"minprog", num:"⑳", emoji:"🌌", color:"var(--p2)",
+   title:"小调的回家路 · v 升成 V7", desc:"升第7音→和声小调→v变V/V7→大小写记号",
+   concepts:["raise7","chord5","harmonic_resolve","hear","notation","buildv7"]},
+  {id:"minv2", num:"⑳", emoji:"🎯", color:"var(--p1)",
+   title:"小调的解决 · V7 怎么落回家", desc:"小调倾向音 G♯↗A·D↘C；E7 各转位落点；小调终止式",
+   concepts:["vlead","vinv","cad"]},
+  {id:"minprog", num:"㉑", emoji:"🌌", color:"var(--p2)",
    title:"小调金曲走向 · 大小调鉴赏", desc:"i–VI–III–VII / 史诗下行；大小调盲听",
    concepts:["prog","modehear","mood","flip"]},
-  {id:"borrow", num:"㉑", emoji:"🌗", color:"var(--p5)",
+  {id:"borrow", num:"㉒", emoji:"🌗", color:"var(--p5)",
    title:"离调借用 · 平行宇宙的催泪弹", desc:"四级小和弦 iv 等借用色彩",
    concepts:["alien","hear","fill"]},
-  {id:"transpose", num:"㉒", emoji:"🔁", color:"var(--p3)",
+  {id:"transpose", num:"㉓", emoji:"🔁", color:"var(--p3)",
    title:"移调翻译 · 一套进行走遍各调", desc:"罗马数字↔实际和弦；把进行移到任意大调",
    concepts:["r2c","c2r","prog"]},
 ];
@@ -420,7 +423,8 @@ const TRAIN_CATS = {
   keymin:{title:"小调简介", type:"module", concepts:["dark","rel","minbuild"]},
   parmin:{title:"平行大小调", type:"module", concepts:["flat367","relpar","pair"]},
   minfam:{title:"小调顺阶和弦", type:"module", concepts:["min_diatonic","min_roman","build","family"]},
-  minv:{title:"小调 v 与 V7", type:"module", concepts:["raise7","chord5","harmonic_resolve","hear","notation","cad","buildv7","vlead","vinv"]},
+  minv:{title:"小调 v 与 V7", type:"module", concepts:["raise7","chord5","harmonic_resolve","hear","notation","buildv7"]},
+  minv2:{title:"小调的解决", type:"module", concepts:["vlead","vinv","cad"]},
   minprog:{title:"小调走向与鉴赏", type:"module", concepts:["prog","modehear","mood","flip"]},
   borrow:{title:"离调借用", type:"module", concepts:["alien","hear","fill"]},
   transpose:{title:"移调翻译", type:"module", concepts:["r2c","c2r","prog"]},
@@ -477,7 +481,8 @@ const MOD_EN={ // 关卡卡片标题/简介英文
   keymin:["Minor Intro · The Dark World","Minor steps, why it sounds dark, relative keys"],
   parmin:["Parallel Universe · Same-Tonic Keys","C major vs C minor: ♭3·♭6·♭7; relative vs parallel"],
   minfam:["The Night Family · Minor Diatonic","min-dim-Maj-min-min-Maj-Maj; minor numerals"],
-  minv:["Minor's Way Home · v & V7","Raise the 7th: harmonic minor & leading tone"],
+  minv:["Minor's Way Home · v Becomes V7","Raise the 7th: harmonic minor & the leading tone"],
+  minv2:["Minor's Resolution · How V7 Lands","Minor tendency tones G♯↗A·D↘C; E7 inversion landings; the minor cadence"],
   minprog:["Minor Progressions & Listening","i–VI–III–VII, epic descents; major/minor ear"],
   borrow:["Borrowed Chords · Tearjerkers","iv, ♭VII, ♭VI from the parallel minor"],
   transpose:["Transposition · Any Key","Roman ↔ real chords; move progressions anywhere"],
@@ -487,7 +492,7 @@ const CAT_EN={ // 训练场分类标题英文
   symbols:"Chord Symbols", seventh:"7th Chords", diatonic:"Diatonic Chords", roman:"Roman Numerals",
   transpose:"Transposition", "function":"Chord Function", inv:"Inversions", slash:"Slash Chords",
   pop:"Pop Progressions", sus:"Sus Chords", parmin:"Parallel Keys", minfam:"Minor Family",
-  minv:"Minor v & V7", minprog:"Minor Progressions", borrow:"Borrowed Chords",
+  minv:"Minor v & V7", minv2:"Minor Resolution", minprog:"Minor Progressions", borrow:"Borrowed Chords",
 };
 // 数据层术语词典：声音数据(和弦/音程的名称、色彩、情绪)按原文精确映射到英文
 const ZH2EN={
@@ -579,7 +584,8 @@ const FREQ = {
   sus:{build:6, hear:6, has3:4},
   parmin:{flat367:5, relpar:6, pair:5},
   minfam:{min_diatonic:6, min_roman:6, build:5, family:6}, // family=C小调清单，直通离调借用
-  minv:{raise7:6, chord5:6, harmonic_resolve:5, hear:6, notation:5, cad:5, buildv7:5, vlead:5, vinv:5},
+  minv:{raise7:6, chord5:6, harmonic_resolve:5, hear:6, notation:5, buildv7:5},
+  minv2:{vlead:5, vinv:5, cad:5},
   minprog:{prog:6, modehear:6, mood:4, flip:4},
   borrow:{alien:5, hear:6, fill:5},
 };
@@ -1019,7 +1025,7 @@ function teachEN(mId){
           <p>· <b>viiø7</b>: B D F A = 1 ♭3 ♭5 ♭7 = Bm7♭5 (half-diminished).</p>
         </div>
       </details>
-      <p style="color:var(--muted);font-size:13px">Drills in this level: find the root, decide the case (triad Roman numerals), add the seventh (7th-chord Roman numerals).<br>Moving a whole progression <b>to other keys</b> is trained in its own level, "Transposition" (㉒).</p>`;
+      <p style="color:var(--muted);font-size:13px">Drills in this level: find the root, decide the case (triad Roman numerals), add the seventh (7th-chord Roman numerals).<br>Moving a whole progression <b>to other keys</b> is trained in its own level, "Transposition" (㉓).</p>`;
     case "transpose": return `
       <p>The most practical power of Roman numerals is <b>transposition</b>: the same string of degrees (say ii7–V7–Imaj7) moves to any major key — just <b>recount the degrees</b> and the actual chords fall out. This level drills exactly that.</p>
       <p>The core procedure: <b>see the Roman numeral → count to that degree in the target key → write the chord</b> (and the reverse). Take <b>ii7–V7–Imaj7</b> and hear it in three keys (tap a row to play the whole thing):</p>
@@ -1054,7 +1060,7 @@ function teachEN(mId){
             <span class="chip" data-play="kloopseq:pp1625">🔁 1625 (I–vi–ii–V) · oldies & jazz, silky turnaround</span>
           </div>
           ${keyBar(true,true)}
-          <p><b>The six big minor progressions</b> (level ⑳). Likewise the 7-degree cheat sheet (A minor as example; minor digits also count from the tonic):</p>
+          <p><b>The six big minor progressions</b> (level ㉑). Likewise the 7-degree cheat sheet (A minor as example; minor digits also count from the tonic):</p>
           <table class="ctab"><tr><th>Digit</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>Roman</th><td>i</td><td>ii°</td><td>III</td><td>iv</td><td>v</td><td>VI</td><td>VII</td></tr>
             <tr><th>A-minor chord</th>
@@ -1070,7 +1076,7 @@ function teachEN(mId){
             <span class="chip" data-play="mkloopseq:mCircle">🔁 1473 (i–iv–VII–III) · circle of fifths, flowing narrative</span>
           </div>
           ${mKeyBar()}
-          <p><b>The three borrowing moves</b> (level ㉑):</p>
+          <p><b>The three borrowing moves</b> (level ㉒):</p>
           <div class="row">
             <span class="chip" data-play="kloopseq:borrowYes">🔁 I–IV–iv–I · the tear-jerker, darken then come home</span>
             <span class="chip" data-play="kloopseq:bVIIyes">🔁 I–♭VII–IV–I · open-hearted rock, a door swings open</span>
@@ -1742,7 +1748,7 @@ function teachEN(mId){
               <td class="play" data-play="notes:8,12,15">A♭</td>
               <td class="play" data-play="notes:10,14,17">B♭</td></tr></table>
           <div class="row"><span class="chip" data-play="seq:cmFam">🔊 Tour the C-minor family</span></div>
-          <p>Level ㉑ "Borrowed Chords" shops from exactly this table — iv = Fm (the tear-jerker), VI = A♭, VII = B♭, III = E♭, all here. Now you know where they come from.</p>
+          <p>Level ㉒ "Borrowed Chords" shops from exactly this table — iv = Fm (the tear-jerker), VI = A♭, VII = B♭, III = E♭, all here. Now you know where they come from.</p>
         </div>
       </details>
       <p style="color:var(--muted);font-size:13px">Drills: derive quality/chord name for any degree of any minor key, translate minor Roman numerals both ways, build on the keyboard, and a C-minor-list special.</p>`;
@@ -1832,6 +1838,12 @@ function teachEN(mId){
         </div>
       </details>
 
+      <p style="color:var(--muted);font-size:13px">This level's drills: which note is raised / hearing & building harmonic-minor scales, the v→V mechanism and spelling, case notation both ways, v vs. V7 blind listening, and building any minor key's V7. Once "why v becomes V7" is solid, the next level watches that V7 actually land home voice by voice.</p>`;
+
+    case "minv2": return `
+      <p>Last level cured minor's <b>limp way home</b>: raise the 7th to get harmonic minor, and degree 5's v becomes the major <b>V</b>, then the <b>V7</b> with a stacked 7th (in A minor that's E7 = E·G♯·B·D), carrying a leading tone and a tritone. This level watches <b>how it actually lands home</b> — a <b>perfect mirror</b> of major's voice leading in level ⑫, only "home" is now the minor triad i. First replay the standard resolution to get the feel back:</p>
+      <div class="row"><span class="chip" data-play="seq:rsmRoot">🔊 Recap: E7 → Am (A minor's strong resolution)</span></div>
+
       <details class="note" open><summary><b>Voice leading: how V7 lands in minor (the mirror of level ⑫'s rules)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>Level ⑫'s master rule — <b>each note moves to the nearest, legal tonic-chord tone</b> — transfers untouched into minor; only "home" becomes the minor triad i (A minor's i = A·C·E). Take A minor's <b>E7 = E·G♯·B·D</b>:</p>
@@ -1861,7 +1873,7 @@ function teachEN(mId){
       </details>
 
       <p style="font-size:12.5px;color:var(--muted)">Term card: the minor scale with a raised 7th is called <b>harmonic minor</b>; in practice you needn't swap the whole scale — <b>just replace v with V/V7 whenever you head home</b>. The classical/jazz standard minor cadence is iv (or ii°)–V7–i.</p>
-      <p style="color:var(--muted);font-size:13px">Drills cover all three steps: which note is raised / hearing & building harmonic-minor scales, the v→V mechanism and spelling, case notation both ways, v vs. V7 blind listening, cadences, building any minor key's V7, plus minor tendency tones and each E7 inversion's landing.</p>`;
+      <p style="color:var(--muted);font-size:13px">This level's drills: minor tendency tones G♯↗A and D↘C, each E7 inversion's landing (with the E7/D→i6 special), and identifying the standard minor cadence iv–V7–i. Rule for rule a mirror of major's levels ⑫–⑬, only home is now i.</p>`;
     case "minprog": return `
       <p>Fully equipped — enter <b>the minor-key hit workshop</b>, and train a pair of "major-vs-minor ears" while you're at it.</p>
       <p><b>Pattern A · minor's universal loop i–VI–III–VII</b> (in A minor: Am–F–C–G): dark, epic, electronic — standard issue for countless anime anthems and Alan-Walker-style EDM.</p>
@@ -1958,7 +1970,7 @@ function teachEN(mId){
             <tr><td>1</td><td class="play" data-play="notes:0,4,7">C</td><td class="play" data-play="notes:0,3,7">Cm</td><td>3rd E→E♭ (home darkens)</td></tr>
             <tr><td>5</td><td class="play" data-play="notes:7,11,14">G</td><td class="play" data-play="notes:7,10,14">Gm</td><td>3rd B→B♭ (natural minor's v, a minor chord)</td></tr>
             <tr><td>6</td><td class="play" data-play="notes:9,12,16">Am</td><td class="play" data-play="notes:8,12,15">A♭</td><td><b>even the root changes</b>: A→A♭, minor chord becomes major</td></tr>
-            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>3rd A→A♭ (the very "tear-jerker" Fm of level ㉑)</td></tr></table>
+            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>3rd A→A♭ (the very "tear-jerker" Fm of level ㉒)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">⚠ Degree 6 is the trickiest: major's vi is the minor chord Am, while minor's VI is the <b>major</b> chord A♭ — not only does the quality flip, <b>the root itself drops a half step</b> (because minor's 6th note is A♭). Not a typo: the two families' "resident #6" were never the same person.</p>
           <p><b>Step 2 · whole-passage A/B.</b> Same tonic, same path (both journey 1→5→6→4) — only the residents change, and the world goes dark:</p>
           <div class="row">
@@ -2453,7 +2465,7 @@ function teachCN(mId){
           <p>· <b>viiø7</b>：B D F A = 1 ♭3 ♭5 ♭7 = Bm7♭5(半减七)。</p>
         </div>
       </details>
-      <p style="color:var(--muted);font-size:13px">本关练习：找根音、判断大小写(三和弦罗马数字)、在三和弦上加第七音(七和弦罗马数字)。<br>把同一套进行<b>移到别的调</b>的训练，放在专门的「移调翻译」关(㉒)里。</p>`;
+      <p style="color:var(--muted);font-size:13px">本关练习：找根音、判断大小写(三和弦罗马数字)、在三和弦上加第七音(七和弦罗马数字)。<br>把同一套进行<b>移到别的调</b>的训练，放在专门的「移调翻译」关(㉓)里。</p>`;
 
     case "transpose": return `
       <p>罗马数字最实用的地方是<b>可移调</b>：同一串级数(比如 ii7–V7–Imaj7)，搬到任何大调，只要<b>重新数级数</b>就能立刻翻成实际和弦。这一关专门练这个。</p>
@@ -2489,7 +2501,7 @@ function teachCN(mId){
             <span class="chip" data-play="kloopseq:pp1625">🔁 1625（I–vi–ii–V）· 老歌爵士，丝滑回转</span>
           </div>
           ${keyBar(true,true)}
-          <p><b>小调六大走向</b>(第⑳关)。同样先放七级速查表(以 A 小调为例；注意小调数字也从主音数起)：</p>
+          <p><b>小调六大走向</b>(第㉑关)。同样先放七级速查表(以 A 小调为例；注意小调数字也从主音数起)：</p>
           <table class="ctab"><tr><th>数字</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>罗马</th><td>i</td><td>ii°</td><td>III</td><td>iv</td><td>v</td><td>VI</td><td>VII</td></tr>
             <tr><th>A 小调和弦</th>
@@ -2505,7 +2517,7 @@ function teachCN(mId){
             <span class="chip" data-play="mkloopseq:mCircle">🔁 1473（i–iv–VII–III）· 五度圈，顺流叙事</span>
           </div>
           ${mKeyBar()}
-          <p><b>借用三招</b>(第㉑关)：</p>
+          <p><b>借用三招</b>(第㉒关)：</p>
           <div class="row">
             <span class="chip" data-play="kloopseq:borrowYes">🔁 I–IV–iv–I · 催泪弹，先暗一下再回家</span>
             <span class="chip" data-play="kloopseq:bVIIyes">🔁 I–♭VII–IV–I · 豁达摇滚，敞开一扇门</span>
@@ -3184,7 +3196,7 @@ function teachCN(mId){
               <td class="play" data-play="notes:8,12,15">A♭</td>
               <td class="play" data-play="notes:10,14,17">B♭</td></tr></table>
           <div class="row"><span class="chip" data-play="seq:cmFam">🔊 C 小调全家巡礼</span></div>
-          <p>第㉑关「离调借用」就是从这张表里"借货"——iv=Fm(催泪弹)、VI=A♭、VII=B♭、III=E♭ 全在这儿。现在你已经知道它们从哪来了。</p>
+          <p>第㉒关「离调借用」就是从这张表里"借货"——iv=Fm(催泪弹)、VI=A♭、VII=B♭、III=E♭ 全在这儿。现在你已经知道它们从哪来了。</p>
         </div>
       </details>
       <p style="color:var(--muted);font-size:13px">练习：任意小调任意级数推性质/推和弦名、小调罗马数字双向翻译、键盘搭建、C 小调清单专项。</p>`;
@@ -3275,6 +3287,12 @@ function teachCN(mId){
         </div>
       </details>
 
+      <p style="color:var(--muted);font-size:13px">本关练习：升第几音 / 和声小调音阶的听辨与搭建、v→V 的变化原理与构成、大小写记号双向翻译、v vs V7 盲听、搭建任意小调的 V7。把"v 为何升成 V7"弄透，下一关再看这个 V7 怎么逐声部落回家。</p>`;
+
+    case "minv2": return `
+      <p>上一关把小调"<b>没劲的回家路</b>"治好了：升第 7 音得到和声小调，第 5 级的 v 升成大三 <b>V</b>、再叠七度成 <b>V7</b>（A 小调里就是 E7 = E·G♯·B·D），自带导音与三全音。这一关看<b>它怎么真正落回家</b>——和大调第⑫关的声部进行<b>完全镜像</b>，只是"家"换成了小三和弦 i。先回放一遍标准解决，找回手感：</p>
+      <div class="row"><span class="chip" data-play="seq:rsmRoot">🔊 回顾：E7 → Am（A 小调的强解决）</span></div>
+
       <details class="note" open><summary><b>声部进行：V7 在小调怎么落（第⑫关规则的镜像）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>第⑫关的总纲——<b>每个音走到最近、又合规的那个主和弦内音</b>——原封不动搬进小调，只是"家"换成了小三和弦 i（A 小调的 i = A·C·E）。以 A 小调的 <b>E7 = E·G♯·B·D</b> 为例：</p>
@@ -3304,7 +3322,7 @@ function teachCN(mId){
       </details>
 
       <p style="font-size:12.5px;color:var(--muted)">名词卡：升了第 7 音的小调音阶叫<b>和声小调</b>；实战里不必整条音阶都换，<b>只在需要回家时把 v 换成 V/V7</b> 即可。古典/爵士的小调标准终止就是 iv(或 ii°)–V7–i。</p>
-      <p style="color:var(--muted);font-size:13px">练习覆盖三步全部内容：升第几音/和声小调音阶听辨与搭建、v→V 变化原理与构成、大小写记号双向翻译、v vs V7 盲听、终止式、搭建任意小调的 V7、小调倾向音与 E7 各转位的落点。</p>`;
+      <p style="color:var(--muted);font-size:13px">本关练习：小调倾向音 G♯↗A 与 D↘C、E7 各转位的落点（含 E7/D→i6 专项）、小调标准终止式 iv–V7–i 的判别。规则与大调第⑫⑬关逐条镜像，只是家换成了 i。</p>`;
 
     case "minprog": return `
       <p>装备齐了，进<b>小调的金曲车间</b>，顺便练一双"大小调之耳"。</p>
@@ -3402,7 +3420,7 @@ function teachCN(mId){
             <tr><td>1</td><td class="play" data-play="notes:0,4,7">C</td><td class="play" data-play="notes:0,3,7">Cm</td><td>三音 E→E♭(家变暗)</td></tr>
             <tr><td>5</td><td class="play" data-play="notes:7,11,14">G</td><td class="play" data-play="notes:7,10,14">Gm</td><td>三音 B→B♭(自然小调的 v，小和弦)</td></tr>
             <tr><td>6</td><td class="play" data-play="notes:9,12,16">Am</td><td class="play" data-play="notes:8,12,15">A♭</td><td><b>连根音都变了</b>：A→A♭，小和弦变大和弦</td></tr>
-            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>三音 A→A♭(就是㉑关要讲的"催泪弹"Fm)</td></tr></table>
+            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>三音 A→A♭(就是㉒关要讲的"催泪弹"Fm)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">⚠ 最容易蒙的是第 6 级：大调的 vi 是小和弦 Am，小调的 VI 是<b>大</b>和弦 A♭——不但性质翻转，<b>根音本身也降了半音</b>(因为小调的第 6 个音就是 A♭)。这不是写错，是两个家族的"6 号居民"本来就不是同一个人。</p>
           <p><b>第二步 · 整段 A/B 对比。</b>主音不变、走向不变(都是 1→5→6→4 的级数旅程)，唯一变的是每站的居民——世界整个变暗：</p>
           <div class="row">
@@ -3705,7 +3723,7 @@ const SEQS = {
   rsFG2:   [[-5,5,9,12],[-12,4,7,12]],                           // F/G(G3 F4 A4 C5) → C：无导音的柔和属→主，与⑩关一致
   rsV64:   [[-10,-5,-1,2],[-12,-5,0,4]],                         // V64(D3 G3 B3 D4) → C(C3 G3 C4 E4)：G3 共同音保留(不走)，D3→C3、B3→C4、D4→E4
   rsArrow: [[7,11,14,17],[0,12,12,16]],                          // 放箭：G7(G4 B4 D5 F5)按三规则就近解决→C4 C5 C5 E5(B、D 同落 C5)
-  // ⑲小调解决：E7 各转位 → Am（A 小调镜像）
+  // ⑳小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
   rsm65:   [[-4,2,4,11],[-3,0,4,9]],    // E7/G♯→Am 完整(A3 C4 E4 A4)：mi 保留为共同音
   rsm43:   [[-1,2,4,8],[-3,0,4,9]],     // E7/B→Am 完整
@@ -3992,6 +4010,7 @@ function buildQuestion(mId, concept){
   if(mId==="parmin")   return q_parmin(concept);
   if(mId==="minfam")   return q_minfam(concept);
   if(mId==="minv")     return q_minv(concept);
+  if(mId==="minv2")    return q_minv(concept);
   if(mId==="minprog")  return q_minprog(concept);
   if(mId==="borrow")   return q_borrow(concept);
 }
@@ -5145,8 +5164,8 @@ function q_minfam(concept){
               `That tear-jerker in major songs — the <b>minor four, iv</b> — in the key of C major, which chord is borrowed?`),
     play:()=>playSemis([5,8,12],60,true),
     options:uniqPick(CM_FAM.map(x=>x.n), "Fm", 4).map(n=>({label:n,correct:n==="Fm"})),
-    explain:tr(`从平行宇宙 C 小调的清单里借第 4 级：<b>Fm</b>(F A♭ C)。第㉑关「离调借用」就靠它催泪。`,
-               `Borrow degree 4 from the parallel-universe C-minor list: <b>Fm</b> (F A♭ C). Level ㉑ "Borrowed Chords" relies on it for the tears.`)};
+    explain:tr(`从平行宇宙 C 小调的清单里借第 4 级：<b>Fm</b>(F A♭ C)。第㉒关「离调借用」就靠它催泪。`,
+               `Borrow degree 4 from the parallel-universe C-minor list: <b>Fm</b> (F A♭ C). Level ㉒ "Borrowed Chords" relies on it for the tears.`)};
 }
 
 /* ---- 第17关 小调的回家路 v/V7 ---- */
@@ -5720,7 +5739,7 @@ function renderModuleDone(mId){
     </div>` : `
     <div style="text-align:center;padding:18px 10px">
       <div style="font-size:54px">🎓</div>
-      <h2 style="margin:8px 0">${tr("全部 20 关通关——毕业快乐！","All 20 levels cleared — congratulations, graduate!")}</h2>
+      <h2 style="margin:8px 0">${tr(`全部 ${MODULES.length} 关通关——毕业快乐！`,`All ${MODULES.length} levels cleared — congratulations, graduate!`)}</h2>
       <p style="color:var(--muted);line-height:1.8;text-align:left;max-width:640px;margin:10px auto">
         ${tr(`回头看看这一路：从分清<b>半音与全音</b>开始，你搭起了<b>音阶和调</b>，用三度叠出了<b>三和弦与七和弦</b>，认识了<b>调内家族、罗马数字和功能</b>，学会了<b>转位与斜杠</b>让低音流动，背下了大调与小调的<b>金曲套路</b>，推开了<b>暗夜世界</b>的门，掌握了<b>导音、V7 与离调借用</b>的魔法，最后用<b>移调</b>把这一切带去任何一个调。<br><br>
         现在你听歌时听到的已经不再是模糊的"好听"，而是<b>级数、功能与色彩</b>。这套耳朵会跟你一辈子。`,
@@ -5869,7 +5888,8 @@ const TRAIN_SPEC_LABELS={
   sus:{build:["搭挂留和弦","sus4 / sus2","Build sus chords","sus4 / sus2"],hear:["悬空 vs 落地","听觉判断","Floating vs landed","by ear"],has3:["有没有三音","sus 原理","Is there a 3rd?","sus principle"]},
   parmin:{flat367:["降了哪些级","3·6·7","Which degrees flat?","♭3·♭6·♭7"],relpar:["关系 vs 平行","两块门牌","Relative vs parallel","two doorplates"],pair:["明暗听辨","I vs i / 音阶","Bright vs dark","I vs i / scales"]},
   minfam:{min_diatonic:["小调推性质","小减大小小大大","Minor qualities","m-d-M-m-m-M-M"],min_roman:["小调罗马翻译","双向","Minor numerals","both ways"],build:["搭小调顺阶","任意调任意级","Build minor diatonic","any key, any degree"],family:["C 小调清单","借货预备","C minor family","borrowing list"]},
-  minv:{raise7:["升7音·和声音阶","认/听/搭","Raised 7th scale","ID / hear / build"],chord5:["v→V 怎么变","三音升半音","How v→V","3rd raised"],harmonic_resolve:["为什么魔改","造出导音","Why the hack","make a leading tone"],hear:["最强句号盲听","v vs V7","Strongest cadence","v vs V7"],notation:["大小写记号","v / V / V7","Case notation","v / V / V7"],cad:["小调终止式","iv–V7–i","Minor cadence","iv–V7–i"],buildv7:["搭 V7","含导音 4 音","Build V7","4 notes w/ leading tone"],vlead:["小调倾向音","G♯↗A · D↘C","Minor tendency tones","G♯↗A · D↘C"],vinv:["E7 转位解决","E7/D 必去 i6","E7 inversions resolve","E7/D → i6"]},
+  minv:{raise7:["升7音·和声音阶","认/听/搭","Raised 7th scale","ID / hear / build"],chord5:["v→V 怎么变","三音升半音","How v→V","3rd raised"],harmonic_resolve:["为什么魔改","造出导音","Why the hack","make a leading tone"],hear:["最强句号盲听","v vs V7","Strongest cadence","v vs V7"],notation:["大小写记号","v / V / V7","Case notation","v / V / V7"],buildv7:["搭 V7","含导音 4 音","Build V7","4 notes w/ leading tone"]},
+  minv2:{vlead:["小调倾向音","G♯↗A · D↘C","Minor tendency tones","G♯↗A · D↘C"],vinv:["E7 转位解决","E7/D 必去 i6","E7 inversions resolve","E7/D → i6"],cad:["小调终止式","iv–V7–i","Minor cadence","iv–V7–i"]},
   minprog:{prog:["认小调走向","六大走向","Minor progressions","six moves"],modehear:["大小调盲听","套路级","Major/minor by ear","progression level"],mood:["情绪配对","鉴赏","Mood matching","listening"],flip:["视角翻转","家落谁","Perspective flip","which home"]},
   borrow:{alien:["揪出调外音","三种借用","Spot the outsider","3 borrowings"],hear:["听辨借用","iv/♭VII/♭VI","Hear borrowing","iv/♭VII/♭VI"],fill:["按情绪选和弦","催泪/豁达/凯旋","Pick by mood","tears/open/triumph"]},
   transpose:{r2c:["罗马→实际和弦","跨 6 个调","Roman→chords","across 6 keys"],c2r:["和弦→罗马","反向翻译","Chords→Roman","reverse"],prog:["整段进行移调","套路搬家","Transpose progressions","move the formula"]},
