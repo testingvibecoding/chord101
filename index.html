@@ -361,7 +361,7 @@ const MODULES = [
    concepts:["tend","voices","build"]},
   {id:"resolve2", num:"⑬", emoji:"🎯", color:"var(--p1)",
    title:"解决 · 转位的落点与收尾", desc:"四种形态各自解决到哪；完满 / 不完满 / 半终止",
-   concepts:["invres","cadgrade","build2"]},
+   concepts:["invres","cadgrade","build2"], coreConcepts:["invres","build2"]}, // 通关只考未折叠内容；终止分级(cadgrade)是折叠拓展，仅训练场出现
   {id:"pop", num:"⑭", emoji:"🎵", color:"var(--p2)",
    title:"流行套路 · 金曲的密码", desc:"1564 / 4536 / 4321 / 1645 听辨与推导",
    concepts:["mood","derive","listen"]},
@@ -444,8 +444,9 @@ function initMastery(){
 initMastery();
 function moduleProgress(mId){
   const m = MODULES.find(x=>x.id===mId); const ms = state.mastery[mId];
-  let done=0; m.concepts.forEach(c=>{ if(ms[c]>=MASTERY_TARGET) done++; });
-  return {done, total:m.concepts.length, pct: Math.round(done/m.concepts.length*100)};
+  const cc = m.coreConcepts || m.concepts; // 通关进度只统计核心(未折叠)概念
+  let done=0; cc.forEach(c=>{ if(ms[c]>=MASTERY_TARGET) done++; });
+  return {done, total:cc.length, pct: Math.round(done/cc.length*100)};
 }
 function moduleUnlocked(idx){
   return true; // 测试期间全部解锁（原本需上一关掌握60%）
@@ -3857,7 +3858,7 @@ function openModule(mId){
 
 function pickConcept(mId){
   const m=MODULES.find(x=>x.id===mId); const ms=state.mastery[mId];
-  let concepts = m.concepts;
+  let concepts = m.coreConcepts || m.concepts; // 通关只出核心(未折叠)概念；折叠拓展留给训练场
   // 音程关：先掌握半音/全音，再解锁大三度/小三度
   if(mId==="interval"){
     const basicsDone = ["half","whole"].every(c=>ms[c]>=MASTERY_TARGET);
