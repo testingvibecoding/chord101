@@ -357,33 +357,36 @@ const MODULES = [
    title:"和弦功能 · 稳定与回家", desc:"主 / 下属 / 属；导音——回家引力的来源",
    concepts:["T","S","D","lead"]},
   {id:"resolve", num:"⑫", emoji:"🧲", color:"var(--p1)",
-   title:"解决 · V7 怎么落回家", desc:"倾向音的去向；四个转位各自解决到哪；完满/不完满/半终止",
-   concepts:["tend","voices","invres","cadgrade","build"]},
-  {id:"pop", num:"⑬", emoji:"🎵", color:"var(--p2)",
+   title:"解决 · 每个音走到哪里", desc:"倾向音必走、就近走、低音去最近的 C——声部进行三规则",
+   concepts:["tend","voices","build"]},
+  {id:"resolve2", num:"⑬", emoji:"🎯", color:"var(--p1)",
+   title:"解决 · 转位的落点与收尾", desc:"四种形态各自解决到哪；完满 / 不完满 / 半终止",
+   concepts:["invres","cadgrade","build2"]},
+  {id:"pop", num:"⑭", emoji:"🎵", color:"var(--p2)",
    title:"流行套路 · 金曲的密码", desc:"1564 / 4536 / 4321 / 1645 听辨与推导",
    concepts:["mood","derive","listen"]},
-  {id:"sus", num:"⑭", emoji:"💧", color:"var(--p4)",
+  {id:"sus", num:"⑮", emoji:"💧", color:"var(--p4)",
    title:"挂留和弦 · 制造悬念", desc:"sus4 / sus2：拿掉三音的悬空感",
    concepts:["build","hear","has3"]},
-  {id:"keymin", num:"⑮", emoji:"🌙", color:"var(--p5)",
+  {id:"keymin", num:"⑯", emoji:"🌙", color:"var(--p5)",
    title:"小调简介 · 推开暗夜世界的门", desc:"小调的台阶、为什么暗、关系大小调",
    concepts:["dark","rel","minbuild"]},
-  {id:"parmin", num:"⑯", emoji:"🌓", color:"var(--p4)",
+  {id:"parmin", num:"⑰", emoji:"🌓", color:"var(--p4)",
    title:"平行宇宙的入口 · 同名大小调", desc:"C 大调 vs C 小调：降 3·6·7；关系 vs 平行",
    concepts:["flat367","relpar","pair"]},
-  {id:"minfam", num:"⑰", emoji:"🌑", color:"var(--p5)",
+  {id:"minfam", num:"⑱", emoji:"🌑", color:"var(--p5)",
    title:"暗夜家族 · 小调顺阶和弦", desc:"小减大小小大大；小调罗马数字 i–VII",
    concepts:["min_diatonic","min_roman","build","family"]},
-  {id:"minv", num:"⑱", emoji:"🌠", color:"var(--p1)",
+  {id:"minv", num:"⑲", emoji:"🌠", color:"var(--p1)",
    title:"小调的回家路 · v 与 V7", desc:"升第7音→和声小调→v变V/V7→大小写记号",
    concepts:["raise7","chord5","harmonic_resolve","hear","notation","cad","buildv7","vlead","vinv"]},
-  {id:"minprog", num:"⑲", emoji:"🌌", color:"var(--p2)",
+  {id:"minprog", num:"⑳", emoji:"🌌", color:"var(--p2)",
    title:"小调金曲走向 · 大小调鉴赏", desc:"i–VI–III–VII / 史诗下行；大小调盲听",
    concepts:["prog","modehear","mood","flip"]},
-  {id:"borrow", num:"⑳", emoji:"🌗", color:"var(--p5)",
+  {id:"borrow", num:"㉑", emoji:"🌗", color:"var(--p5)",
    title:"离调借用 · 平行宇宙的催泪弹", desc:"四级小和弦 iv 等借用色彩",
    concepts:["alien","hear","fill"]},
-  {id:"transpose", num:"㉑", emoji:"🔁", color:"var(--p3)",
+  {id:"transpose", num:"㉒", emoji:"🔁", color:"var(--p3)",
    title:"移调翻译 · 一套进行走遍各调", desc:"罗马数字↔实际和弦；把进行移到任意大调",
    concepts:["r2c","c2r","prog"]},
 ];
@@ -410,7 +413,8 @@ const TRAIN_CATS = {
   inv:{title:"转位", type:"module", concepts:["which","build","ear"]},
   slash:{title:"斜杠和弦", type:"module", concepts:["concept","bassname","build"]},
   "function":{title:"和弦功能", type:"module", concepts:["T","S","D","lead"]},
-  resolve:{title:"解决", type:"module", concepts:["tend","voices","invres","cadgrade","build"]},
+  resolve:{title:"解决·声部规则", type:"module", concepts:["tend","voices","build"]},
+  resolve2:{title:"解决·转位与终止", type:"module", concepts:["invres","cadgrade","build2"]},
   pop:{title:"流行套路", type:"module", concepts:["mood","derive","listen"]},
   sus:{title:"挂留和弦", type:"module", concepts:["build","hear","has3"]},
   keymin:{title:"小调简介", type:"module", concepts:["dark","rel","minbuild"]},
@@ -465,7 +469,8 @@ const MOD_EN={ // 关卡卡片标题/简介英文
   "function":["Chord Function · Home & Away","Tonic / Subdominant / Dominant; the leading tone"],
   inv:["Inversions · Same Notes, New Bass","Root / 1st / 2nd inversion: hear & build"],
   slash:["Slash Chords · Walking Bass","Reading C/E, G/B; usually played as inversions"],
-  resolve:["Resolution · How V7 Lands Home","Tendency tones; where each inversion resolves; cadence grades"],
+  resolve:["Resolution · Where Each Note Goes","Tendency tones move, nearest motion, bass to the nearest C — three voice-leading rules"],
+  resolve2:["Resolution · Inversion Landings & Cadences","Where each shape resolves; perfect / imperfect / half cadence"],
   pop:["Pop Progressions · Hit Formulas","1564 / 4536 / 4321 / 1645 / 6415 / 1625"],
   sus:["Sus Chords · Suspense","sus4 / sus2: remove the 3rd and float"],
   keymin:["Minor Intro · The Dark World","Minor steps, why it sounds dark, relative keys"],
@@ -567,7 +572,8 @@ const FREQ = {
   "function":{T:6, S:5, D:6, lead:6},
   inv:{which:5, build:6, ear:5},
   slash:{concept:5, bassname:5, build:6},
-  resolve:{tend:6, voices:5, invres:6, cadgrade:5, build:4},
+  resolve:{tend:6, voices:5, build:4},
+  resolve2:{invres:6, cadgrade:5, build2:4},
   pop:{mood:5, derive:5, listen:6},
   sus:{build:6, hear:6, has3:4},
   parmin:{flat367:5, relpar:6, pair:5},
@@ -750,7 +756,7 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">The drills below take you across several major keys: identify the key signature (how many sharps/flats), decide whether a note belongs to the key, and build an entire major scale on the keyboard. (Minor keys get their own systematic treatment from level ⑮ on.)</p>`;
+      <p style="color:var(--muted);font-size:13px">The drills below take you across several major keys: identify the key signature (how many sharps/flats), decide whether a note belongs to the key, and build an entire major scale on the keyboard. (Minor keys get their own systematic treatment from level ⑯ on.)</p>`;
     case "keymin": return `
       <p>Welcome through the <b>door to the night world</b>. For a dozen levels we've lived in the "bright world" (major keys), mastering chords, degrees, functions and progressions; from here on we enter <b>minor</b> — the next few levels replay that whole skill set in the dark world. First, meet the minor key itself.</p>
       <p>Like major, a minor key is "<b>a tonic + a fixed stair pattern</b>" — just a <b>different pattern</b>. The most basic, <b>natural minor</b>, runs: <b>W H W W H W W</b> (the half steps fall in different places).</p>
@@ -1012,7 +1018,7 @@ function teachEN(mId){
           <p>· <b>viiø7</b>: B D F A = 1 ♭3 ♭5 ♭7 = Bm7♭5 (half-diminished).</p>
         </div>
       </details>
-      <p style="color:var(--muted);font-size:13px">Drills in this level: find the root, decide the case (triad Roman numerals), add the seventh (7th-chord Roman numerals).<br>Moving a whole progression <b>to other keys</b> is trained in its own level, "Transposition" (㉑).</p>`;
+      <p style="color:var(--muted);font-size:13px">Drills in this level: find the root, decide the case (triad Roman numerals), add the seventh (7th-chord Roman numerals).<br>Moving a whole progression <b>to other keys</b> is trained in its own level, "Transposition" (㉒).</p>`;
     case "transpose": return `
       <p>The most practical power of Roman numerals is <b>transposition</b>: the same string of degrees (say ii7–V7–Imaj7) moves to any major key — just <b>recount the degrees</b> and the actual chords fall out. This level drills exactly that.</p>
       <p>The core procedure: <b>see the Roman numeral → count to that degree in the target key → write the chord</b> (and the reverse). Take <b>ii7–V7–Imaj7</b> and hear it in three keys (tap a row to play the whole thing):</p>
@@ -1031,7 +1037,7 @@ function teachEN(mId){
       <details class="note" open><summary><b>🎓 Graduation review · every progression, any key, one more listen</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>Transposition is the course's "final puzzle piece" — so let's gather <b>every progression you've learned</b>: switch keys at will, loop at will, toggle block/arpeggio/combo at will, and verify with your own hands that "degrees stay put while keys travel".</p>
-          <p><b>The six big major progressions</b> (level ⑬). First, the 7-degree cheat sheet (C major as example, every cell playable; when you switch keys, <b>the digits and Romans stay fixed</b> — translate the note names into the target key yourself; that's precisely this level's skill):</p>
+          <p><b>The six big major progressions</b> (level ⑭). First, the 7-degree cheat sheet (C major as example, every cell playable; when you switch keys, <b>the digits and Romans stay fixed</b> — translate the note names into the target key yourself; that's precisely this level's skill):</p>
           <table class="ctab"><tr><th>Digit</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>Roman</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
             <tr><th>C-major chord</th>
@@ -1047,7 +1053,7 @@ function teachEN(mId){
             <span class="chip" data-play="kloopseq:pp1625">🔁 1625 (I–vi–ii–V) · oldies & jazz, silky turnaround</span>
           </div>
           ${keyBar(true,true)}
-          <p><b>The six big minor progressions</b> (level ⑲). Likewise the 7-degree cheat sheet (A minor as example; minor digits also count from the tonic):</p>
+          <p><b>The six big minor progressions</b> (level ⑳). Likewise the 7-degree cheat sheet (A minor as example; minor digits also count from the tonic):</p>
           <table class="ctab"><tr><th>Digit</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>Roman</th><td>i</td><td>ii°</td><td>III</td><td>iv</td><td>v</td><td>VI</td><td>VII</td></tr>
             <tr><th>A-minor chord</th>
@@ -1063,7 +1069,7 @@ function teachEN(mId){
             <span class="chip" data-play="mkloopseq:mCircle">🔁 1473 (i–iv–VII–III) · circle of fifths, flowing narrative</span>
           </div>
           ${mKeyBar()}
-          <p><b>The three borrowing moves</b> (level ⑳):</p>
+          <p><b>The three borrowing moves</b> (level ㉑):</p>
           <div class="row">
             <span class="chip" data-play="kloopseq:borrowYes">🔁 I–IV–iv–I · the tear-jerker, darken then come home</span>
             <span class="chip" data-play="kloopseq:bVIIyes">🔁 I–♭VII–IV–I · open-hearted rock, a door swings open</span>
@@ -1078,7 +1084,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>What exactly is the "journey"? What do home, setting out and coming home refer to?</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>A journey = one phrase-level chord progression</b> — typically 2–8 chords, a few bars, roughly "one line of lyrics" long. It is <b>not</b> the whole song, nor a single note: a song strings many such little journeys <b>end to end</b> — the verse circles a few laps, the chorus a few more (level ⑬'s loop progressions are journeys walked on repeat), and each lap either completes the full circle "home → set out → tension → home" or deliberately stops partway.</p>
+          <p><b>A journey = one phrase-level chord progression</b> — typically 2–8 chords, a few bars, roughly "one line of lyrics" long. It is <b>not</b> the whole song, nor a single note: a song strings many such little journeys <b>end to end</b> — the verse circles a few laps, the chorus a few more (level ⑭'s loop progressions are journeys walked on repeat), and each lap either completes the full circle "home → set out → tension → home" or deliberately stops partway.</p>
           <p>· <b>"Home" = the stability baseline set by the tonic chord</b>. Once the key is fixed, home is fixed (in C major, home = the C chord): hearing it, the ear feels "you may stop — sentence finished". It's the candidate start and end of every journey.<br>
              · <b>"Setting out" = leaving stability</b>. Moving to a subdominant-class chord sets the music "in motion" — not tense yet, but no longer at home; the sentence has a direction.<br>
              · <b>"Tension" = the bow drawn fully before the homecoming</b>. Reaching a dominant-class chord, tension peaks — its <b>source</b> is the leading tone inside the chord (a half step under the tonic, gripped hard by its pull; taught in detail below); its <b>job</b> is stretching the ear's expectation to the maximum — without this charge-up, "coming home" would be bland. The fuller the tension, the sweeter the landing.<br>
@@ -1129,7 +1135,7 @@ function teachEN(mId){
             <span class="chip" data-play="kseq:leadIVI">🔊 IV→I (also moves upward, but no half-step magnet — the gentle "Amen")</span>
           </div>
           ${keyBar(true,true)}
-          <p style="font-size:12.5px;color:var(--muted)">This concept echoes in both directions: cadences (section ③ here), why level ⑩'s hazy F/G is soft (the next level, "Resolution", dissects it with the leading tone), why minor keys "engineer" a leading tone (level ⑱). The drills test it directly too.</p>
+          <p style="font-size:12.5px;color:var(--muted)">This concept echoes in both directions: cadences (section ③ here), why level ⑩'s hazy F/G is soft (the next level, "Resolution", dissects it with the leading tone), why minor keys "engineer" a leading tone (level ⑲). The drills test it directly too.</p>
         </div>
       </details>
       <details class="note" open><summary><b>What function is iii (Em)? — the most ambiguous one</b></summary>
@@ -1167,7 +1173,7 @@ function teachEN(mId){
 
       <p><b>② Mid-song · filling verse and chorus: run laps with a "loop progression"</b></p>
       <p style="line-height:1.85;color:#e9e3ff">
-        Four chords cycling round and round can push the emotion indefinitely — a loop <b>doesn't do endings; it does momentum</b>. The four big loops live here (level ⑬ "Pop Progressions" drills them):</p>
+        Four chords cycling round and round can push the emotion indefinitely — a loop <b>doesn't do endings; it does momentum</b>. The four big loops live here (level ⑭ "Pop Progressions" drills them):</p>
       <div class="row">
         <span class="chip" data-play="kloopset:1,5,6,4">🔁 I–V–vi–IV (the universal loop)</span>
         <span class="chip" data-play="kloopset:4,5,3,6">🔁 IV–V–iii–vi (Mandopop ballad)</span>
@@ -1192,7 +1198,7 @@ function teachEN(mId){
       </div>
       ${keyBar(true,true)}
       <p>The core feeling: <b>dominant (V) → tonic (I)</b> delivers that powerful "<b>I'm home</b>" resolution. That is the sound of music "ending".</p>
-      <p style="font-size:12.5px;color:var(--muted)">A preview: the "perfect" in "perfect cadence" is picky — it requires not just landing on I but the tonic in <b>root position with the tonic note in the bass</b> (all the demos above qualify). How perfect vs. imperfect is graded, and where each note of V7 goes at resolution, gets its own level: ⑫ "Resolution".</p>
+      <p style="font-size:12.5px;color:var(--muted)">A preview: the "perfect" in "perfect cadence" is picky — it requires not just landing on I but the tonic in <b>root position with the tonic note in the bass</b> (all the demos above qualify). Where each note of V7 goes at resolution is covered in level ⑫, and how perfect vs. imperfect is graded in level ⑬ — both "Resolution" levels.</p>
       <details class="note" open><summary>Why only three functions?</summary>
         <p style="color:var(--muted);font-size:13.5px;line-height:1.7">Professional harmonic analysis distinguishes finer functions and substitutions. We use only the minimal three —
         <b>tonic (stable), subdominant (departing), dominant (homeward-bound)</b> — because they already explain <b>why most pop progressions sound good</b>.
@@ -1282,7 +1288,7 @@ function teachEN(mId){
         <span class="chip" data-play="seq:slashFG">🔊 F/G alone (G3 F4 A4 C5 — hazy, no sting)</span>
         <span class="chip" data-play="seq:slashFGC">🔊 Hear it land on C (easing the door open)</span>
       </div>
-      <p style="font-size:12.5px;color:var(--muted)">Why can it stand in for G7 as "the soft dominant→tonic"? Finish level ⑫ "Resolution", then come back and take it apart.</p>
+      <p style="font-size:12.5px;color:var(--muted)">Why can it stand in for G7 as "the soft dominant→tonic"? Finish level ⑬ "Resolution", then come back and take it apart.</p>
 
       <p><b>One table to sum up both cases:</b></p>
       <table class="ctab"><tr><th>Case</th><th>Examples</th><th>How to play</th></tr>
@@ -1294,7 +1300,7 @@ function teachEN(mId){
       ${loopBar()}`;
     case "resolve": return `
       <p>This level is about one word: <b>resolution</b>. It's where everything converges — V7's tension from level ⑥, inversions and slash notation from ⑨⑩, and the leading tone from ⑪ all get assembled into one craft here. But before learning "how", the first job is understanding <b>what it is and why it exists</b>.</p>
-      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>Scope, up front:</b> resolution isn't G7's private property — it's what <b>every "tense chord before going home" must do</b>: V7, V, vii°, level ⑩'s F/G, the borrowed ♭VII, even minor's E7 (level ⑱). <b>Any tense chord wanting to fall back onto the stable tonic follows the same laws of resolution.</b> We use <b>G7→I as the specimen</b>: its tension is maximal (carrying both a leading tone and a tritone), so its voice motion is the most complete and easiest to hear — the ideal case for nailing the laws. Learn it and every other tense chord copies the same playbook.</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>Scope, up front:</b> resolution isn't G7's private property — it's what <b>every "tense chord before going home" must do</b>: V7, V, vii°, level ⑩'s F/G, the borrowed ♭VII, even minor's E7 (level ⑲). <b>Any tense chord wanting to fall back onto the stable tonic follows the same laws of resolution.</b> We use <b>G7→I as the specimen</b>: its tension is maximal (carrying both a leading tone and a tritone), so its voice motion is the most complete and easiest to hear — the ideal case for nailing the laws. Learn it and every other tense chord copies the same playbook.</p>
 
       <details class="note" open><summary><b>What is "resolution"? Why does music need it?</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -1430,16 +1436,20 @@ function teachEN(mId){
           <div class="row">
             <span class="chip" data-play="seq:rsClose">🔊 Standard: G7 → C·C·C·E (B3 and D4 land together on C4)</span>
           </div>
-          <p>The same resolution can also be <b>spread out</b> (no two voices on the same key), so you can watch each voice's path clearly on the keyboard — it sounds the same, just laid out wider:</p>
+          <p><b>And a counter-example</b>: same root-position G7 (G3 B3 D4 F4), but let the 7th F4 leap up to G4 instead of dutifully falling to E — the tendency-tone rule breaks: the landing becomes C3 C4 C4 G4, <b>missing its 3rd E, leaving a hollow C and G</b>: empty, hanging, unresolved:</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 Spread version (each path on its own key)</span>
-          </div>
-          <p><b>And a counter-example</b>: if the 7th F doesn't dutifully fall to E but leaps up to G instead, the tendency-tone rule is broken — the landing loses its 3rd E, leaving a hollow C and G: empty, hanging, unresolved:</p>
-          <div class="row">
-            <span class="chip" data-play="seq:rsBadG">🔊 Violation: F leaps to G instead of falling to E (hollow, hanging)</span>
+            <span class="chip" data-play="seq:rsBadClose">🔊 Violation: G7 → F4 leaps up to G4 (no 3rd · hollow, hanging)</span>
           </div>
           ${loopStyleBar()}
         </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: where the tendency tones go, the bass / common-tone rules, root-vs-tonic, and building the root-position G7 landing into C·C·C·E on the keyboard. Once "where each note goes" is solid, the next level looks at how a changed voicing (inversion) shifts the landing and how the whole phrase ends.</p>`;
+
+    case "resolve2": return `
+      <details class="concept" open><summary><b>What this level covers</b></summary>
+        <div style="line-height:1.9">Last level nailed how a <b>single root-position G7 → C</b> resolves voice by voice. This level applies the same rules to two extensions: ① how the <b>inversions</b> (G7/B, G7/D, G7/F) each land, and ② how a phrase <b>ends</b> — perfect, imperfect, and half cadence. First replay the standard resolution from last level to get the feel back:</div>
+        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 Recap: G7 → C (G3 B3 D4 F4 → C3 C4 C4 E4)</span></div>
       </details>
 
       <details class="note" open><summary><b>How does each shape resolve? (this level's highlight)</b></summary>
@@ -1510,7 +1520,7 @@ function teachEN(mId){
       <details class="note"><summary>Extra: swap in another tense chord — resolving V, vii° and ♭VII</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>As said up front, resolution isn't G7's private property. Apply the master rule (<b>each note moves to the nearest, legal tonic tone</b>) to other "tense chords before home" and it still holds. Hear each, all in the same register as G7→C:</p>
-          <p><b>① V (plain triad G B D) → C</b>: it lacks G7's 7th F, so it has <b>only one tendency tone, the leading tone B</b> (B↗C, locked); D goes nearest to C, G stays or moves to E. Without the F→E sting to dissolve, the period is still there but <b>slightly less tense than G7</b> — precisely the difference between V and V7.</p>
+          <p><b>① V (plain triad G B D) → C</b>: it lacks G7's 7th F, so it has <b>only one tendency tone, the leading tone B</b> (B↗C, locked); the bass G leaps to C and the 5th D rises to E to supply the 3rd. Without the F→E sting to dissolve, the period is still there but <b>slightly less tense than G7</b> — precisely the difference between V and V7.</p>
           <div class="row">
             <span class="chip" data-play="seq:rsV">🔊 V → C (one tendency tone, a lighter period)</span>
             <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (two tendency tones, the heaviest period)</span>
@@ -1519,7 +1529,7 @@ function teachEN(mId){
           <div class="row">
             <span class="chip" data-play="seq:rsVii">🔊 vii° → C (same B/F tritone, resolves like G7)</span>
           </div>
-          <p><b>③ ♭VII (the borrowed B♭ major triad B♭ D F) → C</b>: the "open-hearted rock" chord from level ⑳. Note it has <b>no leading tone</b> (its root is B♭, not B) — the bass B♭ strides into C by a <b>whole step</b>, not a half-step squeeze; no half-step magnet, no tritone. So it still goes home, but <b>relaxed and unhurried</b> — a stroll through the door, not a push. This shows: <b>not every tense chord resolves via a leading tone</b>; a whole-step approach is a legal homecoming too.</p>
+          <p><b>③ ♭VII (the borrowed B♭ major triad B♭ D F) → C</b>: we'll cover borrowed chords later; for now just look at how it comes home. Note it has <b>no leading tone</b> (its root is B♭, not B) — the bass B♭ strides into C by a <b>whole step</b>, not a half-step squeeze; no half-step magnet, no tritone. So it still goes home, but <b>relaxed and unhurried</b> — a stroll through the door, not a push. This shows: <b>not every tense chord resolves via a leading tone</b>; a whole-step approach is a legal homecoming too.</p>
           <div class="row">
             <span class="chip" data-play="seq:rsbVII">🔊 ♭VII → C (no leading tone, whole-step approach, relaxed)</span>
             <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (leading tone, half-step squeeze, urgent)</span>
@@ -1555,7 +1565,7 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">Drills cover: tendency-tone destinations, bass/common-tone rules and the root-vs-tonic terminology, each inversion's landing (with a V42→I6 special), cadence grading and term-fixing, and building the correct landing on the keyboard. Next level: pop progressions — where you'll find today's rules hiding in every loop seam.</p>`;
+      <p style="color:var(--muted);font-size:13px">This level's drills: each inversion's landing (with a V42→I6 special), cadence grading and term-fixing, and building inversion landings on the keyboard (C/E = I6). Next level: pop progressions — where you'll find both levels' rules hiding in every loop seam.</p>`;
 
     case "pop": return `
       <p>Why can you hum along to some songs on first listen? Because thousands of hits are built on a handful of fixed <b>chord progressions</b>. The handiest way to memorize them is the <b>degrees (Roman numerals)</b> you've learned. Here are the six big ones — button chord names are written in C major, and <b>you can switch keys anytime</b>:</p>
@@ -1664,7 +1674,7 @@ function teachEN(mId){
       <p><b>Must Vsus4 first "fall" back to V? Both routes are common:</b></p>
       <p style="line-height:1.9;color:#e9e3ff">
         · <b>Traditional: Vsus4→V→I</b> (the gospel/ballad signature): the suspended 4th C first <b>falls a half step to the 3rd B</b> (resolution), then V goes home — that little "C→B" slide is where the classic flavor lives.<br>
-        · <b>Modern: Vsus4→I lands directly</b>: skip the resolution and go home straight from mid-air — since <b>the leading tone B never appears</b>, it sounds softer and hazier (the same principle as the F/G-for-G7 swap dissected in level ⑫); extremely common in rock and pop.</p>
+        · <b>Modern: Vsus4→I lands directly</b>: skip the resolution and go home straight from mid-air — since <b>the leading tone B never appears</b>, it sounds softer and hazier (the same principle as the F/G-for-G7 swap dissected in level ⑬); extremely common in rock and pop.</p>
       <div class="row">
         <span class="chip" data-play="kseq:susTens">🔊 Traditional: F→Gsus4→G→C (resolve, then home)</span>
         <span class="chip" data-play="kseq:susDir">🔊 Modern: F→Gsus4→C (land straight from mid-air)</span>
@@ -1731,7 +1741,7 @@ function teachEN(mId){
               <td class="play" data-play="notes:8,12,15">A♭</td>
               <td class="play" data-play="notes:10,14,17">B♭</td></tr></table>
           <div class="row"><span class="chip" data-play="seq:cmFam">🔊 Tour the C-minor family</span></div>
-          <p>Level ⑳ "Borrowed Chords" shops from exactly this table — iv = Fm (the tear-jerker), VI = A♭, VII = B♭, III = E♭, all here. Now you know where they come from.</p>
+          <p>Level ㉑ "Borrowed Chords" shops from exactly this table — iv = Fm (the tear-jerker), VI = A♭, VII = B♭, III = E♭, all here. Now you know where they come from.</p>
         </div>
       </details>
       <p style="color:var(--muted);font-size:13px">Drills: derive quality/chord name for any degree of any minor key, translate minor Roman numerals both ways, build on the keyboard, and a C-minor-list special.</p>`;
@@ -1874,8 +1884,8 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>🧩 Does minor have a "big-four ring" mechanism too? — yes, and it's the mirror image</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>First recall the major-side conclusion (level ⑬).</b> Major's starters are the <b>big four 1·4·5·6</b> because they cover the functions: <b>I = tonic T (home), IV = subdominant S (departure), V = dominant D (tense, homeward), vi = the tonic's melancholy stand-in</b> — all three functions T/S/D present, bright and dark mixed, which is why the six progressions reuse them endlessly.</p>
-          <p><b>1 · Draft minor's squad by the same functional logic.</b> Position by position: <b>tonic T = i (the dark home)</b>; <b>subdominant S = iv (the dark departure)</b>; <b>dominant D = two candidates</b> — the natural <b>VII (the pusher, open-hearted edition)</b> and the upgrade key <b>V7 (level ⑱, the true period)</b>; plus <b>the tonic's stand-ins = III and VI, the two "brightness bearers"</b> (major triads, the source of the epic feel; III is also the relative major's I). The functional journey still completes: depart (iv) → tension/push (V7 or VII) → home (i). The benchwarmers match too: <b>ii° is the diminished bench</b> (mirroring major's vii°), and <b>the natural v is too soft</b> (level ⑱). So minor's starting ring is <b>i·iv·VI·VII (+III), with V7 as the key</b> — the very same drafting logic as major, returning a mirror squad.</p>
+          <p><b>First recall the major-side conclusion (level ⑭).</b> Major's starters are the <b>big four 1·4·5·6</b> because they cover the functions: <b>I = tonic T (home), IV = subdominant S (departure), V = dominant D (tense, homeward), vi = the tonic's melancholy stand-in</b> — all three functions T/S/D present, bright and dark mixed, which is why the six progressions reuse them endlessly.</p>
+          <p><b>1 · Draft minor's squad by the same functional logic.</b> Position by position: <b>tonic T = i (the dark home)</b>; <b>subdominant S = iv (the dark departure)</b>; <b>dominant D = two candidates</b> — the natural <b>VII (the pusher, open-hearted edition)</b> and the upgrade key <b>V7 (level ⑲, the true period)</b>; plus <b>the tonic's stand-ins = III and VI, the two "brightness bearers"</b> (major triads, the source of the epic feel; III is also the relative major's I). The functional journey still completes: depart (iv) → tension/push (V7 or VII) → home (i). The benchwarmers match too: <b>ii° is the diminished bench</b> (mirroring major's vii°), and <b>the natural v is too soft</b> (level ⑲). So minor's starting ring is <b>i·iv·VI·VII (+III), with V7 as the key</b> — the very same drafting logic as major, returning a mirror squad.</p>
           <p><b>2 · Rotation works here too.</b> The 1637 ring (1→6→3→7→back to 1) works from any entry point — verify by ear:</p>
           <div class="row">
             <span class="chip" data-play="mkprog:6,3,7,1">🔁 6371 (F→C→G→Am — VI enters, bright opening)</span>
@@ -1920,7 +1930,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Appreciation 1 · the perspective flip: same notes, new home, total color change</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>Background · why can one set of chords belong to two keys?</b> Level ⑮ taught that C major and A minor are <b>relative keys</b> sharing the same notes — so they share the same chords too. <b>Am, F, C, G</b> are simultaneously members of the C-major family (numbers 6, 4, 1, 5) and the A-minor family (i, VI, III, VII). Two ID cards, one body.</p>
+          <p><b>Background · why can one set of chords belong to two keys?</b> Level ⑯ taught that C major and A minor are <b>relative keys</b> sharing the same notes — so they share the same chords too. <b>Am, F, C, G</b> are simultaneously members of the C-major family (numbers 6, 4, 1, 5) and the A-minor family (i, VI, III, VII). Two ID cards, one body.</p>
           <table class="ctab"><tr><th>Chord</th><td>Am</td><td>F</td><td>C</td><td>G</td></tr>
             <tr><th>Number from C major's view</th><td><b>6</b> (vi)</td><td>4 (IV)</td><td>1 (I)</td><td>5 (V)</td></tr>
             <tr><th>Number from A minor's view</th><td><b>i</b></td><td>VI</td><td>III</td><td>VII</td></tr></table>
@@ -1941,13 +1951,13 @@ function teachEN(mId){
       </details>
       <details class="note" open><summary><b>Appreciation 2 · same-tonic A/B: one set of degrees, major vs. minor edition</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>Background · this is level ⑯'s "parallel keys" applied to progressions.</b> C major and C minor share the tonic C, but degrees 3, 6, 7 are lowered. <b>The degree path copies over verbatim</b> — 1564 is still "one-five-six-four" — but every station's "resident chord" is swapped for its counterpart in the night family (level ⑰'s list).</p>
+          <p><b>Background · this is level ⑰'s "parallel keys" applied to progressions.</b> C major and C minor share the tonic C, but degrees 3, 6, 7 are lowered. <b>The degree path copies over verbatim</b> — 1564 is still "one-five-six-four" — but every station's "resident chord" is swapped for its counterpart in the night family (level ⑱'s list).</p>
           <p><b>Step 1 · translate degree by degree.</b> Station by station the cast changes; every cell playable (note exactly what changes at each stop):</p>
           <table class="ctab"><tr><th>Degree</th><th>C-major version</th><th>C-minor version</th><th>What changed</th></tr>
             <tr><td>1</td><td class="play" data-play="notes:0,4,7">C</td><td class="play" data-play="notes:0,3,7">Cm</td><td>3rd E→E♭ (home darkens)</td></tr>
             <tr><td>5</td><td class="play" data-play="notes:7,11,14">G</td><td class="play" data-play="notes:7,10,14">Gm</td><td>3rd B→B♭ (natural minor's v, a minor chord)</td></tr>
             <tr><td>6</td><td class="play" data-play="notes:9,12,16">Am</td><td class="play" data-play="notes:8,12,15">A♭</td><td><b>even the root changes</b>: A→A♭, minor chord becomes major</td></tr>
-            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>3rd A→A♭ (the very "tear-jerker" Fm of level ⑳)</td></tr></table>
+            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>3rd A→A♭ (the very "tear-jerker" Fm of level ㉑)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">⚠ Degree 6 is the trickiest: major's vi is the minor chord Am, while minor's VI is the <b>major</b> chord A♭ — not only does the quality flip, <b>the root itself drops a half step</b> (because minor's 6th note is A♭). Not a typo: the two families' "resident #6" were never the same person.</p>
           <p><b>Step 2 · whole-passage A/B.</b> Same tonic, same path (both journey 1→5→6→4) — only the residents change, and the world goes dark:</p>
           <div class="row">
@@ -1964,7 +1974,7 @@ function teachEN(mId){
       <p style="color:var(--muted);font-size:13px">Drills: name minor progressions, blind major-vs-minor listening, mood matching, perspective-flip judgment.</p>`;
     case "borrow": return `
       <p>Welcome to the advanced class! Write songs using only one key's diatonic chords (say C major's all-white-key family) and after a while everything sounds too tame, too safe. The songs that raise goosebumps — even tears — often sit in a safe major key and <b>suddenly borrow an "alien" chord</b>. That's <b>modal interchange / borrowed chords</b>.</p>
-      <p><b>What is borrowing?</b> Level ⑯ hung the address plate: C major's <b>parallel universe</b> is C minor; level ⑰ handed you the C-minor family list (Cm, D°, E♭, Fm, Gm, A♭, B♭). Borrowing means: while playing a sunny C-major song, reach into that list, "borrow" one wistful chord, then give it back. That momentary shift of light is devastatingly effective.</p>
+      <p><b>What is borrowing?</b> Level ⑰ hung the address plate: C major's <b>parallel universe</b> is C minor; level ⑱ handed you the C-minor family list (Cm, D°, E♭, Fm, Gm, A♭, B♭). Borrowing means: while playing a sunny C-major song, reach into that list, "borrow" one wistful chord, then give it back. That momentary shift of light is devastatingly effective.</p>
       <details class="note" open><summary><b>Example 1 · pop's deadliest weapon: the minor four iv (the tear-jerker)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>In C major, degree 4 is normally the bright <b>F major triad (F A C)</b>; borrow the minor chord <b>Fm (F A♭ C)</b> from slot 4 of the list and you import one out-of-key note, <b>A♭</b> (the 3rd, A, lowered a half step). First compare the pair alone:</p>
@@ -1985,7 +1995,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Example 2 · rock's open heart: the flat seven ♭VII (B♭)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>Step 1 · how to read the symbol?</b> "♭VII" = <b>flat seven</b>: the root is "the major key's 7th note <b>lowered a half step</b>" (B→B♭ in C major); uppercase Roman = <b>major triad</b>. So in C major, ♭VII is the <b>B♭ major triad (B♭ D F)</b> — precisely the resident of slot 7 in the C-minor list (level ⑰). Hear it right away:</p>
+          <p><b>Step 1 · how to read the symbol?</b> "♭VII" = <b>flat seven</b>: the root is "the major key's 7th note <b>lowered a half step</b>" (B→B♭ in C major); uppercase Roman = <b>major triad</b>. So in C major, ♭VII is the <b>B♭ major triad (B♭ D F)</b> — precisely the resident of slot 7 in the C-minor list (level ⑱). Hear it right away:</p>
           <div class="row">
             <span class="chip" data-play="mel:11,10">🔊 The root's origin: B4 → lowered → B♭4</span>
             <span class="chip" data-play="notes:10,14,17">🔊 The borrowed ♭VII: B♭ major triad (B♭4 D5 F5)</span>
@@ -2176,7 +2186,7 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">下面的练习会带你跨多个大调：判断调号(几个升/降号)、某个音在不在这个调里、还能在键盘上把整个大调按出来。(小调从第⑮关起单独成体系地学。)</p>`;
+      <p style="color:var(--muted);font-size:13px">下面的练习会带你跨多个大调：判断调号(几个升/降号)、某个音在不在这个调里、还能在键盘上把整个大调按出来。(小调从第⑯关起单独成体系地学。)</p>`;
 
     case "keymin": return `
       <p>欢迎推开<b>暗夜世界的门</b>。前面十几关我们一直生活在"明亮世界"(大调)，把和弦、级数、功能、套路都玩熟了；从这关起进入<b>小调</b>——接下来的几关会把同一套本事在暗夜世界重新玩一遍。先从小调本身认起。</p>
@@ -2442,7 +2452,7 @@ function teachCN(mId){
           <p>· <b>viiø7</b>：B D F A = 1 ♭3 ♭5 ♭7 = Bm7♭5(半减七)。</p>
         </div>
       </details>
-      <p style="color:var(--muted);font-size:13px">本关练习：找根音、判断大小写(三和弦罗马数字)、在三和弦上加第七音(七和弦罗马数字)。<br>把同一套进行<b>移到别的调</b>的训练，放在专门的「移调翻译」关(㉑)里。</p>`;
+      <p style="color:var(--muted);font-size:13px">本关练习：找根音、判断大小写(三和弦罗马数字)、在三和弦上加第七音(七和弦罗马数字)。<br>把同一套进行<b>移到别的调</b>的训练，放在专门的「移调翻译」关(㉒)里。</p>`;
 
     case "transpose": return `
       <p>罗马数字最实用的地方是<b>可移调</b>：同一串级数(比如 ii7–V7–Imaj7)，搬到任何大调，只要<b>重新数级数</b>就能立刻翻成实际和弦。这一关专门练这个。</p>
@@ -2462,7 +2472,7 @@ function teachCN(mId){
       <details class="note" open><summary><b>🎓 毕业总复习 · 全部套路任意调重听一遍</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>移调是这门课的"最后一块拼图"——现在把前面学过的<b>所有套路</b>放在一起：随便换调、随便循环、随便切齐奏/分解/综合，亲手验证"级数不变，走遍各调"。</p>
-          <p><b>大调六大套路</b>(第⑬关)。先放一张七级速查表(以 C 大调为例，每格可点；换调听套路时<b>数字与罗马不变</b>，音名请按目标调自行对译——本关练的正是这个)：</p>
+          <p><b>大调六大套路</b>(第⑭关)。先放一张七级速查表(以 C 大调为例，每格可点；换调听套路时<b>数字与罗马不变</b>，音名请按目标调自行对译——本关练的正是这个)：</p>
           <table class="ctab"><tr><th>数字</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>罗马</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
             <tr><th>C 大调和弦</th>
@@ -2478,7 +2488,7 @@ function teachCN(mId){
             <span class="chip" data-play="kloopseq:pp1625">🔁 1625（I–vi–ii–V）· 老歌爵士，丝滑回转</span>
           </div>
           ${keyBar(true,true)}
-          <p><b>小调六大走向</b>(第⑲关)。同样先放七级速查表(以 A 小调为例；注意小调数字也从主音数起)：</p>
+          <p><b>小调六大走向</b>(第⑳关)。同样先放七级速查表(以 A 小调为例；注意小调数字也从主音数起)：</p>
           <table class="ctab"><tr><th>数字</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>罗马</th><td>i</td><td>ii°</td><td>III</td><td>iv</td><td>v</td><td>VI</td><td>VII</td></tr>
             <tr><th>A 小调和弦</th>
@@ -2494,7 +2504,7 @@ function teachCN(mId){
             <span class="chip" data-play="mkloopseq:mCircle">🔁 1473（i–iv–VII–III）· 五度圈，顺流叙事</span>
           </div>
           ${mKeyBar()}
-          <p><b>借用三招</b>(第⑳关)：</p>
+          <p><b>借用三招</b>(第㉑关)：</p>
           <div class="row">
             <span class="chip" data-play="kloopseq:borrowYes">🔁 I–IV–iv–I · 催泪弹，先暗一下再回家</span>
             <span class="chip" data-play="kloopseq:bVIIyes">🔁 I–♭VII–IV–I · 豁达摇滚，敞开一扇门</span>
@@ -2510,7 +2520,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>"旅程"比喻的到底是什么？家、出发、回家分别指什么？</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>旅程 = 一个乐句级别的和弦进行</b>——通常 2~8 个和弦、几小节长，大约就是"一句歌词唱完"的那一小段。它<b>不是</b>整首歌，也不是单个音：一首歌由许多段这样的小旅程<b>首尾相接</b>组成——主歌绕几圈、副歌绕几圈(第⑬关的循环套路就是被反复走的旅程)，每一段要么走完"家→出发→紧张→回家"的整圈，要么故意停在半路。</p>
+          <p><b>旅程 = 一个乐句级别的和弦进行</b>——通常 2~8 个和弦、几小节长，大约就是"一句歌词唱完"的那一小段。它<b>不是</b>整首歌，也不是单个音：一首歌由许多段这样的小旅程<b>首尾相接</b>组成——主歌绕几圈、副歌绕几圈(第⑭关的循环套路就是被反复走的旅程)，每一段要么走完"家→出发→紧张→回家"的整圈，要么故意停在半路。</p>
           <p>· <b>"家" = 主和弦给出的稳定基准</b>。调一确定，家就固定了(C 大调的家=C 和弦)：听到它，耳朵觉得"可以停、说完了"。它是每段旅程的起点和终点候选。<br>
              · <b>"出发" = 离开稳定</b>。换到下属类和弦，音乐"动起来"了——还不紧张，但已经不在家里，句子有了去向。<br>
              · <b>"紧张" = 回家前被拉满的弓</b>。走到属类和弦时，紧张感达到顶点——它的<b>来源</b>是和弦里的导音(紧贴主音半音之下，被狠狠吸住，本关下面专讲)；它的<b>作用</b>是把耳朵的期待拉到最满——没有这一下蓄力，"回家"就平淡无奇，紧张越足，落地越痛快。<br>
@@ -2561,7 +2571,7 @@ function teachCN(mId){
             <span class="chip" data-play="kseq:leadIVI">🔊 IV→I（同样向上走，但没有半音磁铁，柔和"阿门"）</span>
           </div>
           ${keyBar(true,true)}
-          <p style="font-size:12.5px;color:var(--muted)">这个概念前后都会反复用到：终止式(本关③)、第⑩关那枚朦胧的 F/G 为什么柔(下一关「解决」会用导音拆给你看)、小调为什么要"魔改出导音"(第⑱关)。练习里也会专门考它。</p>
+          <p style="font-size:12.5px;color:var(--muted)">这个概念前后都会反复用到：终止式(本关③)、第⑩关那枚朦胧的 F/G 为什么柔(下一关「解决」会用导音拆给你看)、小调为什么要"魔改出导音"(第⑲关)。练习里也会专门考它。</p>
         </div>
       </details>
       <details class="note" open><summary><b>iii 级（Em）算什么功能？——最"暧昧"的一个</b></summary>
@@ -2599,7 +2609,7 @@ function teachCN(mId){
 
       <p><b>② 进行中 · 怎么铺满主歌/副歌：用"循环进行"绕圈跑</b></p>
       <p style="line-height:1.85;color:#e9e3ff">
-        四个和弦循环往复，可以一直重复推动情绪——它<b>不负责结尾，负责推进</b>。四大循环都在这里(第⑬关「流行套路」专门练)：</p>
+        四个和弦循环往复，可以一直重复推动情绪——它<b>不负责结尾，负责推进</b>。四大循环都在这里(第⑭关「流行套路」专门练)：</p>
       <div class="row">
         <span class="chip" data-play="kloopset:1,5,6,4">🔁 I–V–vi–IV（万能循环）</span>
         <span class="chip" data-play="kloopset:4,5,3,6">🔁 IV–V–iii–vi（华语抒情）</span>
@@ -2624,7 +2634,7 @@ function teachCN(mId){
       </div>
       ${keyBar(true,true)}
       <p>核心感受：<b>属功能(V)→主功能(I)</b> 会给你强烈的"<b>到家了</b>"的解决感。这就是音乐"结束"的声音。</p>
-      <p style="font-size:12.5px;color:var(--muted)">小预告："完满"二字其实有讲究——不但要落到 I，还要求主和弦<b>原位、低音落在 do</b> 上（上面的演示都满足）。"完满 / 不完满"怎么分、V7 里每个音解决时各去哪里，第⑫关「解决」专门细讲。</p>
+      <p style="font-size:12.5px;color:var(--muted)">小预告："完满"二字其实有讲究——不但要落到 I，还要求主和弦<b>原位、低音落在 do</b> 上（上面的演示都满足）。V7 里每个音解决时各去哪里，第⑫关「解决」细讲；"完满 / 不完满"怎么分，第⑬关「解决」专门讲。</p>
       <details class="note" open><summary>为什么只分三类功能？</summary>
         <p style="color:var(--muted);font-size:13.5px;line-height:1.7">专业和声分析还会区分更细的功能与替代。这里只用最简的三类——
         <b>主(稳定)、下属(出发)、属(想回家)</b>——因为它已经能解释绝大多数流行进行"<b>为什么好听</b>"。
@@ -2716,7 +2726,7 @@ function teachCN(mId){
         <span class="chip" data-play="seq:slashFG">🔊 单听 F/G（G3 F4 A4 C5，朦胧不刺）</span>
         <span class="chip" data-play="seq:slashFGC">🔊 听它落到 C（轻轻推门）</span>
       </div>
-      <p style="font-size:12.5px;color:var(--muted)">它为什么能顶替 G7、充当"柔和版的属→主"？等第⑫关学完"解决"，回头一拆便知。</p>
+      <p style="font-size:12.5px;color:var(--muted)">它为什么能顶替 G7、充当"柔和版的属→主"？等第⑬关学完"解决"，回头一拆便知。</p>
 
       <p><b>一张表总结两种情况：</b></p>
       <table class="ctab"><tr><th>情况</th><th>例子</th><th>怎么弹</th></tr>
@@ -2729,7 +2739,7 @@ function teachCN(mId){
 
     case "resolve": return `
       <p>这一关只讲一个词：<b>解决 (Resolution)</b>。它是前面所有课的汇合点——⑥关的 V7 张力、⑨⑩关的转位与斜杠、⑪关的导音，都将在这里拼成一门手艺。但先别急着学"怎么做"，第一件事是搞清楚<b>它是什么、为什么存在</b>。</p>
-      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>先说清适用范围：</b>"解决"不是 G7 的专利，而是<b>每一个"回家前的紧张和弦"都要做的事</b>——V7、V、vii°、⑩关的 F/G、借来的 ♭VII，乃至小调的 E7（⑱关），<b>凡是想落回稳定主和弦的紧张和弦，都遵循同一套解决规律</b>。我们这一关用 <b>G7→I 当标本</b>：它的紧张做到了极致（同时含导音和三全音），声部走向最完整、最好听辨，所以最适合拿来把规律讲透。学会它，其余紧张和弦照搬即可。</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>先说清适用范围：</b>"解决"不是 G7 的专利，而是<b>每一个"回家前的紧张和弦"都要做的事</b>——V7、V、vii°、⑩关的 F/G、借来的 ♭VII，乃至小调的 E7（⑲关），<b>凡是想落回稳定主和弦的紧张和弦，都遵循同一套解决规律</b>。我们这一关用 <b>G7→I 当标本</b>：它的紧张做到了极致（同时含导音和三全音），声部走向最完整、最好听辨，所以最适合拿来把规律讲透。学会它，其余紧张和弦照搬即可。</p>
 
       <details class="note" open><summary><b>什么是"解决"？音乐为什么需要它？</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -2865,16 +2875,20 @@ function teachCN(mId){
           <div class="row">
             <span class="chip" data-play="seq:rsClose">🔊 标准解决：G7 → C·C·C·E（B3、D4 同落 C4）</span>
           </div>
-          <p>同一个解决，也可以把四个声部<b>摊开</b>排列（不让任何两条落在同一个键上），方便你在键盘上看清每条声部各自走了哪条路——听感和上面一样，只是排得开：</p>
+          <p><b>对照一个反例</b>：还是原位 G7（G3 B3 D4 F4），但让七音 F4 不老实下行到 E、反而跳上去 G4——倾向音规则被破坏：落点成了 C3 C4 C4 G4，<b>缺了三音 E、只剩空洞的 C 和 G</b>，听起来空、悬、没收住：</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 摊开排列版（四条路各占一键）</span>
-          </div>
-          <p><b>对照一个反例</b>：如果七音 F 不老实下行到 E、反而跳上去 G，倾向音规则就被破坏了——落点缺了三音 E、只剩空洞的 C 和 G，听起来空、悬、没收住：</p>
-          <div class="row">
-            <span class="chip" data-play="seq:rsBadG">🔊 反例：F 不落 E 反跳 G（空、悬）</span>
+            <span class="chip" data-play="seq:rsBadClose">🔊 反例：G7 → F4 反跳 G4（缺三音·空、悬）</span>
           </div>
           ${loopStyleBar()}
         </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：倾向音的去向、低音/共同音规则、根音与主音之辨，以及在键盘上把原位 G7 的落点搭成 C·C·C·E。把"每个音怎么走"练熟，下一关再看换了排列（转位）落点怎么变、整句话怎么收尾。</p>`;
+
+    case "resolve2": return `
+      <details class="concept" open><summary><b>这一关学什么</b></summary>
+        <div style="line-height:1.9">上一关把<b>单个原位 G7 → C</b> 怎么逐声部解决讲透了。这一关用同一套规则看两个延伸：① 换了排列的<b>转位</b>（G7/B、G7/D、G7/F）各自落到哪；② 整句话怎么<b>收尾</b>——完满、不完满、半终止的差别。先快速回放一遍上一关的标准解决，找回手感：</div>
+        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 回顾：G7 → C（G3 B3 D4 F4 → C3 C4 C4 E4）</span></div>
       </details>
 
       <details class="note" open><summary><b>四个形态各自怎么解决？（本关高光）</b></summary>
@@ -2945,7 +2959,7 @@ function teachCN(mId){
       <details class="note"><summary>拓展：换个紧张和弦也一样——V、vii°、♭VII 的解决</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>开头说过：解决不是 G7 的专利。把总纲（<b>每个音走到最近、又合规的那个 I 内音</b>）原样套到别的"回家前的紧张和弦"上，照样成立。逐个听，都和 G7→C 同音区对照：</p>
-          <p><b>① V（纯三和弦 G B D）→ C</b>：比 G7 少了七音 F，所以<b>只剩导音 B 一个倾向音</b>（B↗C 锁死），D 就近落 C、G 保留或落 E。少了 F→E 那根刺的化解，句号依旧但<b>张力比 G7 略小</b>——这正是 V 和 V7 的区别。</p>
+          <p><b>① V（纯三和弦 G B D）→ C</b>：比 G7 少了七音 F，所以<b>只剩导音 B 一个倾向音</b>（B↗C 锁死）；低音 G 跳到 C、五音 D 上行补出三音 E。少了 F→E 那根刺的化解，句号依旧但<b>张力比 G7 略小</b>——这正是 V 和 V7 的区别。</p>
           <div class="row">
             <span class="chip" data-play="seq:rsV">🔊 V → C（一个倾向音，句号略轻）</span>
             <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（两个倾向音，句号最重）</span>
@@ -2954,7 +2968,7 @@ function teachCN(mId){
           <div class="row">
             <span class="chip" data-play="seq:rsVii">🔊 vii° → C（同一对三全音 B/F，解决同 G7）</span>
           </div>
-          <p><b>③ ♭VII（借来的 B♭ 大三和弦 B♭ D F）→ C</b>：⑳关学过的"豁达摇滚"。注意它<b>没有导音</b>（根音是 B♭，不是 B）——低音 B♭ 是<b>全音</b>迈进 C，不是半音蹭进；没有那根半音磁铁，也没有三全音。所以它照样回家，却<b>松弛、不催</b>，是"散步进门"而非"推门"。这说明：<b>不是所有紧张和弦都靠导音解决</b>，全音迈进也是一种合规的回家。</p>
+          <p><b>③ ♭VII（借来的 B♭ 大三和弦 B♭ D F）→ C</b>：未来我们讲到借用和弦，这里先直接看回家的解决。注意它<b>没有导音</b>（根音是 B♭，不是 B）——低音 B♭ 是<b>全音</b>迈进 C，不是半音蹭进；没有那根半音磁铁，也没有三全音。所以它照样回家，却<b>松弛、不催</b>，是"散步进门"而非"推门"。这说明：<b>不是所有紧张和弦都靠导音解决</b>，全音迈进也是一种合规的回家。</p>
           <div class="row">
             <span class="chip" data-play="seq:rsbVII">🔊 ♭VII → C（无导音，全音迈进，松弛）</span>
             <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（有导音，半音蹭进，催）</span>
@@ -2990,7 +3004,7 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">练习覆盖：倾向音去向、低音/共同音规则与根音·主音之辨、四个转位的落点（含 V42→I6 专项）、终止分级判别与纠错、在键盘上搭出正确落点。下一关进入流行套路——你会发现循环接口处处都是今天这套规则。</p>`;
+      <p style="color:var(--muted);font-size:13px">本关练习：四个转位各自的落点（含 V42→I6 专项）、终止分级的判别与纠错、在键盘上搭出转位落点（C/E 即 I6）。下一关进入流行套路——你会发现循环接口处处都是这两关的规则。</p>`;
 
     case "pop": return `
       <p>为什么有些歌第一次听就能跟着哼？因为成千上万首金曲，其实都建立在几个固定的<b>和弦套路 (Chord Progressions)</b> 上。用学过的<b>级数(罗马数字)</b>来记，最方便。下面是六大套路——按钮上的和弦名按 C 大调写，<b>随时换个大调听同一套路</b>：</p>
@@ -3100,7 +3114,7 @@ function teachCN(mId){
       <p><b>Vsus4 一定要先"落"回 V 吗？两种走法都常见：</b></p>
       <p style="line-height:1.9;color:#e9e3ff">
         · <b>传统走法 Vsus4→V→I</b>(福音/抒情的标志)：挂留的 4 音 C 先<b>落半步到三音 B</b>(解决)，再由 V 回家——那一下"C→B"的小滑落正是经典味道的来源。<br>
-        · <b>现代走法 Vsus4→I 直接落地</b>：跳过解决，从悬空直接回家——因为<b>始终没出现导音 B</b>，听感更柔和朦胧(原理和第⑫关拆过的 F/G 顶替 G7 一模一样)，摇滚/流行里非常多。</p>
+        · <b>现代走法 Vsus4→I 直接落地</b>：跳过解决，从悬空直接回家——因为<b>始终没出现导音 B</b>，听感更柔和朦胧(原理和第⑬关拆过的 F/G 顶替 G7 一模一样)，摇滚/流行里非常多。</p>
       <div class="row">
         <span class="chip" data-play="kseq:susTens">🔊 传统：F→Gsus4→G→C（先解决再回家）</span>
         <span class="chip" data-play="kseq:susDir">🔊 现代：F→Gsus4→C（悬着直接落地）</span>
@@ -3169,7 +3183,7 @@ function teachCN(mId){
               <td class="play" data-play="notes:8,12,15">A♭</td>
               <td class="play" data-play="notes:10,14,17">B♭</td></tr></table>
           <div class="row"><span class="chip" data-play="seq:cmFam">🔊 C 小调全家巡礼</span></div>
-          <p>第⑳关「离调借用」就是从这张表里"借货"——iv=Fm(催泪弹)、VI=A♭、VII=B♭、III=E♭ 全在这儿。现在你已经知道它们从哪来了。</p>
+          <p>第㉑关「离调借用」就是从这张表里"借货"——iv=Fm(催泪弹)、VI=A♭、VII=B♭、III=E♭ 全在这儿。现在你已经知道它们从哪来了。</p>
         </div>
       </details>
       <p style="color:var(--muted);font-size:13px">练习：任意小调任意级数推性质/推和弦名、小调罗马数字双向翻译、键盘搭建、C 小调清单专项。</p>`;
@@ -3314,8 +3328,8 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>🧩 小调也有"四大主力圈"机制吗？——有，而且是镜像版</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>先回忆大调那边的结论(第⑬关)。</b>大调的主力是 <b>1·4·5·6 四巨头</b>，因为它们把功能配齐了：<b>I=主 T(家)、IV=下属 S(出发)、V=属 D(紧张想回家)、vi=主的忧郁替身</b>——T/S/D 三种功能全到位、有亮有暗，所以六大套路翻来覆去都是它们。</p>
-          <p><b>一 · 按同样的功能逻辑点小调的兵。</b>逐个对位：<b>主 T = i(暗的家)</b>；<b>下属 S = iv(暗的出发)</b>；<b>属 D = 两位候选</b>——自然的 <b>VII(推进者，豁达版)</b>和魔改钥匙 <b>V7(⑱关，真句号)</b>；再加<b>主的替身 = III 和 VI 两位"亮色担当"</b>(大三和弦，史诗感来源；III 还是关系大调的 I)。功能旅程照样配齐：出发(iv)→紧张/推进(V7 或 VII)→回家(i)。落选的也同款：<b>ii° 是减三冷板凳</b>(对应大调的 vii°)、<b>自然的 v 太软</b>(⑱关讲过)。所以小调的主力圈是 <b>i·iv·VI·VII(+III)，钥匙是 V7</b>——和大调一模一样的选兵逻辑，选出来的是镜像的一队。</p>
+          <p><b>先回忆大调那边的结论(第⑭关)。</b>大调的主力是 <b>1·4·5·6 四巨头</b>，因为它们把功能配齐了：<b>I=主 T(家)、IV=下属 S(出发)、V=属 D(紧张想回家)、vi=主的忧郁替身</b>——T/S/D 三种功能全到位、有亮有暗，所以六大套路翻来覆去都是它们。</p>
+          <p><b>一 · 按同样的功能逻辑点小调的兵。</b>逐个对位：<b>主 T = i(暗的家)</b>；<b>下属 S = iv(暗的出发)</b>；<b>属 D = 两位候选</b>——自然的 <b>VII(推进者，豁达版)</b>和魔改钥匙 <b>V7(⑲关，真句号)</b>；再加<b>主的替身 = III 和 VI 两位"亮色担当"</b>(大三和弦，史诗感来源；III 还是关系大调的 I)。功能旅程照样配齐：出发(iv)→紧张/推进(V7 或 VII)→回家(i)。落选的也同款：<b>ii° 是减三冷板凳</b>(对应大调的 vii°)、<b>自然的 v 太软</b>(⑲关讲过)。所以小调的主力圈是 <b>i·iv·VI·VII(+III)，钥匙是 V7</b>——和大调一模一样的选兵逻辑，选出来的是镜像的一队。</p>
           <p><b>二 · 旋转同样成立。</b>1637 这个圈(1→6→3→7→回1)换个进场点照样能用——亲耳验证：</p>
           <div class="row">
             <span class="chip" data-play="mkprog:6,3,7,1">🔁 6371（F→C→G→Am，VI 进场·明亮开局）</span>
@@ -3360,7 +3374,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>鉴赏一 · 视角翻转：音没变，家变了，色彩全变</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>背景 · 为什么同一组和弦能属于两个调？</b>第⑮关学过：C 大调和 A 小调是<b>关系大小调</b>，用同一批音——所以也共用同一批和弦。<b>Am、F、C、G</b> 这四个和弦同时是 C 大调家族的成员(编号 6、4、1、5)，也是 A 小调家族的成员(编号 i、VI、III、VII)。两本户口，一个身体。</p>
+          <p><b>背景 · 为什么同一组和弦能属于两个调？</b>第⑯关学过：C 大调和 A 小调是<b>关系大小调</b>，用同一批音——所以也共用同一批和弦。<b>Am、F、C、G</b> 这四个和弦同时是 C 大调家族的成员(编号 6、4、1、5)，也是 A 小调家族的成员(编号 i、VI、III、VII)。两本户口，一个身体。</p>
           <table class="ctab"><tr><th>和弦</th><td>Am</td><td>F</td><td>C</td><td>G</td></tr>
             <tr><th>C 大调视角的编号</th><td><b>6</b> (vi)</td><td>4 (IV)</td><td>1 (I)</td><td>5 (V)</td></tr>
             <tr><th>A 小调视角的编号</th><td><b>i</b></td><td>VI</td><td>III</td><td>VII</td></tr></table>
@@ -3381,13 +3395,13 @@ function teachCN(mId){
       </details>
       <details class="note" open><summary><b>鉴赏二 · 同主音 A/B：同一套级数，大调版 vs 小调版</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>背景 · 这是第⑯关"平行大小调"的进行版应用。</b>C 大调与 C 小调共用主音 C，但 3、6、7 级各降了半音。<b>级数走向可以原样照搬</b>——1564 还是"一五六四"——但每一站的"和弦居民"都换成了暗夜家族(⑰关清单)里的对应成员。</p>
+          <p><b>背景 · 这是第⑰关"平行大小调"的进行版应用。</b>C 大调与 C 小调共用主音 C，但 3、6、7 级各降了半音。<b>级数走向可以原样照搬</b>——1564 还是"一五六四"——但每一站的"和弦居民"都换成了暗夜家族(⑱关清单)里的对应成员。</p>
           <p><b>第一步 · 逐级对译。</b>一站一站换人，每格可点对比(注意每一站到底变了什么)：</p>
           <table class="ctab"><tr><th>级数</th><th>C 大调版</th><th>C 小调版</th><th>变了什么</th></tr>
             <tr><td>1</td><td class="play" data-play="notes:0,4,7">C</td><td class="play" data-play="notes:0,3,7">Cm</td><td>三音 E→E♭(家变暗)</td></tr>
             <tr><td>5</td><td class="play" data-play="notes:7,11,14">G</td><td class="play" data-play="notes:7,10,14">Gm</td><td>三音 B→B♭(自然小调的 v，小和弦)</td></tr>
             <tr><td>6</td><td class="play" data-play="notes:9,12,16">Am</td><td class="play" data-play="notes:8,12,15">A♭</td><td><b>连根音都变了</b>：A→A♭，小和弦变大和弦</td></tr>
-            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>三音 A→A♭(就是⑳关要讲的"催泪弹"Fm)</td></tr></table>
+            <tr><td>4</td><td class="play" data-play="notes:5,9,12">F</td><td class="play" data-play="notes:5,8,12">Fm</td><td>三音 A→A♭(就是㉑关要讲的"催泪弹"Fm)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">⚠ 最容易蒙的是第 6 级：大调的 vi 是小和弦 Am，小调的 VI 是<b>大</b>和弦 A♭——不但性质翻转，<b>根音本身也降了半音</b>(因为小调的第 6 个音就是 A♭)。这不是写错，是两个家族的"6 号居民"本来就不是同一个人。</p>
           <p><b>第二步 · 整段 A/B 对比。</b>主音不变、走向不变(都是 1→5→6→4 的级数旅程)，唯一变的是每站的居民——世界整个变暗：</p>
           <div class="row">
@@ -3405,7 +3419,7 @@ function teachCN(mId){
 
     case "borrow": return `
       <p>恭喜来到高阶！如果只用一个调里的"顺阶和弦"(比如 C 大调全白键和弦)写歌，听久了会觉得太乖、太安全。那些让你起鸡皮疙瘩、甚至想落泪的神曲，常常是在安全的大调里，<b>突然借来一个"外星人"和弦</b>——这就是<b>离调 / 借用和弦 (Modal Interchange)</b>。</p>
-      <p><b>什么是借用？</b>第⑯关挂过门牌：C 大调的<b>平行宇宙</b>就是 C 小调；第⑰关你已经拿到了 C 小调的全家清单(Cm、D°、E♭、Fm、Gm、A♭、B♭)。借用，就是弹 C 大调阳光歌曲时，伸手到那张清单里"借"一个忧郁和弦过来，用完再还回去。这种瞬间的光影变化极具杀伤力。</p>
+      <p><b>什么是借用？</b>第⑰关挂过门牌：C 大调的<b>平行宇宙</b>就是 C 小调；第⑱关你已经拿到了 C 小调的全家清单(Cm、D°、E♭、Fm、Gm、A♭、B♭)。借用，就是弹 C 大调阳光歌曲时，伸手到那张清单里"借"一个忧郁和弦过来，用完再还回去。这种瞬间的光影变化极具杀伤力。</p>
       <details class="note" open><summary><b>例一 · 流行乐最强杀手锏：四级小和弦 iv（催泪弹）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>C 大调里第四级本是明亮的 <b>F 大三和弦(F A C)</b>；从清单第 4 格借来小和弦 <b>Fm(F A♭ C)</b>，就引入了一个调外音 <b>A♭</b>(三音 A 降了半音)。先单独对比这一对：</p>
@@ -3426,7 +3440,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>例二 · 摇滚的豁达：降七级 ♭VII（B♭）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>第一步 · 这个记号怎么读？</b>"♭VII" = <b>降七级</b>：根音是"大调第 7 个音<b>降半音</b>"(C 大调里 B→B♭)；大写罗马数字 = <b>大三和弦</b>。所以 ♭VII 在 C 大调语境下就是 <b>B♭ 大三和弦(B♭ D F)</b>——它正是 C 小调清单(⑰关)第 7 格的居民。立刻听：</p>
+          <p><b>第一步 · 这个记号怎么读？</b>"♭VII" = <b>降七级</b>：根音是"大调第 7 个音<b>降半音</b>"(C 大调里 B→B♭)；大写罗马数字 = <b>大三和弦</b>。所以 ♭VII 在 C 大调语境下就是 <b>B♭ 大三和弦(B♭ D F)</b>——它正是 C 小调清单(⑱关)第 7 格的居民。立刻听：</p>
           <div class="row">
             <span class="chip" data-play="mel:11,10">🔊 根音的来历：B4 → 降半音 → B♭4</span>
             <span class="chip" data-play="notes:10,14,17">🔊 借来的 ♭VII：B♭ 大三和弦（B♭4 D5 F5）</span>
@@ -3671,7 +3685,8 @@ const SEQS = {
   leadIVI: [[5,9,12],[7,12,16]],   // IV→I：F4 A4 C5 → G4 C5 E5（同样向上走，但没有半音磁铁）
   // ⑫解决教学：V7 各转位 → 主和弦（四声部逐声部落位；倾向音 si↗do、fa↘mi）
   rsRoot:  [[-5,2,5,11],[-12,0,4,12]],  // G7原位(G3 D4 F4 B4)→C(C3 C4 E4 C5)：三倍根音省五音
-  rsBadG:  [[-5,2,5,11],[-12,0,7,12]],  // 反例：fa 不落 mi 反跳上 sol——空、悬、没收住
+  rsBadG:  [[-5,2,5,11],[-12,0,7,12]],  // 反例(摊开)：fa 不落 mi 反跳上 sol——空、悬、没收住
+  rsBadClose:[[-5,-1,2,5],[-12,0,0,7]], // 反例(原位 G3 B3 D4 F4)：F4 反跳 G4，落点 C3 C4 C4 G4 缺三音 E，空洞
   rs65:    [[-1,2,5,7],[0,4,7]],        // G7/B(第一转位 B3 D4 F4 G4)→C(C4 E4 G4)：G 保留为共同音，音区贴近主线
   rs43:    [[2,7,11,17],[0,7,12,16]],   // G7/D(第二转位)→C 完整(C4 G4 C5 E5)
   rs42:    [[-7,2,7,11],[-8,0,7,12]],   // G7/F(第三转位)→C/E=I6(E3 C4 G4 C5)：低音 fa 半音落 mi
@@ -3683,13 +3698,13 @@ const SEQS = {
   rsStag:  [[0,4,7],[0,4,7],[0,4,7],[0,4,7]],                    // 一直稳定：I 反复——一潭死水，没有去向
   rsTense: [[4,8,11,14],[9,13,16,19],[2,6,9,12],[7,11,14,17]],   // 一直紧张：属七链 E7→A7→D7→G7，每个都许诺回家、永远不兑现
   // 其他紧张和弦的解决（都在 C 大调，与主线同音区 G3 B3 D4 F4 → C 对照）
-  rsV:     [[-5,-1,2,7],[-12,0,4,7]],                            // V(三和弦) G3 B3 D4 G4 → C：只比 G7 少了七音 F，B3↗C4、D4↘C4、G4 保留/落 E
-  rsVii:   [[-1,2,5,11],[0,0,4,12]],                             // vii° B3 D4 F4 B4 → C：减三和弦，B↗C、D↘C、F↘E、高 B↗C，两个倾向音 B/F 同 G7
-  rsbVII:  [[-2,2,5,10],[-12,0,4,7]],                            // ♭VII(B♭ 大三) B♭3 D4 F4 B♭4 → C：无导音、低音全音迈进，松弛回家
+  rsV:     [[-5,-1,2],[-12,0,4]],                                // V 纯三和弦 G3 B3 D4 → C3 C4 E4：低音 G→C、导音 B↗C、五音 D↗E 补三音
+  rsVii:   [[-1,2,5],[0,0,4]],                                   // vii° 纯减三和弦 B3 D4 F4 → C4 C4 E4：B↗C、D↘C、F↘E，两个倾向音 B/F 同 G7
+  rsbVII:  [[-2,2,5],[0,4,7]],                                   // ♭VII 纯大三和弦 B♭3 D4 F4 → C4 E4 G4：三声部全音平行上行（无导音，松弛回家）
   rsFG2:   [[-5,5,9,12],[-12,4,7,12]],                           // F/G(G3 F4 A4 C5) → C：无导音的柔和属→主，与⑩关一致
   rsV64:   [[-10,-5,-1,2],[-12,-5,0,4]],                         // V64(D3 G3 B3 D4) → C(C3 G3 C4 E4)：G3 共同音保留(不走)，D3→C3、B3→C4、D4→E4
   rsArrow: [[7,11,14,17],[0,12,12,16]],                          // 放箭：G7(G4 B4 D5 F5)按三规则就近解决→C4 C5 C5 E5(B、D 同落 C5)
-  // ⑱小调解决：E7 各转位 → Am（A 小调镜像）
+  // ⑲小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
   rsm65:   [[-4,2,4,11],[-3,0,4,9]],    // E7/G♯→Am 完整(A3 C4 E4 A4)：mi 保留为共同音
   rsm43:   [[-1,2,4,8],[-3,0,4,9]],     // E7/B→Am 完整
@@ -3970,6 +3985,7 @@ function buildQuestion(mId, concept){
   if(mId==="inv")      return q_inv(concept);
   if(mId==="slash")    return q_slash(concept);
   if(mId==="resolve")  return q_resolve(concept);
+  if(mId==="resolve2") return q_resolve(concept);
   if(mId==="pop")      return q_pop(concept);
   if(mId==="sus")      return q_sus(concept);
   if(mId==="parmin")   return q_parmin(concept);
@@ -4834,15 +4850,15 @@ function q_resolve(concept){
         {label:"Am",sub:tr("那是阻碍终止，没回家","deceptive cadence — never got home"),correct:false},
       ]);
       return {kind:"choice",concept,qtype:tr("转位的解决 · 落到哪","Inversions · where it lands"),
-        prompt:tr(`<b>${R.sym}</b>（属七的${R.inv}）按声部进行规则解决，应落到哪个主和弦形态？`,
-                  `Following voice-leading rules, where should <b>${R.sym}</b> (the dominant 7th in ${R.invEn}) land?`),
+        prompt:tr(`<b>${R.sym}</b>（G·B·D·F 四个音，属七的${R.inv}）按声部进行规则解决，应落到哪个主和弦形态？`,
+                  `Following voice-leading rules, where should <b>${R.sym}</b> (the notes G·B·D·F, dominant 7th in ${R.invEn}) land?`),
         play:()=>playChordSeq(SEQS[R.seq]),
         options:opts,
         explain:tr(`${R.sym} 解决到 <b>${R.to}</b>。总纲：每个音走到最近、又合规的那个 I 内音（C·E·G）。${R.det}`,
                    `${R.sym} resolves to <b>${R.toEn}</b>. Master rule: each note moves to the nearest, legal tonic tone (C·E·G). ${R.detEn}`)};
     }
     return {kind:"choice",concept,qtype:tr("转位的解决 · 为什么 V42 特殊","Inversions · why V42 is special"),
-      prompt:tr("为什么 <b>G7/F</b>（七音 F 在低音）只能解决到 <b>C/E(I6)</b>、不能解决到原位 C？","Why can <b>G7/F</b> (the 7th, F, in the bass) only resolve to <b>C/E (I6)</b>, never to root-position C?"),
+      prompt:tr("为什么 <b>G7/F</b>（G·B·D·F 四个音，七音 F 在低音）只能解决到 <b>C/E(I6)</b>、不能解决到原位 C？","Why can <b>G7/F</b> (the notes G·B·D·F, with the 7th F in the bass) only resolve to <b>C/E (I6)</b>, never to root-position C?"),
       play:async()=>{ await playChordSeq(SEQS.rs42); await new Promise(r=>setTimeout(r,500)); await playChordSeq(SEQS.rs42bad); },
       options:shuffle([
         {label:tr("低音是七音 F，必须半音下行到 E——E 在低音=I6","The bass is the 7th (F), which must fall a half step to E — E in the bass = I6"),correct:true},
@@ -4876,13 +4892,13 @@ function q_resolve(concept){
       ]),
       explain:tr("听这条 C/G：上方声部已经解决（F→E、B→C），和弦回到了 C 家族——只是低音留在 G。<b>回了家但形态不完满 = 不完满正格终止</b>。而<b>半终止的定义是乐句停在属和弦 V 上</b>、压根没回家——两者差在\"有没有到家\"，不是\"够不够响亮\"。弱 ≠ 半。","Listen to that C/G: the upper voices have resolved (F→E, B→C) and the chord does reach the C family — only the bass stays on G. <b>Home reached but in a weak shape = an imperfect authentic cadence</b>. A <b>half cadence by definition parks the phrase on the dominant V</b> and never reaches home at all — the difference is whether you arrived, not how loudly. Weak ≠ half.")};
   }
-  // build：搭出解决目标
-  const R=Math.random()<0.5 ? RS_INV[3] : RS_INV[0];
+  // build：搭出解决目标（build=原位 C 落点 / build2=C/E(I6) 落点）
+  const R = concept==="build2" ? RS_INV[3] : RS_INV[0];
   const isI6 = R.toSym==="C/E";
   return {kind:"build",concept,qtype:tr("解决 · 搭出落点","Resolution · build the landing"),
     prompt: isI6
-      ? tr("听 <b>G7/F</b> 的解决，在键盘上搭出它的落点 <b>C/E</b>：C、E、G 三个音，<b>E 必须是最低音</b>（不限八度）。","Hear <b>G7/F</b> resolve, then build its landing <b>C/E</b>: the notes C, E, G with <b>E as the lowest</b> (any octave).")
-      : tr("听原位 <b>G7</b> 的解决，在键盘上搭出它的落点——<b>原位 C</b>：C、E、G 三个音，<b>C 必须是最低音</b>（不限八度）。","Hear root-position <b>G7</b> resolve, then build its landing — <b>root-position C</b>: the notes C, E, G with <b>C as the lowest</b> (any octave)."),
+      ? tr("听 <b>G7/F</b>（组成音 F·G·B·D，七音 F 在最低）的解决，在键盘上搭出它的落点 <b>C/E</b>：C、E、G 三个音，<b>E 必须是最低音</b>（不限八度）。","Hear <b>G7/F</b> (notes F·G·B·D, the 7th F lowest) resolve, then build its landing <b>C/E</b>: the notes C, E, G with <b>E as the lowest</b> (any octave).")
+      : tr("听原位 <b>G7</b>（组成音 G·B·D·F）的解决，在键盘上搭出它的落点——<b>原位 C</b>：C、E、G 三个音，<b>C 必须是最低音</b>（不限八度）。","Hear root-position <b>G7</b> (notes G·B·D·F) resolve, then build its landing — <b>root-position C</b>: the notes C, E, G with <b>C as the lowest</b> (any octave)."),
     play:()=>playChordSeq(SEQS[R.seq]),
     targetPC:[0,4,7], bassPc: isI6?4:0, rootSemi:0,
     explain: isI6
@@ -5128,8 +5144,8 @@ function q_minfam(concept){
               `That tear-jerker in major songs — the <b>minor four, iv</b> — in the key of C major, which chord is borrowed?`),
     play:()=>playSemis([5,8,12],60,true),
     options:uniqPick(CM_FAM.map(x=>x.n), "Fm", 4).map(n=>({label:n,correct:n==="Fm"})),
-    explain:tr(`从平行宇宙 C 小调的清单里借第 4 级：<b>Fm</b>(F A♭ C)。第⑳关「离调借用」就靠它催泪。`,
-               `Borrow degree 4 from the parallel-universe C-minor list: <b>Fm</b> (F A♭ C). Level ⑳ "Borrowed Chords" relies on it for the tears.`)};
+    explain:tr(`从平行宇宙 C 小调的清单里借第 4 级：<b>Fm</b>(F A♭ C)。第㉑关「离调借用」就靠它催泪。`,
+               `Borrow degree 4 from the parallel-universe C-minor list: <b>Fm</b> (F A♭ C). Level ㉑ "Borrowed Chords" relies on it for the tears.`)};
 }
 
 /* ---- 第17关 小调的回家路 v/V7 ---- */
@@ -5341,7 +5357,7 @@ function q_minv(concept){
           {label:tr("回落到 G","Back down to G"),correct:false},
           {label:tr("留在原地","Stay put"),correct:false},
         ]),
-        explain:tr("第⑱关升 G→G♯ 就是为了造这块半音磁铁——解决时 <b>G♯ 必须蹭进 A</b>，和大调 B→C 同一条规则。","G was raised to G♯ precisely to build this half-step magnet — at resolution <b>G♯ must slide into A</b>, the same rule as major's B→C.")};
+        explain:tr("第⑲关升 G→G♯ 就是为了造这块半音磁铁——解决时 <b>G♯ 必须蹭进 A</b>，和大调 B→C 同一条规则。","G was raised to G♯ precisely to build this half-step magnet — at resolution <b>G♯ must slide into A</b>, the same rule as major's B→C.")};
     }
     if(v<0.67){
       return {kind:"choice",concept,qtype:tr("小调倾向音 · 七音去哪","Minor tendency tones · where does the 7th go"),
@@ -5846,7 +5862,8 @@ const TRAIN_SPEC_LABELS={
   "function":{T:["主功能听辨","稳定·家","Tonic function","stable · home"],S:["下属功能听辨","出发·铺垫","Subdominant","departure"],D:["属功能听辨","紧张想回家","Dominant","tension → home"],lead:["导音专项","半音磁铁","Leading tone","semitone magnet"]},
   inv:{which:["认排列形态","原位/一转/二转","Name the inversion","root/1st/2nd"],build:["搭指定转位","精确到形态","Build an inversion","exact voicing"],ear:["转位听辨","最低音是 1/3/5","Hear inversions","bass = 1/3/5"]},
   slash:{concept:["含义与弹法","左和弦右低音","Meaning & playing","chord / bass"],bassname:["找最低音","斜杠右边","Find the bass","after the slash"],build:["搭斜杠和弦","bass 须最低","Build slash chords","bass lowest"]},
-  resolve:{tend:["倾向音去向","B↗C · F↘E","Tendency tones","B↗C · F↘E"],voices:["低音与共同音","低音可跳·G 保留","Bass & common tone","bass may leap · G stays"],invres:["转位的解决","V42 必去 I6","Inversions resolve","V42 → I6"],cadgrade:["终止分级","完满/不完满/半","Cadence grades","perfect / imperfect / half"],build:["搭出解决目标","正确形态落位","Build the landing","correct shape"]},
+  resolve:{tend:["倾向音去向","B↗C · F↘E","Tendency tones","B↗C · F↘E"],voices:["低音与就近走","低音去最近的 C·补三音","Bass & nearest motion","bass to nearest C · fill the 3rd"],build:["搭出解决落点","原位 C","Build the landing","root-position C"]},
+  resolve2:{invres:["转位的解决","V42 必去 I6","Inversions resolve","V42 → I6"],cadgrade:["终止分级","完满/不完满/半","Cadence grades","perfect / imperfect / half"],build2:["搭出转位落点","C/E（I6）","Build the landing","C/E (I6)"]},
   pop:{mood:["套路情绪","六大套路","Progression moods","six formulas"],derive:["级数转和弦","C 大调对译","Degrees→chords","in C major"],listen:["盲听认套路","整段进行","Blind ID","whole progression"]},
   sus:{build:["搭挂留和弦","sus4 / sus2","Build sus chords","sus4 / sus2"],hear:["悬空 vs 落地","听觉判断","Floating vs landed","by ear"],has3:["有没有三音","sus 原理","Is there a 3rd?","sus principle"]},
   parmin:{flat367:["降了哪些级","3·6·7","Which degrees flat?","♭3·♭6·♭7"],relpar:["关系 vs 平行","两块门牌","Relative vs parallel","two doorplates"],pair:["明暗听辨","I vs i / 音阶","Bright vs dark","I vs i / scales"]},
