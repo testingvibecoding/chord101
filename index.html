@@ -1362,25 +1362,38 @@ function teachEN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>Rule 2 · other upper voices: nearest, either way — landings may overlap</b></summary>
+      <details class="note" open><summary><b>Rule 2 · other upper voices: move nearest (landings may overlap)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>Terms first: of a chord's several voices, <b>the lowest is the "bass voice" (a.k.a. the bass / lower voice); all the others are "upper voices"</b>. Take the G7 above (G3 B3 D4 F4) — G3 is the bass voice; B3, D4 and F4 are all upper voices.</p>
-          <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>those free of the magnets simply move nearby</b>. First hear the whole G7→C as a reference, then take it apart (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
+          <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>the rest just move "nearest"</b> — to the closest tonic tone. In G7 that's the 5th, <b>D</b>: <b>down to C or up to E, both legal</b> (which way depends on which landing is free and where the line is headed). Hear each (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
           <div class="row">
             <span class="chip" data-play="vlead:chord">🎹 Full picture: G7→C</span>
+            <span class="chip" data-play="vpair:2,0">🔊 D→C (down · joins the root)</span>
+            <span class="chip" data-play="vpair:2,4">🔊 D→E (up · becomes the 3rd)</span>
           </div>
-          <div class="row">
-            <span class="chip" data-play="vpair:7,7">🔊 G→G (common tone · stays put)</span>
-            <span class="chip" data-play="vpair:2,0">🔊 D→C (5th down · joins the root)</span>
-            <span class="chip" data-play="vpair:2,4">🔊 D→E (5th up · becomes the 3rd)</span>
-          </div>
-          <p><b>G is the common tone of G7 and the C chord</b> — staying put is smoothest (the green light never leaves G4); <b>D may go either way</b>, down to C or up to E, both legal.</p>
+          <p style="font-size:12.5px;color:var(--muted)">Why no "stays put" example here? Because <b>nearly every note of G7 must move</b>: B and F are tendency tones (forced), the bass G leaps to C as the root, and D too joins the nearest C or E. A note <b>staying put (not moving)</b> only becomes common when two chords <b>share more tones</b> — see the extra below.</p>
           <p><b>An important addendum: landings may overlap.</b> The rules demand that <b>every note have a proper destination</b> — not that destinations differ. Two voices landing on the same note (a unison) is fully legal. Hear these two: <b>B and D both reach C4</b>, their green lights on the same key:</p>
           <div class="row">
             <span class="chip" data-play="vpair:-1,0">🔊 B→C4 (leading tone)</span>
             <span class="chip" data-play="vpair:2,0">🔊 D→C4 (5th)</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">Both legal, both landing on C4 — a unison overlap is fully allowed. (For the overlap heard in a full chord, replay the "Full chords" button above; and in a deceptive cadence G7→Am, B and D can likewise land together on C, doubling vi's 3rd — the textbook move.)</p>
+          <p style="font-size:12.5px;color:var(--muted)">Both legal, both landing on C4 — a unison overlap is fully allowed. (For the overlap heard in a full chord, replay the "Full chords" button above.)</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: so when does a note actually "stay put"? — V64 → I and the held common tone</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>G7→C has no "stays put" because almost every note of G7 gets assigned somewhere. But change the voicing so the <b>common tone lands in an upper voice and needn't move to complete the chord</b>, and "staying put" appears. The classic case is <b>V64 → I</b> (the <b>second inversion</b> of the dominant — the 5th, D, in the bass).</p>
+          <p>Voiced in four parts as <b>D3 · G3 · B3 · D4</b>, resolving to C (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3 (common tone · stays put!)</span>
+            <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3 (bass steps down)</span>
+            <span class="chip" data-play="vpair:-1,0">🔊 B3→C4 (leading tone up)</span>
+            <span class="chip" data-play="vpair:2,4">🔊 D4→E4 (5th up · supplies the 3rd)</span>
+            <span class="chip" data-play="seq:rsV64">🎹 Full picture: V64 → C</span>
+          </div>
+          <p><b>Watch G3: it's the tone V and C share, and it never moves</b> — that's the "stays put" in this rule's title. The other three move as usual: the bass D3 steps to C3, the leading tone B3 slides into C4, and the other D4 rises to E4 to supply the 3rd. Landing <b>C3 G3 C4 E4</b> — a complete C major triad.</p>
+          <p style="font-size:12.5px;color:var(--muted)">Why the inversion? Only by putting D in the bass and leaving G in an upper voice is G freed from "the bass carries the root", so it can stay. (V64→I is the classical "cadential six-four", a common, classic close.) The master rule still holds: every note moves to the nearest, legal tonic tone — it's just that G's nearest, legal option happens to be itself.</p>
         </div>
       </details>
 
@@ -2755,25 +2768,38 @@ function teachCN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>规则二 · 其余上声部：就近走或不走——落点可以重叠</b></summary>
+      <details class="note" open><summary><b>规则二 · 其余上声部：就近走（落点可以重叠）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>先说清称呼：和弦的几个声部里，<b>最低的那个叫"低声部"（也叫低音、下声部），其余的都叫"上声部"</b>。以上面的 G7（G3 B3 D4 F4）为例——G3 是低声部，B3、D4、F4 三个都是上声部。</p>
-          <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>不被磁铁拽住的只须就近</b>。先整体听一遍 G7→C 当全貌参照，再逐个拆（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
+          <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>剩下的只须"就近"</b>——走到最近的那个 I 内音。G7 里这样的音就是五音 <b>D</b>：<b>下行到 C 或上行到 E 都合法</b>，走哪边看安排（哪个落点空着、旋律往哪去）。逐个听（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
           <div class="row">
             <span class="chip" data-play="vlead:chord">🎹 全貌：完整和弦 G7→C</span>
+            <span class="chip" data-play="vpair:2,0">🔊 D→C（下行·并入根音）</span>
+            <span class="chip" data-play="vpair:2,4">🔊 D→E（上行·成为三音）</span>
           </div>
-          <div class="row">
-            <span class="chip" data-play="vpair:7,7">🔊 G→G（共同音·原地保留）</span>
-            <span class="chip" data-play="vpair:2,0">🔊 D→C（五音下行·并入根音）</span>
-            <span class="chip" data-play="vpair:2,4">🔊 D→E（五音上行·成为三音）</span>
-          </div>
-          <p><b>G 是 G7 与 C 和弦的共同音</b>——原地不动最平滑（绿灯停在 G4 没挪）；<b>D 上下皆可</b>，下行到 C 或上行到 E 都合法，走哪边看安排。</p>
+          <p style="font-size:12.5px;color:var(--muted)">为什么这里没有"原地不动"的例子？因为<b>属和弦 G7 的四个音几乎个个都得动</b>：B、F 是倾向音（必走）、低音 G 走根音跳到 C、D 也并入最近的 C 或 E。"一个音原地保留（不走）"要等到和弦之间<b>共享音更多</b>时才常见——见下方拓展。</p>
           <p><b>重要补充：落点可以重叠。</b>规则要求的是"<b>每个音都有合规的去处</b>"，并不要求"去处各不相同"——两个声部落到同一个音（同度）完全合法。逐个听这两条：<b>B 和 D 都走到 C4</b>，绿灯落在同一个键上：</p>
           <div class="row">
             <span class="chip" data-play="vpair:-1,0">🔊 B→C4（导音）</span>
             <span class="chip" data-play="vpair:2,0">🔊 D→C4（五音）</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">两条都合规、都落 C4——同度重叠完全允许。（密集 G7 整体齐奏的重叠效果，可回上面"完整和弦"按钮再听；阻碍终止 G7→Am 时 B、D 同样可同落 C，给 vi 的三音加倍，是教科书标准做法。）</p>
+          <p style="font-size:12.5px;color:var(--muted)">两条都合规、都落 C4——同度重叠完全允许。（密集 G7 整体齐奏的重叠效果，可回上面"完整和弦"按钮再听。）</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：那"不走"到底什么时候出现？——V64 → I 的共同音保留</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>规则二里 G7→C 之所以没有"不走"，是因为 G7 的音几乎个个都被分配出去了。但只要换个配置，让<b>共同音落在上声部、又不必为补全主和弦而挪动它</b>，"不走"就出现了。最经典的例子是 <b>V64 → I</b>（属和弦的<b>第二转位</b>，低音是五音 D）。</p>
+          <p>配成四声部 <b>D3 · G3 · B3 · D4</b>，逐个解决到 C（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3（共同音·原地不走！）</span>
+            <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3（低音级进下行）</span>
+            <span class="chip" data-play="vpair:-1,0">🔊 B3→C4（导音上行）</span>
+            <span class="chip" data-play="vpair:2,4">🔊 D4→E4（五音上行·补出三音）</span>
+            <span class="chip" data-play="seq:rsV64">🎹 全貌：V64 → C</span>
+          </div>
+          <p><b>看 G3 这一条：它是 V 与 C 共享的音，从头到尾一动不动</b>——这就是规则二标题里说的"不走"。其余三条照常走：低音 D3 级进落 C3、导音 B3 蹭进 C4、另一个 D4 上行到 E4 补出三音。落点 <b>C3 G3 C4 E4</b> 是完整的 C 大三和弦。</p>
+          <p style="font-size:12.5px;color:var(--muted)">为什么非要转位？因为只有把 D 放到低音、让 G 待在上声部，G 才不受"低音走根音"的约束、可以保留。（V64→I 在古典里叫"终止四六和弦"，是个常见而经典的收束配置。）总纲依旧成立：每个音仍走到最近、又合规的 I 内音——只是 G 的"最近合规去处"恰好就是它自己。</p>
         </div>
       </details>
 
@@ -3602,6 +3628,7 @@ const SEQS = {
   rsVii:   [[-1,2,5,11],[0,0,4,12]],                             // vii° B3 D4 F4 B4 → C：减三和弦，B↗C、D↘C、F↘E、高 B↗C，两个倾向音 B/F 同 G7
   rsbVII:  [[-2,2,5,10],[-12,0,4,7]],                            // ♭VII(B♭ 大三) B♭3 D4 F4 B♭4 → C：无导音、低音全音迈进，松弛回家
   rsFG2:   [[-5,5,9,12],[-12,4,7,12]],                           // F/G(G3 F4 A4 C5) → C：无导音的柔和属→主，与⑩关一致
+  rsV64:   [[-10,-5,-1,2],[-12,-5,0,4]],                         // V64(D3 G3 B3 D4) → C(C3 G3 C4 E4)：G3 共同音保留(不走)，D3→C3、B3→C4、D4→E4
   rsArrow: [[7,11,14,17],[0,12,12,16]],                          // 放箭：G7(G4 B4 D5 F5)按三规则就近解决→C4 C5 C5 E5(B、D 同落 C5)
   // ⑱小调解决：E7 各转位 → Am（A 小调镜像）
   rsmRoot: [[-8,2,8,11],[-3,0,9,12]],   // E7(E3 D4 G♯4 B4)→Am(A3 C4 A4 C5)：省五音
