@@ -1385,26 +1385,25 @@ function teachEN(mId){
           <p>In certain special cases, an <b>upper-voice note is already in the target chord, isn't the lowest note, and needn't move to complete the chord</b> — then it can stay still. The classic case is <b>V64 → I</b> (the <b>second inversion</b> of the dominant — the 5th, D, in the bass).</p>
           <p>Voiced in four parts as <b>D3 · G3 · B3 · D4</b>, resolving to C (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
           <div class="row">
-            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3 (common tone · stays put!)</span>
             <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3 (bass steps down)</span>
+            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3 (common tone · stays put!)</span>
             <span class="chip" data-play="vpair:-1,0">🔊 B3→C4 (leading tone up)</span>
             <span class="chip" data-play="vpair:2,4">🔊 D4→E4 (5th up · supplies the 3rd)</span>
             <span class="chip" data-play="seq:rsV64">🎹 Full picture: V64 → C</span>
           </div>
           <p><b>Watch G3: it's the tone V and C share, and it never moves</b> — that's the "stays put" in this rule's title. The other three move as usual: the bass D3 steps to C3, the leading tone B3 slides into C4, and the other D4 rises to E4 to supply the 3rd. Landing <b>C3 G3 C4 E4</b> — a complete C major triad.</p>
-          <p style="font-size:12.5px;color:var(--muted)">Why the inversion? Only by putting D in the bass and leaving G in an upper voice is G freed from "the bass carries the root", so it can stay. (V64→I is the classical "cadential six-four", a common, classic close.) The master rule still holds: every note moves to the nearest, legal tonic tone — it's just that G's nearest, legal option happens to be itself.</p>
         </div>
       </details>
 
       <details class="note" open><summary><b>Rule 3 · the bass is the exception: it may leap — a 4th up = a 5th down</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>"Move nearby" governs the upper voices; <b>the bass's job is carrying roots</b>, and the G→C leap of a 4th/5th is not just legal but the very source of cadential power. Moreover, <b>a 4th up and a 5th down reach the same note name</b> — the directions are equivalent; choose by register and by how much weight you want:</p>
+          <p>"Move nearby" governs the upper voices; <b>the bass's job is to reach the tonic chord's root — i.e. C</b>, usually leaping to the <b>nearest C</b>. That 4th/5th leap is not just legal but the very source of cadential power. <b>G→C is a special case</b>: a 4th up (to C4) and a 5th down (to C3) both reach a nearby C, so the two directions are <b>treated as roughly equivalent</b> — choose by register and by how much weight you want:</p>
           <div class="row">
             <span class="chip" data-play="seq:rsRoot">🔊 Bass leaps a 5th down, G3→C3 (deep — the heaviest period)</span>
             <span class="chip" data-play="seq:rsRootUp">🔊 Bass leaps a 4th up, G3→C4 (lighter; lands with the 5th on the same C4 — overlap is legal)</span>
           </div>
           <p>The same G <b>leaps to C when it's the bass, stays put in an upper voice</b> — two different rules; don't merge them.</p>
-          <p><b>Recap · "up or down?" comes in three grades of freedom</b>: <b>tendency tones obey the pull</b> (directions locked), <b>ordinary voices obey distance</b> (nearest either way, overlap allowed), <b>the bass obeys the note name</b> (4th up = 5th down).</p>
+          <p><b>Recap · "up or down?" comes in three grades of freedom</b>: <b>tendency tones obey the pull</b> (directions locked), <b>ordinary voices obey distance</b> (nearest either way, overlap allowed), <b>the bass always goes to the nearest C</b> (special case: G→C, 4th up = 5th down).</p>
         </div>
       </details>
 
@@ -2790,26 +2789,25 @@ function teachCN(mId){
           <p>有些特殊情况下，<b>上声部的音本来就在目标和弦里，又不是最低音，又不必为补全主和弦而挪动它</b>，那么就可以不动。最经典的例子是 <b>V64 → I</b>（属和弦的<b>第二转位</b>，低音是五音 D）。</p>
           <p>配成四声部 <b>D3 · G3 · B3 · D4</b>，逐个解决到 C（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
           <div class="row">
-            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3（共同音·原地不走！）</span>
             <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3（低音级进下行）</span>
+            <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3（共同音·原地不走！）</span>
             <span class="chip" data-play="vpair:-1,0">🔊 B3→C4（导音上行）</span>
             <span class="chip" data-play="vpair:2,4">🔊 D4→E4（五音上行·补出三音）</span>
             <span class="chip" data-play="seq:rsV64">🎹 全貌：V64 → C</span>
           </div>
           <p><b>看 G3 这一条：它是 V 与 C 共享的音，从头到尾一动不动</b>——这就是规则二标题里说的"不走"。其余三条照常走：低音 D3 级进落 C3、导音 B3 蹭进 C4、另一个 D4 上行到 E4 补出三音。落点 <b>C3 G3 C4 E4</b> 是完整的 C 大三和弦。</p>
-          <p style="font-size:12.5px;color:var(--muted)">为什么非要转位？因为只有把 D 放到低音、让 G 待在上声部，G 才不受"低音走根音"的约束、可以保留。（V64→I 在古典里叫"终止四六和弦"，是个常见而经典的收束配置。）总纲依旧成立：每个音仍走到最近、又合规的 I 内音——只是 G 的"最近合规去处"恰好就是它自己。</p>
         </div>
       </details>
 
       <details class="note" open><summary><b>规则三 · 低音例外：可以跳——上四度 = 下五度</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>"就近走"管的是上方声部；<b>低音的职责是走根音</b>，G→C 的四五度跳进不但合法，还是终止式力量的来源。而且<b>上跳四度和下跳五度到达同一个音名</b>，两个方向等价，选哪边看音域和想要的分量：</p>
+          <p>"就近走"管的是上方声部；<b>低音的职责是走到主和弦 I 的根音——也就是 C</b>，通常跳去<b>最近的那个 C</b>。这一步的四五度跳进不但合法，还是终止式力量的来源。<b>G→C 是个特例</b>：上跳四度（到 C4）和下跳五度（到 C3）都能够到 C、距离又接近，这时两个方向<b>近似认为等价</b>，选哪边看音域和想要的分量：</p>
           <div class="row">
             <span class="chip" data-play="seq:rsRoot">🔊 低音下跳五度 G3→C3（沉、句号最重）</span>
             <span class="chip" data-play="seq:rsRootUp">🔊 低音上跳四度 G3→C4（轻一些；与五音同落 C4——重叠合法）</span>
           </div>
           <p>同一个 G，<b>当低音时跳到 C、在上声部时保留</b>——是两条不同的规则，别混。</p>
-          <p><b>小结 · "上行还是下行"的自由度分三个等级</b>：<b>倾向音听引力的</b>（方向锁死）、<b>普通声部听距离的</b>（就近随意、可重叠）、<b>低音听音名的</b>（上四下五等价）。</p>
+          <p><b>小结 · "上行还是下行"的自由度分三个等级</b>：<b>倾向音听引力的</b>（方向锁死）、<b>普通声部听距离的</b>（就近随意、可重叠）、<b>低音一律去最近的 C</b>（特例：G→C 上四下五等价）。</p>
         </div>
       </details>
 
@@ -4653,7 +4651,7 @@ function q_resolve(concept){
           {label:tr("所有音都只要就近，上下随意","Every note just moves nearest, either direction"),sub:tr("倾向音的方向可不随意","tendency tones beg to differ"),correct:false},
           {label:tr("所有音都必须朝主音方向走","Every note must move toward the tonic"),correct:false},
         ]),
-        explain:tr("方向自由度分三档——<b>倾向音听引力的</b>：导音必上、七音必下（它们是三全音，必须反向收拢化解）；<b>普通声部听距离的</b>：D 落 C 或升 E 皆可；<b>低音听音名的</b>：上四度=下五度，按音域挑。倾向音的固定方向恰好都是最近落点，但那是巧合不是原因——再顺手导音也不许下行。","Three grades of freedom — <b>tendency tones obey the pull</b>: leading tone up, 7th down (they're the tritone and must close in contrary motion); <b>ordinary voices obey distance</b>: D may fall to C or rise to E; <b>the bass obeys the note name</b>: a 4th up equals a 5th down, chosen by register. The locked directions happen to be the nearest landings — coincidence, not cause: however convenient, the leading tone may never fall.")};
+        explain:tr("方向自由度分三档——<b>倾向音听引力的</b>：导音必上、七音必下（它们是三全音，必须反向收拢化解）；<b>普通声部听距离的</b>：D 落 C 或升 E 皆可；<b>低音一律去最近的 C</b>：特例 G→C 上四度=下五度、按音域挑。倾向音的固定方向恰好都是最近落点，但那是巧合不是原因——再顺手导音也不许下行。","Three grades of freedom — <b>tendency tones obey the pull</b>: leading tone up, 7th down (they're the tritone and must close in contrary motion); <b>ordinary voices obey distance</b>: D may fall to C or rise to E; <b>the bass always goes to the nearest C</b>: in the special case G→C a 4th up equals a 5th down, chosen by register. The locked directions happen to be the nearest landings — coincidence, not cause: however convenient, the leading tone may never fall.")};
     }
     if(v<0.8 && v>=0.6){ // 三全音为何反向
       return {kind:"choice",concept,qtype:tr("方向 · B 和 F 为什么必须反着走","Direction · why must B and F move opposite ways"),
@@ -6186,12 +6184,14 @@ async function playVPair(from,to){
   const later=(fn,ms)=>{ const id=setTimeout(fn,ms); if(piano){ piano._lightTimers=piano._lightTimers||[]; piano._lightTimers.push(id);} };
   const lite=(s,cls)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.add(cls); };
   const now=Tone.now(); clr();
-  if(from===to){                                  // 共同音：原地保留，弹一次、亮绿
-    synth.triggerAttackRelease(semiToName(to,60),"2n",now);
-    later(()=>{ clr(); lite(to,'vto'); }, 0);
-    later(clr, 1600); return;
-  }
   const GAP=0.5;
+  if(from===to){                                  // 共同音：仍弹两次，先橙(出发)后绿(到达)——同一个键，强调"不动"
+    synth.triggerAttackRelease(semiToName(from,60),"4n",now);
+    later(()=>{ clr(); lite(from,'vfrom'); }, 0);
+    synth.triggerAttackRelease(semiToName(to,60),"4n",now+GAP);
+    later(()=>{ const k=piano&&piano.querySelector(`.key[data-m="${60+to}"]`); if(k) k.classList.remove('vfrom'); lite(to,'vto'); }, Math.round(GAP*1000));
+    later(clr, Math.round(GAP*1000)+1300); return;
+  }
   synth.triggerAttackRelease(semiToName(from,60),"4n",now);                // 出发音(橙)
   later(()=>{ clr(); lite(from,'vfrom'); }, 0);
   synth.triggerAttackRelease(semiToName(to,60),"4n",now+GAP);              // 到达音(绿)
