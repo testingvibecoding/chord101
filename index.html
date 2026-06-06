@@ -1389,9 +1389,9 @@ function teachEN(mId){
             <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3 (common tone · stays put!)</span>
             <span class="chip" data-play="vpair:-1,0">🔊 B3→C4 (leading tone up)</span>
             <span class="chip" data-play="vpair:2,4">🔊 D4→E4 (5th up · supplies the 3rd)</span>
-            <span class="chip" data-play="seq:rsV64">🎹 Full picture: V64 → C</span>
+            <span class="chip" data-play="vchord:-10,-5,-1,2;-12,-5,0,4">🎹 Full picture: V64 → C</span>
           </div>
-          <p><b>Watch G3: it's the tone V and C share, and it never moves</b> — that's the "stays put" in this rule's title. The other three move as usual: the bass D3 steps to C3, the leading tone B3 slides into C4, and the other D4 rises to E4 to supply the 3rd. Landing <b>C3 G3 C4 E4</b> — a complete C major triad.</p>
+          <p><b>G3 never moves — that's "staying put".</b> The other three move as usual: the bass D3 steps to C3, the leading tone B3 slides into C4, and the other D4 rises to E4 to supply the 3rd. Landing <b>C3 G3 C4 E4</b> — a complete C major triad.</p>
         </div>
       </details>
 
@@ -2793,9 +2793,9 @@ function teachCN(mId){
             <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3（共同音·原地不走！）</span>
             <span class="chip" data-play="vpair:-1,0">🔊 B3→C4（导音上行）</span>
             <span class="chip" data-play="vpair:2,4">🔊 D4→E4（五音上行·补出三音）</span>
-            <span class="chip" data-play="seq:rsV64">🎹 全貌：V64 → C</span>
+            <span class="chip" data-play="vchord:-10,-5,-1,2;-12,-5,0,4">🎹 全貌：V64 → C</span>
           </div>
-          <p><b>看 G3 这一条：它是 V 与 C 共享的音，从头到尾一动不动</b>——这就是规则二标题里说的"不走"。其余三条照常走：低音 D3 级进落 C3、导音 B3 蹭进 C4、另一个 D4 上行到 E4 补出三音。落点 <b>C3 G3 C4 E4</b> 是完整的 C 大三和弦。</p>
+          <p><b>G3 从头到尾一动不动——这就是"不走"。</b>其余三条照常走：低音 D3 级进落 C3、导音 B3 蹭进 C4、另一个 D4 上行到 E4 补出三音。落点 <b>C3 G3 C4 E4</b> 是完整的 C 大三和弦。</p>
         </div>
       </details>
 
@@ -3549,6 +3549,7 @@ function bindTeachPlays(root){
       }
       else if(cmd.startsWith("vlead:")){ await playVoiceLead(cmd.slice(6)); return; } // 逐声部解决：自己点灯，不走末尾 lightAlong
       else if(cmd.startsWith("vpair:")){ const[a,b]=cmd.slice(6).split(",").map(Number); await playVPair(a,b); return; } // 单声部出发→到达(橙→绿)
+      else if(cmd.startsWith("vchord:")){ const[a,b]=cmd.slice(7).split(";").map(x=>x.split(",").map(Number)); await playChordPair(a,b); return; } // 整和弦全貌(橙→绿)
       else if(cmd.startsWith("seq:")){ const nm=cmd.slice(4);
         if(SEQS[nm].length>1 && !loopTimer) loopSpec={kind:"seq",name:nm};
         await playChordSeq(SEQS[nm]); }
@@ -6197,6 +6198,22 @@ async function playVPair(from,to){
   synth.triggerAttackRelease(semiToName(to,60),"4n",now+GAP);              // 到达音(绿)
   later(()=>{ const k=piano&&piano.querySelector(`.key[data-m="${60+from}"]`); if(k) k.classList.remove('vfrom'); lite(to,'vto'); }, Math.round(GAP*1000));
   later(clr, Math.round(GAP*1000)+1300);
+}
+// 整和弦全貌：先齐奏 fromArr(橙) 再齐奏 toArr(绿)
+async function playChordPair(fromArr,toArr){
+  await initAudio();
+  const piano=document.querySelector("#piano");
+  const clr=()=>{ if(piano) piano.querySelectorAll('.key').forEach(k=>k.classList.remove('reveal','lit','vfrom','vto')); };
+  if(piano){ if(piano._lightTimers) piano._lightTimers.forEach(clearTimeout); piano._lightTimers=[]; }
+  const later=(fn,ms)=>{ const id=setTimeout(fn,ms); if(piano){ piano._lightTimers=piano._lightTimers||[]; piano._lightTimers.push(id);} };
+  const lite=(s,cls)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.add(cls); };
+  const now=Tone.now(); clr();
+  synth.triggerAttackRelease(fromArr.map(s=>semiToName(s,60)),"2n",now);
+  later(()=>{ clr(); fromArr.forEach(s=>lite(s,'vfrom')); }, 0);
+  const t=0.95;
+  synth.triggerAttackRelease(toArr.map(s=>semiToName(s,60)),"1n",now+t);
+  later(()=>{ clr(); toArr.forEach(s=>lite(s,'vto')); }, Math.round(t*1000));
+  later(clr, Math.round(t*1000)+1600);
 }
 // arg = "0".."3" 播单条声部的"出发(橙)→到达(绿)"；arg="chord" 播末尾柱式齐奏
 async function playVoiceLead(arg){
