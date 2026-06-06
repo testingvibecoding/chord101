@@ -1365,7 +1365,7 @@ function teachEN(mId){
       <details class="note" open><summary><b>Rule 2 · other upper voices: move nearest (landings may overlap)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>Terms first: of a chord's several voices, <b>the lowest is the "bass voice" (a.k.a. the bass / lower voice); all the others are "upper voices"</b>. Take the G7 above (G3 B3 D4 F4) — G3 is the bass voice; B3, D4 and F4 are all upper voices.</p>
-          <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>the rest just move "nearest"</b> — to the closest tonic tone. In G7 that's the 5th, <b>D</b>: <b>down to C or up to E, both legal</b> (which way depends on which landing is free and where the line is headed). Hear each (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
+          <p>Upper voices gripped by the magnets (B, F) belong to rule 1; <b>the rest just move "nearest"</b> — to the closest tonic tone. In G7 that's the 5th, <b>D</b>: <b>down to C or up to E, both legal</b>. <b>A priority guideline: when the direction is free, pick the one that helps complete the tonic's three notes (C·E·G)</b> — if the other voices already supply C and G but the 3rd E is missing, D rises to E to complete the chord; absent that need, choose by register and melodic line. Hear each (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
           <div class="row">
             <span class="chip" data-play="vlead:chord">🎹 Full picture: G7→C</span>
             <span class="chip" data-play="vpair:2,0">🔊 D→C (down · joins the root)</span>
@@ -1383,7 +1383,7 @@ function teachEN(mId){
       <details class="note"><summary>Extra: sometimes some notes don't need to move</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>In certain special cases, an <b>upper-voice note is already in the target chord, isn't the lowest note, and needn't move to complete the chord</b> — then it can stay still. The classic case is <b>V64 → I</b> (the <b>second inversion</b> of the dominant — the 5th, D, in the bass).</p>
-          <p>Voiced in four parts as <b>D3 · G3 · B3 · D4</b>, resolving to C (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
+          <p>The four notes are <b>D3 · G3 · B3 · D4</b>, each resolving to C (<b style="color:#ff7a59">orange = depart</b> → <b style="color:#5ce6a0">green = arrive</b>):</p>
           <div class="row">
             <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3 (bass steps down)</span>
             <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3 (common tone · stays put!)</span>
@@ -1412,7 +1412,7 @@ function teachEN(mId){
           <p>This is just the precise form of the opening master rule — "<b>each note goes to the nearest, legal tonic tone</b>". The upper voices need only <b>check each note's shortest distance to a tonic-chord tone (C·E·G)</b>:</p>
           <p>· <b>Distance 0</b> (it IS a chord tone) → <b>stay put</b>: G.<br>
              · <b>A half step</b> (hugging a chord tone) → <b>must resolve onto it</b>: B→C, F→E — no direction to memorize; it points at the neighbor automatically.<br>
-             · <b>A whole step</b> (chord tones equidistant on both sides) → <b>nearest, either way</b>: D→C or D→E.</p>
+             · <b>A whole step</b> (chord tones equidistant on both sides) → <b>nearest, either way — prefer whichever completes the chord</b>: D→C or D→E, taking the one that fills out C·E·G.</p>
           <div class="row"><span class="chip" data-play="seq:rsRoot">🔊 Re-hear the standard resolution through this lens: every note lands on its nearest chord tone</span></div>
           <p style="font-size:12.5px;color:var(--muted)">"Leading tone up, 7th down, tritone closing inward" are all corollaries of this distance rule. Add the bass rule (carry the root; 4th up = 5th down) and the whole of resolution fits in two sentences. Scope: an exact summary for V7→I; richer chords (like dim7) can have half-step chord tones on both sides — extra criteria come later.</p>
         </div>
@@ -2769,7 +2769,7 @@ function teachCN(mId){
       <details class="note" open><summary><b>规则二 · 其余上声部：就近走（落点可以重叠）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>先说清称呼：和弦的几个声部里，<b>最低的那个叫"低声部"（也叫低音、下声部），其余的都叫"上声部"</b>。以上面的 G7（G3 B3 D4 F4）为例——G3 是低声部，B3、D4、F4 三个都是上声部。</p>
-          <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>剩下的只须"就近"</b>——走到最近的那个 I 内音。G7 里这样的音就是五音 <b>D</b>：<b>下行到 C 或上行到 E 都合法</b>，走哪边看安排（哪个落点空着、旋律往哪去）。逐个听（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
+          <p>上声部里被磁铁拽住的（B、F）归规则一管；<b>剩下的只须"就近"</b>——走到最近的那个 I 内音。G7 里这样的音就是五音 <b>D</b>：<b>下行到 C 或上行到 E 都合法</b>。<b>补充原则：方向可选时，优先选能补齐主和弦三个音（C·E·G）的那个</b>——若别的声部已凑出 C、G、还缺三音 E，D 就上行到 E 把和弦补完整；没有这个需要时，再看音域和旋律走向。逐个听（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
           <div class="row">
             <span class="chip" data-play="vlead:chord">🎹 全貌：完整和弦 G7→C</span>
             <span class="chip" data-play="vpair:2,0">🔊 D→C（下行·并入根音）</span>
@@ -2787,7 +2787,7 @@ function teachCN(mId){
       <details class="note"><summary>拓展：有时候有些音不需要动</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>有些特殊情况下，<b>上声部的音本来就在目标和弦里，又不是最低音，又不必为补全主和弦而挪动它</b>，那么就可以不动。最经典的例子是 <b>V64 → I</b>（属和弦的<b>第二转位</b>，低音是五音 D）。</p>
-          <p>配成四声部 <b>D3 · G3 · B3 · D4</b>，逐个解决到 C（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
+          <p>四个音符是 <b>D3 · G3 · B3 · D4</b>，逐个解决到 C（<b style="color:#ff7a59">橙=出发</b> → <b style="color:#5ce6a0">绿=到达</b>）：</p>
           <div class="row">
             <span class="chip" data-play="vpair:-10,-12">🔊 D3→C3（低音级进下行）</span>
             <span class="chip" data-play="vpair:-5,-5">🔊 G3→G3（共同音·原地不走！）</span>
@@ -2816,7 +2816,7 @@ function teachCN(mId){
           <p>这其实就是开头那句总纲——"<b>每个音走到最近、又合规的 I 内音</b>"——的精确版。上方声部只须<b>看每个音到 I 和弦内音（C·E·G）的最短距离</b>：</p>
           <p>· <b>距离 0</b>（自己就是内音）→ <b>原地保留</b>：G。<br>
              · <b>半音</b>（紧贴着某个内音）→ <b>必须就近解决到它</b>：B→C、F→E——方向不用背，自动朝着那个邻居。<br>
-             · <b>全音</b>（两边的内音等距）→ <b>任选就近</b>：D→C 或 D→E 皆可。</p>
+             · <b>全音</b>（两边的内音等距）→ <b>任选就近，优先补齐和弦缺的音</b>：D→C 或 D→E，哪个能把 C·E·G 补完整就走哪个。</p>
           <div class="row"><span class="chip" data-play="seq:rsRoot">🔊 用这一条重听标准解决：每个音都落到离它最近的内音上</span></div>
           <p style="font-size:12.5px;color:var(--muted)">"导音必上、七音必下、三全音反向收拢"全是这条距离规则的推论。加上低音那条（走根音，上四=下五），整个解决就两句话。适用范围：V7→I 的精确总结；更复杂的和弦（如减七）两侧可能都有半音内音，到时再补判据。</p>
         </div>
@@ -4751,7 +4751,7 @@ function q_resolve(concept){
           {label:tr("必须下行到 C，别无选择","Must fall to C, no choice"),sub:tr("说得太死了","overstated"),correct:false},
           {label:tr("必须留在原地","Must stay put"),correct:false},
         ]),
-        explain:tr("D 是 G7 的五音，<b>不是倾向音</b>——它不挨着任何半音磁铁，所以只须<b>就近走</b>（规则二）：下行大二度到 C（并入根音）最常见；上行大二度到 E（成为三音）同样合法。它没有 B、F 那样的\"必须\"——具体走哪边，常由别的声部占了哪些落点来决定（原位示范里 E4 被七音占用，D4 便落了 C4）。","D is G7's 5th and <b>not a tendency tone</b> — no half-step magnet grips it, so it just moves <b>nearby</b> (rule 2): down a whole step to C (joining the root) most often, or up a whole step to E (becoming the 3rd), equally legal. It has none of B's or F's \"must\" — which way it goes often depends on which landings other voices have claimed (in the root-position demo E4 is taken by the 7th, so D4 settles on C4).")};
+        explain:tr("D 是 G7 的五音，<b>不是倾向音</b>——它不挨着任何半音磁铁，所以只须<b>就近走</b>（规则二）：下行到 C 或上行到 E 都合法。<b>优先原则：选能补齐主和弦三个音（C·E·G）的方向</b>——若三音 E 还缺人补，D 就上行到 E；若 E 已有别的声部补上（如七音 F→E），D 便落 C。它没有 B、F 那样的\"必须\"。","D is G7's 5th and <b>not a tendency tone</b> — no half-step magnet grips it, so it just moves <b>nearby</b> (rule 2): down to C or up to E, both legal. <b>Priority: pick the direction that completes the tonic's three notes (C·E·G)</b> — if the 3rd E still needs filling, D rises to E; if E is already covered (e.g. the 7th F→E), D settles on C. It has none of B's or F's \"must\".")};
     }
     return {kind:"choice",concept,qtype:tr("术语 · G7 里的 G 叫什么","Terms · what is the G in G7"),
       prompt:tr("C 大调里弹 G7（G B D F）。这个和弦里的 <b>G</b>，规范叫法是？","Playing G7 (G B D F) in C major — what is the proper name for the <b>G</b> inside this chord?"),
