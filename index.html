@@ -392,6 +392,24 @@ const MODULES = [
   {id:"transpose", num:"㉓", emoji:"🔁", color:"var(--p3)",
    title:"移调翻译 · 一套进行走遍各调", desc:"罗马数字↔实际和弦；把进行移到任意大调",
    concepts:["r2c","c2r","prog"]},
+  {id:"secdom", num:"㉔", emoji:"🚪", color:"var(--p1)",
+   title:"副属和弦 · 给下一个和弦装磁铁", desc:"E7→Am、A7→Dm：临时开一扇门，开完就回原调",
+   concepts:["bridge","sdhear","sdroman","sdbuild"]},
+  {id:"color", num:"㉕", emoji:"✨", color:"var(--p2)",
+   title:"色彩音 · 和弦的滤镜", desc:"add9 / 6 / maj9 / m9 / 9：素颜三和弦加滤镜",
+   concepts:["add9","hear9","pick9","build9"]},
+  {id:"passdim", num:"㉖", emoji:"🪜", color:"var(--p5)",
+   title:"半音黏合剂 · 经过减七", desc:"C→C♯°7→Dm7：低音半音爬台阶的丝滑过渡",
+   concepts:["dim7","pdhear","pdlead","pdbuild"]},
+  {id:"modes", num:"㉗", emoji:"🌈", color:"var(--p3)",
+   title:"流行调式 · 不一定非要回家", desc:"Mixolydian / Dorian / Aeolian：调式色彩循环",
+   concepts:["mixo","dorian","modal","modebuild"]},
+  {id:"voicing", num:"㉘", emoji:"🖐️", color:"var(--p2)",
+   title:"和弦按法 · 同一组音怎么摆", desc:"密集/开放、共同音保留、持续低音",
+   concepts:["spread","smooth","pedal","vcbuild"]},
+  {id:"modulate", num:"㉙", emoji:"🚀", color:"var(--p1)",
+   title:"转调 · 歌曲的高潮推进器", desc:"升半调推土机；关系大小调切换；转调盲听",
+   concepts:["lift","relswitch","modhear"]},
 ];
 const MASTERY_TARGET = 2; // 每个概念需连续答对次数
 
@@ -428,6 +446,12 @@ const TRAIN_CATS = {
   minprog:{title:"小调走向与鉴赏", type:"module", concepts:["prog","modehear","mood","flip"]},
   borrow:{title:"离调借用", type:"module", concepts:["alien","hear","fill"]},
   transpose:{title:"移调翻译", type:"module", concepts:["r2c","c2r","prog"]},
+  secdom:{title:"副属和弦", type:"module", concepts:["bridge","sdhear","sdroman","sdbuild"]},
+  color:{title:"色彩音", type:"module", concepts:["add9","hear9","pick9","build9"]},
+  passdim:{title:"经过减七", type:"module", concepts:["dim7","pdhear","pdlead","pdbuild"]},
+  modes:{title:"流行调式", type:"module", concepts:["mixo","dorian","modal","modebuild"]},
+  voicing:{title:"和弦按法", type:"module", concepts:["spread","smooth","pedal","vcbuild"]},
+  modulate:{title:"转调", type:"module", concepts:["lift","relswitch","modhear"]},
 };
 // 音程数据
 const INTERVALS = {
@@ -486,6 +510,12 @@ const MOD_EN={ // 关卡卡片标题/简介英文
   minprog:["Minor Progressions & Listening","i–VI–III–VII, epic descents; major/minor ear"],
   borrow:["Borrowed Chords · Tearjerkers","iv, ♭VII, ♭VI from the parallel minor"],
   transpose:["Transposition · Any Key","Roman ↔ real chords; move progressions anywhere"],
+  secdom:["Secondary Dominants · Magnet Installers","E7→Am, A7→Dm: open a temporary door, then return"],
+  color:["Color Tones · Chord Filters","add9 / 6 / maj9 / m9 / 9: filters over plain triads"],
+  passdim:["Chromatic Glue · Passing Dim7","C→C♯°7→Dm7: silky chromatic bass steps"],
+  modes:["Pop Modes · No Rush to Go Home","Mixolydian / Dorian / Aeolian color loops"],
+  voicing:["Voicings · How to Lay the Notes","close/open, common tones, pedal point"],
+  modulate:["Modulation · The Chorus Booster","semitone lift; relative-key switch; by ear"],
 };
 const CAT_EN={ // 训练场分类标题英文
   interval:"Intervals", scale:"Major Scale", key:"Major Keys", keymin:"Minor Intro", triad:"Triads",
@@ -493,6 +523,8 @@ const CAT_EN={ // 训练场分类标题英文
   transpose:"Transposition", "function":"Chord Function", inv:"Inversions", slash:"Slash Chords",
   pop:"Pop Progressions", sus:"Sus Chords", parmin:"Parallel Keys", minfam:"Minor Family",
   minv:"Minor v & V7", minv2:"Minor Resolution", minprog:"Minor Progressions", borrow:"Borrowed Chords",
+  secdom:"Secondary Dominants", color:"Color Tones", passdim:"Passing Dim7",
+  modes:"Pop Modes", voicing:"Voicings", modulate:"Modulation",
 };
 // 数据层术语词典：声音数据(和弦/音程的名称、色彩、情绪)按原文精确映射到英文
 const ZH2EN={
@@ -575,6 +607,12 @@ const FREQ = {
   diatonic:{d2:5, d3:2, d4:9, d5:9, d6:8, d7:2}, // I·IV·V·vi 为流行支柱(I另作参照)
   roman:{deg:4, tri:5, sev:6},
   transpose:{r2c:6, c2r:5, prog:5},
+  secdom:{bridge:6, sdhear:6, sdroman:5, sdbuild:4},
+  color:{add9:6, hear9:6, pick9:5, build9:4},
+  passdim:{dim7:6, pdhear:6, pdlead:5, pdbuild:4},
+  modes:{mixo:6, dorian:6, modal:5, modebuild:4},
+  voicing:{spread:5, smooth:6, pedal:5, vcbuild:5},
+  modulate:{lift:5, relswitch:5, modhear:6},
   "function":{T:6, S:5, D:6, lead:6},
   inv:{which:5, build:6, ear:5},
   slash:{concept:5, bassname:5, build:6},
@@ -901,14 +939,42 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>What is a "cadence"? Why is the dominant 7th its core?</b></summary>
         <div style="line-height:1.75;color:#e9e3ff">
-          <p><b>A cadence is the "punctuation" of the last few chords in a phrase</b> — it decides whether the sentence ends with a "." or a ",". The strongest "full stop" is <b>dominant → tonic (V→I)</b>:</p>
+          <p><b>A cadence is the "punctuation" of the last few chords in a phrase</b> — it decides whether the sentence ends with a "." or a ",". There are three everyday marks plus one "exclamation"; let's nail each one:</p>
+
+          <p><b>① Authentic cadence (V7→I) — the heaviest full stop "."</b><br>
+          Dominant back to tonic: G7 → C. Its clean finality is no mystique — it is built in: G7's leading tone <b>B hugs a half step under the tonic</b> and gets sucked into C, while the 7th, <b>F, falls a half step to E</b> — two forces release at once, and the dust settles. The vast majority of classical and pop endings use it.</p>
           <div class="row">
-            <span class="chip" data-play="kseq:auth">. Authentic cadence G7 → C (strong finality)</span>
-            <span class="chip" data-play="kseq:plagal">. Plagal cadence F → C (the soft "Amen" ending)</span>
-            <span class="chip" data-play="kseq:half">, Half cadence …→ G (stops on the dominant — sentence unfinished)</span>
+            <span class="chip" data-play="kseq:auth">🔊 G7 → C (both forces land together)</span>
+            <span class="chip" data-play="kseq:hangV7">🔊 G7 alone (held in the air — feel the contrast)</span>
           </div>
+
+          <p><b>② Plagal cadence (IV→I) — the soft full stop "."</b><br>
+          Subdominant back to tonic: F → C. The F chord <b>contains no leading tone B</b> — nobody hurries: F→E and A→G sink gently while the common tone C never moves, like a serene sigh. Church hymns close on "A—men" with exactly these two chords (IV–I), hence the nickname <b>"Amen cadence"</b>. Pop songs often add it right after an authentic cadence for a longer afterglow.</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:plagal">🔊 F → C (no urgency — set down gently)</span>
+          </div>
+
+          <p><b>③ Half cadence (…→V) — the comma ","</b><br>
+          The phrase doesn't go home; it <b>stops on the dominant G</b>. The leading tone hangs unresolved, tension suspended mid-air — half a sentence, and the ear waits for the next line. Verse front-halves often end this way, forcing the music onward. Mind the trap in the name: it is <b>not "half resolved" but "half said"</b>.</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:half">🔊 C → G (parked on tension, awaiting the rest)</span>
+          </div>
+
+          <p><b>④ Deceptive cadence (V7→vi) — the startled ",!"</b><br>
+          You heard it in the previous box: G7 promises C, then swerves to Am — the period is snatched away and replaced by a surprise turn. Songwriters use it to "trick" the ear once and stretch the song one more lap.</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:deceptive">🔊 G7 → Am (the period, snatched away)</span>
+          </div>
+
+          <p><b>The four side by side</b> (every row playable):</p>
+          <table class="ctab"><tr><th>Cadence</th><th>Motion</th><th>Mark</th><th>Feel</th><th>Where the force comes from / goes</th></tr>
+            <tr><td class="play" data-play="kseq:auth">Authentic ▶</td><td>V7 → I</td><td>. heavy</td><td>clean, dust settles</td><td>B↗C and F↘E — all tension released</td></tr>
+            <tr><td class="play" data-play="kseq:plagal">Plagal ▶</td><td>IV → I</td><td>. soft</td><td>serene, "Amen"</td><td>no leading tone, no urgency — set down gently</td></tr>
+            <tr><td class="play" data-play="kseq:half">Half ▶</td><td>… → V</td><td>,</td><td>suspended, unfinished</td><td>parked on tension, never resolves</td></tr>
+            <tr><td class="play" data-play="kseq:deceptive">Deceptive ▶</td><td>V7 → vi</td><td>,!</td><td>surprised, fooled once</td><td>tension wants home but is led to Am</td></tr></table>
           ${keyBar(false,true)}
           <p>By comparison, <b>dominant 7th → tonic (G7→C)</b> ends most strongly and cleanly. Precisely because the dominant 7th carries that "must resolve" tension, it became <b>the core of the authentic cadence</b> — nearly every classical or pop phrase puts its period there.</p>
+          <p style="font-size:12.5px;color:var(--muted)">Preview: authentic cadences further split into "perfect / imperfect" (does the bass land on the tonic note?), detailed in level ⑬; how each note travels is dissected voice by voice in level ⑫.</p>
         </div>
       </details>
 
@@ -1043,7 +1109,7 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>🎓 Graduation review · every progression, any key, one more listen</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Transposition is the course's "final puzzle piece" — so let's gather <b>every progression you've learned</b>: switch keys at will, loop at will, toggle block/arpeggio/combo at will, and verify with your own hands that "degrees stay put while keys travel".</p>
+          <p>Transposition is the main storyline's "final puzzle piece" — so let's gather <b>every progression you've learned</b>: switch keys at will, loop at will, toggle block/arpeggio/combo at will, and verify with your own hands that "degrees stay put while keys travel". (Don't leave after clearing it: six levels of <b>advanced pop harmony</b> await from ㉔ on.)</p>
           <p><b>The six big major progressions</b> (level ⑭). First, the 7-degree cheat sheet (C major as example, every cell playable; when you switch keys, <b>the digits and Romans stay fixed</b> — translate the note names into the target key yourself; that's precisely this level's skill):</p>
           <table class="ctab"><tr><th>Digit</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>Roman</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
@@ -1086,6 +1152,332 @@ function teachEN(mId){
           <p style="font-size:12.5px;color:var(--muted)">Tap any progression and it becomes "the last one tapped", ready to loop; the major group switches keys with the major menu, the minor group with the minor menu, and the borrowing group works in any key as before.</p>
         </div>
       </details>`;
+
+    case "secdom": return `
+      <p>You know level ⑭'s 4536 (F–G–Em–Am) well by now. In real pop songs, slot three is very often not Em but <b>E7</b> — hear that "ache" first:</p>
+      <div class="row">
+        <span class="chip" data-play="seq:sd4536">🔊 Textbook: F–G–Em–Am (mild)</span>
+        <span class="chip" data-play="seq:sd4536v">🔊 In the wild: F–G–E7–Am (aching)</span>
+      </div>
+
+      <details class="note" open><summary><b>The idea: install a magnet for the next chord (level ⑲'s trick, in major)</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Level ⑲ cured minor's limp way home with a <b>three-gear escalation</b>: v (soft) → V (raise the 3rd, leading tone installed) → V7 (stack the 7th, tritone installed). <b>The same ladder transfers to major intact</b> — only the "little home" is now the vi chord Am, and the ladder is leaned against Em.</p>
+          <p><b>Gear one → gear two: raise the 3rd (THIS is the one-note difference).</b> Lift Em's 3rd, G, a half step to G♯ and the minor triad becomes the major triad E — and that G♯ happens to be Am's leading tone: the door handle is on:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-8,-5,-1">🔊 Em (E·G·B — diatonic, soft)</span>
+            <span class="chip" data-play="notes:-8,-4,-1">🔊 E (E·G♯·B — bright and tight)</span>
+            <span class="chip" data-play="seq:sdEmAm">🔊 Em → Am (strolls over)</span>
+            <span class="chip" data-play="seq:sdEAm">🔊 E → Am (shown through the door)</span>
+            <span class="chip" data-play="vpair:-4,-3">🔊 G♯ → A (the handle's pull)</span>
+          </div>
+          <p><b>Gear two → gear three: stack the 7th, D.</b> Mind that this step <b>adds a note</b> rather than changing one: the newcomer D forms a tritone with G♯, upgrading "wants to reach Am" into "must". Whether you take gear three depends on the song — <b>E already opens the door; E7 aches harder</b>. Pop uses both:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-8,-4,-1">🔊 E (leading tone aboard)</span>
+            <span class="chip" data-play="notes:-8,-4,-1,2">🔊 E7 (E·G♯·B·D — tritone added, bow at full draw)</span>
+          </div>
+          <p>All three gears heading into Am — the <b>two-chord comparison</b>, pull rising step by step:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sdEmAm">🔊 Em → Am (strolls over)</span>
+            <span class="chip" data-play="seq:sdEAm">🔊 E → Am (shown through the door)</span>
+            <span class="chip" data-play="seq:sdE7Am">🔊 E7 → Am (sucked in)</span>
+          </div>
+          <p>Finally, the three gears back inside the <b>full progression</b>:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sdPlain">🔊 Diatonic: C–Em–Am (smooth)</span>
+            <span class="chip" data-play="seq:sdSparkE">🔊 Triad version: C–E–Am (led along)</span>
+            <span class="chip" data-play="seq:sdSpark">🔊 Seventh version: C–E7–Am (pulled in)</span>
+          </div>
+          <p>A "temporary V (or V7) dedicated to a target chord" is called a <b>secondary dominant</b>. Its kinship with level ⑲ in one line: <b>⑲ built a powered front door for the whole song's home; this level builds temporary side doors for any chord inside major</b> — no modulation: the door closes and the original key carries on.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Notation: V7/vi — read the slash as "of"</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>In C major this E7 is <b>not written III7</b> (the diatonic 3rd degree is the minor triad Em, written iii). It is written <b>V7/vi</b> — "<b>the V7 of vi</b>" — the symbol states its job outright: temporarily serving as vi's dominant.</p>
+          <p>⚠️ This slash and level ⑩'s C/E slash are <b>two different animals</b>: after C/E's slash comes the <b>bass note</b>; after V7/vi's slash comes the <b>temporary home</b>. A slash between Roman numerals reads "of"; a slash inside a chord name reads "bass is".</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>The usual suspects (in C major)</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <table class="ctab"><tr><th>Symbol</th><th>Chord</th><th>Door handle (outside note)</th><th>Pushes into</th></tr>
+            <tr><td>V7/vi</td><td class="play" data-play="seq:sdSpark">E7</td><td>G♯</td><td>Am</td></tr>
+            <tr><td>V7/ii</td><td class="play" data-play="seq:sdA7">A7</td><td>C♯</td><td>Dm</td></tr>
+            <tr><td>V7/V</td><td class="play" data-play="seq:sdD7">D7</td><td>F♯</td><td>G</td></tr>
+            <tr><td>V7/IV</td><td class="play" data-play="seq:sdC7">C7</td><td>B♭</td><td>F</td></tr></table>
+          <p>One pattern jumps out: <b>each secondary dominant carries exactly one outside note</b> — and that note is the whole door-opening force. V7/IV is the slyest: drop a B♭ into the tonic C, and home itself becomes someone else's door.</p>
+          <p>Formula upgrade in action — 1645 with two doors installed:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sd1645">🔊 Original 1645: C–Am–F–G</span>
+            <span class="chip" data-play="seq:sd1645v">🔊 Upgraded: C–E7–Am–C7–F–G (two temporary doors)</span>
+          </div>
+          <p>It works in minor too — the B7→Em beloved of J-pop and Mandopop:</p>
+          <div class="row"><span class="chip" data-play="seq:sdB7m">🔊 Am–B7–Em (D♯ slides into E)</span></div>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: borrowing vs secondary dominants vs modal loops — three kinds of outside notes</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>· <b>Borrowing</b> (level ㉒): fetching color from the parallel minor — Fm's A♭ pushes nothing, it only darkens.<br>
+             · <b>Secondary dominant</b> (this level): building pull toward a target — E7's G♯ must slide into A at once; pure direction.<br>
+             · <b>Modal loop</b> (level ㉗ ahead): the outside note takes up permanent residence and the whole passage changes scale color.</p>
+          <p>The litmus test: <b>how impatient is the outside note?</b> Desperate for a half-step resolution = secondary dominant; unhurried, just tinting = borrowing; never leaving = a mode.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: chained secondaries — doors all the way down the circle of fifths</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Doors can open in a chain: E7 pushes A7, A7 pushes D7, D7 pushes G7 — each dominant 7th is the secondary dominant of the next, and the final G7 lands on C by level ⑫'s rules. The jazz and oldies "highway home":</p>
+          <div class="row"><span class="chip" data-play="seq:sdChain">🔊 E7→A7→D7→G7 (doors in a chain)</span></div>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: identifying what a secondary dominant is (not a modulation, not a borrowing), Em vs E7 by ear, the V7/vi notation and spotting the outside note, and building E7 / A7 / D7.</p>`;
+
+    case "color": return `
+      <p>A triad is a <b>bare face</b>. The add9 and maj9 that modern pop keyboardists (R&B, City Pop, ballads) keep mentioning are simply <b>filters over that face</b> — skeleton untouched, character transformed. Hear 1564 plain, then filtered:</p>
+      <div class="row">
+        <span class="chip" data-play="seq:colPlain">🔊 Plain 1564: C–G–Am–F</span>
+        <span class="chip" data-play="seq:colAdd9">🔊 Filtered: Cadd9–Gadd9–Amadd9–Fadd9</span>
+      </div>
+
+      <details class="note" open><summary><b>add9: a triad plus the 9th on top</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>You met the 2nd in level ①; <b>move that 2nd up an octave and it is renamed the 9th</b>. Cadd9 = C·E·G + a high D:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 C (bare)</span>
+            <span class="chip" data-play="notes:0,4,7,14">🔊 Cadd9 (clear shimmer)</span>
+          </div>
+          <p>The key contrast — both it and level ⑮'s sus2 contain a D, yet they are opposites: <b>sus2 removes the 3rd</b> (floating, neither major nor minor); <b>add9 keeps the 3rd</b> (personality intact, light added on top):</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,2,7">🔊 Csus2 (floating)</span>
+            <span class="chip" data-play="notes:0,4,7,14">🔊 Cadd9 (glowing)</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>The filter family: add9 / maj9 / m9 / 9 — one letter apart</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>One rule reads them all: <b>a bare number after the name (C9, Cmaj9, Am9) = the 7th chord plus a 9th; "add9" = the plain triad plus a 9th, no 7th</b>.</p>
+          <table class="ctab"><tr><th>Symbol</th><th>Build</th><th>Character</th><th>Play</th></tr>
+            <tr><td>Cadd9</td><td>C + 9</td><td>clear, open, youthful</td><td class="play" data-play="notes:0,4,7,14">▶</td></tr>
+            <tr><td>Cmaj9</td><td>Cmaj7 + 9</td><td>urban neon, hazy class</td><td class="play" data-play="notes:0,4,7,11,14">▶</td></tr>
+            <tr><td>Am9</td><td>Am7 + 9</td><td>gloom turned relaxed</td><td class="play" data-play="notes:-3,0,4,7,11">▶</td></tr>
+            <tr><td>G9</td><td>G7 + 9</td><td>a jazzier, forward-leaning dominant</td><td class="play" data-play="notes:-5,-1,2,5,9">▶</td></tr>
+            <tr><td>C6</td><td>C + 6</td><td>vintage warmth, oldies endings</td><td class="play" data-play="notes:0,4,7,9">▶</td></tr></table>
+          <p>Hear Am through three gears:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-3,0,4">🔊 Am (gloomy)</span>
+            <span class="chip" data-play="notes:-3,0,4,7">🔊 Am7 (softened)</span>
+            <span class="chip" data-play="notes:-3,0,4,7,11">🔊 Am9 (relaxed)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Calling card reclaimed: the F/G dissected in level ⑬ is written <b>G9sus4</b> on jazz charts — you have been hearing the 9th all along.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: 11 and 13 — filters stacked to the roof</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Keep stacking 3rds past the 9th and you reach the 11th and 13th (the 4th and 6th an octave up). Stacking everything turns muddy, so players <b>omit the 5th and pick their extensions</b>. One taste of the dominant's penthouse suite, G13, is enough for now:</p>
+          <div class="row"><span class="chip" data-play="notes:-5,-1,5,9,16">🔊 G13 (G·B·F·A·E)</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">Just remember the direction: <b>the bigger the number, the farther from the skeleton — more "atmosphere", less "function"</b>.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: the makeup of add9, telling add9 from sus2 and from C9, blind-hearing plain / maj7 / add9, picking a filter by mood, and building add9 chords.</p>`;
+
+    case "passdim": return `
+      <p>Level ⑩ taught the arranging aesthetic: <b>a bass that walks in steps sounds best</b>. But moving C to Dm, the bass jumps C→D across a whole step — the chromatic slot in between (C♯) sits empty. Pop players' favorite filler is the <b>passing diminished 7th</b>:</p>
+      <div class="row">
+        <span class="chip" data-play="seq:pdPlain">🔊 Straight: C → Dm7 (bass leaps the gap)</span>
+        <span class="chip" data-play="seq:pdSmooth">🔊 With glue: C → C♯°7 → Dm7 (bass climbs by half steps)</span>
+      </div>
+
+      <details class="note" open><summary><b>The dim7 chord: a symmetric tower of minor 3rds</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Building a °7 could not be more regular: <b>from the root, stack a note every 3 semitones</b>. C♯°7 = C♯·E·G·B♭ — minor 3rds all four steps:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:1,4,7,10">🔊 Note by note: C♯ E G B♭ (minor 3rds throughout)</span>
+            <span class="chip" data-play="notes:1,4,7,10">🔊 Together: C♯°7 (maximum sting)</span>
+          </div>
+          <p>The price of symmetry: <b>two tritone pairs hide inside</b> (C♯–G and E–B♭). Level ⑫ called the tritone a sting that must dissolve — a dominant 7th holds one pair; this holds two: <b>all four notes are tendency tones</b>. Hence the "super half-step magnet": one sounding and the ear knows something is about to arrive.</p>
+          <p style="font-size:12.5px;color:var(--muted)">Keep level ⑥'s half-diminished ø (m7♭5) apart: ø's last step is a major 3rd; °7 keeps minor 3rds all the way.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>The usage: ♯I°7 — gluing I to ii</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The most common placement: <b>I → ♯I°7 → ii</b> (C → C♯°7 → Dm7). The bass climbs C→C♯→D in half steps and every upper voice shifts only a notch — watch it voice by voice (orange = departing, green = arriving):</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:-11,-10">🔊 Bass C♯3 → D3 (a temporary leading tone)</span>
+            <span class="chip" data-play="vchord:-11,4,7,10;-10,5,9,12">🎹 Full picture: C♯°7 → Dm7</span>
+          </div>
+          <p>A dim7 wedged between two diatonic chords purely to "slide across" is a <b>passing diminished 7th</b>. The silky vintage feel of R&B-flavored pop owes most of itself to this chord.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: the lift also fits between 5 and 6 (♯V°7)</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Same trick, new location: <b>G → G♯°7 → Am</b> (5–♯5°7–6m) — the vintage pre-chorus elevator, a regular in oldies and City Pop:</p>
+          <div class="row"><span class="chip" data-play="seq:pdUp56">🔊 G → G♯°7 → Am7</span></div>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: symmetry's easter egg — only 3 dim7 chords exist</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Because every step is 3 semitones, shifting C♯°7 up 3 semitones yields the same set of notes — <b>inversion = renaming</b>. So 12 roots produce only <b>3</b> distinct diminished 7th chords. One more reason it is so handy: grab any one, park it a half step under the target bass, done.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: the symmetric makeup and spelling of dim7, hearing glue vs no glue, where the bass C♯ goes and why this is a super-magnet, and building C♯°7 / G♯°7.</p>`;
+
+    case "modes": return `
+      <p>The course is called Chords and Modes — yet so far "modes" has meant just major and minor. You have surely heard songs that <b>loop from start to finish, never once dropping a V7→I period, and still feel perfectly grounded</b>. This level adds the missing piece: modal color loops — <b>no rush to go home</b>.</p>
+
+      <details class="note" open><summary><b>Mixolydian: major with a lowered 7th — open, laid-back</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Lower the major scale's <b>7th note a half step</b> (B→B♭ in C) and you have C Mixolydian. The leading tone is gone; nobody hurries you home:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C major scale (…B slides into C)</span>
+            <span class="chip" data-play="mel:0,2,4,5,7,9,10,12">🔊 C Mixolydian (…B♭ ambles back to C)</span>
+          </div>
+          <p>The signature loop <b>I–♭VII–IV–I</b> (C–B♭–F–C) — the wide-open anthem feel of rock and folk:</p>
+          <div class="row"><span class="chip" data-play="kloopseq:mxLoop">🔁 C–B♭–F–C (loop)</span></div>
+          ${keyBar(false,true)}
+          <p>The dividing line from level ㉒'s borrowing is <b>frequency</b>: a B♭ flashing by once is a borrowed visitor; in <b>permanent residence</b> like this, it is a full member of the scale — the song lives in Mixolydian.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Dorian: minor with a raised 6th — wistful but relaxed</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Raise natural minor's <b>6th note a half step</b> (B♭→B in D minor) and you have D Dorian. One note turns gloom into "wistful but breathing" — the signature of R&B, funk and neo-soul:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:2,4,5,7,9,10,12,14">🔊 D natural minor (…the 6th is B♭)</span>
+            <span class="chip" data-play="mel:2,4,5,7,9,11,12,14">🔊 D Dorian (…the 6th is B — light gets in)</span>
+          </div>
+          <p>The signature loop <b>i–IV</b> (Dm–G): the raised B lands as G's 3rd, turning the IV from dark (Gm) to bright (G):</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:doMinor">🔁 Natural minor: Dm–Gm (dark)</span>
+            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian: Dm–G (lit)</span>
+          </div>
+          ${keyBar(false,true)}
+          <p>⚠️ Don't hear Dm–G as "ii–V in C major": a ii–V reports back to C; this loop <b>never visits C — home is Dm</b>. Same chords, different address.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Aeolian: you already know it — the natural-minor loop</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Level ㉑'s universal minor loop <b>i–VI–III–VII</b> (Am–F–C–G) is Aeolian (the natural-minor mode) in standard use: <b>no leading tone ever takes you home</b> — no G♯ anywhere; the loop itself establishes Am as the center:</p>
+          <div class="row"><span class="chip" data-play="kloopseq:mLoop">🔁 Am–F–C–G (Aeolian float)</span></div>
+          ${keyBar(false,true)}
+          <p>Set against levels ⑲–⑳: in the same A minor, a <b>fateful period</b> calls for the engineered V7 (harmonic minor); a <b>floating loop</b> stays natural (Aeolian). Both are right — it depends what the song wants.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>The judgment: functional homecoming vs modal floating</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The ear asks exactly one question: <b>is a leading tone hurrying things along?</b></p>
+          <div class="row">
+            <span class="chip" data-play="seq:fnCad">🔊 Functional: IV–V7–I (leading tone pushes the door — period)</span>
+            <span class="chip" data-play="seq:mxLoop">🔊 Modal: I–♭VII–IV–I (nobody hurries — floating)</span>
+          </div>
+          <p>Both are "stable" — the functional kind through <b>resolution</b>, the modal kind through <b>repetition</b>. After levels ⑪–⑫ it is tempting to think every song needs V→I: in truth, a great many pop loops live on the right-hand side.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: one-line calling cards for the other modes</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>· <b>Lydian</b> (major, raised 4th): airborne dreaminess, beloved of film scores.<br>
+             · <b>Phrygian</b> (minor, lowered 2nd): oppressive, exotic — metal and flamenco.<br>
+             · <b>Ionian / Aeolian</b>: simply the modal names of major and natural minor.<br>
+             The names come from the church modes; pop leans hardest on this level's three.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: which note Mixolydian / Dorian changes, resident vs visitor, Dm–G vs Dm–Gm by ear, functional vs modal judgment, and building modal scales.</p>`;
+
+    case "voicing": return `
+      <p>A chord symbol tells you <b>which notes</b> — never <b>how to lay them out</b>. The same C can sound like an étude or like pop piano depending on the layout. This level is about layouts (voicings). Hear one C three ways:</p>
+      <div class="row">
+        <span class="chip" data-play="seq:vcClose">🔊 Close: C4·E4·G4 (packed)</span>
+        <span class="chip" data-play="seq:vcOpen">🔊 Open: C3·G3·E4 (spread)</span>
+        <span class="chip" data-play="seq:vcSplit">🔊 Split hands: left C3 + right E4·G4·C5</span>
+      </div>
+
+      <details class="note" open><summary><b>Move one: left hand bass, right hand chord</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Pop piano's basic division of labor: <b>the left hand owns the bass</b> (the root, or the bass a level-⑩ slash chord names), <b>the right hand owns the color</b> (3rd, 5th, 7th, 9th in any order). A chord symbol never demands "everything piled up from the root".</p>
+          <p>In the low register, remember level ⑩'s rule: <b>the lower you go, the wider the gaps</b> — keep tight intervals out of the left hand; let the right hand sit mid-range.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Move two: keep common tones — stop moving house every chord</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Level ⑫'s master rule (keep common tones, move the rest nearby) is also <b>the secret of accompaniment feel</b>. Compare two takes on 1564:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:vcJumpy">🔊 Leaping: all root positions, every chord moves house</span>
+            <span class="chip" data-play="seq:vcSmooth">🔊 Flowing: C→G/B→Am→F, voices barely move</span>
+          </div>
+          <p>The flowing trick: at every chord change first ask "<b>which fingers can stay?</b>" — then nudge the rest a step or two. Level ⑨'s inversions were built for exactly this.</p>
+          <p>A classic bass line as a bonus — the chromatic descent (level ⑩ slashes + level ㉒ borrowing combined):</p>
+          <div class="row"><span class="chip" data-play="seq:vcDescend">🔊 C → G/B → B♭ → F/A (bass stairs down by half steps)</span></div>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Move three: the pedal point — bass holds, energy builds</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The favorite pre-chorus pressure builder: <b>nail the bass to the dominant G while the chords above keep changing</b>. Chord and bass wind tighter and tighter, energy held in — released the instant everything lands on C:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:vcFree">🔊 Regular: bass walks with the chords (F3–G3–A3→C3)</span>
+            <span class="chip" data-play="seq:vcPedal">🔊 Pedal point: bass nailed to G3 (coil → release)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">You met its cousin in level ⑬: F/G is essentially "a G pedal + an F chord".</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: omit the 5th — the 7th chord's slimming trick</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Inside 7th and 9th chords the notes have different jobs: <b>the 3rd decides major/minor, the 7th decides function, the 9th decides color — the 5th does the least and is often dropped</b>. Compare the full G9 with the slimmed version:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2,5,9">🔊 Full G9 (G·B·D·F·A)</span>
+            <span class="chip" data-play="notes:-5,-1,5,9">🔊 5th omitted (G·B·F·A — cleaner)</span>
+          </div>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: what a chord name does and does not fix, close vs open by ear, choosing the nearest layout and hearing the flow, pedal-point recognition and definition, and building common-tone voicings (exact register).</p>`;
+
+    case "modulate": return `
+      <p>Level ㉓'s <b>transposition</b> moves the whole song before it starts; this level's <b>modulation</b> happens inside the song — midway through, "home" changes. It is pop arranging's heavy artillery for energy control, and two moves cover most of it.</p>
+
+      <details class="note" open><summary><b>Move one: lift the final chorus a half step (the bulldozer)</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The same passage returns, but <b>raised wholesale by a half or whole step</b> — not a note of melody or harmony rewritten, yet it feels like climbing one more floor; fatigue resets instantly. Baseline first, then the two lifts:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:mlNone">🔊 Baseline: 1564 twice, same key</span>
+            <span class="chip" data-play="seq:mlHalf">🔊 Second pass up a half step (bulldozer)</span>
+            <span class="chip" data-play="seq:mlWhole">🔊 Second pass up a whole step (roomier)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Technically it is level ㉓'s transposition — performed mid-song, in service of emotion. That is what earns it the name "modulation".</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Move two: the relative-key switch — dark verse, bright chorus</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Level ㉑'s "perspective flip", set in motion: the verse circles its weight around <b>Am</b> (dark); the chorus moves the weight to <b>C</b> (bright). All seven notes stay put — only "home" moves:</p>
+          <div class="row"><span class="chip" data-play="seq:mlRel">🔊 Dark verse (Am–F–Am–G) → bright chorus (C–F–G–C)</span></div>
+          <p>The reverse is just as common: major verse, relative-minor chorus — instant overcast. Since not a single new note enters, this is the <b>most seamless</b> modulation there is.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: the pivot chord — a more graceful change of address</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The bulldozer lifts by force; the elegant route finds <b>a chord both keys recognize</b> and quietly files the paperwork there before moving on. C major and G major both know Am (vi to one, ii to the other) — turn on Am and the ear barely notices the border. Details belong to an advanced course; for now, just keep the name.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: why the lift exists, modulation vs transposition, recognizing the relative switch, and modulation by ear (half step / whole step / none). This also closes the course — your ear can now hear which floor a song is on.</p>`;
+
     case "function": return `
       <p>The chords in a key each have a "job", grouped by job into three <b>functions</b> — matching a journey: <b>home → setting out → tension → coming home</b> (the three functions man the first three stations; "coming home" means arriving back at "home" — which is the tension's release). First, let's pin down the metaphor itself:</p>
 
@@ -1663,6 +2055,24 @@ function teachEN(mId){
       </details>
       <p>In real songs these progressions <b>loop round and round</b>, carpeting whole verses and choruses — tap any progression, then hit its "Loop" button to circle it.</p>
       ${loopBar()}
+
+      <details class="note"><summary>Extra: don't memorize formulas — learn the variant generator</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The six progressions are not six strings of digits to memorize but <b>one generator</b>. Four moves cover most variants:</p>
+          <p>① <b>Change the entry point</b>: enter the same circle elsewhere — 1564 entered from vi is 6415; same wheel, different first step;<br>
+             ② <b>Swap a stand-in</b>: this level's stand-in rules apply directly — IV for ii (1645→1625), I for iii (4516→4536);<br>
+             ③ <b>Install a buffer</b>: split the closing V into Vsus4→V (level ⑮) — a held breath before the period;<br>
+             ④ <b>Install a magnet</b>: replace a slot with the temporary dominant of the next slot — C–G–Am–F becomes C–E7–Am–F, instantly aching (level ㉔ "Secondary Dominants" covers this move).</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:pp1564">🔊 Prototype: 1564</span>
+            <span class="chip" data-play="kseq:pp6415">🔊 ① new entry: 6415</span>
+            <span class="chip" data-play="kseq:pp1625">🔊 ② stand-in: 1625</span>
+            <span class="chip" data-play="seq:sdSpark">🔊 ④ magnet: C–E7–Am</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">When a strange progression comes on, ask two questions: which prototype is this, and which move was applied? Most pop songs can't survive both questions.</p>
+        </div>
+      </details>
+
       <p style="color:var(--muted);font-size:13px">The drills advance you from "hearing single chords" to "hearing whole progressions" — blind-identifying which one is playing.</p>`;
     case "sus": return `
       <p>We know the <b>3rd</b> decides whether a chord is "sunny major" or "wistful minor" — it's the chord's "personality trait". But what if you want a feeling of <b>uncertainty, floating, suspense</b>? Enter the <b>suspended chord (sus)</b>.</p>
@@ -2092,7 +2502,19 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p><b>The three examples side by side:</b> from one borrow list, borrowing <b>slot 4 (Fm) yields tears</b>, <b>slot 7 (B♭) yields openness</b>, <b>slot 6 (A♭) yields epic</b> — modal interchange isn't one flavor but a whole palette. The shared rules: ① each imports the list's out-of-key notes (the lowered degrees 3/6/7); ② each "borrows and returns", ending back at the major-key home; ③ it's all <b>degree relationships</b>, key-agnostic — switch to any major key and the effect is identical.</p>`;
+      <details class="note" open><summary><b>Example 4 · completing the color map: ♭III (E♭) — the widening turn</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Slot 3 of the list houses <b>♭III = the E♭ major triad (E♭ G B♭)</b>, also carrying two outside notes (E♭, B♭). Its specialty is the <b>chorus launch / grand turn</b>: I slams straight into ♭III and the music widens at once, with a vintage Brit-rock muscle:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:4,7,11">🔊 In-key iii: Em (E G B, minor)</span>
+            <span class="chip" data-play="notes:3,7,10">🔊 Borrowed ♭III: E♭ (E♭ G B♭ — suddenly wide)</span>
+            <span class="chip" data-play="kseq:b3Move">🔊 In use: C → E♭ → F → C (the widening turn)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">One slot remains — the minor v (Gm), which you met in example 2's follow-up: standing in for V alone it deflates, but as a setup on the way to IV (C–Gm–C7–F) it thrives — and that is really level ㉔'s secondary-dominant story (C7 = V7/IV).</p>
+        </div>
+      </details>
+
+      <p><b>The four examples side by side:</b> from one borrow list, borrowing <b>slot 4 (Fm) yields tears</b>, <b>slot 7 (B♭) yields openness</b>, <b>slot 6 (A♭) yields epic</b>, <b>slot 3 (E♭) yields width</b> — modal interchange isn't one flavor but a whole palette. The shared rules: ① each imports the list's out-of-key notes (the lowered degrees 3/6/7); ② each "borrows and returns", ending back at the major-key home; ③ it's all <b>degree relationships</b>, key-agnostic — switch to any major key and the effect is identical.</p>`;
   }
   return "";
 }
@@ -2340,14 +2762,42 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>什么是"终止式"？为什么说属七是它的核心？</b></summary>
         <div style="line-height:1.75;color:#e9e3ff">
-          <p><b>终止式 = 乐句结尾那几个和弦的"标点符号"</b>，决定一句话听起来是"。"还是"，"。最有"句号感"的，就是<b>属 → 主(V→I)</b>：</p>
+          <p><b>终止式 = 乐句结尾那几个和弦的"标点符号"</b>，决定一句话听起来是"。"还是"，"。常用的有三种句读、外加一个"惊叹号"，逐个讲透：</p>
+
+          <p><b>① 完满终止（V7→I）——最重的句号"。"</b><br>
+          属和弦走回主和弦：G7 → C。它的"干净利落"不是玄学，是构成决定的：G7 里的导音 <b>B 紧贴主音半音之下</b>，被狠狠吸进 C；七音 <b>F 又半音落到 E</b>——两股力同时松开，尘埃落定。古典与流行绝大多数歌的结尾都用它。</p>
           <div class="row">
-            <span class="chip" data-play="kseq:auth">。完满终止 G7 → C(强烈的结束感)</span>
-            <span class="chip" data-play="kseq:plagal">。变格终止 F → C("阿门"那种柔和收尾)</span>
-            <span class="chip" data-play="kseq:half">， 半终止 …→ G(停在属，话没说完)</span>
+            <span class="chip" data-play="kseq:auth">🔊 G7 → C（两股力同时落地）</span>
+            <span class="chip" data-play="kseq:hangV7">🔊 只奏 G7（吊着不放，对照感受）</span>
           </div>
+
+          <p><b>② 变格终止（IV→I）——柔软的句号"。"</b><br>
+          下属走回主和弦：F → C。F 和弦里<b>没有导音 B</b>——没有人催促：F→E、A→G 两个声部轻轻柔降，共同音 C 一动不动，像一声安详的叹息。教堂圣咏结尾唱"阿——门"正是 IV–I 两个和弦，所以绰号"<b>阿门终止</b>"。流行歌常在完满终止之后再补它一句，余韵更长。</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:plagal">🔊 F → C（无人催促，轻轻放下）</span>
+          </div>
+
+          <p><b>③ 半终止（…→V）——逗号"，"</b><br>
+          乐句不回家，<b>停在属和弦 G 上</b>就收。导音悬着不落、张力挂在半空——话只说了一半，耳朵自动等下一句。主歌的前半句常这样收，逼着音乐继续往下走。当心名字的坑：它<b>不是"解决了一半"，而是"话说一半"</b>。</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:half">🔊 C → G（停在张力上，等下文）</span>
+          </div>
+
+          <p><b>④ 阻碍终止（V7→vi）——惊讶的"，！"</b><br>
+          上一个框你已经听过它：本以为 G7 要回 C，却拐去了 Am——句号被人当场抽走，换成一个意外的转折。写歌的人用它"骗"耳朵一次，把歌再延长一段。</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:deceptive">🔊 G7 → Am（句号被抽走）</span>
+          </div>
+
+          <p><b>四种放在一起比</b>（每行可点听）：</p>
+          <table class="ctab"><tr><th>终止式</th><th>走向</th><th>标点</th><th>听感</th><th>力量的来源/去向</th></tr>
+            <tr><td class="play" data-play="kseq:auth">完满终止 ▶</td><td>V7 → I</td><td>。重</td><td>干净利落、尘埃落定</td><td>导音 B↗C、七音 F↘E，张力全数释放</td></tr>
+            <tr><td class="play" data-play="kseq:plagal">变格终止 ▶</td><td>IV → I</td><td>。轻</td><td>柔和安详、"阿门"</td><td>没有导音、无人催促，轻轻放下</td></tr>
+            <tr><td class="play" data-play="kseq:half">半终止 ▶</td><td>… → V</td><td>，</td><td>悬着、话没说完</td><td>停在张力上，根本不解决</td></tr>
+            <tr><td class="play" data-play="kseq:deceptive">阻碍终止 ▶</td><td>V7 → vi</td><td>，！</td><td>意外、被骗了一下</td><td>张力想解决，却被领去 Am</td></tr></table>
           ${keyBar(false,true)}
           <p>对比之下，<b>属七→主(G7→C)</b> 的结束感最强、最"干净利落"。正因为属七自带那股"必须解决"的张力，它成了<b>完满终止的核心</b>——几乎所有古典/流行乐句的"句号"都靠它来收。</p>
+          <p style="font-size:12.5px;color:var(--muted)">预告：完满终止内部还分"完满 / 不完满"（低音落没落在主音上），第⑬关「解决」细讲；每个音具体怎么走，第⑫关会逐声部拆解。</p>
         </div>
       </details>
 
@@ -2484,7 +2934,7 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>🎓 毕业总复习 · 全部套路任意调重听一遍</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>移调是这门课的"最后一块拼图"——现在把前面学过的<b>所有套路</b>放在一起：随便换调、随便循环、随便切齐奏/分解/综合，亲手验证"级数不变，走遍各调"。</p>
+          <p>移调是主线的"最后一块拼图"——现在把前面学过的<b>所有套路</b>放在一起：随便换调、随便循环、随便切齐奏/分解/综合，亲手验证"级数不变，走遍各调"。（通关后别走：㉔关起还有六关<b>流行和声进阶篇</b>等着你。）</p>
           <p><b>大调六大套路</b>(第⑭关)。先放一张七级速查表(以 C 大调为例，每格可点；换调听套路时<b>数字与罗马不变</b>，音名请按目标调自行对译——本关练的正是这个)：</p>
           <table class="ctab"><tr><th>数字</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>罗马</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
@@ -2527,6 +2977,331 @@ function teachCN(mId){
           <p style="font-size:12.5px;color:var(--muted)">每按一个套路它就成为"最后点的套路"，随即可循环；大调组用大调选单换调，小调组用小调选单换调，借用组照样不挑调。</p>
         </div>
       </details>`;
+
+    case "secdom": return `
+      <p>第⑭关的 4536（F–G–Em–Am）你已经很熟了。实际的流行歌里，第三格经常不弹 Em，而是弹 <b>E7</b>——先听这一下"揪心"：</p>
+      <div class="row">
+        <span class="chip" data-play="seq:sd4536">🔊 课本版：F–G–Em–Am（温吞）</span>
+        <span class="chip" data-play="seq:sd4536v">🔊 实战版：F–G–E7–Am（揪心）</span>
+      </div>
+
+      <details class="note" open><summary><b>原理：给下一个和弦装磁铁（第⑲关的招数搬进大调）</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>第⑲关治小调"没劲的回家路"，用的是<b>三档加码</b>：v（软）→ V（升三音，装上导音）→ V7（再叠七音，装上三全音）。<b>大调里同一架梯子原样照搬</b>——只是这次的"小家"换成 vi 级 Am，梯子搭在 Em 身上。</p>
+          <p><b>第一档 → 第二档：升三音（这一步才是真正"只差一个音"）。</b>把 Em 的三音 G 升半音变成 G♯，小三和弦变成大三和弦 E——而这个 G♯ 恰好是 Am 的导音："门把手"装上了：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-8,-5,-1">🔊 Em（E·G·B，顺阶·软）</span>
+            <span class="chip" data-play="notes:-8,-4,-1">🔊 E（E·G♯·B，亮而紧）</span>
+            <span class="chip" data-play="seq:sdEmAm">🔊 Em → Am（散步过去）</span>
+            <span class="chip" data-play="seq:sdEAm">🔊 E → Am（被领进门）</span>
+            <span class="chip" data-play="vpair:-4,-3">🔊 G♯ → A（门把手的吸力）</span>
+          </div>
+          <p><b>第二档 → 第三档：再叠七音 D。</b>注意这一步是"<b>多加一个音</b>"而不是"换音"：新来的 D 和 G♯ 组成三全音，把"想去 Am"升级成"必须去"。要不要上第三档看歌需要——<b>E 已经能开门，E7 揪心感更重</b>，流行歌里两档都常用：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-8,-4,-1">🔊 E（已有导音）</span>
+            <span class="chip" data-play="notes:-8,-4,-1,2">🔊 E7（E·G♯·B·D，加三全音·满弓）</span>
+          </div>
+          <p>三档分别走向 Am，<b>二连对比</b>，吸力逐级变强：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sdEmAm">🔊 Em → Am（散步过去）</span>
+            <span class="chip" data-play="seq:sdEAm">🔊 E → Am（被领进门）</span>
+            <span class="chip" data-play="seq:sdE7Am">🔊 E7 → Am（被吸进去）</span>
+          </div>
+          <p>最后放回<b>完整进行</b>里再听一遍三档：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sdPlain">🔊 顺阶：C–Em–Am（平顺）</span>
+            <span class="chip" data-play="seq:sdSparkE">🔊 三和弦版：C–E–Am（被领着走）</span>
+            <span class="chip" data-play="seq:sdSpark">🔊 属七版：C–E7–Am（被吸过去）</span>
+          </div>
+          <p>这种"目标和弦专属的临时 V（或 V7）"就叫<b>副属和弦</b>。它和第⑲关的关系一句话说清：<b>⑲关是把全曲的家修出强力大门，本关是在大调里随手给任何一个和弦修临时小门</b>——副属不是转调，门开完就回原调。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>记号：V7/vi，斜杠读作"的"</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>E7 在 C 大调里<b>不记 III7</b>（三级顺阶是小三和弦 Em，记 iii），而记 <b>V7/vi</b>，读作"<b>vi 的 V7</b>"——记号直接写明了它的职责：临时去当 vi 的属。</p>
+          <p>⚠️ 这个斜杠和第⑩关 C/E 的斜杠<b>是两回事</b>：C/E 的斜杠右边是<b>低音</b>；V7/vi 的斜杠右边是<b>临时的家</b>。看见罗马数字夹斜杠，读"的"；看见和弦名夹斜杠，读"低音是"。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>常用副属一览（C 大调）</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <table class="ctab"><tr><th>记号</th><th>和弦</th><th>门把手（调外音）</th><th>推向</th></tr>
+            <tr><td>V7/vi</td><td class="play" data-play="seq:sdSpark">E7</td><td>G♯</td><td>Am</td></tr>
+            <tr><td>V7/ii</td><td class="play" data-play="seq:sdA7">A7</td><td>C♯</td><td>Dm</td></tr>
+            <tr><td>V7/V</td><td class="play" data-play="seq:sdD7">D7</td><td>F♯</td><td>G</td></tr>
+            <tr><td>V7/IV</td><td class="play" data-play="seq:sdC7">C7</td><td>B♭</td><td>F</td></tr></table>
+          <p>规律一眼可见：<b>每个副属都恰好带一个调外音</b>，那个音正是开门的全部火力。最妙的是 V7/IV：往主和弦 C 里塞一个 B♭，家自己变成了别人的门。</p>
+          <p>套路改造实战——1645 的"双开门"版：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:sd1645">🔊 原版 1645：C–Am–F–G</span>
+            <span class="chip" data-play="seq:sd1645v">🔊 改造版：C–E7–Am–C7–F–G（两扇临时门）</span>
+          </div>
+          <p>小调里同样成立——日系/华语流行常见的 B7→Em：</p>
+          <div class="row"><span class="chip" data-play="seq:sdB7m">🔊 Am–B7–Em（D♯ 半音蹭进 E）</span></div>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：借用、副属、调式循环——三种"调外音"怎么分</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>· <b>借用</b>（㉒关）：从平行小调拿"颜色"——Fm 的 A♭ 不催不赶，只负责变暗一下。<br>
+             · <b>副属</b>（本关）：给目标和弦造"吸力"——E7 的 G♯ 必须马上滑进 A，方向感极强。<br>
+             · <b>调式循环</b>（㉗关会讲）：调外音长期常驻，整段音乐换了一种音阶色彩。</p>
+          <p>判断口诀：<b>看那个调外音急不急</b>——急着半音解决的是副属；不急、只染色的是借用；常驻不走的是调式。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：连环副属——沿五度圈一路开门</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>门可以连着开：E7 推 A7、A7 推 D7、D7 推 G7——每个属七都是下一个属七的副属，最后 G7 照⑫关的规矩落回 C。爵士和老歌的"回家高速公路"：</p>
+          <div class="row"><span class="chip" data-play="seq:sdChain">🔊 E7→A7→D7→G7（连环开门）</span></div>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：副属的身份判断（不是转调、不是借用）、Em vs E7 听辨、V7/vi 记号与找调外音、搭出 E7 / A7 / D7。</p>`;
+
+    case "color": return `
+      <p>三和弦是<b>素颜</b>。现代流行（R&B、City Pop、华语抒情）键盘手嘴边的 add9、maj9，其实就是给素颜<b>加滤镜</b>——骨架不动，气质全换。先听 1564 的素颜版和滤镜版：</p>
+      <div class="row">
+        <span class="chip" data-play="seq:colPlain">🔊 素颜 1564：C–G–Am–F</span>
+        <span class="chip" data-play="seq:colAdd9">🔊 滤镜版：Cadd9–Gadd9–Amadd9–Fadd9</span>
+      </div>
+
+      <details class="note" open><summary><b>add9：三和弦 + 头顶的 9 音</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>第①关学过 2 度；<b>把 2 度音搬高一个八度，就改叫 9 音</b>。Cadd9 = C·E·G + 高处的 D：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 C（素颜）</span>
+            <span class="chip" data-play="notes:0,4,7,14">🔊 Cadd9（清澈波光）</span>
+          </div>
+          <p>关键对比——它和第⑮关的 sus2 都有 D，但完全两回事：<b>sus2 拿掉三音</b>（悬空、不大不小）；<b>add9 保留三音</b>（性格还在，头顶加光）：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,2,7">🔊 Csus2（悬空）</span>
+            <span class="chip" data-play="notes:0,4,7,14">🔊 Cadd9（亮着）</span>
+          </div>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>滤镜家族：add9 / maj9 / m9 / 9——一字之差</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>读符号只要一条规则：<b>数字直接挂在名字后（C9、Cmaj9、Am9）= 七和弦再加 9；写 add9 = 三和弦只加 9、不带七音</b>。</p>
+          <table class="ctab"><tr><th>符号</th><th>结构</th><th>气质</th><th>试听</th></tr>
+            <tr><td>Cadd9</td><td>C + 9</td><td>清澈通透、少年感</td><td class="play" data-play="notes:0,4,7,14">▶</td></tr>
+            <tr><td>Cmaj9</td><td>Cmaj7 + 9</td><td>都市霓虹、高级朦胧</td><td class="play" data-play="notes:0,4,7,11,14">▶</td></tr>
+            <tr><td>Am9</td><td>Am7 + 9</td><td>忧郁变松弛</td><td class="play" data-play="notes:-3,0,4,7,11">▶</td></tr>
+            <tr><td>G9</td><td>G7 + 9</td><td>属和弦更爵士、更往前涌</td><td class="play" data-play="notes:-5,-1,2,5,9">▶</td></tr>
+            <tr><td>C6</td><td>C + 6</td><td>复古温暖、老歌收尾</td><td class="play" data-play="notes:0,4,7,9">▶</td></tr></table>
+          <p>循序听 Am 的三档变化：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-3,0,4">🔊 Am（忧郁）</span>
+            <span class="chip" data-play="notes:-3,0,4,7">🔊 Am7（柔化）</span>
+            <span class="chip" data-play="notes:-3,0,4,7,11">🔊 Am9（松弛）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">名片回收：第⑬关拆过的 F/G，爵士谱上常写作 <b>G9sus4</b>——你其实早听过 9 音的声音了。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：11、13——滤镜叠到顶</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>沿三度继续往上：9 之后是 11、13（隔八度的 4 和 6）。全叠会浑浊，实战常<b>省略五音、挑着叠</b>。听一耳朵属和弦的"豪华套房"G13 即可：</p>
+          <div class="row"><span class="chip" data-play="notes:-5,-1,5,9,16">🔊 G13（G·B·F·A·E）</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">记住方向就好：<b>数字越大，离骨架越远，越是"氛围"而不是"功能"</b>。</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：add9 的构成、add9 vs sus2 vs C9 辨析、素颜/maj7/add9 盲听、按情绪选滤镜、搭出 add9。</p>`;
+
+    case "passdim": return `
+      <p>第⑩关讲过编曲美学：<b>低音走台阶最好听</b>。可 C 走到 Dm，低音 C→D 隔着一个全音——中间那格（C♯）空着。流行乐手最爱的填法，是塞进一个<b>经过减七和弦</b>：</p>
+      <div class="row">
+        <span class="chip" data-play="seq:pdPlain">🔊 直接走：C → Dm7（低音跨一格）</span>
+        <span class="chip" data-play="seq:pdSmooth">🔊 加黏合剂：C → C♯°7 → Dm7（低音半音爬）</span>
+      </div>
+
+      <details class="note" open><summary><b>减七和弦：每步小三度的对称塔</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>°7（减七）的搭法极其规整：<b>从根音起每隔 3 个半音叠一个音</b>。C♯°7 = C♯·E·G·B♭，四步全是小三度：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:1,4,7,10">🔊 逐音听：C♯ E G B♭（步步小三度）</span>
+            <span class="chip" data-play="notes:1,4,7,10">🔊 合奏 C♯°7（刺感拉满）</span>
+          </div>
+          <p>对称的代价是<b>体内藏了两对三全音</b>（C♯–G、E–B♭）。第⑫关说三全音是必须化解的刺——属七只有一对，它有两对：<b>四个音个个都是倾向音</b>。所以它是"超级半音磁铁"，一响耳朵就知道"马上要去某处"。</p>
+          <p style="font-size:12.5px;color:var(--muted)">区分第⑥关的半减七 ø（m7♭5）：ø 的最后一步是大三度；°7 四步全是小三度。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>用法：♯I°7——把 I 和 ii 黏起来</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>最常用的位置：<b>I → ♯I°7 → ii</b>（C → C♯°7 → Dm7）。低音 C→C♯→D 半音爬台阶，上方每个音也只就近挪一小步——逐声部看去向（橙=出发，绿=落点）：</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:-11,-10">🔊 低音 C♯3 → D3（临时导音）</span>
+            <span class="chip" data-play="vchord:-11,4,7,10;-10,5,9,12">🎹 全貌：C♯°7 → Dm7</span>
+          </div>
+          <p>这种夹在两个顺阶和弦之间、专管"滑过去"的减七，叫<b>经过减七</b>。带 R&B 味的华语流行（陶喆、周杰伦、蔡健雅式的丝滑复古），大半来自它。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：电梯还能装在 5 和 6 之间（♯V°7）</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>同一招换个位置：<b>G → G♯°7 → Am</b>（5–♯5°7–6m），副歌前的复古电梯，老歌和 City Pop 的常客：</p>
+          <div class="row"><span class="chip" data-play="seq:pdUp56">🔊 G → G♯°7 → Am7</span></div>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：对称的彩蛋——全键盘只有 3 种减七</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>因为每步都是 3 个半音，把 C♯°7 整体再挪 3 个半音，得到的还是同一批音——<b>转位 = 换名字</b>。于是 12 个根音其实只产生 <b>3 种</b>不同的减七和弦。这也是它好用的原因之一：往目标低音下方半音一放就行。</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：减七的对称构成与组成音、有无黏合剂听辨、低音 C♯ 的去向与"超级磁铁"原理、搭出 C♯°7 / G♯°7。</p>`;
+
+    case "modes": return `
+      <p>课程叫《和弦与调式》——到目前为止"调式"只有大调和小调两种。但你一定听过这样的歌：<b>从头到尾绕圈，从不来一记 V7→I 的句号，却一点也不觉得没着落</b>。这一关补上拼图：调式色彩循环——<b>不一定非要回家</b>。</p>
+
+      <details class="note" open><summary><b>Mixolydian：大调降 7——开阔、慵懒</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>把大调音阶的<b>第 7 音降半音</b>（C 调里 B→B♭），就是 C Mixolydian。导音没了，谁也不催着回家：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C 大调音阶（…B 蹭进 C）</span>
+            <span class="chip" data-play="mel:0,2,4,5,7,9,10,12">🔊 C Mixolydian（…B♭ 松松走回 C）</span>
+          </div>
+          <p>标志性循环 <b>I–♭VII–IV–I</b>（C–B♭–F–C）——摇滚与民谣的开阔国歌感：</p>
+          <div class="row"><span class="chip" data-play="kloopseq:mxLoop">🔁 C–B♭–F–C（循环）</span></div>
+          ${keyBar(false,true)}
+          <p>和㉒关借用的分水岭在<b>频率</b>：B♭ 偶尔闪现一次是借用；像这样<b>长期常驻</b>，它就是音阶的正式成员——整首歌住在 Mixolydian 里。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Dorian：小调升 6——忧郁但松弛</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>把自然小调的<b>第 6 音升半音</b>（D 小调里 B♭→B），就是 D Dorian。一个音，把阴郁调成"忧郁但透气"——R&B / funk / neo-soul 的招牌：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:2,4,5,7,9,10,12,14">🔊 D 自然小调（…第 6 音是 B♭）</span>
+            <span class="chip" data-play="mel:2,4,5,7,9,11,12,14">🔊 D Dorian（…第 6 音是 B，透光）</span>
+          </div>
+          <p>标志性循环 <b>i–IV</b>（Dm–G）：升出来的 B 正好是 G 的三音，四级从暗（Gm）变亮（G）：</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:doMinor">🔁 自然小调：Dm–Gm（暗）</span>
+            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian：Dm–G（透光）</span>
+          </div>
+          ${keyBar(false,true)}
+          <p>⚠️ 别把 Dm–G 听成"C 大调的 ii–V"：ii–V 是要回 C 交差的；这段循环<b>从不去 C，家就在 Dm</b>。和弦一样，住址不同。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Aeolian：你早就会了——自然小调循环</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>第㉑关的小调万能循环 <b>i–VI–III–VII</b>（Am–F–C–G）正是 Aeolian（自然小调调式）的标准用法：<b>不靠导音回家</b>，全程没有 G♯，靠循环本身确立 Am 是中心：</p>
+          <div class="row"><span class="chip" data-play="kloopseq:mLoop">🔁 Am–F–C–G（Aeolian 悬浮）</span></div>
+          ${keyBar(false,true)}
+          <p>对照第⑲⑳关：同一个 A 小调，想要<b>宿命句号</b>就魔改出 V7（和声小调）；想要<b>漂浮循环</b>就保持自然（Aeolian）。两条路都对，看歌要什么。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>判断：功能型回家 vs 调式型悬浮</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>耳朵只问一件事：<b>有没有导音在催？</b></p>
+          <div class="row">
+            <span class="chip" data-play="seq:fnCad">🔊 功能型：IV–V7–I（导音推门，句号）</span>
+            <span class="chip" data-play="seq:mxLoop">🔊 调式型：I–♭VII–IV–I（没人催，悬浮）</span>
+          </div>
+          <p>两种都"稳定"——功能型靠<b>解决</b>稳定，调式型靠<b>反复</b>稳定。学完⑪⑫关容易以为所有歌都要 V→I：其实大量流行循环住在右边这种状态里。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：另外几个调式的一句话名片</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>· <b>Lydian</b>（大调升 4）：飘起来的梦幻感，影视配乐爱用。<br>
+             · <b>Phrygian</b>（小调降 2）：压迫、异域，金属与弗拉门戈。<br>
+             · <b>Ionian / Aeolian</b>：就是大调 / 自然小调的调式名。<br>
+             名字都来自教会调式；流行里最常用的是本关这三个。</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：Mixolydian / Dorian 差在哪个音、常住还是串门、Dm–G vs Dm–Gm 听辨、功能型 vs 调式型判断、搭出调式音阶。</p>`;
+
+    case "voicing": return `
+      <p>谱上的和弦名只告诉你<b>用哪些音</b>，从不规定<b>怎么摆</b>。同一个 C，摆法不同，可以是练习曲、也可以是流行钢琴——这一关专讲"摆法"（voicing）。先听同一个 C 的三种摆法：</p>
+      <div class="row">
+        <span class="chip" data-play="seq:vcClose">🔊 密集：C4·E4·G4（挤在一起）</span>
+        <span class="chip" data-play="seq:vcOpen">🔊 开放：C3·G3·E4（拉开）</span>
+        <span class="chip" data-play="seq:vcSplit">🔊 左右分工：左手 C3 + 右手 E4·G4·C5</span>
+      </div>
+
+      <details class="note" open><summary><b>第一式：左手低音 + 右手和弦</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>流行钢琴的基本分工：<b>左手负责低音</b>（根音，或第⑩关斜杠和弦指定的低音），<b>右手负责和弦色彩</b>（三音、五音、七音、九音自由排布）。和弦名并不要求"从根音开始一坨按下去"。</p>
+          <p>低音区记得第⑩关的规律：<b>音区越低、音程要越宽</b>——左手少按密集音程，右手往中音区放。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第二式：共同音保留——别每个和弦都搬家</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>第⑫关解决的总纲（共同音保留、其余就近走）同样是<b>伴奏的手感秘诀</b>。对比两版 1564：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:vcJumpy">🔊 跳跃版：全原位，每个和弦搬一次家</span>
+            <span class="chip" data-play="seq:vcSmooth">🔊 流畅版：C→G/B→Am→F，声部几乎不动</span>
+          </div>
+          <p>流畅版的诀窍：每换一个和弦先问"<b>哪些手指可以不动？</b>"剩下的就近挪一两格。第⑨关的转位正是为这一步准备的。</p>
+          <p>顺手送一条经典低音线——下行半音阶（⑩关斜杠 + ㉒关借用的合体）：</p>
+          <div class="row"><span class="chip" data-play="seq:vcDescend">🔊 C → G/B → B♭ → F/A（低音半音下台阶）</span></div>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第三式：持续低音（pedal point）——低音不动，上面蓄力</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>副歌前最常用的蓄力器：<b>低音钉死在属音 G 上不动，上方和弦照常变化</b>。和弦与低音之间越拧越紧，能量全憋着，落回 C 的一瞬间才放开：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:vcFree">🔊 常规版：低音跟着和弦走（F3–G3–A3→C3）</span>
+            <span class="chip" data-play="seq:vcPedal">🔊 持续低音版：低音钉死 G3（蓄力→爆发）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">第⑬关你已经见过它的亲戚：F/G 本质就是"G 持续低音 + F 和弦"。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：省五音——七和弦的减脂技巧</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>七和弦/九和弦里各音分工不同：<b>三音定大小、七音定功能、九音定色彩——五音最闲，常常可以省略</b>。比较满配 G9 和省五音版：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2,5,9">🔊 满配 G9（G·B·D·F·A）</span>
+            <span class="chip" data-play="notes:-5,-1,5,9">🔊 省五音（G·B·F·A，更清爽）</span>
+          </div>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：和弦名管什么不管什么、密集/开放听辨、最近按法选择与流畅度听辨、持续低音听辨与定义、搭出共同音保留按法（精确到音区）。</p>`;
+
+    case "modulate": return `
+      <p>第㉓关的<b>移调</b>是开唱前整首搬家；这一关的<b>转调</b>发生在歌的内部——唱到一半，"家"换了。它是流行编曲控制能量的大杀器，最常用的就两招。</p>
+
+      <details class="note" open><summary><b>第一招：最后一遍副歌升半调（推土机）</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>同一段进行原样再来，但<b>整体抬高半音或全音</b>——旋律和声一个没改，听感却像"又上了一层楼"，疲劳瞬间清零。先听基准，再听两种抬法：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:mlNone">🔊 基准：1564 两遍原调</span>
+            <span class="chip" data-play="seq:mlHalf">🔊 第二遍升半音（推土机）</span>
+            <span class="chip" data-play="seq:mlWhole">🔊 第二遍升全音（更敞亮）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">技术上就是㉓关的移调操作，只是发生在歌内部、服务于情绪——所以才叫"转调"。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第二招：关系大小调切换——暗主歌、亮副歌</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>第㉑关的"视角翻转"动态化：主歌让重心绕着 <b>Am</b> 打转（暗），副歌把重心搬到 <b>C</b>（亮）。七个音全程没换，换的只是"家"：</p>
+          <div class="row"><span class="chip" data-play="seq:mlRel">🔊 暗主歌（Am–F–Am–G）→ 亮副歌（C–F–G–C）</span></div>
+          <p>反向同样常用：大调主歌、关系小调副歌，瞬间转阴。因为不引入任何新音，这是<b>最无缝</b>的转调。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：枢纽和弦——更体面的换家手续</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>推土机是"硬抬"；讲究一点的写法是找一个<b>两个调都认识的和弦</b>当中转站（枢纽/共同和弦），在它身上悄悄办完手续再走。比如 C 大调和 G 大调都认识 Am（前者的 vi、后者的 ii）——在 Am 上转身，耳朵几乎察觉不到边界。深究放进阶课，先记住名字即可。</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：升半调的目的、转调 vs 移调辨析、关系切换的识别、转调盲听（升半音 / 升全音 / 没转）。这也是整门课的收官——耳朵已经能听出歌的"楼层"了。</p>`;
 
     case "function": return `
       <p>一个调里的和弦各有"职责"，按职责分三类<b>功能</b>——对应一段旅程：<b>家 → 出发 → 紧张 → 回家</b>(三类功能依次坐镇前三站，"回家"就是重新回到"家"——也就是紧张的释放)。先把这个比喻本身说清楚：</p>
@@ -3108,6 +3883,24 @@ function teachCN(mId){
       </details>
       <p>这些套路在真歌里都是<b>绕圈循环</b>着铺满整段主歌/副歌的——点任意一个套路，再按它下面的「循环」即可绕圈听。</p>
       ${loopBar()}
+
+      <details class="note"><summary>拓展：别背公式，学"变体生成法"——一个套路怎么长出一家子</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>六个套路不是六串要背的数字，而是<b>一台生成器</b>。常用变形就四招：</p>
+          <p>① <b>换起点</b>：同一个圈从不同位置进。1564 从 vi 进就是 6415——和弦圈没变，第一脚踩的位置变了；<br>
+             ② <b>换替身</b>：本关学的替身规则现成可用——IV 换 ii（1645→1625）、I 换 iii（4516→4536）；<br>
+             ③ <b>装缓冲</b>：结尾的 V 拆成 Vsus4→V（第⑮关），句号前先卖个关子；<br>
+             ④ <b>装磁铁</b>：把某一格换成走向下一格的临时属七——C–G–Am–F 变成 C–E7–Am–F，瞬间揪心（第㉔关「副属和弦」专讲这招）。</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:pp1564">🔊 原型：1564</span>
+            <span class="chip" data-play="kseq:pp6415">🔊 ①换起点：6415</span>
+            <span class="chip" data-play="kseq:pp1625">🔊 ②换替身：1625</span>
+            <span class="chip" data-play="seq:sdSpark">🔊 ④装磁铁：C–E7–Am</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">听到陌生进行先别慌：问问自己"这是哪个原型 + 动了哪一招"——市面上大半流行歌经不起这两问。</p>
+        </div>
+      </details>
+
       <p style="color:var(--muted);font-size:13px">练习里会让你从"听单个和弦"进阶到"听出整段进行"——盲听判断这是哪个套路。</p>`;
 
     case "sus": return `
@@ -3543,7 +4336,19 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p><b>三个例子放在一起看：</b>同一张借货清单，借<b>第 4 格(Fm)得到眼泪</b>、借<b>第 7 格(B♭)得到豁达</b>、借<b>第 6 格(A♭)得到史诗</b>——离调借用不是一种味道，而是一整排调色盘。共同规律：①都引入了清单里的调外音(降下来的 3/6/7 级)；②都"借完就还"，最后回到大调的家；③全是<b>级数关系</b>，不挑调——换任何大调，效果一模一样。</p>`;
+      <details class="note" open><summary><b>例四 · 补全色彩地图：♭III（E♭）——突然变宽的转折</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>清单第 3 格还住着 <b>♭III = E♭ 大三和弦(E♭ G B♭)</b>，同样带两个调外音(E♭、B♭)。它的拿手好戏是<b>副歌起跑 / 大转折</b>：I 直接撞上 ♭III，音乐瞬间变宽，带着复古英伦摇滚的力量感：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:4,7,11">🔊 自家的 iii：Em（E G B，小和弦）</span>
+            <span class="chip" data-play="notes:3,7,10">🔊 借来的 ♭III：E♭（E♭ G B♭，突然变宽）</span>
+            <span class="chip" data-play="kseq:b3Move">🔊 用法：C → E♭ → F → C（变宽的转折）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">还剩一格"小 v(Gm)"——例二的追问里你已经见过它：单独顶替 V 像泄了气，但作为去 IV 路上的铺垫(C–Gm–C7–F)非常常用——那其实是第㉔关副属和弦(C7=V7/IV)的故事了。</p>
+        </div>
+      </details>
+
+      <p><b>四个例子放在一起看：</b>同一张借货清单，借<b>第 4 格(Fm)得到眼泪</b>、借<b>第 7 格(B♭)得到豁达</b>、借<b>第 6 格(A♭)得到史诗</b>、借<b>第 3 格(E♭)得到变宽</b>——离调借用不是一种味道，而是一整排调色盘。共同规律：①都引入了清单里的调外音(降下来的 3/6/7 级)；②都"借完就还"，最后回到大调的家；③全是<b>级数关系</b>，不挑调——换任何大调，效果一模一样。</p>`;
   }
 }
 
@@ -3661,11 +4466,11 @@ function bindTeachPlays(root){
 // 教学用：按顺序播放一串和弦(每个和弦的音用从60起的半音表示)
 const SEQS = {
   tonic:     [[0,4,7]],                                   // C 主和弦(家)
-  auth:      [[7,11,14,17],[0,4,7]],                      // G7 → C 完满终止/解决/回家
-  hangV7:    [[7,11,14,17]],                              // 只奏 G7：悬着没解决
-  deceptive: [[7,11,14,17],[9,12,16]],                    // G7 → Am 没回到家(阻碍终止)
-  half:      [[0,4,7],[7,11,14]],                         // C → G 半终止(停在属和弦)
-  plagal:    [[5,9,12],[0,4,7]],                          // F → C 变格终止(阿门)
+  auth:      [[-5,-1,2,5],[0,4]],                         // G7(G3 B3 D4 F4) → C(C4 E4)：就近解决，B3↗C4、F4↘E4，与主和弦示范同音区
+  hangV7:    [[-5,-1,2,5]],                               // 只奏 G7(G3 B3 D4 F4)：悬着没解决
+  deceptive: [[-5,-1,2,5],[-3,0,4]],                      // G7 → Am(A3 C4 E4)：就近落到别处(阻碍终止)
+  half:      [[0,4,7],[-1,2,7]],                          // C(C4 E4 G4) → G/B(B3 D4 G4)：共同音 G4 保留、其余就近——停在属，悬着
+  plagal:    [[-7,-3,0],[-8,-5,0]],                       // F(F3 A3 C4) → C(E3 G3 C4)：C4 保留、F3↘E3、A3↘G3("阿门"柔降)
   blues:     [[0,4,7,10],[5,9,12,15],[7,11,14,17],[0,4,7,10]], // C7 F7 G7 C7 布鲁斯味
   ii51:      [[2,5,9,12],[7,11,14,17],[0,4,7,11]],        // Dm7 → G7 → Cmaj7
   // 三和弦 → 加第七音 对比
@@ -3797,6 +4602,49 @@ const SEQS = {
   // 斜杠和弦逐步对比(音都在键盘内，便于看亮灯)
   slashCroot:[[0,4,7]],                 // C 原位：C4 E4 G4，最低音 C4（情况二走查用）
   slashCEcmp:[[0,4,7],[4,7,12]],        // 对比：C 原位(C4 E4 G4) → C/E 第一转位(E4 G4 C5)
+  // ㉔ 副属和弦
+  sdPlain:  [[-12,-8,-5],[-8,-5,-1],[-3,0,4]],            // C → Em → Am：全顺阶，温吞（C3 区，听感沉稳）
+  sdSpark:  [[-12,-8,-5],[-8,-4,-1,2],[-3,0,4]],          // C → E7 → Am：G♯3 像磁铁滑进 A3
+  sdEmAm:   [[-8,-5,-1],[-3,0,4]],                        // 二连对比：Em → Am（散步过去）
+  sdEAm:    [[-8,-4,-1],[-3,0,4]],                        // 二连对比：E → Am（被领进门，第二档）
+  sdE7Am:   [[-8,-4,-1,2],[-3,0,4]],                      // 二连对比：E7 → Am（被吸进去）
+  sdSparkE: [[-12,-8,-5],[-8,-4,-1],[-3,0,4]],            // C → E → Am：三和弦版副属（第二档放进进行）
+  sd4536:   [[-7,-3,0],[-5,-1,2],[-8,-5,-1],[-3,0,4]],    // 4536 原版：F G Em Am
+  sd4536v:  [[-7,-3,0],[-5,-1,2],[-8,-4,-1,2],[-3,0,4]],  // 4536 副属版：F G E7 Am（只换第三格）
+  sd1645:   [[-12,-8,-5],[-3,0,4],[-7,-3,0],[-5,-1,2]],   // 1645 原版：C Am F G
+  sd1645v:  [[-12,-8,-5],[-8,-4,-1,2],[-3,0,4],[-12,-8,-5,-2],[-7,-3,0],[-5,-1,2]], // 改造版：C E7 Am C7 F G（两扇临时门）
+  sdA7:     [[-12,-8,-5],[-3,1,4,7],[-10,-7,-3],[-5,-1,2],[-12,-8,-5]], // C A7 Dm G C：A7=V7/ii（门把手 C♯）
+  sdD7:     [[-12,-8,-5],[-10,-6,-3,0],[-5,-1,2],[-12,-8,-5,0]],        // C D7 G C：D7=V7/V（门把手 F♯）
+  sdC7:     [[-12,-8,-5],[-12,-8,-5,-2],[-7,-3,0]],                     // C C7 F：C7=V7/IV（B♭ 把主和弦变成临时属）
+  sdB7m:    [[-3,0,4],[-1,3,6,9],[4,7,11]],                             // 小调版：Am B7 Em（D♯4 半音蹭进 E4）
+  sdChain:  [[-8,-4,-1,2],[-3,1,4,7],[-10,-6,-3,0],[-5,-1,2,5]],        // 连环副属（低八度版）：E7→A7→D7→G7
+  // ㉕ 色彩音
+  colPlain: [[0,4,7],[7,11,14],[9,12,16],[5,9,12]],             // 素颜 1564：C G Am F
+  colAdd9:  [[0,4,7,14],[7,11,14,21],[9,12,16,23],[5,9,12,19]], // 滤镜版：Cadd9 Gadd9 Amadd9 Fadd9（头顶各加 9 音）
+  // ㉖ 经过减七
+  pdPlain:  [[-12,4,7,12],[-10,5,9,12]],              // C → Dm7 直接走：低音 C3→D3 隔着全音
+  pdSmooth: [[-12,4,7,12],[-11,4,7,10],[-10,5,9,12]], // C → C♯°7 → Dm7：低音 C3→C♯3→D3 半音爬，上方就近挪
+  pdUp56:   [[-5,-1,2],[-4,-1,2,5],[-3,0,4,7]],       // G → G♯°7 → Am7：5–♯5°7–6m，副歌前的复古电梯
+  // ㉗ 流行调式
+  mxLoop:   [[0,4,7],[-2,2,5],[5,9,12],[0,4,7]],      // Mixolydian 循环 I–♭VII–IV–I：C B♭ F C（♭VII 是常住居民）
+  doLoop:   [[2,5,9],[7,11,14],[2,5,9],[7,11,14]],    // Dorian 循环 i–IV：Dm G Dm G（家在 Dm，G 是亮色邻居）
+  doMinor:  [[2,5,9],[7,10,14],[2,5,9],[7,10,14]],    // 对照：自然小调 i–iv：Dm Gm（四级是暗的）
+  fnCad:    [[5,9,12],[7,11,14,17],[12,16,19]],       // 功能型对照：IV–V7–I 推门回家，有句号
+  // ㉘ 和弦按法
+  vcClose:  [[0,4,7]],                                 // 密集：C4 E4 G4 挤在一起
+  vcOpen:   [[-12,-5,4]],                              // 开放：C3 G3 E4 拉开
+  vcSplit:  [[-12,4,7,12]],                            // 左手低音 C3 + 右手 E4 G4 C5
+  vcJumpy:  [[0,4,7],[7,11,14],[9,12,16],[5,9,12]],    // 1564 全原位跳跃版：手大开大合
+  vcSmooth: [[0,4,7],[-1,2,7],[0,4,9],[0,5,9]],        // 1564 最近转位版：C→G/B→Am→F，共同音不动
+  vcPedal:  [[-5,5,9,12],[-5,7,11,14],[-5,9,12,16],[-12,0,4,7]], // 持续低音：IV–V–vi 低音钉死 G3，最后落 C
+  vcFree:   [[-7,5,9,12],[-5,7,11,14],[-3,9,12,16],[-12,0,4,7]], // 对照：低音跟和弦走 F3 G3 A3 → C3
+  vcDescend:[[0,4,7],[-1,2,7],[-2,2,5],[-3,0,5]],      // 下行半音低音线：C → G/B → B♭ → F/A（C4 B3 B♭3 A3）
+  // ㉙ 转调
+  mlNone:   [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[0,4,7],[7,11,14],[9,12,16],[5,9,12]],   // 1564 两遍原调（没转）
+  mlHalf:   [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[1,5,8],[8,12,15],[10,13,17],[6,10,13]], // 第二遍整体升半音（推土机）
+  mlWhole:  [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[2,6,9],[9,13,16],[11,14,18],[7,11,14]], // 第二遍整体升全音
+  mlRel:    [[9,12,16],[5,9,12],[9,12,16],[7,11,14],[0,4,7],[5,9,12],[7,11,14],[0,4,7,12]],// 暗主歌(Am F Am G)→亮副歌(C F G C)
+  b3Move:   [[0,4,7],[3,7,10],[5,9,12],[0,4,7,12]],  // 借 ♭III：C → E♭ → F → C（突然变宽的转折）
 };
 let playStyle="block"; // 进行演示的演奏方式：block 柱式齐奏 | arp 分解和弦 | mix 柱式+分解综合
 function styleLabel(){
@@ -4013,6 +4861,12 @@ function buildQuestion(mId, concept){
   if(mId==="minv2")    return q_minv(concept);
   if(mId==="minprog")  return q_minprog(concept);
   if(mId==="borrow")   return q_borrow(concept);
+  if(mId==="secdom")   return q_secdom(concept);
+  if(mId==="color")    return q_color(concept);
+  if(mId==="passdim")  return q_passdim(concept);
+  if(mId==="modes")    return q_modes(concept);
+  if(mId==="voicing")  return q_voicing(concept);
+  if(mId==="modulate") return q_modulate(concept);
 }
 
 /* ---- 音程 ---- */
@@ -5575,6 +6429,448 @@ function q_borrow(concept){
                `It's <b>A♭</b>: ♭VI–♭VII–I (A♭→B♭→C) climbs the bass step by step onto the tonic — the "victory formula" of games and film.`)};
 }
 
+/* ---- ㉔ 副属和弦 ---- */
+const SECDOMS=[
+  {sym:"E7", root:4, tgt:"Am", tgtCn:"Am（vi 级）", tgtEn:"Am (vi)", roman:"V7/vi", out:"G♯", seq:"sdSpark"},
+  {sym:"A7", root:9, tgt:"Dm", tgtCn:"Dm（ii 级）", tgtEn:"Dm (ii)", roman:"V7/ii", out:"C♯", seq:"sdA7"},
+  {sym:"D7", root:2, tgt:"G",  tgtCn:"G（V 级）",  tgtEn:"G (V)",  roman:"V7/V",  out:"F♯", seq:"sdD7"},
+];
+function q_secdom(concept){
+  if(concept==="bridge"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("副属 · 它是什么","Secondary dominants · what it is"),
+        prompt:tr("C 大调的歌里突然出现 <b>E7</b>（E·G♯·B·D），紧接着走到 Am。这个 E7 在做什么？","An <b>E7</b> (E·G♯·B·D) appears in a C-major song and moves straight to Am. What is it doing?"),
+        play:()=>playChordSeq(SEQS.sdSpark),
+        options:shuffle([
+          {label:tr("当 Am 的临时属七，给下一个和弦装磁铁","Acting as Am's temporary dominant 7th — a magnet for the next chord"),sub:tr("记作 V7/vi：开一扇门，开完就回原调","written V7/vi: open a door, then return"),correct:true},
+          {label:tr("歌曲转调到了 A 小调","The song modulated to A minor"),sub:tr("门开完马上回 C 大调，家没搬","C major resumes right after — home never moved"),correct:false},
+          {label:tr("从平行小调 C 小调借来的","Borrowed from the parallel C minor"),sub:tr("C 小调清单里没有 E7","the C-minor list has no E7"),correct:false},
+          {label:tr("弹错了，G♯ 不该出现","A mistake — G♯ doesn't belong"),correct:false},
+        ]),
+        explain:tr("E7 是 <b>vi（Am）的副属和弦，记 V7/vi</b>：把 Am 临时当成小家，在它前面放上它专属的 V7——第⑲关学过 G♯ 正是 Am 的导音，被半音磁铁吸进 A。门开完就回 C 大调，所以不是转调，也不是借用。","E7 is <b>vi's secondary dominant, V7/vi</b>: treat Am as a temporary little home and put its own V7 in front — as level ⑲ taught, G♯ is Am's leading tone, magnetically pulled into A. The door closes and C major resumes: not a modulation, not a borrowing.")};
+    }
+    return {kind:"choice",concept,qtype:tr("副属 · 回不回原调","Secondary dominants · do we return"),
+      prompt:tr("进行 <b>C → E7 → Am → F → G → C</b>：E7 出现之后，这首歌还在 C 大调里吗？","In <b>C → E7 → Am → F → G → C</b>: after the E7, is the song still in C major?"),
+      play:()=>playChordSeq([[-12,-8,-5],[-8,-4,-1,2],[-3,0,4],[-7,-3,0],[-5,-1,2],[-12,-8,-5,0]]),
+      options:shuffle([
+        {label:tr("在——副属只是临时开门，门开完就回原调","Yes — a secondary dominant opens a temporary door, then we return"),correct:true},
+        {label:tr("不在了，已经转去 A 小调","No, it has modulated to A minor"),sub:tr("后面 F–G–C 明明白白还是 C 大调","F–G–C right after is plainly still C major"),correct:false},
+        {label:tr("不在了，调性从此模糊","No, the key is permanently blurred"),correct:false},
+      ]),
+      explain:tr("听结尾：F→G→C 干脆利落地落回 C——<b>副属不改变调性</b>。它只在目标和弦前停留一拍，借一点调外的火力（G♯），然后立刻归队。这就是它和转调的区别。","Listen to the ending: F→G→C lands squarely back on C — <b>a secondary dominant never changes the key</b>. It pauses one beat before its target, borrows one outside spark (G♯), then falls right back in line. That is the difference from modulation.")};
+  }
+  if(concept==="sdhear"){
+    const isSd=Math.random()<0.5;
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("副属 · 听辨","Secondary dominants · by ear"),
+        prompt:tr("听这段 <b>4536</b>（F–G–?–Am）：第三格是顺阶的 <b>Em</b>，还是副属 <b>E7</b>？","Listen to this <b>4536</b> (F–G–?–Am): is slot three the diatonic <b>Em</b> or the secondary dominant <b>E7</b>?"),
+        play:()=>playChordSeq(SEQS[isSd?"sd4536v":"sd4536"]),
+        options:[
+          {label:tr("顺阶的 Em","Diatonic Em"),sub:tr("柔和、温吞","soft, mild"),correct:!isSd},
+          {label:tr("副属 E7","Secondary dominant E7"),sub:tr("揪心、被吸向 Am","aching, pulled into Am"),correct:isSd},
+        ],
+        explain: isSd?tr("第三格里有 <b>G♯ 的刺</b>——E7。半音磁铁 G♯→A 让走向 Am 的那一步突然揪心、张力拉满，这正是无数华语金曲副歌的写法。","Slot three carries the <b>sting of G♯</b> — E7. The half-step magnet G♯→A makes the move into Am suddenly ache with tension; countless pop choruses are written exactly this way.")
+                     :tr("第三格软软的、没有刺——顺阶的 <b>Em</b>。三个音都在 C 大调里，走到 Am 平顺但不揪心。","Slot three is soft, no sting — the diatonic <b>Em</b>. All three notes live in C major; the move to Am is smooth but never aches.")};
+    }
+    return {kind:"choice",concept,qtype:tr("副属 · 听辨","Secondary dominants · by ear"),
+      prompt:tr("听 <b>C → ? → Am</b>：中间那格是 <b>Em</b> 还是 <b>E7</b>？","Hear <b>C → ? → Am</b>: is the middle chord <b>Em</b> or <b>E7</b>?"),
+      play:()=>playChordSeq(SEQS[isSd?"sdSpark":"sdPlain"]),
+      options:[
+        {label:"Em",sub:tr("全在调内，平顺","all in key, smooth"),correct:!isSd},
+        {label:"E7",sub:tr("带 G♯，有磁力","carries G♯, magnetic"),correct:isSd},
+      ],
+      explain: isSd?tr("是 <b>E7</b>：G♯ 在调外闪了一下，紧接着被吸进 A——磁力感是副属的签名。","It is <b>E7</b>: G♯ flashes from outside the key and gets sucked into A — that magnetic pull is the secondary dominant's signature.")
+                   :tr("是 <b>Em</b>：没有调外音，没有磁力，只是安静的顺阶过渡。","It is <b>Em</b>: no outside note, no pull — just a quiet diatonic pass-through.")};
+  }
+  if(concept==="sdroman"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("副属 · 怎么记号","Secondary dominants · notation"),
+        prompt:tr("C 大调里这个走向 Am 的 <b>E7</b>，罗马数字应记作？","In C major, how is this Am-bound <b>E7</b> written in Roman numerals?"),
+        play:()=>playChordSeq(SEQS.sdSpark),
+        options:shuffle([
+          {label:"V7/vi",sub:tr("读作：vi 的 V7","read: the V7 of vi"),correct:true},
+          {label:"III7",sub:tr("三级顺阶是小三 Em，记 iii——E7 不是顺阶成员","the diatonic 3rd degree is minor (iii); E7 is no diatonic member"),correct:false},
+          {label:"V7",sub:tr("那是 G7——本调真正的属七","that is G7, the key's own dominant"),correct:false},
+          {label:"vi7",correct:false},
+        ]),
+        explain:tr("记作 <b>V7/vi</b>，斜杠读作\"的\"：vi 的 V7。注意这个斜杠和第⑩关 C/E 的斜杠<b>完全是两回事</b>——那个斜杠右边是低音，这个斜杠右边是<b>临时的家</b>。","Written <b>V7/vi</b>, the slash reads 'of': the V7 of vi. Note this slash is <b>entirely different</b> from level ⑩'s C/E — there the slash names the bass note; here it names the <b>temporary home</b>.")};
+    }
+    const S=rand(SECDOMS);
+    const notes={E7:"E·G♯·B·D",A7:"A·C♯·E·G",D7:"D·F♯·A·C"}[S.sym];
+    const opts=uniqPick(["G♯","C♯","F♯","D♯","B♭","E♭"], S.out, 4).map(n=>({label:n,correct:n===S.out}));
+    return {kind:"choice",concept,qtype:tr("副属 · 找门把手","Secondary dominants · find the door handle"),
+      prompt:tr(`<b>${S.sym}</b>（${notes}）是 ${S.tgtCn} 的副属。它的四个音里，哪一个<b>不在 C 大调里</b>？`,
+                `<b>${S.sym}</b> (${notes}) is the secondary dominant of ${S.tgtEn}. Which of its four notes is <b>outside C major</b>?`),
+      play:()=>playChordSeq(SEQS[S.seq]),
+      options:opts,
+      explain:tr(`调外音是 <b>${S.out}</b>——它正是 ${S.tgt} 的导音，紧贴目标根音半音之下。副属的火力全部来自这一个借来的音：它就是那只\"门把手\"。`,
+                 `The outsider is <b>${S.out}</b> — precisely ${S.tgt}'s leading tone, a half step under the target root. All of a secondary dominant's power comes from this one borrowed note: it IS the door handle.`)};
+  }
+  // sdbuild：搭出副属
+  const S=rand(SECDOMS);
+  const pcs=[S.root,(S.root+4)%12,(S.root+7)%12,(S.root+10)%12];
+  return {kind:"build",concept,qtype:tr("副属 · 搭出磁铁","Secondary dominants · build the magnet"),
+    prompt:tr(`C 大调里想强力推向 <b>${S.tgtCn}</b>，请搭出它的副属 <b>${S.sym}</b>（${S.roman}）：以 ${sharp(NOTE_NAMES[S.root])} 为根音的属七和弦，4 个音、含调外音 ${S.out}（不限八度）。`,
+              `In C major, to push hard into <b>${S.tgtEn}</b>, build its secondary dominant <b>${S.sym}</b> (${S.roman}): a dominant 7th rooted on ${sharp(NOTE_NAMES[S.root])}, 4 notes including the outside note ${S.out} (any octave).`),
+    play:()=>playChordSeq(SEQS[S.seq]),
+    targetPC:pcs, rootSemi:S.root,
+    explain:tr(`${S.sym} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")}。其中 <b>${S.out}</b> 是 ${S.tgt} 的导音——磁铁装好了，下一拍它就把音乐吸进 ${S.tgt}。`,
+               `${S.sym} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")}. <b>${S.out}</b> is ${S.tgt}'s leading tone — magnet installed, and the next beat gets pulled straight into ${S.tgt}.`)};
+}
+
+/* ---- ㉕ 色彩音 ---- */
+function q_color(concept){
+  if(concept==="add9"){
+    const v=Math.random();
+    if(v<0.34){
+      return {kind:"choice",concept,qtype:tr("add9 · 构成","add9 · makeup"),
+        prompt:tr("<b>Cadd9</b> 由哪四个音组成？","Which four notes make up <b>Cadd9</b>?"),
+        play:()=>playSemis([0,4,7,14],60,true),
+        options:shuffle([
+          {label:"C E G D",sub:tr("三和弦 + 高八度的 2（=9 音）","triad + the 2nd up an octave (= the 9th)"),correct:true},
+          {label:"C E G B",sub:tr("那是 Cmaj7","that is Cmaj7"),correct:false},
+          {label:"C D G",sub:tr("那是 Csus2——三音被拿掉了","that is Csus2 — the 3rd was removed"),correct:false},
+          {label:"C E G B♭ D",sub:tr("那是 C9，带着七音","that is C9, with the 7th aboard"),correct:false},
+        ]),
+        explain:tr("Cadd9 = <b>C·E·G + D</b>：在三和弦头顶加上第 9 个音（D 就是 2 度音搬高八度）。三音 E 还在——和弦的性格没丢，只是镀了一层清澈的光。","Cadd9 = <b>C·E·G + D</b>: the 9th (the 2nd moved up an octave) laid on top of the triad. The 3rd, E, stays — the chord keeps its personality and gains a clear sheen.")};
+    }
+    if(v<0.67){
+      return {kind:"choice",concept,qtype:tr("add9 · 和 sus2 的区别","add9 · vs sus2"),
+        prompt:tr("<b>Cadd9</b> 和 <b>Csus2</b> 都有 D 音，它们的区别是？","Both <b>Cadd9</b> and <b>Csus2</b> contain a D. What sets them apart?"),
+        play:async()=>{ await playSemis([0,2,7],60,true); await new Promise(r=>setTimeout(r,500)); await playSemis([0,4,7,14],60,true); },
+        options:shuffle([
+          {label:tr("sus2 拿掉了三音（悬空）；add9 保留三音再加 9（有性格又有光）","sus2 removes the 3rd (floating); add9 keeps the 3rd and adds the 9th (personality plus shine)"),correct:true},
+          {label:tr("没区别，两个名字一个和弦","No difference — two names, one chord"),correct:false},
+          {label:tr("add9 比 sus2 高一个八度","add9 is just sus2 an octave higher"),correct:false},
+        ]),
+        explain:tr("第⑮关学过：<b>挂留 = 拿掉三音</b>，所以 sus2 悬空、不大不小。add9 的三音还在——大三和弦的明亮性格保留，D 只是头顶的一层波光。先后听：sus2 悬着，add9 亮着。","From level ⑮: <b>sus = remove the 3rd</b>, so sus2 floats, neither major nor minor. add9 keeps its 3rd — the major personality stays, and D is just shimmer on top. Listen back to back: sus2 hangs, add9 glows.")};
+    }
+    return {kind:"choice",concept,qtype:tr("add9 · 和 9 和弦的区别","add9 · vs the 9th chord"),
+      prompt:tr("<b>Cadd9</b> 和 <b>C9</b> 差在哪？","What is the difference between <b>Cadd9</b> and <b>C9</b>?"),
+      play:async()=>{ await playSemis([0,4,7,14],60,true); await new Promise(r=>setTimeout(r,500)); await playSemis([0,4,7,10,14],60,true); },
+      options:shuffle([
+        {label:tr("C9 是 C7 加 9（带七音 B♭）；add9 不带七音","C9 is C7 plus a 9th (the 7th, B♭, aboard); add9 has no 7th"),sub:tr("add = 只加，不带七","add = just add, no 7th"),correct:true},
+        {label:tr("一样，写法不同而已","Identical — just different spellings"),correct:false},
+        {label:tr("C9 是九个音的和弦","C9 has nine notes"),correct:false},
+      ]),
+      explain:tr("规则一句话：<b>数字直接跟在和弦名后（C9、Cmaj9、Am9）= 七和弦再加 9；写 add9 = 三和弦只加 9、不带七音</b>。所以 C9 带着 B♭ 有属七的冲劲，Cadd9 只是清澈——先后听最明显。","One-line rule: <b>a bare number (C9, Cmaj9, Am9) = the 7th chord plus a 9th; add9 = the plain triad plus a 9th, no 7th</b>. So C9 carries B♭ and pushes like a dominant, while Cadd9 just sparkles — clearest when heard back to back.")};
+  }
+  if(concept==="hear9"){
+    const P=[{n:"C",s:[0,4,7],cn:"素颜三和弦",en:"plain triad"},
+             {n:"Cmaj7",s:[0,4,7,11],cn:"温柔的高级感",en:"gentle sophistication"},
+             {n:"Cadd9",s:[0,4,7,14],cn:"清澈波光",en:"clear shimmer"}][Math.random()*3|0];
+    return {kind:"choice",concept,qtype:tr("色彩听辨 · 哪个滤镜","Color tones · which filter"),
+      prompt:tr("听这个 C 家族的和弦：素颜的 <b>C</b>、温柔的 <b>Cmaj7</b>，还是清澈的 <b>Cadd9</b>？","Hear this C-family chord: the plain <b>C</b>, the gentle <b>Cmaj7</b>, or the sparkling <b>Cadd9</b>?"),
+      play:()=>playSemis(P.s,60,true),
+      options:[
+        {label:"C",sub:tr("三个音，干净直接","three notes, plain and direct"),correct:P.n==="C"},
+        {label:"Cmaj7",sub:tr("加大七度 B，温柔朦胧","adds the major 7th B — soft, hazy"),correct:P.n==="Cmaj7"},
+        {label:"Cadd9",sub:tr("加 9 音 D，清澈通透","adds the 9th D — clear, open"),correct:P.n==="Cadd9"},
+      ],
+      explain:tr(`这是 <b>${P.n}</b>（${P.cn}）。判断窍门：听最高处——maj7 的 B 紧贴主音下方、带一丝甜雾；add9 的 D 离主音一个全音、像水面波光；什么都没加就是素颜。`,
+                 `That is <b>${P.n}</b> (${P.en}). The trick: listen to the top — maj7's B hugs just under the tonic with a sweet haze; add9's D sits a whole step off, like light on water; nothing added is just the plain face.`)};
+  }
+  if(concept==="pick9"){
+    const P=[{mood:tr("清澈通透的少年感（吉他抒情歌的开头）","clear, open, youthful (an acoustic ballad's opening)"),ans:"Cadd9",s:[0,4,7,14],wrong:["C7","Cm","Csus4"]},
+             {mood:tr("都市霓虹的高级感（City Pop / R&B 铺底）","urban-neon sophistication (City Pop / R&B pads)"),ans:"Cmaj9",s:[0,4,7,11,14],wrong:["C","Cm7","Csus2"]},
+             {mood:tr("让属和弦更爵士、更往前涌","a jazzier, more forward-leaning dominant"),ans:"G9",s:[-5,-1,2,5,9],wrong:["G","Gm","Gsus2"]}][Math.random()*3|0];
+    return {kind:"choice",concept,qtype:tr("色彩配对 · 按情绪选滤镜","Color match · pick the filter"),
+      prompt:tr(`想要「<b>${tx(P.mood)}</b>」的音色，该选哪个和弦？`,`You want “<b>${tx(P.mood)}</b>” — which chord delivers it?`),
+      play:()=>playSemis(P.s,60,true),
+      options:shuffle([{label:P.ans,correct:true},...P.wrong.map(w=>({label:w,correct:false}))]),
+      explain:tr(`答案是 <b>${P.ans}</b>（按钮已播放它的声音）。色彩音的分工：<b>add9 清澈、maj9 朦胧高级、属 9 爵士涌动</b>——同一套三和弦骨架，换滤镜就换气质。`,
+                 `It is <b>${P.ans}</b> (the play button has its sound). The division of labor: <b>add9 = clarity, maj9 = hazy class, dominant 9 = jazzy surge</b> — same triad skeleton, new filter, new character.`)};
+  }
+  // build9：搭出 add9
+  const R=[{n:"Cadd9",r:0},{n:"Fadd9",r:5},{n:"Gadd9",r:7}][Math.random()*3|0];
+  const pcs=[R.r,(R.r+2)%12,(R.r+4)%12,(R.r+7)%12];
+  return {kind:"build",concept,qtype:tr("色彩音 · 搭出 add9","Color tones · build an add9"),
+    prompt:tr(`在键盘上搭出 <b>${R.n}</b>：大三和弦的 3 个音 + 根音上方的 <b>9 音</b>（也就是 2 度音，搬到高八度最通透；判定不限八度）。`,
+              `Build <b>${R.n}</b> on the keyboard: the major triad's 3 notes + the <b>9th</b> above the root (i.e. the 2nd; clearest an octave up — any octave accepted).`),
+    play:()=>playSemis([R.r,R.r+4,R.r+7,R.r+14],60,true),
+    targetPC:pcs, rootSemi:R.r,
+    explain:tr(`${R.n} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")}。三音还在（性格保留），9 音是头顶那层波光——这就是「素颜加滤镜」。`,
+               `${R.n} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")}. The 3rd stays (personality kept) and the 9th shimmers on top — a filter over the plain face.`)};
+}
+
+/* ---- ㉖ 经过减七 ---- */
+function q_passdim(concept){
+  if(concept==="dim7"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("减七 · 对称结构","Dim7 · the symmetric build"),
+        prompt:tr("<b>C♯°7</b>（C♯·E·G·B♭）相邻两个音之间的距离是？","In <b>C♯°7</b> (C♯·E·G·B♭), how far apart are adjacent notes?"),
+        play:()=>playSemis([1,4,7,10],60,true,"2n",{stack:false,gap:0.4}),
+        options:shuffle([
+          {label:tr("每一步都是小三度（3 个半音）","Every step is a minor 3rd (3 semitones)"),sub:tr("完全对称的积木","a perfectly symmetric stack"),correct:true},
+          {label:tr("每一步都是大三度","Every step is a major 3rd"),correct:false},
+          {label:tr("每一步都是全音","Every step is a whole step"),correct:false},
+          {label:tr("距离不规则","Irregular distances"),correct:false},
+        ]),
+        explain:tr("减七和弦是<b>纯小三度叠到顶</b>：C♯→E→G→B♭ 每步恰好 3 个半音，再叠一步就回到 C♯——一座完全对称的积木塔。对称也让它内部藏着<b>两对三全音</b>（C♯–G 和 E–B♭），所以刺感拉满。","A dim7 is <b>minor 3rds stacked all the way</b>: C♯→E→G→B♭, exactly 3 semitones per step — one more step lands back on C♯, a perfectly symmetric tower. The symmetry also hides <b>two tritone pairs</b> inside (C♯–G and E–B♭), hence the maximal sting.")};
+    }
+    return {kind:"choice",concept,qtype:tr("减七 · 组成音","Dim7 · the notes"),
+      prompt:tr("从 <b>C♯</b> 开始每隔 3 个半音取一个音，搭出来的 <b>C♯°7</b> 是哪四个音？","Starting on <b>C♯</b> and taking a note every 3 semitones, which four notes make <b>C♯°7</b>?"),
+      play:()=>playSemis([1,4,7,10],60,true),
+      options:shuffle([
+        {label:"C♯ E G B♭",correct:true},
+        {label:"C♯ E♯ G♯ B",sub:tr("那是 C♯ 大七和弦的方向","that heads toward a C♯ major 7th"),correct:false},
+        {label:"C♯ E G B",sub:tr("最后一步变成了大三度——那是半减七 ø","the last step became a major 3rd — that is the half-diminished ø"),correct:false},
+        {label:"C♯ F A C",correct:false},
+      ]),
+      explain:tr("C♯ +3=E，+3=G，+3=B♭：<b>C♯·E·G·B♭</b>。注意和第⑥关半减七（ø）的区别：ø 的最后一步是大三度，°7 四步全是小三度——更紧、更刺。","C♯ +3=E, +3=G, +3=B♭: <b>C♯·E·G·B♭</b>. Mind the difference from level ⑥'s half-diminished (ø): ø's last step is a major 3rd, while °7 keeps all minor 3rds — tighter, spikier.")};
+  }
+  if(concept==="pdhear"){
+    const isGlue=Math.random()<0.5;
+    return {kind:"choice",concept,qtype:tr("经过减七 · 听辨黏合剂","Passing dim7 · hear the glue"),
+      prompt:tr("听 <b>C 走到 Dm7</b>：低音是直接跨过去，还是加了<b>半音黏合剂</b>？","Hear <b>C move to Dm7</b>: does the bass step straight across, or is there <b>chromatic glue</b> in between?"),
+      play:()=>playChordSeq(SEQS[isGlue?"pdSmooth":"pdPlain"]),
+      options:[
+        {label:tr("直接走：低音 C→D 一步跨过全音","Straight across: bass C→D in one whole step"),correct:!isGlue},
+        {label:tr("加了黏合剂：低音 C→C♯→D 半音爬台阶","With glue: bass climbs C→C♯→D by half steps"),sub:tr("丝滑、复古 R&B 的牵引感","silky, vintage-R&B pull"),correct:isGlue},
+      ],
+      explain: isGlue?tr("中间闪过了 <b>C♯°7</b>：低音 C→C♯→D 半音爬行，上方每个音也只挪一小步——整个过渡像涂了油。陶喆、周杰伦式 R&B 的标志性丝滑就是它。","A <b>C♯°7</b> flashed by: the bass crawls C→C♯→D in half steps and every upper voice shifts just a notch — the whole transition is oiled. This is the signature silkiness of R&B-flavored Mandopop.")
+                     :tr("低音 <b>C→D</b> 一步跨过去，干净但略生硬——中间那格半音（C♯）空着。把 C♯°7 填进去，就是丝滑版。","The bass steps <b>C→D</b> in one move — clean but a bit stiff; the chromatic slot (C♯) sits empty. Fill it with C♯°7 and you get the silky version.")};
+  }
+  if(concept==="pdlead"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("经过减七 · 低音去哪","Passing dim7 · where the bass goes"),
+        prompt:tr("<b>C♯°7</b> 走向 Dm7 时，低音 <b>C♯</b> 必须去哪里？","When <b>C♯°7</b> moves to Dm7, where must the bass <b>C♯</b> go?"),
+        play:()=>playSemis([1,2],48,true,"2n",{stack:false,gap:0.5}),
+        options:shuffle([
+          {label:tr("半音上行到 D","Up a half step to D"),sub:tr("它生来就是 D 的临时导音","born to be D's temporary leading tone"),correct:true},
+          {label:tr("回落到 C","Back down to C"),correct:false},
+          {label:tr("跳到 A","Leap to A"),correct:false},
+        ]),
+        explain:tr("经过减七的使命就是<b>把低音的半音空格填上</b>：C♯ 夹在 C 和 D 之间，只有一个去处——半音蹭进 D。和导音 B→C、副属的 G♯→A 是同一块磁铁。","A passing dim7 exists to <b>fill the chromatic gap in the bass</b>: C♯ sits wedged between C and D with exactly one destination — sliding into D. The very same magnet as B→C and the secondary dominant's G♯→A.")};
+    }
+    return {kind:"choice",concept,qtype:tr("经过减七 · 为什么是超级磁铁","Passing dim7 · why a super-magnet"),
+      prompt:tr("第⑫关说三全音是\"必须化解的刺\"。为什么减七和弦的解决冲动<b>比属七还强</b>？","Level ⑫ called the tritone a sting that must dissolve. Why is a dim7's urge to resolve <b>even stronger than a dominant 7th's</b>?"),
+      play:()=>playChordSeq(SEQS.pdSmooth),
+      options:shuffle([
+        {label:tr("它内部有两对三全音，四个音个个都被吸住","It holds two tritone pairs — all four notes are gripped"),sub:tr("属七只有一对","a dominant 7th has just one"),correct:true},
+        {label:tr("因为它音量更大","Because it is louder"),correct:false},
+        {label:tr("因为它都是黑键","Because it sits on black keys"),correct:false},
+      ]),
+      explain:tr("属七里只有一对三全音；减七里 <b>C♯–G、E–B♭ 两对同时叫嚣</b>，四个音全是倾向音、个个想动——所以它一出现，耳朵立刻知道\"马上要去某个地方\"。这就是\"超级半音磁铁\"。","A dominant 7th holds one tritone; a dim7 holds <b>two crying out at once — C♯–G and E–B♭</b> — so all four notes are tendency tones itching to move. The ear instantly knows something is about to arrive. Hence: the super half-step magnet.")};
+  }
+  // pdbuild：搭出经过减七
+  const R=Math.random()<0.6 ? {n:"C♯°7",r:1,ctx:tr("把 C 和 Dm 黏起来","gluing C to Dm")} : {n:"G♯°7",r:8,ctx:tr("把 G 和 Am 黏起来（5–♯5°7–6m 电梯）","gluing G to Am (the 5–♯5°7–6m lift)")};
+  const pcs=[R.r,(R.r+3)%12,(R.r+6)%12,(R.r+9)%12];
+  return {kind:"build",concept,qtype:tr("经过减七 · 搭出黏合剂","Passing dim7 · build the glue"),
+    prompt:tr(`搭出 <b>${R.n}</b>（${tx(R.ctx)}）：从 ${sharp(NOTE_NAMES[R.r])} 开始，<b>每隔 3 个半音</b>叠一个音，共 4 个音（不限八度）。`,
+              `Build <b>${R.n}</b> (${tx(R.ctx)}): starting on ${sharp(NOTE_NAMES[R.r])}, stack a note <b>every 3 semitones</b>, 4 notes total (any octave).`),
+    play:()=>playSemis([R.r,R.r+3,R.r+6,R.r+9],60,true),
+    targetPC:pcs, rootSemi:R.r,
+    explain:tr(`${R.n} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")}——四步全是小三度的对称塔，两对三全音蓄势待发，下一拍滑进目标和弦。`,
+               `${R.n} = ${pcs.map(p=>sharp(NOTE_NAMES[p])).join(" ")} — a symmetric tower of minor 3rds, two tritones coiled and ready to slide into the target on the next beat.`)};
+}
+
+/* ---- ㉗ 流行调式 ---- */
+function q_modes(concept){
+  if(concept==="mixo"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("Mixolydian · 差在哪","Mixolydian · the difference"),
+        prompt:tr("<b>C Mixolydian</b> 和 C 大调音阶差在哪一个音？","<b>C Mixolydian</b> differs from the C major scale by which note?"),
+        play:()=>playSemis([0,2,4,5,7,9,10,12],60,true,"8n",{gap:0.4,stack:false}),
+        options:shuffle([
+          {label:tr("第 7 音降半音（B→B♭）","The 7th is lowered (B→B♭)"),sub:tr("导音没了，不催着回家","no leading tone, no urgency"),correct:true},
+          {label:tr("第 3 音降半音","The 3rd is lowered"),sub:tr("那是变成小调的方向","that heads toward minor"),correct:false},
+          {label:tr("第 4 音升半音","The 4th is raised"),correct:false},
+        ]),
+        explain:tr("Mixolydian = <b>大调降第 7 音</b>。少了紧贴主音的导音 B，音阶尾巴松松地隔着全音回家——开阔、慵懒、摇滚和民谣的常用底色。","Mixolydian = <b>major with a lowered 7th</b>. Without the leading tone B hugging the tonic, the scale ambles home a whole step away — open, laid-back, the staple color of rock and folk.")};
+    }
+    return {kind:"choice",concept,qtype:tr("Mixolydian · 常住还是串门","Mixolydian · resident or visitor"),
+      prompt:tr("一首歌从头到尾都在循环 <b>C–B♭–F–C</b>（I–♭VII–IV–I）。这里的 B♭ 是？","A song loops <b>C–B♭–F–C</b> (I–♭VII–IV–I) from start to finish. What is that B♭?"),
+      play:()=>playChordSeq(SEQS.mxLoop),
+      options:shuffle([
+        {label:tr("Mixolydian 的常住居民——整首歌就是这个调式色彩","A Mixolydian resident — the whole song lives in this modal color"),correct:true},
+        {label:tr("偶尔来串门的借用和弦","An occasional borrowed visitor"),sub:tr("㉒关的借用是\"偶尔\"；长期反复出现就该换名片了","level ㉒'s borrowing is occasional; permanent residence earns a new name"),correct:false},
+        {label:tr("歌曲转调去了 F 大调","A modulation to F major"),correct:false},
+      ]),
+      explain:tr("分水岭在<b>频率</b>：B♭ 偶尔闪现一次是借用（㉒关）；像这样<b>长期稳定反复</b>，它就是音阶的正式成员——整首歌住在 C Mixolydian 里。中心还是 C，但没人催着\"必须经过 B 回家\"。","The dividing line is <b>frequency</b>: a B♭ flashing by once is borrowing (level ㉒); recurring <b>permanently and stably</b> like this, it is a full member of the scale — the song lives in C Mixolydian. C is still the center, but nobody demands the trip home pass through B.")};
+  }
+  if(concept==="dorian"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("Dorian · 差在哪","Dorian · the difference"),
+        prompt:tr("<b>D Dorian</b> 和 D 自然小调差在哪一个音？","<b>D Dorian</b> differs from D natural minor by which note?"),
+        play:()=>playSemis([2,4,5,7,9,11,12,14],60,true,"8n",{gap:0.4,stack:false}),
+        options:shuffle([
+          {label:tr("第 6 音升半音（B♭→B）","The 6th is raised (B♭→B)"),sub:tr("忧郁里透出一点亮","a glint of light in the gloom"),correct:true},
+          {label:tr("第 7 音升半音","The 7th is raised"),sub:tr("那是⑲关的和声小调","that is level ⑲'s harmonic minor"),correct:false},
+          {label:tr("第 3 音升半音","The 3rd is raised"),correct:false},
+        ]),
+        explain:tr("Dorian = <b>自然小调升第 6 音</b>。就这一个音，把\"阴郁\"调成\"忧郁但松弛\"——R&B、funk、neo-soul 的招牌底色。注意和⑲关区分：和声小调升的是第 7 音（为了回家），Dorian 升第 6 音（为了色彩）。","Dorian = <b>natural minor with a raised 6th</b>. That single note turns 'gloomy' into 'wistful but relaxed' — the signature shade of R&B, funk and neo-soul. Keep it apart from level ⑲: harmonic minor raises the 7th (to get home); Dorian raises the 6th (for color).")};
+    }
+    const isDor=Math.random()<0.5;
+    return {kind:"choice",concept,qtype:tr("Dorian · 听辨四级","Dorian · hear the IV"),
+      prompt:tr("听这个 <b>Dm 打转的循环</b>：第二个和弦是亮的 <b>G</b>（Dorian），还是暗的 <b>Gm</b>（自然小调）？","Hear this <b>Dm-centered loop</b>: is the second chord the bright <b>G</b> (Dorian) or the dark <b>Gm</b> (natural minor)?"),
+      play:()=>playChordSeq(SEQS[isDor?"doLoop":"doMinor"]),
+      options:[
+        {label:tr("亮的 G——Dorian 色彩","The bright G — Dorian color"),sub:tr("升 6 音 B 是 G 的三音","the raised 6th, B, is G's 3rd"),correct:isDor},
+        {label:tr("暗的 Gm——自然小调","The dark Gm — natural minor"),correct:!isDor},
+      ],
+      explain: isDor?tr("第二个和弦里有亮亮的 <b>B</b>——Dorian 升出来的第 6 音正好当了 G 的三音，于是 i–IV（Dm–G）忧郁里带光。别把它听成\"C 大调的 ii–V\"：这段循环从不去 C，<b>家在 Dm</b>。","The second chord carries a bright <b>B</b> — Dorian's raised 6th lands as G's 3rd, so the i–IV (Dm–G) glows inside its gloom. Don't hear it as 'ii–V in C major': this loop never visits C — <b>home is Dm</b>.")
+                    :tr("第二个和弦是暗的 <b>Gm</b>（B♭ 还在）——原装自然小调的 iv。和 Dorian 版只差一个音，气质立刻收回阴影里。","The second chord is the dark <b>Gm</b> (B♭ intact) — natural minor's own iv. One note away from the Dorian version, and the mood folds back into shadow.")};
+  }
+  if(concept==="modal"){
+    const isFn=Math.random()<0.5;
+    const modal=rand(["mxLoop","doLoop"]);
+    return {kind:"choice",concept,qtype:tr("回家还是悬浮 · 听辨","Home or floating · by ear"),
+      prompt:tr("听这一段：它是<b>功能型</b>（属和弦推门、明确回家），还是<b>调式型</b>（中心稳定、但从不强解决）？","Listen: is this <b>functional</b> (a dominant pushes the door, a clear homecoming) or <b>modal</b> (a steady center that never forces a resolution)?"),
+      play:()=>playChordSeq(SEQS[isFn?"fnCad":modal]),
+      options:[
+        {label:tr("功能型——有 V→I 的句号","Functional — a V→I full stop"),sub:tr("导音蹭进主音，门被推上","leading tone slides home, door pushed shut"),correct:isFn},
+        {label:tr("调式型——悬浮循环，不催回家","Modal — a floating loop, no urge to go home"),sub:tr("中心稳定，但没有导音催促","stable center, no leading-tone urgency"),correct:!isFn},
+      ],
+      explain: isFn?tr("结尾有清晰的 <b>V7→I 推门</b>：导音 B 蹭进 C、三全音化解——功能型的句号。这是⑪⑫关的世界。","The end has a clear <b>V7→I push</b>: B slides into C, the tritone dissolves — a functional full stop. The world of levels ⑪–⑫.")
+                   :tr("循环转了一圈又一圈，中心稳稳的、却<b>从没有导音催促回家</b>——调式型的悬浮。大量流行循环正是这样：稳定 ≠ 必须强解决。","The loop turns and turns: the center holds firm, yet <b>no leading tone ever demands a homecoming</b> — modal floating. Plenty of pop loops live exactly here: stable ≠ forced resolution.")};
+  }
+  // modebuild：搭出调式音阶
+  const R=Math.random()<0.5
+    ? {n:"C Mixolydian",semis:[0,2,4,5,7,9,10,12],root:0,hint:tr("大调音阶、但第 7 音降半音（B→B♭）","the major scale with a lowered 7th (B→B♭)")}
+    : {n:"D Dorian",semis:[2,4,5,7,9,11,12,14],root:2,hint:tr("自然小调、但第 6 音升半音（B♭→B）","natural minor with a raised 6th (B♭→B)")};
+  return {kind:"build",concept,qtype:tr("调式 · 在键盘上搭出","Modes · build it"),
+    prompt:tr(`搭出 <b>${R.n}</b> 音阶：${tx(R.hint)}，从主音到高八度共 8 个音（整体移八度也算对）。`,
+              `Build the <b>${R.n}</b> scale: ${tx(R.hint)}, 8 notes from tonic to octave (octave shifts accepted).`),
+    play:()=>playSemis(R.semis,60,true,"8n",{gap:0.4,stack:false}),
+    targetMidis:R.semis.map(x=>60+x), rootSemi:R.root, flashStart:[60+R.root],
+    explain:tr(`${R.n}：只动一个音，气质全换——这就是调式的魔法。`,
+               `${R.n}: move one note and the whole character turns — that is the magic of modes.`)};
+}
+
+/* ---- ㉘ 和弦按法 ---- */
+function q_voicing(concept){
+  if(concept==="spread"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("按法 · 和弦名管什么","Voicings · what a chord name rules"),
+        prompt:tr("谱上写一个 <b>C</b>，它规定了什么、没规定什么？","A chart says <b>C</b>. What does that fix — and what does it leave free?"),
+        play:async()=>{ await playChordSeq(SEQS.vcClose); await new Promise(r=>setTimeout(r,400)); await playChordSeq(SEQS.vcOpen); await new Promise(r=>setTimeout(r,400)); await playChordSeq(SEQS.vcSplit); },
+        options:shuffle([
+          {label:tr("规定用 C·E·G 这组音；不规定摆在哪个八度、怎么分布","It fixes the notes C·E·G; register and layout stay free"),sub:tr("三种摆法都是 C","all three layouts you heard are C"),correct:true},
+          {label:tr("规定必须从 C4 开始挤在一起弹","It demands C4-up, packed tight"),correct:false},
+          {label:tr("规定必须弹三个键、一个不能多","Exactly three keys, never more"),sub:tr("叠根音、加八度都常见","doubling the root or octaves is routine"),correct:false},
+        ]),
+        explain:tr("和弦名只锁定<b>音名集合</b>。刚才三种摆法——密集（C4E4G4）、开放（C3G3E4）、左右手分工（C3+E4G4C5）——都是如假包换的 C。摆法（voicing）才决定它\"像不像流行钢琴\"。","A chord name locks only the <b>set of note names</b>. The three layouts you heard — close (C4E4G4), open (C3G3E4), split hands (C3+E4G4C5) — are all bona fide C chords. The voicing is what decides whether it sounds like pop piano.")};
+    }
+    const isOpen=Math.random()<0.5;
+    return {kind:"choice",concept,qtype:tr("按法 · 密集还是开放","Voicings · close or open"),
+      prompt:tr("听这个 C：是<b>密集排列</b>（挤在一起），还是<b>开放排列</b>（拉开距离）？","Hear this C: <b>close position</b> (packed) or <b>open position</b> (spread out)?"),
+      play:()=>playChordSeq(SEQS[isOpen?"vcOpen":"vcClose"]),
+      options:[
+        {label:tr("密集——直接、紧凑","Close — direct, compact"),correct:!isOpen},
+        {label:tr("开放——更宽、更像铺底伴奏","Open — wider, more like an accompaniment bed"),correct:isOpen},
+      ],
+      explain: isOpen?tr("音与音拉开了距离（C3·G3·E4）——<b>开放排列</b>：低音区留出空隙、中音区留出人声空间，铺底更透气。还记得⑩关的规律：音区越低、音程要越宽。","The notes sit far apart (C3·G3·E4) — <b>open position</b>: space in the low register, room for a voice in the middle; the bed breathes. Recall level ⑩'s rule: the lower the register, the wider the gaps.")
+                     :tr("三个音紧挨着（C4·E4·G4）——<b>密集排列</b>：直接、结实，适合旋律句或有力的强调，铺底时则容易显挤。","The three notes sit packed (C4·E4·G4) — <b>close position</b>: direct and solid, great for melodic stabs, but cramped as a bed.")};
+  }
+  if(concept==="smooth"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("按法 · 最近的下一步","Voicings · the nearest next chord"),
+        prompt:tr("右手正按着 C（C4·E4·G4），下一个和弦是 <b>G</b>。哪种按法<b>最平滑</b>？","Your right hand holds C (C4·E4·G4); the next chord is <b>G</b>. Which layout moves <b>most smoothly</b>?"),
+        play:()=>playChordSeq([[0,4,7],[-1,2,7]]),
+        options:shuffle([
+          {label:tr("B3·D4·G4——共同音 G 不动，其余就近挪","B3·D4·G4 — the common tone G stays; the rest shift nearby"),correct:true},
+          {label:tr("G4·B4·D5——整只手跳上去","G4·B4·D5 — leap the whole hand up"),sub:tr("音对，但大开大合","right notes, big jumps"),correct:false},
+          {label:tr("G2·B2·D3——整只手跳下去","G2·B2·D3 — leap the whole hand down"),correct:false},
+        ]),
+        explain:tr("第⑫关的总纲在伴奏里同样生效：<b>共同音保留、其余声部就近走</b>。G4 原地不动，C4→B3、E4→D4 各退半步/全步——听起来不是\"换了个和弦\"，而是\"和声自己流过去了\"。","Level ⑫'s master rule works for accompaniment too: <b>keep common tones, move the rest nearby</b>. G4 stays put; C4→B3 and E4→D4 each step aside — it no longer sounds like switching chords, but like harmony flowing on its own.")};
+    }
+    const isSmooth=Math.random()<0.5;
+    return {kind:"choice",concept,qtype:tr("按法 · 听辨流畅度","Voicings · hear the flow"),
+      prompt:tr("听这版 <b>1564</b>：是全原位的<b>跳跃版</b>，还是共同音保留的<b>流畅版</b>？","Hear this <b>1564</b>: the all-root-position <b>leaping version</b>, or the common-tone <b>flowing version</b>?"),
+      play:()=>playChordSeq(SEQS[isSmooth?"vcSmooth":"vcJumpy"]),
+      options:[
+        {label:tr("跳跃版——每个和弦都搬一次家","Leaping — every chord moves house"),correct:!isSmooth},
+        {label:tr("流畅版——声部几乎不动，像水流","Flowing — voices barely move, like water"),correct:isSmooth},
+      ],
+      explain: isSmooth?tr("这是<b>流畅版</b>：C→G/B→Am→F 一路共同音保留、就近转位，顶端旋律线几乎是平的——流行钢琴的标准手感。","The <b>flowing version</b>: C→G/B→Am→F keeps common tones and takes nearest inversions; the top line stays almost flat — standard pop-piano feel.")
+                       :tr("这是<b>跳跃版</b>：四个和弦全用原位，手大开大合、顶端旋律线锯齿乱跳——音没错，但不像伴奏，像练习曲。","The <b>leaping version</b>: all four chords in root position, the hand lurching, the top line zigzagging — correct notes, but it sounds like an étude, not an accompaniment.")};
+  }
+  if(concept==="pedal"){
+    if(Math.random()<0.5){
+      const isPedal=Math.random()<0.5;
+      return {kind:"choice",concept,qtype:tr("持续低音 · 听辨蓄力","Pedal point · hear the buildup"),
+        prompt:tr("听这段副歌前的推进（IV–V–vi…→C）：低音是<b>钉住不动</b>，还是<b>跟着和弦走</b>？","Hear this pre-chorus push (IV–V–vi…→C): is the bass <b>nailed in place</b> or <b>walking with the chords</b>?"),
+        play:()=>playChordSeq(SEQS[isPedal?"vcPedal":"vcFree"]),
+        options:[
+          {label:tr("钉住不动——持续低音在蓄力","Nailed — a pedal point building pressure"),sub:tr("上面越变，下面越憋，等爆发","the more it changes above, the more it coils below"),correct:isPedal},
+          {label:tr("跟着和弦走——常规低音线","Walking — a regular bass line"),correct:!isPedal},
+        ],
+        explain: isPedal?tr("低音<b>钉死在 G</b>（属音）上，上方 F→G→Am 自顾自变化——和弦与低音之间越拧越紧，能量全憋在弦上，最后落 C 的一刻才松开。这就是<b>持续低音（pedal point）</b>，副歌前最常用的蓄力器。","The bass is <b>nailed to G</b> (the dominant) while F→G→Am churn above — chord and bass wind tighter and tighter, energy coiling on the string until the drop onto C releases it. That is a <b>pedal point</b>, the favorite pre-chorus pressure builder.")
+                        :tr("低音 F→G→A→C 老老实实跟着和弦搬家——常规走法，平稳但没有那股\"憋住\"的张力。对比持续低音版会非常明显。","The bass dutifully walks F→G→A→C with its chords — the regular way: steady, but without that held-breath tension. Compare it against the pedal version and the difference jumps out.")};
+    }
+    return {kind:"choice",concept,qtype:tr("持续低音 · 定义","Pedal point · the definition"),
+      prompt:tr("「持续低音（pedal point）」指的是？","What is a <b>pedal point</b>?"),
+      play:()=>playChordSeq(SEQS.vcPedal),
+      options:shuffle([
+        {label:tr("低音钉住一个音不动，上方和弦照常变化","The bass holds one note while chords change above"),sub:tr("常钉在属音或主音上","usually nailed to the dominant or tonic"),correct:true},
+        {label:tr("一直踩着钢琴踏板弹","Holding the piano's sustain pedal down"),correct:false},
+        {label:tr("低音弹得特别低","Playing the bass extremely low"),correct:false},
+      ]),
+      explain:tr("定义就一句：<b>低音不动，上面照变</b>。和弦换、低音不换，二者间的摩擦把能量越积越满——所以它总出现在副歌前、爆发前。最常钉的音是属音（C 大调的 G）。","One sentence: <b>the bass holds while everything above keeps moving</b>. Chords change, bass refuses, and the friction stockpiles energy — which is why it lives right before choruses and drops. The most common anchor: the dominant (G in C major).")};
+  }
+  // vcbuild：搭出指定按法（精确到音区）
+  const R=[{from:"C（C4·E4·G4）",to:"G",toCn:"G（共同音保留按法）",toEn:"G (common-tone layout)",midis:[59,62,67],desc:tr("G4 不动，C4 落到 B3、E4 落到 D4","keep G4; C4 falls to B3, E4 to D4")},
+           {from:"C（C4·E4·G4）",to:"Am",toCn:"Am（共同音保留按法）",toEn:"Am (common-tone layout)",midis:[60,64,69],desc:tr("C4、E4 不动，G4 升到 A4","keep C4 and E4; G4 rises to A4")},
+           {from:"C（C4·E4·G4）",to:"F",toCn:"F（共同音保留按法）",toEn:"F (common-tone layout)",midis:[60,65,69],desc:tr("C4 不动，E4 升到 F4、G4 升到 A4","keep C4; E4 rises to F4, G4 to A4")}][Math.random()*3|0];
+  return {kind:"build",concept,qtype:tr("按法 · 搭出最平滑的下一步","Voicings · build the smoothest next chord"),
+    prompt:tr(`右手刚弹完 <b>${R.from}</b>，下一个和弦是 <b>${R.to}</b>。请按「共同音保留、其余就近走」搭出它的按法：${tx(R.desc)}（整体移八度也算对）。`,
+              `Your hand just played <b>${R.from}</b>; next comes <b>${R.to}</b>. Build its layout by “keep common tones, move the rest nearby”: ${tx(R.desc)} (octave shifts accepted).`),
+    play:()=>playChordSeq([[0,4,7],R.midis.map(m=>m-60)]),
+    targetMidis:R.midis, rootSemi:R.midis[0]%12,
+    explain:tr(`${R.toCn}：${tx(R.desc)}——每个手指最多挪一两格，和声像水一样流过去。这就是流行钢琴伴奏的基本功。`,
+               `${R.toEn}: ${tx(R.desc)} — no finger travels more than a step or two, and the harmony flows like water. This is the bread and butter of pop piano.`)};
+}
+
+/* ---- ㉙ 转调 ---- */
+function q_modulate(concept){
+  if(concept==="lift"){
+    if(Math.random()<0.5){
+      return {kind:"choice",concept,qtype:tr("升半调 · 为什么","The lift · why"),
+        prompt:tr("流行歌唱到<b>最后一遍副歌</b>，常常整体升高半音再来一遍。这么做是为了？","Pop songs often lift everything a half step for the <b>final chorus</b>. Why?"),
+        play:()=>playChordSeq(SEQS.mlHalf),
+        options:shuffle([
+          {label:tr("同样的旋律瞬间更亮更高——情绪再推一把","The same melody turns instantly brighter and higher — one more emotional push"),sub:tr("俗称\"推土机式转调\"","the so-called bulldozer modulation"),correct:true},
+          {label:tr("为了让歌手省力","To make singing easier"),sub:tr("更高了，明明更费力","it goes higher — harder, if anything"),correct:false},
+          {label:tr("为了回到关系小调","To reach the relative minor"),correct:false},
+        ]),
+        explain:tr("一模一样的进行整体抬高半音，听感却像\"再上了一层楼\"——耳朵对音高整体抬升极其敏感，疲劳感瞬间被刷新。注意它和㉓关移调的区别：<b>移调是整首歌搬家（排练用），转调是歌唱到一半换家（做效果）</b>。","The identical progression, raised one semitone, feels like climbing one more floor — the ear is acutely sensitive to a wholesale lift, and fatigue resets instantly. Mind the difference from level ㉓: <b>transposition moves the whole song before it starts (practical); modulation changes home mid-song (dramatic)</b>.")};
+    }
+    return {kind:"choice",concept,qtype:tr("转调 · 还是移调","Modulation · or transposition"),
+      prompt:tr("「这首歌原调太高，整首降到 B♭ 调来唱」——这是<b>转调</b>还是<b>移调</b>？","“This song sits too high — let's do the whole thing in B♭.” Is that <b>modulation</b> or <b>transposition</b>?"),
+      options:shuffle([
+        {label:tr("移调——整首搬家，歌内部结构不变","Transposition — the whole song moves; nothing changes inside it"),sub:tr("㉓关练的就是它","exactly what level ㉓ trains"),correct:true},
+        {label:tr("转调——歌进行中换了家","Modulation — the key changes mid-song"),sub:tr("转调发生在歌的内部","modulation happens inside the song"),correct:false},
+      ]),
+      explain:tr("分辨只看一件事：<b>换家发生在歌外面还是里面</b>。开唱前整体挪一个调=移调（适配音域的实用操作）；唱到一半突然升Key=转调（编曲的情绪手段）。两者用的翻译技术相同（㉓关），目的完全不同。","One question settles it: <b>does the move happen outside or inside the song?</b> Shifting the whole song before it starts = transposition (a practical range fix); lifting the key mid-song = modulation (an arranging device). Same translation skill (level ㉓), entirely different purpose.")};
+  }
+  if(concept==="relswitch"){
+    return {kind:"choice",concept,qtype:tr("关系调切换 · 暗转亮","Relative switch · dark to bright"),
+      prompt:tr("主歌一直在 <b>Am 里打转</b>（暗），副歌突然<b>亮起来落在 C</b>。这用的是哪种手法？","The verse circles <b>Am</b> (dark); the chorus suddenly <b>brightens and lands on C</b>. What device is this?"),
+      play:()=>playChordSeq(SEQS.mlRel),
+      options:shuffle([
+        {label:tr("关系大小调切换——同一把钥匙，两个家","A relative-key switch — one key signature, two homes"),sub:tr("音没换，家从 Am 搬到 C","same notes; home moves from Am to C"),correct:true},
+        {label:tr("推土机升半调","The bulldozer half-step lift"),sub:tr("升半调会出现一整套新音","a lift brings a whole new set of notes"),correct:false},
+        {label:tr("副属和弦","A secondary dominant"),correct:false},
+        {label:tr("离调借用","Modal borrowing"),correct:false},
+      ]),
+      explain:tr("Am 和 C 是<b>关系大小调</b>——共用全部七个音（㉑关的\"视角翻转\"）。主歌让重心落在 Am（暗），副歌把重心搬到 C（亮）：一个音都没换，天就亮了。这是主歌暗、副歌亮的经典配方。","Am and C are <b>relative keys</b> — they share all seven notes (level ㉑'s perspective flip). The verse rests its weight on Am (dark); the chorus moves it to C (bright): not one note changes, yet the sun comes out. The classic dark-verse / bright-chorus recipe.")};
+  }
+  // modhear：转调盲听
+  const P=[{seq:"mlNone",ans:0},{seq:"mlHalf",ans:1},{seq:"mlWhole",ans:2}][Math.random()*3|0];
+  return {kind:"choice",concept,qtype:tr("转调盲听 · 升了多少","Modulation by ear · how big a lift"),
+    prompt:tr("听 <b>1564 连放两遍</b>：第二遍发生了什么？","Hear <b>1564 played twice</b>: what happens the second time?"),
+    play:()=>playChordSeq(SEQS[P.seq]),
+    options:[
+      {label:tr("没有转调——两遍一样","No modulation — both passes identical"),correct:P.ans===0},
+      {label:tr("升了半音","Lifted a half step"),sub:tr("亮了一格","one notch brighter"),correct:P.ans===1},
+      {label:tr("升了全音","Lifted a whole step"),sub:tr("亮了两格","two notches brighter"),correct:P.ans===2},
+    ],
+    explain:[tr("两遍完全相同——<b>没有转调</b>。先记住这个基准，再听升半音/全音版会非常清楚。","Both passes are identical — <b>no modulation</b>. Anchor this baseline and the lifted versions become unmistakable."),
+             tr("第二遍整体<b>抬高了半音</b>——最经典的\"推土机\"：一格的抬升，亮度立变、疲劳清零。","The second pass is <b>lifted a half step</b> — the classic bulldozer: one notch up, instant brightness, fatigue wiped."),
+             tr("第二遍整体<b>抬高了全音</b>——比半音版更敞亮、更舒展，也是末段副歌的常客。","The second pass is <b>lifted a whole step</b> — roomier and more radiant than the half-step lift, another final-chorus regular.")][P.ans]};
+}
+
 /* ============================================================
    渲染题目 + 判定
    ============================================================ */
@@ -5741,9 +7037,9 @@ function renderModuleDone(mId){
       <div style="font-size:54px">🎓</div>
       <h2 style="margin:8px 0">${tr(`全部 ${MODULES.length} 关通关——毕业快乐！`,`All ${MODULES.length} levels cleared — congratulations, graduate!`)}</h2>
       <p style="color:var(--muted);line-height:1.8;text-align:left;max-width:640px;margin:10px auto">
-        ${tr(`回头看看这一路：从分清<b>半音与全音</b>开始，你搭起了<b>音阶和调</b>，用三度叠出了<b>三和弦与七和弦</b>，认识了<b>调内家族、罗马数字和功能</b>，学会了<b>转位与斜杠</b>让低音流动，背下了大调与小调的<b>金曲套路</b>，推开了<b>暗夜世界</b>的门，掌握了<b>导音、V7 与离调借用</b>的魔法，最后用<b>移调</b>把这一切带去任何一个调。<br><br>
+        ${tr(`回头看看这一路：从分清<b>半音与全音</b>开始，你搭起了<b>音阶和调</b>，用三度叠出了<b>三和弦与七和弦</b>，认识了<b>调内家族、罗马数字和功能</b>，学会了<b>转位与斜杠</b>让低音流动，背下了大调与小调的<b>金曲套路</b>，推开了<b>暗夜世界</b>的门，掌握了<b>导音、V7 与离调借用</b>的魔法，用<b>移调</b>把这一切带去任何一个调；进阶篇里你又装上了<b>副属和弦</b>的磁铁、给三和弦加了<b>色彩音</b>的滤镜、用<b>经过减七</b>黏合低音、认识了<b>不急着回家的调式</b>、练出了<b>流行钢琴的按法</b>，最后学会用<b>转调</b>把整首歌再推上一层楼。<br><br>
         现在你听歌时听到的已经不再是模糊的"好听"，而是<b>级数、功能与色彩</b>。这套耳朵会跟你一辈子。`,
-        `Look how far you've come: from telling <b>half steps from whole steps</b>, you built <b>scales and keys</b>, stacked thirds into <b>triads and 7th chords</b>, met the <b>diatonic family, Roman numerals and functions</b>, set the bass flowing with <b>inversions and slash chords</b>, memorized the <b>hit progressions</b> of major and minor, opened the door to the <b>dark world</b>, mastered the magic of the <b>leading tone, V7 and borrowed chords</b> — and finally carried it all to any key with <b>transposition</b>.<br><br>
+        `Look how far you've come: from telling <b>half steps from whole steps</b>, you built <b>scales and keys</b>, stacked thirds into <b>triads and 7th chords</b>, met the <b>diatonic family, Roman numerals and functions</b>, set the bass flowing with <b>inversions and slash chords</b>, memorized the <b>hit progressions</b> of major and minor, opened the door to the <b>dark world</b>, mastered the magic of the <b>leading tone, V7 and borrowed chords</b>, and carried it all to any key with <b>transposition</b>; then, in the advanced run, you installed <b>secondary-dominant</b> magnets, filtered triads with <b>color tones</b>, glued bass lines with the <b>passing dim7</b>, met the <b>modes that never rush home</b>, earned a pop pianist's <b>voicings</b> — and finally learned to push a whole song one floor higher with <b>modulation</b>.<br><br>
         Songs no longer sound like a vague “nice” — you now hear <b>degrees, functions and colors</b>. This ear is yours for life.`)}</p>
       <p style="color:var(--muted);line-height:1.7">${tr("下一步建议：去<b>训练场</b>对薄弱模块做针对练习，再挑战<b>综合测验</b>拿一份按能力维度拆分的成绩单——然后，去扒一首你喜欢的歌吧 🎸","Next: hit the <b>Training Ground</b> for your weak spots, take the <b>Comprehensive Test</b> for a skills report — then go figure out a song you love 🎸")}</p>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:14px">
@@ -5893,6 +7189,12 @@ const TRAIN_SPEC_LABELS={
   minprog:{prog:["认小调走向","六大走向","Minor progressions","six moves"],modehear:["大小调盲听","套路级","Major/minor by ear","progression level"],mood:["情绪配对","鉴赏","Mood matching","listening"],flip:["视角翻转","家落谁","Perspective flip","which home"]},
   borrow:{alien:["揪出调外音","三种借用","Spot the outsider","3 borrowings"],hear:["听辨借用","iv/♭VII/♭VI","Hear borrowing","iv/♭VII/♭VI"],fill:["按情绪选和弦","催泪/豁达/凯旋","Pick by mood","tears/open/triumph"]},
   transpose:{r2c:["罗马→实际和弦","跨 6 个调","Roman→chords","across 6 keys"],c2r:["和弦→罗马","反向翻译","Chords→Roman","reverse"],prog:["整段进行移调","套路搬家","Transpose progressions","move the formula"]},
+  secdom:{bridge:["副属是什么","临时开门","What it is","a temporary door"],sdhear:["副属听辨","Em vs E7","Hear it","Em vs E7"],sdroman:["记号与调外音","V7/vi · G♯","Notation & outsider","V7/vi · G♯"],sdbuild:["搭出副属","E7 / A7 / D7","Build one","E7 / A7 / D7"]},
+  color:{add9:["add9 构成","2 搬高八度","add9 makeup","2 up an octave"],hear9:["滤镜听辨","素颜/maj7/add9","Hear the filter","plain/maj7/add9"],pick9:["按情绪选滤镜","清澈/霓虹/爵士","Pick by mood","clear/neon/jazzy"],build9:["搭 add9","三和弦+9","Build add9","triad + 9"]},
+  passdim:{dim7:["减七构成","每步小三度","dim7 makeup","stacked minor 3rds"],pdhear:["丝滑听辨","有无黏合剂","Hear the glue","with vs without"],pdlead:["声部去向","C♯↗D 超级磁铁","Voice motion","C♯↗D super-magnet"],pdbuild:["搭 ♯I°7","对称 4 音","Build ♯I°7","symmetric 4 notes"]},
+  modes:{mixo:["Mixolydian","大调降 7","Mixolydian","major ♭7"],dorian:["Dorian","小调升 6","Dorian","minor ♯6"],modal:["回家还是悬浮","功能 vs 调式","Home or floating","functional vs modal"],modebuild:["搭调式音阶","Mixo / Dorian","Build a mode","Mixo / Dorian"]},
+  voicing:{spread:["密集 vs 开放","同音不同摆","Close vs open","same notes, new layout"],smooth:["共同音保留","最近转位","Common tones","nearest inversion"],pedal:["持续低音","低音不动蓄力","Pedal point","bass holds, energy builds"],vcbuild:["搭按法","精确到音区","Build a voicing","exact register"]},
+  modulate:{lift:["升半调推土机","副歌再推一把","The lift","push the last chorus"],relswitch:["关系调切换","暗主歌亮副歌","Relative switch","dark verse, bright chorus"],modhear:["转调盲听","半音/全音/没转","Hear modulation","half/whole/none"]},
 };
 // 选项卡上每个具体项的标题/副标题
 function trainChipLabel(cat,c){
