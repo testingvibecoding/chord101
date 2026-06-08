@@ -937,7 +937,7 @@ function teachEN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>What is a "cadence"? Why is the dominant 7th its core?</b></summary>
+      <details class="note"><summary>Extra: what is a "cadence"? Why is the dominant 7th its core?</summary>
         <div style="line-height:1.75;color:#e9e3ff">
           <p><b>A cadence is the "punctuation" of the last few chords in a phrase</b> — it decides whether the sentence ends with a "." or a ",". There are three everyday marks plus one "exclamation"; let's nail each one:</p>
 
@@ -987,18 +987,73 @@ function teachEN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>How do these four relate to "the key"? (Roman numeral preview)</b></summary>
+      <details class="note"><summary>Extra 1: a neat surprise — every degree of a major key stacks up to exactly these four</summary>
         <div style="line-height:1.75;color:#e9e3ff">
-          <p>If you use only a major key's 7 notes and stack a 7th chord on every degree, you naturally get:<br>
-          <b>Imaj7, IVmaj7</b> are major 7ths; <b>ii7, iii7, vi7</b> are minor 7ths; <b>V7</b> is the dominant 7th; <b>viiø7</b> is half-diminished.</p>
-          <p>(What the uppercase/lowercase and labels like Imaj7/ii7 mean, and how to move them to other keys — a dedicated level, "<b>Roman Numerals</b>", explains and drills all of it.)</p>
+          <p>Here's the neat part: if you <b>stack a 7th chord by thirds on every degree</b> of C major, what comes out is <b>exactly the four types you just met</b> — not one more, not one fewer. Step by step:</p>
+          <p style="line-height:1.85">
+          <b>Step 1:</b> C major has just <b>7 notes</b> — the white keys C D E F G A B, and the 8th wraps back to C.<br>
+          <b>Step 2:</b> let each of the 7 notes <b>take a turn as the boss (the root)</b>: starting on C is "degree 1", on D is "degree 2"… up to "degree 7" starting on B.<br>
+          <b>Step 3:</b> on every degree use the <b>same action</b> to build a 7th chord — <b>start on the root, take every other white key, four notes in all</b> (the next level covers this "stacking thirds" method for building diatonic chords in full — here's a preview; just note this is a 7th chord, so we stack four layers).<br>
+          <b>Step 4 (the key point):</b> the action is identical, yet the chord <b>type comes out different</b>! Because the gaps between white keys are <b>uneven</b> (some neighbors are a whole step, some a half step), starting from different notes makes different widths — so the type changes by itself. Compare two by ear:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7,11">🔊 From C: C·E·G·B = Cmaj7 (major 7th)</span>
+            <span class="chip" data-play="notes:2,5,9,12">🔊 From D: D·F·A·C = Dm7 (minor 7th)</span>
+          </div>
+          <p style="line-height:1.85">Same "every other key, four notes" — only the starting point differs, and one becomes a major 7th, the other a minor 7th. <b>Step 5:</b> build one this way on <b>every</b> note and you get 7 chords whose types are exactly these four, in a <b>fixed</b> layout (every row playable):</p>
+          <table class="ctab"><tr><th>Deg</th><th>Root</th><th>Chord built</th><th>Type</th></tr>
+            <tr><td>1</td><td>C</td><td class="play" data-play="notes:0,4,7,11">Cmaj7 ▶</td><td>major 7th</td></tr>
+            <tr><td>2</td><td>D</td><td class="play" data-play="notes:2,5,9,12">Dm7 ▶</td><td>minor 7th</td></tr>
+            <tr><td>3</td><td>E</td><td class="play" data-play="notes:4,7,11,14">Em7 ▶</td><td>minor 7th</td></tr>
+            <tr><td>4</td><td>F</td><td class="play" data-play="notes:5,9,12,16">Fmaj7 ▶</td><td>major 7th</td></tr>
+            <tr><td>5</td><td>G</td><td class="play" data-play="notes:7,11,14,17">G7 ▶</td><td>dominant 7th</td></tr>
+            <tr><td>6</td><td>A</td><td class="play" data-play="notes:9,12,16,19">Am7 ▶</td><td>minor 7th</td></tr>
+            <tr><td>7</td><td>B</td><td class="play" data-play="notes:11,14,17,21">Bm7♭5 ▶</td><td>half-diminished</td></tr></table>
+          <p>In Roman numerals: <b>Imaj7, IVmaj7</b> are major 7ths; <b>ii7, iii7, vi7</b> minor 7ths; <b>V7</b> the dominant (the only one in the whole key — which is why it's the unique "key home"!); <b>viiø7</b> half-diminished. This fixed layout holds in <b>any</b> major key — the note names all change, but the types and positions stay identical.</p>
+          <p><b>So why practice only these four:</b> freely combining triads (maj/min/aug/dim) with 7ths yields quite a few more types (diminished 7th, minor-major 7th, augmented-major 7th…). We start with these four because they are the <b>"natives" each degree of a major key produces on its own</b> — the ones classical, pop and jazz reuse constantly, <b>the most common and the first worth mastering</b>; the rest are chromatic colors for later (the diminished 7th, °7, gets its own stage in level ㉖).</p>
+          <p style="font-size:12.5px;color:var(--muted)">(What the uppercase/lowercase and labels like Imaj7/ii7 mean, and how to move them to other keys — a dedicated level, "<b>Roman Numerals</b>", explains and drills all of it.)</p>
         </div>
       </details>
 
-      <details class="note" open><summary>Why practice only these four 7th chords?</summary>
-        <p style="color:var(--muted);font-size:13.5px;line-height:1.7">Combining triads (maj/min/aug/dim) with different 7ths actually yields quite a few types
-        (diminished 7th, minor-major 7th, augmented-major 7th…). We start with these four because they are exactly <b>the 7th chords each degree of the major scale produces on its own</b> —
-        the ones classical, pop and jazz reuse constantly, <b>the most common and the first worth mastering</b>; the rest are chromatic colors for later.</p>
+      <details class="note"><summary>Extra 2: a different angle — stack all four on the same root, and the difference is just two slots</summary>
+        <div style="line-height:1.75;color:#e9e3ff">
+          <p>That was standing inside <b>one key</b>, watching the four arise from different degrees. <b>From a different angle</b> — stack all four on the <b>same root C</b> and line them up — another picture appears: they differ in exactly <b>two places</b>. First, the table (every row playable):</p>
+          <table class="ctab"><tr><th>Type</th><th>Symbol</th><th>Build (base + 7th)</th><th>Character</th><th>Play</th></tr>
+            <tr><td>Major 7th</td><td>Cmaj7</td><td>major triad + major 7th</td><td>gentle, classy, city night</td><td class="play" data-play="chord:maj7:0">▶</td></tr>
+            <tr><td>Minor 7th</td><td>Cm7</td><td>minor triad + minor 7th</td><td>gloom softened, relaxed</td><td class="play" data-play="chord:min7:0">▶</td></tr>
+            <tr><td>Dominant 7th</td><td>C7</td><td>major triad + minor 7th</td><td>suspended yet driving, must resolve</td><td class="play" data-play="chord:dom7:0">▶</td></tr>
+            <tr><td>Half-diminished</td><td>Cm7♭5</td><td>diminished triad + minor 7th</td><td>shadowy, unresolved</td><td class="play" data-play="chord:m7b5:0">▶</td></tr></table>
+          <p><b>The difference is just these two slots:</b> <b>the triad base (major/minor/diminished) + the 7th on top (major/minor)</b>. What "major/minor" means in each, and how the 7th is measured — let's take them apart one by one.</p>
+          <p style="font-size:13px;color:var(--muted)"><b>How the 7th is measured:</b> count letters up from the root to the 7th one (C up to B). <b>11 semitones wide = a major 7th</b> (B — just a half step under the upper C, hugging it); <b>10 semitones = a minor 7th</b> (B♭ — a whole step below the octave). The middle button in each group below plays exactly this distance on its own.</p>
+
+          <p><b>① Major 7th, Cmaj7 = "both major":</b> the base is a <b>major</b> triad (the natural E as its 3rd — bright), and the 7th is a <b>major</b> 7th (B, hugging) — bright inside and out:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 Base: C major triad (C·E·G)</span>
+            <span class="chip" data-play="mel:0,11">🔊 Major 7th: C → B (11 semitones, hugging)</span>
+            <span class="chip" data-play="notes:0,4,7,11">🔊 Together: Cmaj7 (gentle city night)</span>
+          </div>
+
+          <p><b>② Dominant 7th, C7 = "major base, minor 7th":</b> the base is still a <b>major</b> triad, but the 7th drops to a <b>minor</b> 7th (B lowered to B♭) — one bright spot, one dark spot, and that single mismatch is exactly where its tension comes from:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 Base: C major triad (as above)</span>
+            <span class="chip" data-play="mel:0,10">🔊 Minor 7th: C → B♭ (10 semitones)</span>
+            <span class="chip" data-play="notes:0,4,7,10">🔊 Together: C7 (suspended yet driving)</span>
+          </div>
+
+          <p><b>③ Minor 7th, Cm7 = "both minor":</b> the base switches to a <b>minor</b> triad (the 3rd E lowered to E♭ — turned dark), and the 7th is also <b>minor</b> (B♭) — uniformly dark inside and out, hence soft and untroubled:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,3,7">🔊 Base: C minor triad (C·E♭·G)</span>
+            <span class="chip" data-play="mel:0,10">🔊 Minor 7th: C → B♭ (as above)</span>
+            <span class="chip" data-play="notes:0,3,7,10">🔊 Together: Cm7 (gloom softened)</span>
+          </div>
+
+          <p><b>④ Half-diminished, Cm7♭5 = "base darkened one more notch":</b> "darkened" means that on top of the minor triad, <b>the 5th is lowered too</b> (G→G♭) — the base becomes a <b>diminished</b> triad, doubly narrowed, the darkest foundation of the four; the 7th stays minor:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,3,6">🔊 Base: C diminished triad (C·E♭·G♭)</span>
+            <span class="chip" data-play="mel:0,10">🔊 Minor 7th: C → B♭ (as above)</span>
+            <span class="chip" data-play="notes:0,3,6,10">🔊 Together: Cm7♭5 (shadowy, suspended)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Both angles look at the same four chords: Extra 1 explains where they come from in a key and which degree each lives on; Extra 2 lines them up on one root to show how their builds differ.</p>
+        </div>
       </details>`;
     case "diatonic": return `
       <p><b>Diatonic chords</b> are chords stacked <b>using only the notes of the key</b>. In C major the available notes are just the 7 white keys (the 8th wraps back to C):</p>
@@ -1711,7 +1766,7 @@ function teachEN(mId){
           <p>Good music <b>draws the bow fully, then lets the arrow fly</b>. An unstable note or chord (like V7) is the drawn bow: hearing it, the ear automatically <b>expects</b> a stable landing. First, feel "drawn but never released":</p>
           <div class="row">
             <span class="chip" data-play="notes:-5,-1,2,5">🔊 G7 alone (G3 B3 D4 F4), then silence (bow drawn — hanging, uncomfortable)</span>
-            <span class="chip" data-play="seq:rsClose">🔊 The same G7 → C (the arrow flies — exhale)</span>
+            <span class="chip" data-play="seq:auth">🔊 The same G7 → C (G3 B3 D4 F4 → C4 E4 — the arrow flies, exhale)</span>
           </div>
           <p><b>Resolution is the answer to that expectation</b>: the instant an unstable note <b>lands</b> on its proper stable home and the tension releases. Its purpose is equally plain — punctuation: with resolution a phrase is "finished"; without it, the music hangs forever (level ⑪'s cadences are, at bottom, resolutions of various strengths).</p>
           <p><b>But why does a note "want" to go somewhere?</b> Because <b>the pull comes from distance</b>. When two notes sit a half step apart, the unstable one gets strongly sucked toward the stable one — the closer, the harder the pull; a whole step away and the pull slackens. Not a rule — an instinct of the ear (you compared it in level ⑪):</p>
@@ -1733,11 +1788,11 @@ function teachEN(mId){
       <p>Take C major's <b>G7 = G·B·D·F</b> (root-position stacking: G3 B3 D4 F4) resolving to the tonic — hear it once:</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 First hear G7 (G3 B3 D4 F4)</span>
-        <span class="chip" data-play="seq:rsClose">🔊 Then the resolution (G7 → C)</span>
+        <span class="chip" data-play="seq:auth">🔊 Then the resolution (G7 → C, lowest lands on C4)</span>
       </div>
       <p style="margin-bottom:4px">Let's look closely at how it resolves to C, voice by voice (<b style="color:#ff7a59">orange = departing note</b> → <b style="color:#5ce6a0">green = arrival note</b>); after the four, hear them together:</p>
       <div class="row">
-        <span class="chip" data-play="vlead:0">🔊 G3→C3</span>
+        <span class="chip" data-play="vlead:0">🔊 G3→C4</span>
         <span class="chip" data-play="vlead:1">🔊 B3→C4</span>
         <span class="chip" data-play="vlead:2">🔊 D4→C4</span>
         <span class="chip" data-play="vlead:3">🔊 F4→E4</span>
@@ -1804,8 +1859,8 @@ function teachEN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>"Move nearby" governs the upper voices; <b>the bass's job is to reach the tonic chord's root — i.e. C</b>, usually leaping to the <b>nearest C</b>. That 4th/5th leap is not just legal but the very source of cadential power. <b>G→C is a special case</b>: a 4th up (to C4) and a 5th down (to C3) both reach a nearby C, so the two directions are <b>treated as roughly equivalent</b> — choose by register and by how much weight you want:</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 Bass leaps a 5th down, G3→C3 (deep — the heaviest period)</span>
-            <span class="chip" data-play="seq:rsRootUp">🔊 Bass leaps a 4th up, G3→C4 (lighter; lands with the 5th on the same C4 — overlap is legal)</span>
+            <span class="chip" data-play="seq:rsCloseDn">🔊 Bass leaps a 5th down, G3→C3 (deep — the heaviest period)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Bass leaps a 4th up, G3→C4 (lighter; lands with the leading tone and 5th on the same C4 — overlap is legal; the standard resolution above)</span>
           </div>
           <p>The same G <b>leaps to C when it's the bass, stays put in an upper voice</b> — two different rules; don't merge them.</p>
           <p><b>Recap · "up or down?" comes in three grades of freedom</b>: <b>tendency tones obey the pull</b> (directions locked), <b>ordinary voices obey distance</b> (nearest either way, overlap allowed), <b>the bass always goes to the nearest C</b> (special case: G→C, 4th up = 5th down).</p>
@@ -1827,15 +1882,15 @@ function teachEN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>Apply all three rules at once (root-position stacking G3 B3 D4 F4):</p>
           <table class="ctab"><tr><th>Note in G7</th><th>Role</th><th>Destination</th></tr>
-            <tr><td>G3 (bass)</td><td>root</td><td>leaps to <b>C3</b> (rule 3)</td></tr>
+            <tr><td>G3 (bass)</td><td>root</td><td><b>leaps up a 4th to C4</b> (rule 3; up a 4th = down a 5th, chosen here so the landing stays close in pitch)</td></tr>
             <tr><td>B3</td><td>3rd = leading tone</td><td>slides into <b>C4</b> (rule 1)</td></tr>
-            <tr><td>D4</td><td>5th</td><td>settles on <b>C4</b> — <b>overlapping</b> the leading tone's landing, legal (rule 2)</td></tr>
+            <tr><td>D4</td><td>5th</td><td>settles on <b>C4</b> — <b>overlapping</b> the bass's and leading tone's landing, legal (rule 2)</td></tr>
             <tr><td>F4</td><td>7th</td><td>falls to <b>E4</b> (rule 1)</td></tr></table>
-          <p>The result is <b>C3·C4·C4·E4</b> — three C's and one E (two voices overlapping on C4), <b>no G (5th omitted)</b>. Nothing was "left out": it's the natural outcome of four voices each taking their place — and it actually closes the tightest:</p>
+          <p>The result is <b>C4·C4·C4·E4</b> — three C's and one E (<b>G3, B3 and D4 all overlapping on C4</b>), <b>no G (5th omitted)</b>. Nothing was "left out": it's the natural outcome of four voices each taking their place — and it actually closes the tightest:</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsClose">🔊 Standard: G7 → C·C·C·E (B3 and D4 land together on C4)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Standard: G7 → C·C·C·E (G3, B3 and D4 land together on C4)</span>
           </div>
-          <p><b>And a counter-example</b>: same root-position G7 (G3 B3 D4 F4), but let the 7th F4 leap up to G4 instead of dutifully falling to E — the tendency-tone rule breaks: the landing becomes C3 C4 C4 G4, <b>missing its 3rd E, leaving a hollow C and G</b>: empty, hanging, unresolved:</p>
+          <p><b>And a counter-example</b>: same root-position G7 (G3 B3 D4 F4), but let the 7th F4 leap up to G4 instead of dutifully falling to E — the tendency-tone rule breaks: the landing becomes C4 C4 C4 G4, <b>missing its 3rd E, leaving a hollow C and G</b>: empty, hanging, unresolved:</p>
           <div class="row">
             <span class="chip" data-play="seq:rsBadClose">🔊 Violation: G7 → F4 leaps up to G4 (no 3rd · hollow, hanging)</span>
           </div>
@@ -1848,17 +1903,17 @@ function teachEN(mId){
     case "resolve2": return `
       <details class="concept" open><summary><b>What this level covers</b></summary>
         <div style="line-height:1.9">Last level nailed how a <b>single root-position G7 → C</b> resolves voice by voice. This level applies the same rules to two extensions: ① how the <b>inversions</b> (G7/B, G7/D, G7/F) each land, and ② how a phrase <b>ends</b> — perfect, imperfect, and half cadence. First replay the standard resolution from last level to get the feel back:</div>
-        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 Recap: G7 → C (G3 B3 D4 F4 → C3 C4 C4 E4)</span></div>
+        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 Recap: G7 → C (G3 B3 D4 F4 → C4 C4 C4 E4)</span></div>
       </details>
 
       <details class="note" open><summary><b>How does each shape resolve? (this level's highlight)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>G7 can be stacked in <b>four shapes</b>: root position, plus three inversions with B / D / F in the bass (symbols in level ⑩). Changing inversion = changing the bass, but <b>the master rule never changes</b> — each note still moves to the nearest, legal tonic tone. Let's take the four <b>one at a time</b> to see how a new bass reshuffles the resolution, then compare.</p>
 
-          <p><b>① Root position G7 (bass G)</b>　Voicing G3 B3 D4 F4. The bass G is <b>not a tendency tone</b>; by rule 3 it carries the root, leaping to the nearest C. Above it B3↗C4 (leading tone), F4↘E4 (7th), D4 joins C. Since both the leading tone and the 5th merge into C and the 5th G is omitted, the landing is the <b>5th-omitted C·C·C·E</b> — already dissected voice by voice in the "root-position" box above; here's just the full picture:</p>
+          <p><b>① Root position G7 (bass G)</b>　Voicing G3 B3 D4 F4. The bass G is <b>not a tendency tone</b>; by rule 3 it carries the root, <b>leaping up a 4th to the nearest C4</b> (up a 4th = down a 5th; up is chosen to keep the landing close in pitch). Above it B3↗C4 (leading tone), F4↘E4 (7th), D4 joins C4. Since the bass, leading tone and 5th all merge into C4 and the 5th G is omitted, the landing is the <b>5th-omitted C·C·C·E</b> (three C's all on C4 + one E4) — already dissected voice by voice in the "root-position" box above; here's just the full picture:</p>
           <div class="row">
-            <span class="chip" data-play="vchord:-5,-1,2,5;-12,0,4">🎹 Full picture: G7 → C (orange→green)</span>
-            <span class="chip" data-play="vpair:-5,-12">🔊 Bass G3→C3 (root leap)</span>
+            <span class="chip" data-play="vchord:-5,-1,2,5;0,4">🎹 Full picture: G7 → C (orange→green)</span>
+            <span class="chip" data-play="vpair:-5,0">🔊 Bass G3→C4 (root leap up a 4th)</span>
           </div>
 
           <p><b>② First inversion G7/B (bass B)</b>　B at the bottom = B3 D4 F4 G4. Now <b>the bass IS the leading tone</b>, sliding up a half step into C4; above it F4↘E4 (7th), <b>G4 is the common tone and stays</b>, D4 settles on C or E. Every voice is a step or a hold — <b>no leaps</b> — and G is retained, so the landing is a <b>complete root-position C (with the 5th G)</b>, fuller than the root-position "5th-omitted" version.</p>
@@ -1901,7 +1956,7 @@ function teachEN(mId){
 
           <p><b>① Perfect authentic cadence (strongest period)</b><br>
             The strictest: <b>V (or V7) → I</b>, with the <b>tonic chord in root position and the bass landing right on the tonic C</b> (and usually the top voice on the tonic too). Only when all conditions hold is it "perfect". It sounds crisp and final — the close most pieces end on.</p>
-          <div class="row"><span class="chip" data-play="seq:rsRoot">. Perfect: G7 → C (bass on the tonic C)</span></div>
+          <div class="row"><span class="chip" data-play="seq:rsClose">. Perfect: G7 → C (bass on the tonic C — the standard resolution above)</span></div>
 
           <p><b>② Imperfect authentic cadence (home, door ajar)</b><br>
             It <b>does reach the tonic</b> (V→I direction unchanged), but in a less "full" shape: the bass isn't on the tonic (it stays on G, i.e. <b>C/G</b>), the tonic is inverted, or the top voice isn't the tonic. Home is reached, just less emphatically — handy for a mid-phrase pause that leaves room for the next line.</p>
@@ -1919,10 +1974,10 @@ function teachEN(mId){
       <details class="note"><summary>Extra: swap in another tense chord — resolving V, vii° and ♭VII</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>As said up front, resolution isn't G7's private property. Apply the master rule (<b>each note moves to the nearest, legal tonic tone</b>) to other "tense chords before home" and it still holds. Hear each, all in the same register as G7→C:</p>
-          <p><b>① V (plain triad G B D) → C</b>: it lacks G7's 7th F, so it has <b>only one tendency tone, the leading tone B</b> (B↗C, locked); the bass G leaps to C and the 5th D rises to E to supply the 3rd. Without the F→E sting to dissolve, the period is still there but <b>slightly less tense than G7</b> — precisely the difference between V and V7.</p>
+          <p><b>① V (plain triad G B D) → C</b>: it lacks G7's 7th F, so it has <b>only one tendency tone, the leading tone B</b> (B↗C4, locked); the bass G <b>leaps up a 4th to C4</b> and the 5th D rises to E4 to supply the 3rd. Without the F→E sting to dissolve, the period is still there but <b>slightly less tense than G7</b> — precisely the difference between V and V7.</p>
           <div class="row">
             <span class="chip" data-play="seq:rsV">🔊 V → C (one tendency tone, a lighter period)</span>
-            <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (two tendency tones, the heaviest period)</span>
+            <span class="chip" data-play="seq:rsClose">🔊 Compare G7 → C (two tendency tones, a heavier period)</span>
           </div>
           <p><b>② vii° (diminished triad B D F) → C</b>: it holds <b>both B and F — the very same tritone as G7</b>, so it resolves almost identically: B↗C, F↘E, D↘C. Think of it as "<b>G7 minus its root G</b>" — the spike-and-release of the tendency tones is untouched, just without the bass G's support, so it sounds lighter and more airborne.</p>
           <div class="row">
@@ -2760,7 +2815,7 @@ function teachCN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>什么是"终止式"？为什么说属七是它的核心？</b></summary>
+      <details class="note"><summary>拓展：什么是"终止式"？为什么说属七是它的核心？</summary>
         <div style="line-height:1.75;color:#e9e3ff">
           <p><b>终止式 = 乐句结尾那几个和弦的"标点符号"</b>，决定一句话听起来是"。"还是"，"。常用的有三种句读、外加一个"惊叹号"，逐个讲透：</p>
 
@@ -2810,18 +2865,73 @@ function teachCN(mId){
         </div>
       </details>
 
-      <details class="note" open><summary><b>这四种和"调内"有什么关系？(罗马数字简介)</b></summary>
+      <details class="note"><summary>拓展一：有趣的发现——大调每一级叠出的七和弦，刚好就是这四种</summary>
         <div style="line-height:1.75;color:#e9e3ff">
-          <p>当你只用一个大调里的 7 个音，给每一级都叠成七和弦时，自然得到的就是：<br>
-          <b>Imaj7、IVmaj7</b> 是大七和弦；<b>ii7、iii7、vi7</b> 是小七和弦；<b>V7</b> 是属七和弦；<b>viiø7</b> 是半减七和弦。</p>
-          <p>(这里的大写/小写、Imaj7/ii7 这些"罗马数字编号"是什么意思、怎么换到别的调——后面专门有一关「<b>罗马数字</b>」详细讲解和练习。)</p>
+          <p>有趣的是：如果把 C 大调<b>按"叠三度"的方式</b>给每一级都叠出一个七和弦，冒出来的<b>刚好就是本关认识的这四种</b>——不多一种，也不少一种。一步步看为什么：</p>
+          <p style="line-height:1.85">
+          <b>第 1 步：</b>C 大调一共就 <b>7 个音</b>——白键 C D E F G A B，到第 8 个又回到 C（循环）。<br>
+          <b>第 2 步：</b>让这 7 个音<b>轮流当老大（根音）</b>：从 C 出发是"第 1 级"，从 D 出发是"第 2 级"……一直到从 B 出发的"第 7 级"。<br>
+          <b>第 3 步：</b>每一级都用<b>同一个动作</b>搭一个七和弦——<b>从根音开始，在这 7 个白键里"隔一个取一个"，一共取 4 个音</b>（下一关会专门讲这个叫"叠三度"的调内和弦组成方式，这里先预习一下；只不过这里是七和弦，所以要叠 4 层）。<br>
+          <b>第 4 步（关键）：</b>动作完全一样，可搭出来的和弦<b>类型却不一样</b>！因为白键之间的间距<b>不均匀</b>（有的相邻是全音，有的是半音），从不同的音出发，叠出来的"宽窄"就不同——于是类型自动变了。亲耳对比两个：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7,11">🔊 从 C 出发：C·E·G·B = Cmaj7（大七）</span>
+            <span class="chip" data-play="notes:2,5,9,12">🔊 从 D 出发：D·F·A·C = Dm7（小七）</span>
+          </div>
+          <p style="line-height:1.85">同样"隔一个取一个取 4 个"，只因起点不同，一个成了大七、一个成了小七。<b>第 5 步：</b>把 7 个音<b>每个都这样搭一遍</b>，得到 7 个七和弦，类型恰好就是这四种，而且分布是<b>固定的</b>（每行可点听）：</p>
+          <table class="ctab"><tr><th>级</th><th>根音</th><th>叠出的七和弦</th><th>类型</th></tr>
+            <tr><td>1</td><td>C</td><td class="play" data-play="notes:0,4,7,11">Cmaj7 ▶</td><td>大七</td></tr>
+            <tr><td>2</td><td>D</td><td class="play" data-play="notes:2,5,9,12">Dm7 ▶</td><td>小七</td></tr>
+            <tr><td>3</td><td>E</td><td class="play" data-play="notes:4,7,11,14">Em7 ▶</td><td>小七</td></tr>
+            <tr><td>4</td><td>F</td><td class="play" data-play="notes:5,9,12,16">Fmaj7 ▶</td><td>大七</td></tr>
+            <tr><td>5</td><td>G</td><td class="play" data-play="notes:7,11,14,17">G7 ▶</td><td>属七</td></tr>
+            <tr><td>6</td><td>A</td><td class="play" data-play="notes:9,12,16,19">Am7 ▶</td><td>小七</td></tr>
+            <tr><td>7</td><td>B</td><td class="play" data-play="notes:11,14,17,21">Bm7♭5 ▶</td><td>半减七</td></tr></table>
+          <p>用罗马数字写就是：<b>Imaj7、IVmaj7</b> 是大七；<b>ii7、iii7、vi7</b> 是小七；<b>V7</b> 是属七（全调只此一个，所以它当"回家钥匙"独一无二！）；<b>viiø7</b> 是半减七。这套固定分布换<b>任何</b>大调都成立——音名全变，但类型与位置分毫不差。</p>
+          <p><b>所以为什么先只练这四种：</b>把三和弦（大/小/增/减）和七度自由组合，七和弦其实还有不少种（减七、小大七、增大七等）。先练这四种，正因为它们是<b>大调每一级自带的"原住民"</b>，在古典/流行/爵士中反复出现，<b>最常用也最该先掌握</b>；其余属于半音化的进阶色彩，入门阶段先不铺开（其中减七 °7 会在第㉖关专门登场）。</p>
+          <p style="font-size:12.5px;color:var(--muted)">(大写/小写、Imaj7/ii7 这些"罗马数字编号"是什么意思、怎么换到别的调——后面专门有一关「<b>罗马数字</b>」详细讲解和练习。)</p>
         </div>
       </details>
 
-      <details class="note" open><summary>为什么只练这四种七和弦？</summary>
-        <p style="color:var(--muted);font-size:13.5px;line-height:1.7">把三和弦(大/小/增/减)和顶上的七度自由组合，七和弦其实有不少种
-        (还有减七、小大七、增大七等)。我们先只练这四种，是因为它们正是<b>大调音阶每一级自带的七和弦</b>，
-        在古典/流行/爵士中反复出现，<b>最常用也最该先掌握</b>；其余属于半音化的进阶色彩，入门阶段先不铺开。</p>
+      <details class="note"><summary>拓展二：换个视角——把四种搭在同一个根音上，差别只在两处</summary>
+        <div style="line-height:1.75;color:#e9e3ff">
+          <p>刚才是站在"一个大调"里，看这四种怎么从不同的级上各自冒出来。<b>换个视角</b>——把四种和弦都搭在<b>同一个根音 C</b> 上并排比，会看见另一种景象：它们的差别其实只在<b>两处</b>。先排成一张表（每行可点听）：</p>
+          <table class="ctab"><tr><th>类型</th><th>符号</th><th>结构（底座 + 七度）</th><th>气质</th><th>试听</th></tr>
+            <tr><td>大七和弦</td><td>Cmaj7</td><td>大三和弦 + 大七度</td><td>温柔、高级、城市夜色</td><td class="play" data-play="chord:maj7:0">▶</td></tr>
+            <tr><td>小七和弦</td><td>Cm7</td><td>小三和弦 + 小七度</td><td>忧郁被柔化、放松</td><td class="play" data-play="chord:min7:0">▶</td></tr>
+            <tr><td>属七和弦</td><td>C7</td><td>大三和弦 + 小七度</td><td>悬而带劲、必须解决</td><td class="play" data-play="chord:dom7:0">▶</td></tr>
+            <tr><td>半减七和弦</td><td>Cm7♭5</td><td>减三和弦 + 小七度</td><td>阴郁、悬而未决</td><td class="play" data-play="chord:m7b5:0">▶</td></tr></table>
+          <p><b>差别就这两处：</b><b>三和弦底座（大/小/减）+ 顶上的七度（大/小）</b>。"大/小"各指什么、七度怎么算，下面逐个拆给你听。</p>
+          <p style="font-size:13px;color:var(--muted)"><b>七度怎么算：</b>从根音按字母往上数到第 7 个字母（C 数到 B）。宽 <b>11 个半音 = 大七度</b>（B，只比高八度的 C 矮半音、紧贴着）；宽 <b>10 个半音 = 小七度</b>（B♭，比高八度矮一个全音）。下面每组中间那个按钮就是在单独听这一段距离。</p>
+
+          <p><b>① 大七和弦 Cmaj7 = "两个都大"：</b>底座是<b>大</b>三和弦（三音是还原的 E，明亮），七度是<b>大</b>七度（B，紧贴）——里外都亮：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 底座：C 大三和弦（C·E·G）</span>
+            <span class="chip" data-play="mel:0,11">🔊 大七度：C → B（11 半音，紧贴）</span>
+            <span class="chip" data-play="notes:0,4,7,11">🔊 合体：Cmaj7（温柔夜色）</span>
+          </div>
+
+          <p><b>② 属七和弦 C7 = "底座大、七度小"：</b>底座同样是<b>大</b>三和弦，七度却换成<b>小</b>七度（B 降成 B♭，矮了半音）——一处亮、一处暗，这一处不匹配正是它张力的来源：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,4,7">🔊 底座：C 大三和弦（同上）</span>
+            <span class="chip" data-play="mel:0,10">🔊 小七度：C → B♭（10 半音）</span>
+            <span class="chip" data-play="notes:0,4,7,10">🔊 合体：C7（悬而带劲）</span>
+          </div>
+
+          <p><b>③ 小七和弦 Cm7 = "两个都小"：</b>底座换成<b>小</b>三和弦（三音 E 降成 E♭，转暗），七度也是<b>小</b>七度（B♭）——里外统一的暗色，所以柔和、不拧巴：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,3,7">🔊 底座：C 小三和弦（C·E♭·G）</span>
+            <span class="chip" data-play="mel:0,10">🔊 小七度：C → B♭（同上）</span>
+            <span class="chip" data-play="notes:0,3,7,10">🔊 合体：Cm7（忧郁被柔化）</span>
+          </div>
+
+          <p><b>④ 半减七 Cm7♭5 = "底座再压暗一格"：</b>所谓"压暗"，是在小三和弦的基础上<b>连五音也降半音</b>（G→G♭）——底座变成<b>减</b>三和弦，双重收窄、四种里最暗的地基；七度仍是小七度：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,3,6">🔊 底座：C 减三和弦（C·E♭·G♭）</span>
+            <span class="chip" data-play="mel:0,10">🔊 小七度：C → B♭（同上）</span>
+            <span class="chip" data-play="notes:0,3,6,10">🔊 合体：Cm7♭5（阴郁悬置）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">两个视角看的是同一批和弦：拓展一讲"它们从一个调里怎么冒出来、各住哪一级"，拓展二讲"把它们摆在同一个根音上，构造差在哪"。</p>
+        </div>
       </details>`;
     case "diatonic": return `
       <p><b>调内和弦</b>，就是<b>只用这个调里的音</b>叠出来的和弦。在 C 大调里，可用的音只有 7 个白键(到第 8 个又回到 C，循环)：</p>
@@ -3539,7 +3649,7 @@ function teachCN(mId){
           <p>好听的音乐是<b>先把弓拉满，再把箭放出去</b>。不稳定的音或和弦（比如 V7）就是拉满的弓：耳朵听到它，会自动<b>期待</b>一个稳定的落点。先体验一次"拉满不放"：</p>
           <div class="row">
             <span class="chip" data-play="notes:-5,-1,2,5">🔊 只奏 G7（G3 B3 D4 F4），然后停住（弓拉满，悬着难受）</span>
-            <span class="chip" data-play="seq:rsClose">🔊 同一个 G7 → C（箭放出去了，松一口气）</span>
+            <span class="chip" data-play="seq:auth">🔊 同一个 G7 → C（G3 B3 D4 F4 → C4 E4，箭放出去了，松一口气）</span>
           </div>
           <p><b>"解决"就是给这个期待一个答案</b>：不稳定的音<b>落到</b>它该去的稳定位置、张力释放的那一瞬间。它的目的也很直白——给音乐画"标点"：有解决，一句话才算"说完"；没有解决，音乐永远悬在半空（⑪关的终止式，本质全是各种力度的解决）。</p>
           <p><b>那为什么音会"想去"某个地方？</b>因为<b>引力来自距离</b>。两个音只差半音时，不稳定的那个会被强烈地"吸"向稳定的那个——离得越近，拽得越狠；隔一个全音，引力就弱得多。这不是规定，是耳朵的本能（⑪关亲耳比过）：</p>
@@ -3561,11 +3671,12 @@ function teachCN(mId){
       <p>以 C 大调的 <b>G7 = G·B·D·F</b>（原位叠置：G3 B3 D4 F4）解决到主和弦为例，先听一遍：</p>
       <div class="row">
         <span class="chip" data-play="notes:-5,-1,2,5">🔊 先听 G7（G3 B3 D4 F4）</span>
-        <span class="chip" data-play="seq:rsClose">🔊 再听解决（G7 → C）</span>
+        <span class="chip" data-play="seq:auth">🔊 再听解决（G7 → C，最低落 C4）</span>
       </div>
       <p style="margin-bottom:4px">让我们仔细看看它是如何逐声部解决到 C 的（<b style="color:#ff7a59">橙=出发音</b> → <b style="color:#5ce6a0">绿=到达音</b>），点完四条再听齐奏：</p>
+      <p style="margin-bottom:4px;font-size:13px;color:var(--muted)">这里低音 G3 选择<b>上跳四度到 C4</b>（而不是下跳到 C3）：为了让最后的落点整体收束在相近的音高，各声部不至于拉开太大的音差。（下跳到 C3 也完全合法、句号更重，见下面"规则三"的对照。）</p>
       <div class="row">
-        <span class="chip" data-play="vlead:0">🔊 G3→C3</span>
+        <span class="chip" data-play="vlead:0">🔊 G3→C4</span>
         <span class="chip" data-play="vlead:1">🔊 B3→C4</span>
         <span class="chip" data-play="vlead:2">🔊 D4→C4</span>
         <span class="chip" data-play="vlead:3">🔊 F4→E4</span>
@@ -3632,8 +3743,8 @@ function teachCN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>"就近走"管的是上方声部；<b>低音的职责是走到主和弦 I 的根音——也就是 C</b>，通常跳去<b>最近的那个 C</b>。这一步的四五度跳进不但合法，还是终止式力量的来源。<b>G→C 是个特例</b>：上跳四度（到 C4）和下跳五度（到 C3）都能够到 C、距离又接近，这时两个方向<b>近似认为等价</b>，选哪边看音域和想要的分量：</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsRoot">🔊 低音下跳五度 G3→C3（沉、句号最重）</span>
-            <span class="chip" data-play="seq:rsRootUp">🔊 低音上跳四度 G3→C4（轻一些；与五音同落 C4——重叠合法）</span>
+            <span class="chip" data-play="seq:rsCloseDn">🔊 低音下跳五度 G3→C3（沉、句号最重）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 低音上跳四度 G3→C4（轻一些；与导音、五音同落 C4——重叠合法，即前面的标准解决）</span>
           </div>
           <p>同一个 G，<b>当低音时跳到 C、在上声部时保留</b>——是两条不同的规则，别混。</p>
           <p><b>小结 · "上行还是下行"的自由度分三个等级</b>：<b>倾向音听引力的</b>（方向锁死）、<b>普通声部听距离的</b>（就近随意、可重叠）、<b>低音一律去最近的 C</b>（特例：G→C 上四下五等价）。</p>
@@ -3655,15 +3766,15 @@ function teachCN(mId){
         <div style="line-height:1.8;color:#e9e3ff">
           <p>把三条规则同时套上（原位叠置 G3 B3 D4 F4）：</p>
           <table class="ctab"><tr><th>G7 的音</th><th>身份</th><th>去向</th></tr>
-            <tr><td>G3（低音）</td><td>根音</td><td>跳到 <b>C3</b>（规则三）</td></tr>
+            <tr><td>G3（低音）</td><td>根音</td><td><b>上跳四度到 C4</b>（规则三；上四度=下五度，这里选上跳让落点收束在相近音高）</td></tr>
             <tr><td>B3</td><td>三音=导音</td><td>半音蹭进 <b>C4</b>（规则一）</td></tr>
-            <tr><td>D4</td><td>五音</td><td>就近落 <b>C4</b>——与导音的落点<b>重叠</b>，合法（规则二）</td></tr>
+            <tr><td>D4</td><td>五音</td><td>就近落 <b>C4</b>——与低音、导音的落点<b>重叠</b>，合法（规则二）</td></tr>
             <tr><td>F4</td><td>七音</td><td>半音落 <b>E4</b>（规则一）</td></tr></table>
-          <p>结果是 <b>C3·C4·C4·E4</b>——三个 C 加一个 E（其中两个声部重叠在 C4），<b>没有 G（省五音）</b>。这不是少弹了，而是四个声部各就各位的自然结果；听感反而最"关得严"：</p>
+          <p>结果是 <b>C4·C4·C4·E4</b>——三个 C 加一个 E（<b>G3、B3、D4 三个声部都重叠在 C4</b>），<b>没有 G（省五音）</b>。这不是少弹了，而是四个声部各就各位的自然结果；听感反而最"关得严"：</p>
           <div class="row">
-            <span class="chip" data-play="seq:rsClose">🔊 标准解决：G7 → C·C·C·E（B3、D4 同落 C4）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 标准解决：G7 → C·C·C·E（G3、B3、D4 三声部同落 C4）</span>
           </div>
-          <p><b>对照一个反例</b>：还是原位 G7（G3 B3 D4 F4），但让七音 F4 不老实下行到 E、反而跳上去 G4——倾向音规则被破坏：落点成了 C3 C4 C4 G4，<b>缺了三音 E、只剩空洞的 C 和 G</b>，听起来空、悬、没收住：</p>
+          <p><b>对照一个反例</b>：还是原位 G7（G3 B3 D4 F4），但让七音 F4 不老实下行到 E、反而跳上去 G4——倾向音规则被破坏：落点成了 C4 C4 C4 G4，<b>缺了三音 E、只剩空洞的 C 和 G</b>，听起来空、悬、没收住：</p>
           <div class="row">
             <span class="chip" data-play="seq:rsBadClose">🔊 反例：G7 → F4 反跳 G4（缺三音·空、悬）</span>
           </div>
@@ -3676,17 +3787,17 @@ function teachCN(mId){
     case "resolve2": return `
       <details class="concept" open><summary><b>这一关学什么</b></summary>
         <div style="line-height:1.9">上一关把<b>单个原位 G7 → C</b> 怎么逐声部解决讲透了。这一关用同一套规则看两个延伸：① 换了排列的<b>转位</b>（G7/B、G7/D、G7/F）各自落到哪；② 整句话怎么<b>收尾</b>——完满、不完满、半终止的差别。先快速回放一遍上一关的标准解决，找回手感：</div>
-        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 回顾：G7 → C（G3 B3 D4 F4 → C3 C4 C4 E4）</span></div>
+        <div class="row"><span class="chip" data-play="seq:rsClose">🔊 回顾：G7 → C（G3 B3 D4 F4 → C4 C4 C4 E4）</span></div>
       </details>
 
       <details class="note" open><summary><b>四个形态各自怎么解决？（本关高光）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>G7 可以叠成<b>四种形态</b>：原位，以及把 B / D / F 分别放到最低音的三种转位（记号见⑩关）。换转位=换低音，但<b>总纲一字不变</b>——每个音仍各走到最近、又合规的那个 I 内音。下面把四种形态<b>分开各讲一遍</b>，看清"换了低音、解决路线怎么跟着重排"，最后再对照。</p>
 
-          <p><b>① 原位 G7（低音 G）</b>　声位 G3 B3 D4 F4。低音 G <b>不是倾向音</b>，按规则三走根音、跳到最近的 C；上方 B3↗C4（导音）、F4↘E4（七音）、D4 并入 C。因为导音和五音都被并进 C、五音 G 被省，落点是<b>省五音的 C·C·C·E</b>——这一条上面"原位块"已逐声部拆透，这里只回放全貌：</p>
+          <p><b>① 原位 G7（低音 G）</b>　声位 G3 B3 D4 F4。低音 G <b>不是倾向音</b>，按规则三走根音、<b>上跳四度到最近的 C4</b>（上四度=下五度，取上跳让落点收束在相近音高）；上方 B3↗C4（导音）、F4↘E4（七音）、D4 并入 C4。因为低音、导音、五音都并进 C4、五音 G 被省，落点是<b>省五音的 C·C·C·E</b>（三个 C 都在 C4 + 一个 E4）——这一条上面"原位块"已逐声部拆透，这里只回放全貌：</p>
           <div class="row">
-            <span class="chip" data-play="vchord:-5,-1,2,5;-12,0,4">🎹 全貌：G7 → C（橙→绿）</span>
-            <span class="chip" data-play="vpair:-5,-12">🔊 低音 G3→C3（根音跳进）</span>
+            <span class="chip" data-play="vchord:-5,-1,2,5;0,4">🎹 全貌：G7 → C（橙→绿）</span>
+            <span class="chip" data-play="vpair:-5,0">🔊 低音 G3→C4（根音上跳四度）</span>
           </div>
 
           <p><b>② 第一转位 G7/B（低音 B）</b>　把 B 放到最低 = B3 D4 F4 G4。这回<b>低音正是导音</b>，半音上行蹭进 C4；上方 F4↘E4（七音）、<b>G4 是共同音原地保留</b>、D4 就近落 C 或 E。四条全是级进或保留、<b>没有一个跳进</b>，G 也保留下来，所以落点是<b>完整的原位 C（含五音 G）</b>，比原位那种"省五音"更饱满。</p>
@@ -3729,7 +3840,7 @@ function teachCN(mId){
 
           <p><b>① 完满正格终止（最强句号）</b><br>
             条件最严：<b>V（或 V7）→ I</b>，而且<b>主和弦是原位、低音正好落在主音 C 上</b>，最高声部通常也落到主音。三个条件都满足，才算"完满"。听感是干脆利落、毫无悬念的句号——绝大多数乐曲的最终收束用它。</p>
-          <div class="row"><span class="chip" data-play="seq:rsRoot">。完满：G7 → C（低音落在主音 C）</span></div>
+          <div class="row"><span class="chip" data-play="seq:rsClose">。完满：G7 → C（低音落在主音 C，即上面的标准解决）</span></div>
 
           <p><b>② 不完满正格终止（到家了，门没关严）</b><br>
             进行<b>确实回到了主和弦</b>（V→I 的方向没变），但形态<b>不那么"满"</b>：比如低音没落在主音上（停在 G，写成 <b>C/G</b>）、主和弦用了转位、或最高声部不是主音。家是到了，只是收得没那么斩钉截铁——常用在乐句中段的小停顿，留点余地接下一句。</p>
@@ -3747,10 +3858,10 @@ function teachCN(mId){
       <details class="note"><summary>拓展：换个紧张和弦也一样——V、vii°、♭VII 的解决</summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>开头说过：解决不是 G7 的专利。把总纲（<b>每个音走到最近、又合规的那个 I 内音</b>）原样套到别的"回家前的紧张和弦"上，照样成立。逐个听，都和 G7→C 同音区对照：</p>
-          <p><b>① V（纯三和弦 G B D）→ C</b>：比 G7 少了七音 F，所以<b>只剩导音 B 一个倾向音</b>（B↗C 锁死）；低音 G 跳到 C、五音 D 上行补出三音 E。少了 F→E 那根刺的化解，句号依旧但<b>张力比 G7 略小</b>——这正是 V 和 V7 的区别。</p>
+          <p><b>① V（纯三和弦 G B D）→ C</b>：比 G7 少了七音 F，所以<b>只剩导音 B 一个倾向音</b>（B↗C4 锁死）；低音 G <b>上跳四度到 C4</b>、五音 D 上行补出三音 E4。少了 F→E 那根刺的化解，句号依旧但<b>张力比 G7 略小</b>——这正是 V 和 V7 的区别。</p>
           <div class="row">
             <span class="chip" data-play="seq:rsV">🔊 V → C（一个倾向音，句号略轻）</span>
-            <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（两个倾向音，句号最重）</span>
+            <span class="chip" data-play="seq:rsClose">🔊 对照 G7 → C（两个倾向音，句号更重）</span>
           </div>
           <p><b>② vii°（减三和弦 B D F）→ C</b>：它<b>同时含 B 和 F 这对三全音</b>（和 G7 的那对一模一样！），所以解决方式与 G7 几乎相同：B↗C、F↘E、D↘C。可以理解成"<b>去掉了根音 G 的 G7</b>"——倾向音那套刺与化解原封不动，只是少了低音 G 的支撑，听起来更轻飘。</p>
           <div class="row">
@@ -4510,19 +4621,20 @@ const SEQS = {
   // ⑫解决教学：V7 各转位 → 主和弦（四声部逐声部落位；倾向音 si↗do、fa↘mi）
   rsRoot:  [[-5,2,5,11],[-12,0,4,12]],  // G7原位(G3 D4 F4 B4)→C(C3 C4 E4 C5)：三倍根音省五音
   rsBadG:  [[-5,2,5,11],[-12,0,7,12]],  // 反例(摊开)：fa 不落 mi 反跳上 sol——空、悬、没收住
-  rsBadClose:[[-5,-1,2,5],[-12,0,0,7]], // 反例(原位 G3 B3 D4 F4)：F4 反跳 G4，落点 C3 C4 C4 G4 缺三音 E，空洞
+  rsBadClose:[[-5,-1,2,5],[0,0,0,7]],   // 反例(原位 G3 B3 D4 F4)：低音上跳，F4 反跳 G4，落点 C4 C4 C4 G4 缺三音 E，空洞
   rs65:    [[-1,2,5,7],[0,4,7]],        // G7/B(第一转位 B3 D4 F4 G4)→C(C4 E4 G4)：G 保留为共同音，音区贴近主线
   rs43:    [[2,7,11,17],[0,7,12,16]],   // G7/D(第二转位)→C 完整(C4 G4 C5 E5)
   rs42:    [[-7,2,7,11],[-8,0,7,12]],   // G7/F(第三转位)→C/E=I6(E3 C4 G4 C5)：低音 fa 半音落 mi
   rs42bad: [[-7,2,7,11],[0,4,7,12]],    // 反例：G7/F 硬接原位 C——低音 F3 大跳上 C4，磁力断裂
-  rsIAC:   [[-5,2,5,11],[-5,0,4,12]],   // G7→C/G：解决了但低音留 G——不完满终止(不是半终止！)
-  rsClose: [[-5,-1,2,5],[-12,0,0,4]],   // 密集排列 G7(G3 B3 D4 F4)→C：B3 与 D4 同落 C4——落点重叠完全合法
+  rsIAC:   [[-5,-1,2,5],[-5,0,0,4]],    // 密集 G7(G3 B3 D4 F4)→C/G(G3 C4 C4 E4)：低音 G3 留着不动、其余照常落——不完满(与完满 rsClose 只差低音)
+  rsClose: [[-5,-1,2,5],[0,0,0,4]],     // 密集排列 G7(G3 B3 D4 F4)→C：低音 G3 上跳四度，G3·B3·D4 三声部同落 C4——重叠完全合法，最低 C4 不含 C3
+  rsCloseDn: [[-5,-1,2,5],[-12,0,0,4]], // 规则三对照·下跳版：密集 G7(G3 B3 D4 F4)→C3 C4 C4 E4，低音下跳五度落 C3、最低、句号最重（与 rsClose 同排列，只差低音方向）
   rsDecC:  [[-5,-1,2,5],[-3,0,0,4]],    // 密集 G7→Am(阻碍终止)：B3、D4 同落 C4，vi 的三音被加倍——教科书标准做法
   rsRootUp:[[-5,2,5,11],[0,0,4,12]],    // 低音上跳四度版：G3→C4(与五音落点重叠，合法)，整体更轻
   rsStag:  [[0,4,7],[0,4,7],[0,4,7],[0,4,7]],                    // 一直稳定：I 反复——一潭死水，没有去向
   rsTense: [[4,8,11,14],[9,13,16,19],[2,6,9,12],[7,11,14,17]],   // 一直紧张：属七链 E7→A7→D7→G7，每个都许诺回家、永远不兑现
   // 其他紧张和弦的解决（都在 C 大调，与主线同音区 G3 B3 D4 F4 → C 对照）
-  rsV:     [[-5,-1,2],[-12,0,4]],                                // V 纯三和弦 G3 B3 D4 → C3 C4 E4：低音 G→C、导音 B↗C、五音 D↗E 补三音
+  rsV:     [[-5,-1,2],[0,0,4]],                                  // V 纯三和弦 G3 B3 D4 → C4 C4 E4：低音 G 上跳 C4、导音 B↗C4、五音 D↗E4 补三音（最低落 C4，与标准解决一致）
   rsVii:   [[-1,2,5],[0,0,4]],                                   // vii° 纯减三和弦 B3 D4 F4 → C4 C4 E4：B↗C、D↘C、F↘E，两个倾向音 B/F 同 G7
   rsbVII:  [[-2,2,5],[0,4,7]],                                   // ♭VII 纯大三和弦 B♭3 D4 F4 → C4 E4 G4：三声部全音平行上行（无导音，松弛回家）
   rsFG2:   [[-5,5,9,12],[-12,4,7,12]],                           // F/G(G3 F4 A4 C5) → C：无导音的柔和属→主，与⑩关一致
@@ -5652,14 +5764,14 @@ function q_resolve(concept){
     const v=Math.random();
     if(v<0.5 && v>=0.34){ // 落点可以重叠
       return {kind:"choice",concept,qtype:tr("规则 · 落点可以重叠吗","Rules · may landings overlap"),
-        prompt:tr("密集排列的 G7（G3 B3 D4 F4）解决时，<b>B3 和 D4 都落到 C4</b>——两个声部重叠在同一个音上。这合规吗？","Resolving close-position G7 (G3 B3 D4 F4), <b>B3 and D4 both land on C4</b> — two voices overlapping on one note. Is that legal?"),
+        prompt:tr("密集排列的 G7（G3 B3 D4 F4）解决时，低音 G3 上跳到 C4，<b>G3、B3、D4 三个声部都落到 C4</b>——重叠在同一个音上。这合规吗？","Resolving close-position G7 (G3 B3 D4 F4), the bass G3 leaps up to C4, so <b>G3, B3 and D4 all land on C4</b> — overlapping on one note. Is that legal?"),
         play:()=>playChordSeq(SEQS.rsClose),
         options:shuffle([
           {label:tr("合规：规则只要求每个音都有去处，不要求去处各不相同","Legal: the rules demand every note have a destination — not that destinations differ"),correct:true},
-          {label:tr("不合规：每个声部必须落在不同的键上","Illegal: each voice must land on its own key"),sub:tr("那是为了看清示范才错开的","demos spread out only for visibility"),correct:false},
+          {label:tr("不合规：每个声部必须落在不同的键上","Illegal: each voice must land on its own key"),sub:tr("重叠只是听感问题，不违规","overlap is a texture choice, not a rule breach"),correct:false},
           {label:tr("只有低音可以和别人重叠","Only the bass may overlap others"),correct:false},
         ]),
-        explain:tr("完全合规：B3 上行到 C4（规则一）、D4 下行到 C4（规则二），<b>同度重叠不违反任何规则</b>。再如阻碍终止 G7→Am，B 和 D 同落 C，正好把 vi 的三音加倍——教科书标准做法。本课示范多用错开排列只是为了看清每条路。","Fully legal: B3 rises to C4 (rule 1), D4 falls to C4 (rule 2), and <b>a unison overlap breaks no rule</b>. Likewise in the deceptive cadence G7→Am, B and D land together on C, doubling vi's 3rd — the textbook move. This level's demos spread the voices out only so each path stays visible.")};
+        explain:tr("完全合规：低音 G3 上跳四度落 C4、B3 半音上行到 C4（规则一）、D4 下行到 C4（规则二），<b>同度重叠不违反任何规则</b>。再如阻碍终止 G7→Am，B 和 D 同落 C，正好把 vi 的三音加倍——教科书标准做法。","Fully legal: the bass G3 leaps up a 4th to C4, B3 rises a half step to C4 (rule 1), D4 falls to C4 (rule 2), and <b>a unison overlap breaks no rule</b>. Likewise in the deceptive cadence G7→Am, B and D land together on C, doubling vi's 3rd — the textbook move.")};
     }
     if(v<0.66 && v>=0.5){ // 低音上四=下五
       return {kind:"choice",concept,qtype:tr("规则 · 低音上跳还是下跳","Rules · bass up or down"),
@@ -5743,7 +5855,7 @@ function q_resolve(concept){
   }
   if(concept==="cadgrade"){
     if(Math.random()<0.6){
-      const P=[{seq:"rsRoot",ans:0},{seq:"rsIAC",ans:1},{seq:"half",ans:2}][Math.random()*3|0];
+      const P=[{seq:"rsClose",ans:0},{seq:"rsIAC",ans:1},{seq:"half",ans:2}][Math.random()*3|0];
       return {kind:"choice",concept,qtype:tr("终止分级 · 听辨","Cadence grades · by ear"),
         prompt:tr("听这个结尾：它是哪一级终止？","Listen to this ending — which grade of cadence is it?"),
         play:()=>playChordSeq(SEQS[P.seq]),
@@ -5752,8 +5864,8 @@ function q_resolve(concept){
           {label:tr("不完满正格终止","Imperfect authentic cadence"),sub:tr("解决到了 I，但低音不是 C（如留 G）","reaches I, but the bass isn't C (e.g. stays on G)"),correct:P.ans===1},
           {label:tr("半终止","Half cadence"),sub:tr("停在 V 上，话没说完","stops ON V — sentence unfinished"),correct:P.ans===2},
         ],
-        explain:[tr("逐项检查：低音 G3 走根音跳到 C3（落在主音上）✓；主和弦是原位 ✓；倾向音 B↗C、F↘E 全部落位 ✓——三项全满，<b>完满正格终止</b>，最强句号。","Check the list: the bass G3 takes the root leap to C3 (landing on the tonic note) ✓; the tonic chord is in root position ✓; the tendency tones B↗C and F↘E all land ✓ — all boxes ticked: a <b>perfect authentic cadence</b>, the strongest period."),
-                 tr("上方声部照常解决（F4→E4、B4→C5），和弦确实回到了 C——但低音 G3 原地没动，落点是 C/G：回了家、低音却不在主音上，完满的条件缺了一项——<b>不完满</b>的正格终止，门没关严。注意它不是半终止：半终止根本没回家。","The upper voices resolve as usual (F4→E4, B4→C5) and the chord does reach C — but the bass G3 never moves, landing on C/G: home is reached, yet the bass isn't on the tonic note. One requirement missing — an <b>imperfect</b> authentic cadence, door ajar. Note it is NOT a half cadence: a half cadence never reaches home at all."),
+        explain:[tr("逐项检查：低音 G3 上跳四度到 C4（落在主音上）✓；主和弦是原位 ✓；倾向音 B↗C、F↘E 全部落位 ✓——三项全满，<b>完满正格终止</b>，最强句号。","Check the list: the bass G3 leaps up a 4th to C4 (landing on the tonic note) ✓; the tonic chord is in root position ✓; the tendency tones B↗C and F↘E all land ✓ — all boxes ticked: a <b>perfect authentic cadence</b>, the strongest period."),
+                 tr("上方声部照常解决（B3→C4、D4→C4、F4→E4），和弦确实回到了 C——但低音 G3 原地没动，落点是 C/G（G3 C4 C4 E4）：回了家、低音却不在主音上，完满的条件缺了一项——<b>不完满</b>的正格终止，门没关严。注意它不是半终止：半终止根本没回家。","The upper voices resolve as usual (B3→C4, D4→C4, F4→E4) and the chord does reach C — but the bass G3 never moves, landing on C/G (G3 C4 C4 E4): home is reached, yet the bass isn't on the tonic note. One requirement missing — an <b>imperfect</b> authentic cadence, door ajar. Note it is NOT a half cadence: a half cadence never reaches home at all."),
                  tr("听到第二个和弦就是 <b>V（G）本身</b>——乐句停在紧张上，没有发生任何解决（没有倾向音落位、没有回到 I）。这才是<b>半终止</b>：逗号，等下一句来接。","The second chord IS <b>V (G) itself</b> — the phrase parks on the tension; no resolution happens (no tendency tone lands, no return to I). THIS is the <b>half cadence</b>: a comma, waiting for the next line.")][P.ans]};
     }
     return {kind:"choice",concept,qtype:tr("终止分级 · 纠错","Cadence grades · fix the term"),
@@ -7628,8 +7740,8 @@ async function playVoiceLead(arg){
   const unlite=(s)=>{ if(!piano) return; const k=piano.querySelector(`.key[data-m="${60+s}"]`); if(k) k.classList.remove('vfrom'); };
   const now=Tone.now();
   clr();
-  if(arg==="chord"){                              // 完整和弦：先齐奏 G7(橙) 再齐奏解决和弦 C·C·E(绿)
-    const g7=[-5,-1,2,5], finalCh=[-12,0,4];
+  if(arg==="chord"){                              // 完整和弦：先齐奏 G7(橙) 再齐奏解决和弦 C4·E4(绿)，最低落 C4 不含 C3
+    const g7=[-5,-1,2,5], finalCh=[0,4];
     synth.triggerAttackRelease(g7.map(s=>semiToName(s,60)),"2n",now);
     later(()=>{ clr(); g7.forEach(s=>lite(s,'vfrom')); }, 0);
     const t=0.95;
@@ -7638,7 +7750,7 @@ async function playVoiceLead(arg){
     later(clr, Math.round(t*1000)+1600);
     return;
   }
-  const pairs=[[-5,-12],[-1,0],[2,0],[5,4]];      // G3→C3 · B3→C4 · D4→C4 · F4→E4
+  const pairs=[[-5,0],[-1,0],[2,0],[5,4]];        // G3→C4 · B3→C4 · D4→C4 · F4→E4（低音上行四度，最低落 C4）
   const [from,to]=pairs[+arg]; const GAP=0.5;
   synth.triggerAttackRelease(semiToName(from,60),"4n",now);               // 出发音(橙)
   later(()=>{ clr(); lite(from,'vfrom'); }, 0);
@@ -7730,8 +7842,10 @@ function confetti(n=16){
 }
 
 /* 启动 */
+if("scrollRestoration" in history) history.scrollRestoration="manual"; // 刷新后不沿用旧滚动位置（应用状态已重置，旧位置无意义）
 document.querySelectorAll(".langbar button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 renderHome();
+window.scrollTo(0,0);
 </script>
 </body>
 </html>
