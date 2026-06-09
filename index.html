@@ -1039,6 +1039,9 @@ function teachEN(mId){
         <div style="line-height:1.75;color:#e9e3ff">
           <p><b>Blues</b> is a musical style (an ancestor of rock, jazz and R&B). Its signature move: make <b>all three chords I, IV, V dominant 7ths</b> (normally only degree 5 gets to be one), soaking the whole piece in that "suspended, gritty, driving" flavor. The classic skeleton is the 12-bar blues, whose core motion is <b>I7 → IV7 → V7</b>:</p>
           <div class="row"><span class="chip" data-play="kseq:blues">🔊 Hear the blues flavor: C7 → F7 → G7 → C7</span></div>
+          <p><b>What is the "12 bars" in the name?</b> The button above is the condensed version; the blues proper is a <b>fixed 12-bar map</b> — three lines of 4 bars, telling one complete story: line one <b>stays home</b> (I7×4, laying ground), line two <b>steps out and back</b> (IV7×2 + I7×2, call and answer), line three <b>sprints home</b> (V7→IV7→I7, the close). Hear it whole (each bar squeezed to 2 beats, metronome on, ~13s):</p>
+          <div class="row"><span class="chip" data-play="hr:blues12:2">🔊 The full 12 bars: I I I I ｜ IV IV I I ｜ V IV I I (three lines, three sentences)</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">Listen for it: one sentence per 4 bars, each closing back on I7. How fixed is this map? Musicians worldwide jam it unrehearsed — someone calls "blues in C" and everyone knows. Only three chords; <b>the structure — WHICH bar changes — is the blues' real skeleton</b>.</p>
           <p style="font-size:12.5px;color:var(--muted)">Playing tip: the left hand walks the roots C→F→G→C while the right hand keeps just two key notes per dominant 7th (the <b>3rd + 7th</b>), sliding by half steps — e.g. from C7 to F7 the 7th B♭ drops a half step to A. So the three dominant 7ths connect smoothly instead of leaping as a block; the same holds in any key.</p>
           ${keyBar(false,true)}
           <p>That "unstable yet driving" sound comes straight from the dominant 7th. Hence: the dominant 7th is the soul and core of the blues.</p>
@@ -1409,6 +1412,17 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>Extra: how long does the magnet stay on? — a full bar vs grabbing the last two beats</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>Once the magnet is installed there is one more field setting: <b>how many beats it gets</b>. A full bar: the pull unfolds at leisure, the heartache lingers. Only the last two beats: the music lazes on C for half the bar, then E7 barges in and yanks toward Am — quicker, more conversational. Pop uses both (metronome on):</p>
+          <div class="row">
+            <span class="chip" data-play="hr:sdSpark:4">🔊 Full-bar: C(1 bar)→E7(1 bar)→Am (a leisurely tug)</span>
+            <span class="chip" data-play="hr:hrSDa:4.2.2.4">🔊 Grab-in: C lazes till beat 3, E7 takes just the last 2 beats (a sudden yank)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">The principle: the pull comes from the outside note G♯'s half-step urge — independent of duration; what duration changes is <b>how long the suspense is laid</b>. The short version is level ㉚'s anticipation writ large at chord scale: compress the tension into the doorstep, and the landing hits all the more suddenly.</p>
+        </div>
+      </details>
+
       <details class="note"><summary>Extra: the tritone substitution — installing the magnet from behind (♭II7)</summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p><b>Step 1 · unpack the name: what is a "tritone substitution"?</b></p>
@@ -1566,6 +1580,12 @@ function teachEN(mId){
             <span class="chip" data-play="vchord:-11,4,7,10;-10,5,9,12">🎹 Full picture: C♯°7 → Dm7</span>
           </div>
           <p>A dim7 wedged between two diatonic chords purely to "slide across" is a <b>passing diminished 7th</b>. The silky vintage feel of R&B-flavored pop owes most of itself to this chord.</p>
+          <p><b>Duration experiment · "passing" means short.</b> The word "passing" has gone undemonstrated — it is about <b>duration</b>: in real songs this glue takes one beat, even half, stepping through without stopping. Compare (metronome on): a full bar of C♯°7 (it overstays, the sting magnified) vs a single beat (a flicker, only the silk remains):</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pdSmooth:4">🔊 Equal lengths: C(4)·C♯°7(4)·Dm7(4) — the glue overstays, sting amplified</span>
+            <span class="chip" data-play="hr:pdSmooth:3.1.4">🔊 Real durations: C(3)·C♯°7(just 1 beat)·Dm7(4) — step and gone, silk only</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">The principle: two tritone pairs live inside a dim7 — the longer it lingers, the more it pricks; confined to a beat-4 step, the ear feels only the pull, never the prickle. <b>A passing chord's manners: never overstay</b> (durations are level ㉚'s trade).</p>
         </div>
       </details>
 
@@ -1978,6 +1998,11 @@ function teachEN(mId){
       <div class="row"><span class="chip" data-play="kloopseq:canonS">🔁 Canon descent: C→G/B→Am→C/G→F (bass C4 B3 A3 G3 F3)</span></div>
       ${keyBar(false,true)}
       ${loopBar()}
+      <p style="font-size:13px">The same staircase changes character with <b>stride speed</b> — one stair per bar is a stately procession, one per two beats a flowing stream (metronome comparison; durations are level ㉚'s trade):</p>
+      <div class="row">
+        <span class="chip" data-play="hr:canonS:4">🔊 One stair per bar (stately — the Baroque gait)</span>
+        <span class="chip" data-play="hr:canonS:2">🔊 One per two beats (flowing — the pop gait)</span>
+      </div>
 
       <details class="note"><summary>Extra: C/G before the period — the bass arrives at the door first</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -2347,6 +2372,11 @@ function teachEN(mId){
       </details>
       <p>In real songs these progressions <b>loop round and round</b>, carpeting whole verses and choruses — tap any progression, then hit its "Loop" button to circle it.</p>
       ${loopBar()}
+      <p style="font-size:13px">One trailer: a formula only answers <b>what</b> to change — real songs ask the other half, <b>when</b>. The same 4536 at one chord per bar is verse calm; at two beats per chord, chorus surge (level ㉚, harmonic rhythm, tells the whole story):</p>
+      <div class="row">
+        <span class="chip" data-play="hr:pp4536:4">🔊 4536 once per bar (calm)</span>
+        <span class="chip" data-play="hr:pp4536:2">🔊 The same formula every two beats (surging)</span>
+      </div>
 
       <details class="note"><summary>Extra: don't memorize formulas — learn the variant generator</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -2388,7 +2418,19 @@ function teachEN(mId){
         <span class="chip" data-play="kseq:susTens">🔊 Traditional: F→Gsus4→G→C (resolve, then home)</span>
         <span class="chip" data-play="kseq:susDir">🔊 Modern: F→Gsus4→C (land straight from mid-air)</span>
       </div>
-      ${keyBar(false,true)}`;
+      ${keyBar(false,true)}
+
+      <details class="note"><summary>Extra: suspended for how long? — duration sets the appetite</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>The same F→Gsus4→G→C changes character entirely with <b>how many beats the suspension holds</b>. Hold 3 beats before landing: appetite stretched to the fullest, the release a long exhale. Hold just 1: a passing ornament, barely felt. Compare (metronome on):</p>
+          <div class="row">
+            <span class="chip" data-play="hr:susTens:4.3.1.4">🔊 Hang 3, land 1 (appetite fully drawn — the gospel breath)</span>
+            <span class="chip" data-play="hr:susTens:4.1.3.4">🔊 Hang 1, land 3 (a passing flourish)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">The principle: a sus chord is entirely about <b>waiting</b> — the longer the wait, the larger the expectation. Treat the suspension's length as a recipe: full bars before the big chorus close, one beat for mid-phrase seasoning (durations are level ㉚'s trade).</p>
+        </div>
+      </details>`;
+
     case "parmin": return `
       <p>The last level introduced the minor scale itself; this one stands at the <b>gateway between parallel universes</b>, setting same-tonic major and minor <b>face to face</b> — behind this door lies the world of borrowed chords.</p>
       <p><b>One tonic, two worlds.</b> C major and C minor share the same "home" (tonic C), but C minor lowers <b>degrees 3, 6 and 7 by a half step each</b>: E→E♭, A→A♭, B→B♭. Those three notes alone flip the "bright world" into the "night world". Read the two keyboard maps aligned (green = scale keys, <b>yellow = the three keys where the worlds differ</b>):</p>
@@ -2829,6 +2871,22 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>Extra: meter — how often does the heavy beat return? (3/4 beyond 4/4)</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>Sentence 1 · "how many beats per group" is a choice.</b> The default above groups beats in 4 (written <b>4/4</b>), but <b>3 per group (3/4)</b> exists too — the accent returns every 3 beats: count <b>1</b>-2-3, <b>1</b>-2-3. Metronome only, two heartbeats compared:</p>
+          <div class="row">
+            <span class="chip" data-play="hr:tonic:8">🔊 Grouped in four (count 1-2-3-4 — a walking pulse)</span>
+            <span class="chip" data-play="hr:tonic:6:3">🔊 Grouped in three (count 1-2-3 — a spinning pulse)</span>
+          </div>
+          <p><b>Sentence 2 · same chords, new meter, whole new character.</b> Not one note moves — only the accent cycle changes from 4 to 3 — and 1564 turns from "pop song" into "waltz/folk", swaying at once:</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pp1564:4">🔊 1564 in 4/4 (pop default, striding forward)</span>
+            <span class="chip" data-play="hr:pp1564:3:3">🔊 1564 in 3/4 (3 beats per bar — it starts to spin)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Why? Strong-weak-mid-weak walks a line; strong-weak-weak turns in place — the accent <b>cycle</b> decides how the body wants to move. Pop slips into 3/4 (or its cousin 6/8, the slow-song sway) precisely for that dance. Training-ground only; passing the level never requires it.</p>
+        </div>
+      </details>
+
       <details class="note" open><summary><b>Density: once per bar vs every two beats</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
           <p>The same 1564 — first <b>once per bar</b> (each chord sits 4 beats): unhurried, wide, classic <b>verse</b> pacing; then <b>every two beats</b>: the harmony rushes forward, classic <b>chorus/bridge</b> pacing:</p>
@@ -2839,6 +2897,11 @@ function teachEN(mId){
           </div>
           <p style="font-size:12.5px;color:var(--muted)">Run all three gears once and the feel is unmistakable: same four chords, and each gear up adds another notch of push.</p>
           <p>In real songs this is the go-to <b>section switch</b>: sparse verse, dense chorus — not one chord changes its name, only the change rate, and the chorus surges. The rule isn't rigid (some choruses go sparser and stretch long notes for openness). Keep the essence: <b>density is the emotional throttle</b>.</p>
+          <p><b>Now hear the throttle as a curve.</b> Real songs don't keep two isolated gears — density traces a continuous arc, most typically the <b>pre-chorus sprint</b>: verse changes once per bar (calm ground-laying) → pre-chorus suddenly every 2 beats (F-G-F-G pumping the pedal) → chorus returns to once per bar, but lands twice as wide because of the sprint just before. One demo, the whole breath (mind the mid-section acceleration):</p>
+          <div class="row">
+            <span class="chip" data-play="hr:hrCurve:4.4.4.4.2.2.2.2.4.4.4.4">🔊 The density curve: verse (sparse) → pre-chorus (dense sprint) → chorus (sparse again, wide open)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Section by section: first four slots are 1564 one-per-bar (the bed); the middle alternates F→G at 2 beats each — only two chords, but the doubled rate carries all the "here it comes"; the final 1564 returns to one-per-bar — identical chords to the verse, yet the contrast makes them feel like a clearing sky.</p>
         </div>
       </details>
 
@@ -2863,7 +2926,33 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">This level's drills: density by ear (4 vs 2 beats per chord), pairing density with sections, whether changes land on the downbeat, and spotting anticipation.</p>`;
+      <details class="note"><summary>Extra: the turnaround — split the last bar in two and swing the loop home</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>Sentence 1 · a loop's seam wants lubrication.</b> When a progression circles, the instant the last slot wraps to the first is a seam (level ⑭'s "loop interface"). Oldies and jazz lubricate it the same way: <b>split the final bar into two chords</b> — one extra push on the way out that swings the music back to the top. The trade name: the <b>turnaround</b>. Compare on 1645:</p>
+          <div class="row">
+            <span class="chip" data-play="hr:hrTAno:4">🔊 Square version: C·Am·F·G one bar each → back to C (a flat seam)</span>
+            <span class="chip" data-play="hr:hrTA:4.4.4.2.2.4">🔊 Turnaround: last bar splits into Dm7(2)→G7(2) → swings back to C</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">The anatomy: the split-out Dm7→G7 is level ⑤'s <b>2-5</b> — the smoothest springboard onto I; and the final bar's density doubles (this level's throttle) for a last-second acceleration. Two forces stacked, and the loop starts to roll. The 1625 progression is, at heart, a built-in turnaround every two bars.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>Extra: texture vs harmonic rhythm — two layers of "rhythm", not one</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>The loop player has long offered block / arpeggio / combo — here is how they relate to this level: <b>texture arranges notes WITHIN the beat; harmonic rhythm decides WHEN, between beats, the chord changes</b>. Two independent layers. Verify — the same 1564, first changing density with texture fixed, then texture with density fixed:</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pp1564:4">🔊 The between-beats layer: once per bar (density)</span>
+            <span class="chip" data-play="hr:pp1564:2">🔊 The between-beats layer: every two beats (density)</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:pp1564">🔁 The within-beat layer: loop it, then cycle block → arpeggio → combo (texture)</span>
+          </div>
+          ${keyBar(false,true)}
+          <p style="font-size:12.5px;color:var(--muted)">Listen for it: cycling texture never alters when chords change; changing density never alters how they're struck — when arranging, tune each layer on its own. When transcribing (level ㉝), ask the two questions separately too: how often does it change (harmonic rhythm), then how is it played (texture).</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: density by ear (4 vs 2 beats per chord), pairing density with sections, whether changes land on the downbeat, and spotting anticipation; the training ground adds a meter special (3/4 vs 4/4).</p>`;
 
     case "cliche": return `
       <p>Level ⑩'s Canon bass walked <b>downstairs</b>; level ㉖'s dim7 made the bass <b>crawl by half steps</b> — now the line hides <b>inside the chord</b>: the name stays C or Am throughout, yet one chromatic line keeps moving within. The trade name is the <b>line cliché</b>, found everywhere from jazz standards to pop ballads. Compare first:</p>
@@ -3009,7 +3098,18 @@ function teachEN(mId){
 
     case "earcopy": return `
       <p>The graduation run. <b>Transcribing a song</b> = writing down its chords by ear alone. It is not a gift; it is a pipeline — everything from the previous levels assembles into <b>four steps</b>:</p>
-      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>① Find home</b> (where, bright or dark) → <b>② Hear the bass</b> (the roots' contour) → <b>③ Match patterns</b> (against your library) → <b>④ Spot the colors</b> (which trick made that outside note).</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>🥁 Prep: count the grid</b> (beats per change, level ㉚) → <b>① Find home</b> (where, bright or dark) → <b>② Hear the bass</b> (the roots' contour) → <b>③ Match patterns</b> (against your library) → <b>④ Spot the colors</b> (which trick made that outside note).</p>
+
+      <details class="note" open><summary><b>The prep move · count beats-per-change and draw the grid first</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Before transcribing anything, spend ten seconds counting 1-2-3-4 along with the song to find <b>how many beats per chord change</b> (level ㉚'s harmonic rhythm). This draws the grid; the four steps that follow merely fill its cells — with the wrong grid, even correct chords won't line up with the song. Warm up on these two grids:</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pp1564:4">🔊 Once per bar (grid = 4 beats)</span>
+            <span class="chip" data-play="hr:pp1564:2">🔊 Every two beats (grid = 2 beats)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Field tip: most pop verses change once per bar; if your count keeps slipping, suspect a two-beat grid or a hidden turnaround bar (level ㉚) before you suspect your ears.</p>
+        </div>
+      </details>
 
       <details class="note" open><summary><b>Step 1 · find home</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -3380,6 +3480,9 @@ function teachCN(mId){
         <div style="line-height:1.75;color:#e9e3ff">
           <p><b>布鲁斯(Blues)</b>是一种音乐风格(摇滚、爵士、R&B 的源头之一)。它有个标志性做法：把 <b>I、IV、V 三个和弦全做成属七和弦</b>(平常一个调里只有第 5 级才是属七)，于是整段音乐都浸在那股"悬而带劲、略带沙哑"的味道里。最经典的骨架是"12 小节布鲁斯"，核心走向就是 <b>I7 → IV7 → V7</b>：</p>
           <div class="row"><span class="chip" data-play="kseq:blues">🔊 听布鲁斯味：C7 → F7 → G7 → C7</span></div>
+          <p><b>名字里的「12 小节」是什么？</b>上面只是浓缩版；布鲁斯的本体其实是一张<b>固定的 12 小节地图</b>，三行、每行 4 小节，讲一个完整的故事——第一行<b>守家</b>（I7×4，铺陈），第二行<b>出门又回来</b>（IV7×2 + I7×2，一问一答），第三行<b>冲刺回家</b>（V7→IV7→I7，收尾）。完整听一遍（每小节压成 2 拍、带节拍器，约 13 秒）：</p>
+          <div class="row"><span class="chip" data-play="hr:blues12:2">🔊 完整 12 小节：I I I I ｜ IV IV I I ｜ V IV I I（三行三句话）</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">听点：每 4 小节一句、句句以回到 I7 收口——这张地图固定到什么程度？全世界乐手不用排练，喊一声"C 调布鲁斯"就能合奏。和弦只有三个，<b>结构（哪一小节换）才是布鲁斯的真正骨架</b>。</p>
           <p style="font-size:12.5px;color:var(--muted)">弹法小提示：左手按根音走 C→F→G→C，右手每个属七只留两个关键音（<b>三音 + 七音</b>），贴着半音挪——比如 C7→F7 时七音 B♭ 半音落到 A。所以三个属七连得很顺，而不是整块跳上跳下；换大调听同一套也一样。</p>
           ${keyBar(false,true)}
           <p>那种"不太稳定却很带劲"的音响，正来自属七和弦。所以说：属七和弦是布鲁斯的灵魂与核心。</p>
@@ -3752,6 +3855,17 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>拓展：磁铁装多久？——整小节从容吸 vs 末两拍抢着吸</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>装上磁铁后还有个实战参数：<b>给它几拍</b>。占满一小节：吸力从容铺开，揪心感绵长；只占末两拍：前半小节还赖在 C 上，E7 突然挤进来、一把拽向 Am——更急、更口语，流行歌里两种都常见（带节拍器对比）：</p>
+          <div class="row">
+            <span class="chip" data-play="hr:sdSpark:4">🔊 整小节版：C(1小节)→E7(1小节)→Am（从容地揪）</span>
+            <span class="chip" data-play="hr:hrSDa:4.2.2.4">🔊 抢入版：C 赖到第 3 拍，E7 只占末 2 拍（猛地一拽）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">原理：磁铁的吸力来自调外音 G♯ 的半音倾向，跟时值无关——时值改变的是<b>悬念铺垫的长度</b>。短促版本质上是㉚关「抢拍」的和弦级放大：把紧张压缩到临门一脚，落点反而更突然、更带劲。</p>
+        </div>
+      </details>
+
       <details class="note"><summary>拓展：三全音替代——磁铁还能从背面装（♭II7）</summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p><b>第一步 · 把名字拆开：什么叫「三全音替代」？</b></p>
@@ -3909,6 +4023,12 @@ function teachCN(mId){
             <span class="chip" data-play="vchord:-11,4,7,10;-10,5,9,12">🎹 全貌：C♯°7 → Dm7</span>
           </div>
           <p>这种夹在两个顺阶和弦之间、专管"滑过去"的减七，叫<b>经过减七</b>。带 R&B 味的华语流行（陶喆、周杰伦、蔡健雅式的丝滑复古），大半来自它。</p>
+          <p><b>时值实验 · 「经过」的本性是短。</b>名字里的"经过"二字一直没演示——它说的是<b>时值</b>：真歌里这块黏合剂通常只占一拍甚至半拍，踩一脚就走。对比听（带节拍器）：给 C♯°7 整整一小节（喧宾夺主，刺被放大）vs 只给一拍（一闪而过，只留丝滑）：</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pdSmooth:4">🔊 等长版：C(4拍)·C♯°7(4拍)·Dm7(4拍)——黏合剂赖着不走，刺感被放大</span>
+            <span class="chip" data-play="hr:pdSmooth:3.1.4">🔊 真实时值：C(3拍)·C♯°7(只占1拍)·Dm7(4拍)——踩一脚就走，只留丝滑</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">原理：减七体内两对三全音，停留越久刺越扎；只当「第 4 拍的踏步」时，耳朵只来得及感到被牵引、来不及觉得刺——<b>经过和弦的礼貌就是不久留</b>（时值的门道详见㉚关）。</p>
         </div>
       </details>
 
@@ -4320,6 +4440,11 @@ function teachCN(mId){
       <div class="row"><span class="chip" data-play="kloopseq:canonS">🔁 卡农下行：C→G/B→Am→C/G→F（低音 C4 B3 A3 G3 F3）</span></div>
       ${keyBar(false,true)}
       ${loopBar()}
+      <p style="font-size:13px">同一道台阶，<b>步速</b>不同气质也不同——一小节迈一级是庄重的仪仗，两拍迈一级是流动的溪水（带节拍器对比；时值的门道详见㉚关）：</p>
+      <div class="row">
+        <span class="chip" data-play="hr:canonS:4">🔊 一小节一级（庄重，巴洛克步态）</span>
+        <span class="chip" data-play="hr:canonS:2">🔊 两拍一级（流动，流行歌步态）</span>
+      </div>
 
       <details class="note"><summary>拓展：句号前的 C/G——低音先到门口站好</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -4691,6 +4816,11 @@ function teachCN(mId){
       </details>
       <p>这些套路在真歌里都是<b>绕圈循环</b>着铺满整段主歌/副歌的——点任意一个套路，再按它下面的「循环」即可绕圈听。</p>
       ${loopBar()}
+      <p style="font-size:13px">预告一句：套路只回答「换<b>什么</b>」，真歌还有另一半问题——「<b>何时</b>换」。同一个 4536，一小节一换是主歌的从容，两拍一换是副歌的涌动（㉚关「和声节奏」专讲）：</p>
+      <div class="row">
+        <span class="chip" data-play="hr:pp4536:4">🔊 4536 一小节一换（从容）</span>
+        <span class="chip" data-play="hr:pp4536:2">🔊 同一套路两拍一换（涌动）</span>
+      </div>
 
       <details class="note"><summary>拓展：别背公式，学"变体生成法"——一个套路怎么长出一家子</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -4733,7 +4863,18 @@ function teachCN(mId){
         <span class="chip" data-play="kseq:susTens">🔊 传统：F→Gsus4→G→C（先解决再回家）</span>
         <span class="chip" data-play="kseq:susDir">🔊 现代：F→Gsus4→C（悬着直接落地）</span>
       </div>
-      ${keyBar(false,true)}`;
+      ${keyBar(false,true)}
+
+      <details class="note"><summary>拓展：悬多久？——时值决定期待感</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>同一个 F→Gsus4→G→C，<b>悬的拍数</b>不同，性格完全两样。悬足 3 拍再落：胃口被吊到最满，落下那一下像松一大口气；只悬 1 拍就落：顺口的小装饰，几乎不觉得被吊。对比（带节拍器）：</p>
+          <div class="row">
+            <span class="chip" data-play="hr:susTens:4.3.1.4">🔊 悬 3 拍落 1 拍（吊足胃口，福音式深呼吸）</span>
+            <span class="chip" data-play="hr:susTens:4.1.3.4">🔊 悬 1 拍落 3 拍（顺手一带，小装饰）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">原理：sus 的全部意义在「等」——等多久，期待就积多少。把悬的时值当配方调：副歌前的大收尾给足拍数，句中的小过渡一拍带过（时值的门道详见㉚关）。</p>
+        </div>
+      </details>`;
 
     case "parmin": return `
       <p>上一关认识了小调音阶本身；这一关站到<b>平行宇宙的入口</b>，把同名的大调与小调<b>面对面</b>放在一起看——这扇门后面，就是离调借用的世界。</p>
@@ -5406,7 +5547,18 @@ function teachCN(mId){
 
     case "earcopy": return `
       <p>毕业实战关。<b>扒歌</b>＝只靠耳朵把一首歌的和弦写下来。它不靠天赋，靠流程——前面所有关卡的功夫，在这里拼成一条<b>四步流水线</b>：</p>
-      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>① 定调</b>（家在哪、亮还是暗）→ <b>② 听低音</b>（根音的轮廓）→ <b>③ 认套路</b>（和套路库比对）→ <b>④ 辨色彩</b>（调外音是哪种魔法）。</p>
+      <p style="background:rgba(92,230,192,.09);border-left:3px solid var(--p3);padding:10px 14px;border-radius:6px"><b>🥁 预备：数格子</b>（几拍一换，㉚关）→ <b>① 定调</b>（家在哪、亮还是暗）→ <b>② 听低音</b>（根音的轮廓）→ <b>③ 认套路</b>（和套路库比对）→ <b>④ 辨色彩</b>（调外音是哪种魔法）。</p>
+
+      <details class="note" open><summary><b>预备动作 · 先数「几拍一换」，把格子画好</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>动手扒之前先干一件 10 秒钟的事：跟着歌数「1-2-3-4」，<b>数出和弦几拍一换</b>（㉚关的和声节奏）。这一步画好了"格子"，后面四步都是往格子里填内容——格子错了，填得再对也对不上歌。热身一下，分辨这两种格子：</p>
+          <div class="row">
+            <span class="chip" data-play="hr:pp1564:4">🔊 一小节一换（格子＝4 拍）</span>
+            <span class="chip" data-play="hr:pp1564:2">🔊 两拍一换（格子＝2 拍）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">实战提示：大多数流行歌主歌是一小节一换；若数着数着对不上，先怀疑是「两拍一换」或个别小节藏了回头格（㉚关的 turnaround），不要急着怀疑自己的耳朵。</p>
+        </div>
+      </details>
 
       <details class="note" open><summary><b>第一步 · 定调：先找到「家」</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
