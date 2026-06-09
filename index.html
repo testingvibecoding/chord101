@@ -1472,58 +1472,64 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: the tritone substitution — installing the magnet from behind (♭II7)</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Step 1 · unpack the name: what is a "tritone substitution"?</b></p>
-          <p>First recall the <b>tritone</b>: the interval of <b>6 half steps</b> (you met it in level ① and starred it in level ⑫) — the exact midpoint of the octave, suspended and stinging:</p>
+          <p><b>[Overview] unpack the name: what is a "tritone substitution"?</b></p>
+          <p>First recall the <b>tritone</b>: the interval of <b>6 half steps</b> (met in level ①, starred in level ⑫) — the exact midpoint of the octave, suspended and stinging:</p>
           <div class="row">
             <span class="chip" data-play="semi:0,6">🔊 Recall: a tritone (6 half steps — it stings)</span>
-            <span class="chip" data-play="notes:5,11">🔊 The tritone pair inside G7: F＋B (level ⑫'s sting that must dissolve)</span>
           </div>
-          <p>Now the <b>substitution</b> — <b>what replaces what, and where</b>: at any slot where <b>a dominant 7th is about to resolve home</b> (G7→C, E7→Am, every magnet installed in this level), swap that dominant wholesale for <b>the other dominant 7th whose root sits a tritone away</b>. A tritone from G is D♭ — so the G7→C slot may become <b>D♭7→C</b>. Why does it still work? That is exactly what we dissect below.</p>
+          <p>Now the <b>substitution</b> — <b>what replaces what, and where</b>: at any slot where <b>a dominant 7th is about to resolve home</b> (G7→C, E7→Am, every magnet in this level), swap that dominant wholesale for <b>the dominant 7th whose root sits a tritone away</b>. Two examples below tell the whole story — effect first, anatomy second, each example finished before the next begins.</p>
 
-          <p><b>Step 2 · effects first, principles later.</b> The two most common situations, original vs substituted:</p>
-          <p style="margin:8px 0 2px">Case one · the <b>2-5-1 ending</b>. The three slots (level ⑪'s journey): <b>Dm7 = departure (ii) → G7 = tension (V7) → C = home (I)</b>; the swap happens in the middle "tension" slot:</p>
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>[Example 1] the 2-5-1 ending: G7 replaced by D♭7</b></p>
+          <p>The three slots (level ⑪'s journey): <b>Dm7 = departure (ii) → G7 = tension (V7) → C = home (I)</b>. The swap hits the middle "tension" slot — a tritone from G is D♭, so in goes <b>D♭7</b>. Principles aside, the effect:</p>
           <div class="row">
             <span class="chip" data-play="kseq:tr251pln">🔊 Original: Dm7 → G7 → C</span>
             <span class="chip" data-play="kseq:tr251sub">🔊 Substituted: Dm7 → D♭7 → C (an extra layer of silk)</span>
           </div>
-          <p style="margin:8px 0 2px">Case two · the <b>secondary-dominant magnet</b>. The three slots: <b>C = home → E7 = temporary magnet (V7/vi) → Am = temporary destination</b>; again the middle magnet is what gets swapped:</p>
+          <p>The destination stays (still C), yet "being yanked" turns into "gliding in". Four small steps unpack why it is legal:</p>
+          <p><b>① All of G7's pull comes from its tritone sting B–F</b> (B↗C, F↘E — level ⑫'s two forces):</p>
+          <div class="row">
+            <span class="chip" data-play="seq:fgG7">🔊 G7 in full (G3 F4 B4 D5)</span>
+            <span class="chip" data-play="notes:5,11">🔊 The sting alone: F4＋B4 (a tritone — it stings)</span>
+            <span class="chip" data-play="vpair:11,12">🔊 Dissolution Ⅰ: B → C</span>
+            <span class="chip" data-play="vpair:5,4">🔊 Dissolution Ⅱ: F → E</span>
+          </div>
+          <p><b>② D♭7 = D♭·F·A♭·B — the very same F and B hide inside!</b> In G7, B is the 3rd and F the 7th; in D♭7 the roles simply swap. <b>Same sting, not one note changed.</b> Hear it — switching shells, F4 and B4 never move on the keyboard:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:1,5,8,11">🔊 D♭7 in full (D♭4 F4 A♭4 B4)</span>
+            <span class="chip" data-play="notes:5,11">🔊 Its sting: still F4＋B4 (the same pair!)</span>
+            <span class="chip" data-play="kseq:g7db7">🔊 G7 → D♭7 in a row (new shell, same sting in place)</span>
+          </div>
+          <p><b>③ The magnet IS that pair — the root underneath is irrelevant. So D♭7 resolves to C all the same</b>, all four voices <b>sliding by half steps</b> (D♭↘C, F↘E, A♭↘G, B↗C):</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:rsRoot">🔊 From the front: G7 → C (level ⑫'s specimen — bass leaps a fifth, tripled root)</span>
+            <span class="chip" data-play="kseq:dbRes">🔊 From behind: D♭7 → C (four voices gliding — silky)</span>
+          </div>
+          <p><b>④ The effect lives in the bass</b>: G→C leaps a fifth through the front door (an emphatic period); D♭→C slips a half step in (quiet, silky). The two bass lines alone:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:-5,-12">🔊 Bass line A: G3 → C3 (the leap — exactly the G7 specimen's bass)</span>
+            <span class="chip" data-play="mel:1,0">🔊 Bass line B: D♭4 → C4 (the chromatic slip — exactly the D♭7's bass above)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">The name: D♭ is degree 2 of C major <b>lowered a half step</b> — hence <b>♭II7</b>; trade name, the tritone substitution.</p>
+
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>[Example 2] the secondary-dominant magnet: E7 replaced by B♭7</b></p>
+          <p>The three slots: <b>C = home → E7 = temporary magnet (V7/vi) → Am = temporary destination</b>. Again the middle magnet gets swapped — a tritone from E is B♭. The effect first:</p>
           <div class="row">
             <span class="chip" data-play="seq:sdSpark">🔊 Original: C → E7 → Am (gripping)</span>
             <span class="chip" data-play="seq:csubB">🔊 Substituted: C → B♭7 → Am (still drawn to Am — but gliding now)</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">The shared change: the destination stays (still C, still Am), but "being yanked" becomes "gliding in" — most of the silk in jazz, City Pop and R&B comes from this one move. Now let us see why it is legal.</p>
-
-          <p><b>Step 3 · dissect case one: what entitles D♭7 to cover for G7?</b></p>
-          <p>① All of G7's pull comes from its tritone sting <b>B–F</b> (B↗C, F↘E — level ⑫'s two forces). ② And <b>D♭7 = D♭·F·A♭·B</b> — look closely: it too contains <b>F and B</b>! In G7, B is the 3rd and F the 7th; in D♭7 the roles simply swap. <b>Same sting, not one note changed.</b> Hear it — switching G7 → D♭7, F4 and B4 do not move on the keyboard:</p>
+          <p>Now run example 1's procedure once through: <b>① E7's sting toward Am is G♯–D</b> (G♯↗A, D↘C); <b>② B♭7 = B♭·D·F·A♭ — its D and A♭ (=G♯) are that very pair</b>; <b>③ so B♭7 draws the ear into Am just the same</b> — the sting dissolves exactly as under E7 (A♭=G♯ nudges into A, D settles onto C); <b>④ the bass now slips B♭↘A</b>:</p>
           <div class="row">
-            <span class="chip" data-play="seq:fgG7">🔊 G7 in full (G3 F4 B4 D5)</span>
-            <span class="chip" data-play="notes:1,5,8,11">🔊 D♭7 in full (D♭4 F4 A♭4 B4)</span>
-            <span class="chip" data-play="kseq:g7db7">🔊 G7 → D♭7 in a row (new shell, same sting in place)</span>
-          </div>
-          <p>③ The magnet IS that pair — the root underneath is irrelevant. So D♭7 resolves to C all the same, with all four voices <b>sliding by half steps</b> (D♭↘C, F↘E, A♭↘G, B↗C):</p>
-          <div class="row">
-            <span class="chip" data-play="kseq:fgG7C">🔊 From the front: G7 → C (bass leaps a fifth — emphatic)</span>
-            <span class="chip" data-play="kseq:dbRes">🔊 From behind: D♭7 → C (four voices gliding — silky)</span>
-          </div>
-          <p>④ <b>The effect lives in the bass</b>: G→C leaps a fifth (a decisive period); D♭→C slips a half step (sneaking in). The two bass lines alone:</p>
-          <div class="row">
-            <span class="chip" data-play="mel:-5,-12">🔊 Bass line A: G3 → C3 (the leap)</span>
-            <span class="chip" data-play="mel:-11,-12">🔊 Bass line B: D♭3 → C3 (the chromatic slip)</span>
-          </div>
-          <p style="font-size:12.5px;color:var(--muted)">The name: D♭ is degree 2 of C major lowered a half step — hence <b>♭II7</b>; trade name, tritone substitution.</p>
-
-          <p><b>Step 4 · dissect case two: how does E7 become B♭7?</b> The same procedure: E7 (E·G♯·B·D) pulls toward Am via the sting <b>G♯–D</b> (G♯↗A, D↘C); a tritone from E is B♭, and <b>B♭7 = B♭·D·F·A♭</b> — its <b>D and A♭ (=G♯) are the very same pair</b>. So B♭7 draws the ear into Am just the same — the sting dissolves exactly as it did under E7 (A♭=G♯ nudges up into A, D settles down onto C), while the bass now slips B♭↘A:</p>
-          <div class="row">
-            <span class="chip" data-play="notes:-4,2">🔊 E7's sting: G♯＋D</span>
-            <span class="chip" data-play="notes:-2,2,5,8">🔊 B♭7 in full (B♭3 D4 F4 A♭4 — same sting inside)</span>
-            <span class="chip" data-play="seq:bb7Am">🔊 The landing: B♭7 → Am (B♭↘A, F↘E, A♭↗A by half step; D↘C settling near)</span>
+            <span class="chip" data-play="notes:-4,2">🔊 ① E7's sting: G♯＋D</span>
+            <span class="chip" data-play="notes:-2,2,5,8">🔊 ② B♭7 in full (B♭3 D4 F4 A♭4 — same sting inside)</span>
+            <span class="chip" data-play="seq:bb7Am">🔊 ③④ The landing: B♭7 → Am (B♭↘A, F↘E, A♭↗A by half step; D↘C settling near)</span>
           </div>
 
-          <p><b>Step 5 · the rule: every dominant 7th has a "back-door twin".</b> Why always in pairs? Because a tritone is exactly <b>half an octave</b>: 6 half steps from G lands on D♭, 6 more land back on G — mirror roots, 3rds and 7ths exchanging seats. Verify with another pair: C7 (C·E·G·B♭) ↔ F♯7 (F♯·A♯·C♯·E), shared sting <b>E＋B♭</b>:</p>
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>[Summary] every dominant 7th has a back-door twin.</b> Why always in pairs? Because a tritone is exactly <b>half an octave</b>: 6 half steps from G lands on D♭, 6 more land back on G — mirror roots, 3rds and 7ths exchanging seats. Verify with another pair: C7 (C·E·G·B♭) ↔ F♯7 (F♯·A♯·C♯·E), shared sting <b>E＋B♭</b>:</p>
           <div class="row">
-            <span class="chip" data-play="notes:0,4,7,10">🔊 C7</span>
-            <span class="chip" data-play="notes:6,10,13,16">🔊 F♯7 (its mirror twin a tritone away)</span>
-            <span class="chip" data-play="notes:4,10">🔊 Their shared sting: E4＋B♭4</span>
+            <span class="chip" data-play="notes:0,4,7,10">🔊 C7 (C4 E4 G4 B♭4)</span>
+            <span class="chip" data-play="notes:-6,1,4,10">🔊 F♯7 (F♯3 C♯4 E4 A♯4 — the mirror twin, E and B♭ sitting untouched inside)</span>
+            <span class="chip" data-play="notes:4,10">🔊 Their shared sting: E4＋B♭4 (the very same two keys in both chords)</span>
+            <span class="chip" data-play="kseq:c7fs7">🔊 C7 → F♯7 in a row (new shell, the sting stays put)</span>
           </div>
           <p style="font-size:12.5px;color:var(--muted)">One line to keep: <b>a dominant 7th's soul is its tritone sting; two dominants sharing the sting can cover each other's shift</b>. After the swap the bass trades its leap for a chromatic slip — front door (V7) for the period, back door (♭II7) for the silk.</p>
         </div>
@@ -3973,58 +3979,64 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：三全音替代——磁铁还能从背面装（♭II7）</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一步 · 把名字拆开：什么叫「三全音替代」？</b></p>
+          <p><b>【总起】把名字拆开：什么叫「三全音替代」？</b></p>
           <p>先复习「<b>三全音</b>」：相隔 <b>6 个半音</b>的音程（第①关混过耳熟、第⑫关的主角）——它是八度的正中点，声音又悬又刺：</p>
           <div class="row">
             <span class="chip" data-play="semi:0,6">🔊 复习：三全音（相隔 6 个半音，刺）</span>
-            <span class="chip" data-play="notes:5,11">🔊 G7 体内的那对三全音：F＋B（⑫关讲过的「必须化解的刺」）</span>
           </div>
-          <p>再说「<b>替代</b>」——<b>谁替谁、在哪替</b>：在「<b>属七和弦正要解决回家</b>」的那一格（G7→C、E7→Am、本关所有装了磁铁的位置），把原来的属七<b>整只换成「根音隔三全音」的另一只属七</b>。G 隔三全音是 D♭，所以 G7→C 那格可以换成 <b>D♭7→C</b>。为什么换了还能用？这正是下面要拆的。</p>
+          <p>再说「<b>替代</b>」——<b>谁替谁、在哪替</b>：在「<b>属七和弦正要解决回家</b>」的那一格（G7→C、E7→Am、本关所有装了磁铁的位置），把原来的属七<b>整只换成「根音隔三全音」的另一只属七</b>。下面用两个例子把它讲透：先听效果，再拆原理——每个例子单独讲完，互不打架。</p>
 
-          <p><b>第二步 · 先别管原理，听效果。</b>两个最常见的情形，各听原版和替代版：</p>
-          <p style="margin:8px 0 2px">情形一 · <b>2-5-1 句尾</b>。三格的角色（⑪关的旅程）：<b>Dm7＝出发铺垫（ii）→ G7＝紧张（V7）→ C＝家（I）</b>；替换发生在中间「紧张」那一格：</p>
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>【例子一】2-5-1 句尾：把 G7 换成 D♭7</b></p>
+          <p>三格的角色（⑪关的旅程）：<b>Dm7＝出发铺垫（ii）→ G7＝紧张（V7）→ C＝家（I）</b>。替换发生在中间「紧张」那一格——G 隔三全音是 D♭，所以换上 <b>D♭7</b>。先别管原理，听效果：</p>
           <div class="row">
             <span class="chip" data-play="kseq:tr251pln">🔊 原版：Dm7 → G7 → C</span>
             <span class="chip" data-play="kseq:tr251sub">🔊 替代版：Dm7 → D♭7 → C（多了股丝滑慵懒）</span>
           </div>
-          <p style="margin:8px 0 2px">情形二 · <b>副属磁铁</b>。三格的角色：<b>C＝家 → E7＝临时磁铁（V7/vi）→ Am＝临时目的地</b>；替换的同样是中间那块磁铁：</p>
+          <p>去向没变（照样到 C），「被拽过去」却变成了「滑过去」。下面分四小步拆开它凭什么成立：</p>
+          <p><b>① G7 的吸力全部来自体内那对三全音刺 B–F</b>（B↗C、F↘E，⑫关的两股力）：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:fgG7">🔊 G7 全貌（G3 F4 B4 D5）</span>
+            <span class="chip" data-play="notes:5,11">🔊 单听那对刺：F4＋B4（三全音，扎）</span>
+            <span class="chip" data-play="vpair:11,12">🔊 刺的化解Ⅰ：B → C</span>
+            <span class="chip" data-play="vpair:5,4">🔊 刺的化解Ⅱ：F → E</span>
+          </div>
+          <p><b>② D♭7 = D♭·F·A♭·B——体内藏着同一对 F 和 B！</b>在 G7 里 B 当三音、F 当七音；到 D♭7 里正好对调（F 当三音、B 当七音）。<b>刺是同一对，连一个音都没换</b>。连听最清楚——换壳时 F4 和 B4 在键盘上原地不动：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:1,5,8,11">🔊 D♭7 全貌（D♭4 F4 A♭4 B4）</span>
+            <span class="chip" data-play="notes:5,11">🔊 它体内的刺：还是 F4＋B4（同一对！）</span>
+            <span class="chip" data-play="kseq:g7db7">🔊 连听 G7 → D♭7（外壳换了，刺原地不动）</span>
+          </div>
+          <p><b>③ 磁铁的本体就是那对刺，跟谁当根音无关——所以 D♭7 照样解决到 C</b>，而且四个声部<b>全部半音滑动</b>（D♭↘C、F↘E、A♭↘G、B↗C）：</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:rsRoot">🔊 正面装：G7 → C（⑫关标本：低音跳五度、三倍根音落地）</span>
+            <span class="chip" data-play="kseq:dbRes">🔊 背面装：D♭7 → C（四声部半音滑落，丝滑）</span>
+          </div>
+          <p><b>④ 效果的来源就在低音</b>：G→C 跳五度进家门（掷地有声的句号）；D♭→C 半音滑进家门（悄悄的、丝滑的）。单听两条低音线：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:-5,-12">🔊 低音线 A：G3 → C3（跳五度——正是上面 G7 标本的低音）</span>
+            <span class="chip" data-play="mel:1,0">🔊 低音线 B：D♭4 → C4（半音滑落——正是上面 D♭7 的低音）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">名字由来：D♭ 正是 C 大调第 2 级（D）<b>降半音</b>，所以记号写作 <b>♭II7</b>；这一招行话叫「三全音替代」（tritone substitution）。</p>
+
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>【例子二】副属磁铁：把 E7 换成 B♭7</b></p>
+          <p>三格的角色：<b>C＝家 → E7＝临时磁铁（V7/vi）→ Am＝临时目的地</b>。同样替换中间那块磁铁——E 隔三全音是 B♭。先听效果：</p>
           <div class="row">
             <span class="chip" data-play="seq:sdSpark">🔊 原版：C → E7 → Am（揪心）</span>
             <span class="chip" data-play="seq:csubB">🔊 替代版：C → B♭7 → Am（同样被吸进 Am，但换成丝滑滑入）</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">共同的听感变化：去向没变（照样到 C / 到 Am），但「被拽过去」变成了「滑过去」——爵士、City Pop、R&B 的丝滑大半来自这一招。下面拆开看它凭什么成立。</p>
-
-          <p><b>第三步 · 解剖情形一：G7 凭什么能换成 D♭7？</b></p>
-          <p>① G7 的吸力全部来自体内那对三全音刺 <b>B–F</b>（B↗C、F↘E，⑫关的两股力）。② 而 <b>D♭7 = D♭·F·A♭·B</b>——盯住看，它体内<b>也有 F 和 B</b>！在 G7 里 B 当三音、F 当七音；到 D♭7 里正好对调（F 当三音、B 当七音）。<b>刺是同一对，连一个音都没换</b>。连听最清楚——从 G7 换到 D♭7，F4 和 B4 在键盘上原地不动：</p>
+          <p>再用例子一的同一套流程拆它，一步到位：<b>① E7 吸向 Am 的刺是 G♯–D</b>（G♯↗A、D↘C）；<b>② B♭7 = B♭·D·F·A♭——里面的 D 和 A♭（=G♯）正是同一对刺</b>；<b>③ 所以 B♭7 照样把耳朵吸进 Am</b>——刺的化解和 E7 时完全一致（A♭=G♯ 半音蹭进 A、D 就近落到 C）；<b>④ 低音换成 B♭↘A 半音滑</b>：</p>
           <div class="row">
-            <span class="chip" data-play="seq:fgG7">🔊 G7 全貌（G3 F4 B4 D5）</span>
-            <span class="chip" data-play="notes:1,5,8,11">🔊 D♭7 全貌（D♭4 F4 A♭4 B4）</span>
-            <span class="chip" data-play="kseq:g7db7">🔊 连听 G7 → D♭7（外壳换了，刺原地不动）</span>
-          </div>
-          <p>③ 磁铁的本体就是那对刺，跟谁当根音无关——所以 D♭7 照样解决到 C，而且四个声部<b>全部半音滑动</b>（D♭↘C、F↘E、A♭↘G、B↗C）：</p>
-          <div class="row">
-            <span class="chip" data-play="kseq:fgG7C">🔊 正面装：G7 → C（低音跳五度，掷地有声）</span>
-            <span class="chip" data-play="kseq:dbRes">🔊 背面装：D♭7 → C（四声部半音滑落，丝滑）</span>
-          </div>
-          <p>④ <b>效果的来源就在低音</b>：G→C 跳五度（句号斩钉截铁）；D♭→C 半音滑（悄悄进门）。单听两条低音线：</p>
-          <div class="row">
-            <span class="chip" data-play="mel:-5,-12">🔊 低音线 A：G3 → C3（跳五度）</span>
-            <span class="chip" data-play="mel:-11,-12">🔊 低音线 B：D♭3 → C3（半音滑落）</span>
-          </div>
-          <p style="font-size:12.5px;color:var(--muted)">名字由来：D♭ 是 C 大调第 2 级（D）降半音，记号写作 <b>♭II7</b>；行话叫 tritone substitution。</p>
-
-          <p><b>第四步 · 解剖情形二：副属 E7 怎么换成 B♭7？</b>一模一样的流程走一遍：E7（E·G♯·B·D）吸向 Am 的刺是 <b>G♯–D</b>（G♯↗A、D↘C）；E 隔三全音是 B♭，<b>B♭7 = B♭·D·F·A♭</b>——里面的 <b>D 和 A♭（=G♯）正是同一对刺</b>。所以 B♭7 照样把耳朵吸进 Am——刺的化解和 E7 时完全一致（A♭=G♯ 半音蹭进 A、D 就近落到 C），低音则换成 B♭↘A 半音滑：</p>
-          <div class="row">
-            <span class="chip" data-play="notes:-4,2">🔊 E7 的刺：G♯＋D</span>
-            <span class="chip" data-play="notes:-2,2,5,8">🔊 B♭7 全貌（B♭3 D4 F4 A♭4——同一对刺在里面）</span>
-            <span class="chip" data-play="seq:bb7Am">🔊 落点：B♭7 → Am（B♭↘A、F↘E、A♭↗A 半音滑；D↘C 就近落）</span>
+            <span class="chip" data-play="notes:-4,2">🔊 ① E7 的刺：G♯＋D</span>
+            <span class="chip" data-play="notes:-2,2,5,8">🔊 ② B♭7 全貌（B♭3 D4 F4 A♭4——同一对刺在里面）</span>
+            <span class="chip" data-play="seq:bb7Am">🔊 ③④ 落点：B♭7 → Am（B♭↘A、F↘E、A♭↗A 半音滑；D↘C 就近落）</span>
           </div>
 
-          <p><b>第五步 · 规律收束：任何属七都有一个「背面替身」。</b>为什么总是成对？因为三全音恰好是<b>八度的一半</b>：从 G 走 6 个半音到 D♭，再走 6 个半音又回到 G——两个根音互为镜像，三音和七音正好互换。再验证一对：C7（C·E·G·B♭）↔ F♯7（F♯·A♯·C♯·E），共享的刺是 <b>E＋B♭</b>：</p>
+          <p style="margin-top:14px;border-top:1px dashed var(--line);padding-top:12px"><b>【总结】任何属七都有一个「背面替身」。</b>为什么总是成对出现？因为三全音恰好是<b>八度的一半</b>：从 G 走 6 个半音到 D♭，再走 6 个半音又回到 G——两个根音互为镜像，三音和七音正好互换。再验证一对：C7（C·E·G·B♭）↔ F♯7（F♯·A♯·C♯·E），共享的刺是 <b>E＋B♭</b>：</p>
           <div class="row">
-            <span class="chip" data-play="notes:0,4,7,10">🔊 C7</span>
-            <span class="chip" data-play="notes:6,10,13,16">🔊 F♯7（隔三全音的镜像兄弟）</span>
-            <span class="chip" data-play="notes:4,10">🔊 它俩共享的刺：E4＋B♭4</span>
+            <span class="chip" data-play="notes:0,4,7,10">🔊 C7（C4 E4 G4 B♭4）</span>
+            <span class="chip" data-play="notes:-6,1,4,10">🔊 F♯7（F♯3 C♯4 E4 A♯4——镜像兄弟，E 和 B♭ 原封不动在里面）</span>
+            <span class="chip" data-play="notes:4,10">🔊 它俩共享的刺：E4＋B♭4（两只和弦里都是这同两个键）</span>
+            <span class="chip" data-play="kseq:c7fs7">🔊 连听 C7 → F♯7（外壳换了，刺原地不动）</span>
           </div>
           <p style="font-size:12.5px;color:var(--muted)">一句话收束：<b>属七的灵魂是那对三全音的刺；刺相同的两只属七可以互相顶班</b>。顶班之后低音从「跳五度」变「半音滑」——想要句号用正面（V7），想要丝滑用背面（♭II7）。</p>
         </div>
@@ -6073,6 +6085,7 @@ const SEQS = {
   // ㉔拓展 三全音替代：D♭7 与 G7 共享三全音 B–F
   tr251pln: [[2,5,9,12],[-5,5,11,14],[0,4,7,12]],              // Dm7 → G7(G3 F4 B4 D5) → C：低音 D→G→C 跳五度
   tr251sub: [[2,5,9,12],[1,5,8,11],[0,4,7,12]],                // Dm7 → D♭7(D♭4 F4 A♭4 B4) → C：低音 D→D♭→C 半音下楼
+  c7fs7:    [[0,4,7,10],[-6,1,4,10]],                          // C7(C4 E4 G4 B♭4) → F♯7(F♯3 C♯4 E4 A♯4)：镜像兄弟连听，共享的刺 E4+A♯4 原地不动
   g7db7:    [[-5,5,11,14],[1,5,8,11]],                         // G7(G3 F4 B4 D5) → D♭7(D♭4 F4 A♭4 B4)：外壳换了，刺 F4+B4 原地不动
   csubB:    [[-12,-8,-5],[-2,2,5,8],[-3,0,4,9]],               // C(C3 E3 G3) → B♭7(B♭3 D4 F4 A♭4) → Am(A3 C4 E4 A4)：副属 E7 的三全音替身，滑进 Am
   bb7Am:    [[-2,2,5,8],[-3,0,4,9]],                           // 单独看落点：B♭7 → Am（B♭↘A、F↘E、A♭↗A 半音；D↘C 全音，与 E7 解决同落点）
