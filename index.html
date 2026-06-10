@@ -1583,30 +1583,28 @@ function teachEN(mId){
         <div style="line-height:1.85;color:#e9e3ff">
           <p>So far the filters played in isolation — their real craft shows <b>inside a song</b>. Three proving grounds below, all built on level ⑭'s frames plus a melody, with one rule throughout: <b>swap exactly one chord per trial, melody untouched</b> (the melody deliberately steps only on tones every variant shares, so 100% of the color change comes from that one chord).</p>
 
-          <p><b>Ground 1 · the verse's opening slot (the home's complexion).</b> Frame: the front half of 1564 (C?–G–Am–F); melody C5·G4｜D5·B4｜C5·A4｜A4. Only slot one changes:</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtA:plain">🔊 Bare C: clean and plainspoken — a folk-song opening</span>
-            <span class="chip" data-play="mc:filtA:add9">🔊 Cadd9: one shimmer on top — clear, youthful (guitar-pop's default opener)</span>
-            <span class="chip" data-play="mc:filtA:maj9">🔊 Cmaj9: stack the maj7 too — the line slips into urban neon, instantly a night song</span>
-            <span class="chip" data-play="mc:filtA:sus2">🔊 Contrast Csus2: 3rd swapped for 2nd — the opening floats, story-like but unsettled</span>
-            <span class="chip" data-play="mc:filtA:c6">🔊 C6: add the major 6th — vintage warmth, like an old record starting</span>
-          </div>
+          <p><b>Ground 1 · the verse's opening slot (the home's complexion).</b> Frame: the front half of 1564 (C?–G–Am–F); melody <b style="color:var(--p3)">C5·G4｜D5·B4｜C5·A4｜A4</b>. Only slot one changes:</p>
+          <table class="ctab"><tr><th>Version</th><th>Slot-one notes (tap)</th><th>vs the bare triad</th><th>Whole phrase</th><th>Character</th></tr>
+            <tr><td>Bare C</td><td class="play" data-play="notes:0,4,7">C·E·G</td><td>— baseline</td><td class="play" data-play="mc:filtA:plain">▶ phrase</td><td>clean and plainspoken — a folk-song opening</td></tr>
+            <tr><td>Cadd9</td><td class="play" data-play="notes:0,4,7,14">C·E·G·<b>D5</b></td><td><b>＋D</b> (shimmer on top)</td><td class="play" data-play="mc:filtA:add9">▶ phrase</td><td>clear, youthful (guitar-pop's default opener)</td></tr>
+            <tr><td>Cmaj9</td><td class="play" data-play="notes:0,4,7,11,14">C·E·G·<b>B·D5</b></td><td><b>＋B＋D</b> (double neon)</td><td class="play" data-play="mc:filtA:maj9">▶ phrase</td><td>urban neon — instantly a night song</td></tr>
+            <tr><td>Csus2 (contrast)</td><td class="play" data-play="notes:0,2,7">C·<b>D</b>·G</td><td><b>E→D</b> (3rd swapped for 2nd)</td><td class="play" data-play="mc:filtA:sus2">▶ phrase</td><td>the opening floats — story-like but unsettled</td></tr>
+            <tr><td>C6</td><td class="play" data-play="notes:0,4,7,9">C·E·G·<b>A</b></td><td><b>＋A</b> (major 6th)</td><td class="play" data-play="mc:filtA:c6">▶ phrase</td><td>vintage warmth, like an old record starting</td></tr></table>
+          <p style="font-size:12px;color:var(--muted);margin-top:4px">During whole-phrase playback the <b style="color:var(--p3)">melody keys light up in green</b> and the swapped slot in <b style="color:var(--p2)">gold</b> — green stays put, gold is what changes.</p>
           <p style="font-size:12.5px;color:var(--muted)">Listen for it: the melody's first bar sings only C and G, caught safely by all five versions — what changes is the filter on the home below: bare = plain, add9 = shimmer, maj9 = neon, sus2 = floating, 6 = vintage. The opening slot's filter all but sets the song's complexion.</p>
 
-          <p><b>Ground 2 · the slot before the period (the flavor of the push).</b> Frame: the 1645 close (C–Am–G?–C); melody E5·C5｜C5·A4｜D5·G4｜C5. Only the dominant slot changes:</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtB:plain">🔊 Bare G: the standard push — crisp homecoming</span>
-            <span class="chip" data-play="mc:filtB:g9">🔊 G9: a 9th on the dominant — push intact, plus a jazzy surge (R&B's line-ending regular)</span>
-            <span class="chip" data-play="mc:filtB:gsus4">🔊 Contrast Gsus4: 3rd swapped for 4th — hang first, then land; the tender tease (level ⑮'s old friend)</span>
-          </div>
+          <p><b>Ground 2 · the slot before the period (the flavor of the push).</b> Frame: the 1645 close (C–Am–G?–C); melody <b style="color:var(--p3)">E5·C5｜C5·A4｜D5·G4｜C5</b>. Only the dominant slot changes:</p>
+          <table class="ctab"><tr><th>Version</th><th>Dominant-slot notes (tap)</th><th>vs the bare triad</th><th>Whole phrase</th><th>Character</th></tr>
+            <tr><td>Bare G</td><td class="play" data-play="notes:-5,-1,2">G·B·D</td><td>— baseline</td><td class="play" data-play="mc:filtB:plain">▶ phrase</td><td>the standard push — crisp homecoming</td></tr>
+            <tr><td>G9</td><td class="play" data-play="notes:-5,-1,2,5,9">G·B·D·<b>F·A</b></td><td><b>＋F＋A</b> (7th + 9th)</td><td class="play" data-play="mc:filtB:g9">▶ phrase</td><td>push intact, plus a jazzy surge (R&B's line-ending regular)</td></tr>
+            <tr><td>Gsus4 (contrast)</td><td class="play" data-play="notes:-5,0,2">G·<b>C</b>·D</td><td><b>B→C</b> (3rd swapped for 4th)</td><td class="play" data-play="mc:filtB:gsus4">▶ phrase</td><td>hang first, then land — the tender tease (level ⑮)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">Listen for it: the same "about to go home" position — bare = a clean period, plus-9 = a surging period, sus4 = suspended then landed. The dominant slot's filter governs <b>the taste of the homecoming itself</b>.</p>
 
-          <p><b>Ground 3 · the melancholy closing slot (the humidity).</b> Frame: 4536 (F–G–Em–Am?); melody C5·A4｜B4·G4｜G4·E4｜A4. Only the last slot changes:</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtC:plain">🔊 Bare Am: melancholy closed dry and tidy</span>
-            <span class="chip" data-play="mc:filtC:am7">🔊 Am7: add the minor 7th — the gloom softens, less rigid</span>
-            <span class="chip" data-play="mc:filtC:am9">🔊 Am9: add the 9th too — gloom turns relaxed; the humidity of city rain at night (City Pop / R&B endings)</span>
-          </div>
+          <p><b>Ground 3 · the melancholy closing slot (the humidity).</b> Frame: 4536 (F–G–Em–Am?); melody <b style="color:var(--p3)">C5·A4｜B4·G4｜G4·E4｜A4</b>. Only the last slot changes:</p>
+          <table class="ctab"><tr><th>Version</th><th>Final-slot notes (tap)</th><th>vs the bare triad</th><th>Whole phrase</th><th>Character</th></tr>
+            <tr><td>Bare Am</td><td class="play" data-play="notes:-3,0,4">A·C·E</td><td>— baseline</td><td class="play" data-play="mc:filtC:plain">▶ phrase</td><td>melancholy closed dry and tidy</td></tr>
+            <tr><td>Am7</td><td class="play" data-play="notes:-3,0,4,7">A·C·E·<b>G</b></td><td><b>＋G</b> (the damp 7th)</td><td class="play" data-play="mc:filtC:am7">▶ phrase</td><td>the gloom softens, less rigid</td></tr>
+            <tr><td>Am9</td><td class="play" data-play="notes:-3,0,4,7,11">A·C·E·<b>G·B</b></td><td><b>＋G＋B</b> (mist rolls in)</td><td class="play" data-play="mc:filtC:am9">▶ phrase</td><td>gloom turns relaxed — city rain at night (City Pop / R&B endings)</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">Listen for it: 4536 already ends on melancholy; the filter tunes its <b>humidity</b> — triad dry, m7 damp, m9 misted. The three grounds in one line: <b>to change a song's complexion, re-filter one slot — the melody usually needn't move a single note.</b></p>
         </div>
       </details>
@@ -1835,7 +1833,7 @@ function teachEN(mId){
             <span class="chip" data-play="seq:vcFree">🔊 Regular: bass walks with the chords (F3–G3–A3→C3)</span>
             <span class="chip" data-play="seq:vcPedal">🔊 Pedal point: bass nailed to G3 (coil → release)</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">You met its cousin in level ⑬: F/G is essentially "a G pedal + an F chord".</p>
+          <p style="font-size:12.5px;color:var(--muted)">You met its cousin in level ⑬: F/G is essentially "a G pedal + an F chord". On charts such passages are written with level ⑩'s <b>slash notation</b> (F/G, Am/G… the nailed note after the slash); level ⑩ also demos its twin, the <b>tonic pedal</b> (C–F/C–G/C–C).</p>
         </div>
       </details>
 
@@ -2102,6 +2100,7 @@ function teachEN(mId){
       <table class="ctab"><tr><th>Case</th><th>Examples</th><th>How to play</th></tr>
         <tr><td>Bass <b>is</b> a chord tone</td><td>C/E, G/B, C/G</td><td>Play an <b>inversion</b> (same notes, new lowest); or keep the triad and add the bass below</td></tr>
         <tr><td>Bass is <b>not</b> a chord tone</td><td>C/D, F/G</td><td>No inversion exists — <b>keep the triad as is and add that bass underneath</b></td></tr></table>
+      <p style="font-size:13px">Notation mastered — now its <b>two field uses</b> for commanding the bass: ① <b>walk the bass</b> (the Canon stairs below); ② <b>nail the bass</b> (the pedal, right after).</p>
       <p>The Canon descent is the classic "bass down the staircase" pattern: the bass walks <b>C4→B3→A3→G3→F3</b> step by step. Real songs usually <b>loop</b> it — tap once to hear, or loop it directly:</p>
       <div class="row"><span class="chip" data-play="kloopseq:canonS">🔁 Canon descent: C→G/B→Am→C/G→F (bass C4 B3 A3 G3 F3)</span></div>
       ${keyBar(false,true)}
@@ -2111,6 +2110,25 @@ function teachEN(mId){
         <span class="chip" data-play="hr:canonS:4">🔊 One stair per bar (stately — the Baroque gait)</span>
         <span class="chip" data-play="hr:canonS:2">🔊 One per two beats (flowing — the pop gait)</span>
       </div>
+
+      <details class="note"><summary>Extra: the slash's other big job — nailing the bass (the pedal)</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The Canon move was "<b>chords steady, bass walking</b>"; the slash works in reverse too — "<b>chords moving, bass nailed down</b>". The commonest form is the <b>tonic pedal</b>: the bass bites onto the tonic C for the whole passage while F and G change above, written <b>C–F/C–G/C–C</b>. Compare:</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:pedFree">🔊 Bass follows: C→F→G→C (each slot's bass = its root — the default)</span>
+            <span class="chip" data-play="kseq:pedTon">🔊 Bass nailed: C→F/C→G/C→C (the bass stays C throughout — a calm, hazy bed)</span>
+          </div>
+          ${keyBar(false,true)}
+          <p><b>Slot by slot: is each slash an inversion or an added bass?</b> The beauty: this one passage uses each of this level's "two cases" exactly once (tap any cell to hear):</p>
+          <table class="ctab"><tr><th>Slot</th><th>The bass C's status</th><th>Realization</th><th>Keys actually pressed (tap)</th></tr>
+            <tr><td>① C</td><td>already the root</td><td>root position</td><td class="play" data-play="notes:0,4,7">C4·E4·G4</td></tr>
+            <tr><td>② F/C</td><td>C is the <b>5th of F</b> (F·A·C) — a chord tone</td><td><b>inversion</b> (F's 2nd inversion)</td><td class="play" data-play="notes:0,5,9">C4·F4·A4</td></tr>
+            <tr><td>③ G/C</td><td>C is <b>not</b> in G (G·B·D) — an outside note</td><td><b>added bass</b>: the G triad untouched, C added beneath</td><td class="play" data-play="notes:0,7,11,14">C4＋G4·B4·D5</td></tr>
+            <tr><td>④ C</td><td>home again</td><td>root position</td><td class="play" data-play="notes:0,4,7">C4·E4·G4</td></tr></table>
+          <p>Listen for it: under the unmoving C, F's "departure" and G's "tension" both wear <b>a veil of calm</b> — the harmony moves, yet the sentence never seems to leave home. Pop intros and verse openings adore it: motion without breaking the "not yet departed" air.</p>
+          <p style="font-size:12.5px;color:var(--muted)">Two relatives: nail the <b>dominant G</b> instead and you get the "coiling" version — level ⑬ dissects its star, F/G, and level ㉘'s move three turns that dominant-pedal coil into hand craft. The notation never changes: <b>the nailed note goes after the slash</b>.</p>
+        </div>
+      </details>
 
       <details class="note"><summary>Extra: C/G before the period — the bass arrives at the door first</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -4145,30 +4163,28 @@ function teachCN(mId){
         <div style="line-height:1.85;color:#e9e3ff">
           <p>上面听的都是孤立和弦——滤镜的真本事要<b>放进歌里</b>才看得清。下面三个试验场都是⑭关的套路骨架＋一句旋律，规则统一：<b>每次只换一格和弦，旋律一个音不动</b>（旋律刻意只踩所有变体共有的内音，所以听到的色彩差异 100% 来自那一格和弦本身）。</p>
 
-          <p><b>试验场一 · 主歌第一格（家的气质）。</b>骨架 1564 前半（C?–G–Am–F），旋律 C5·G4｜D5·B4｜C5·A4｜A4。只换第一格：</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtA:plain">🔊 素颜 C：干净直白，民谣/儿歌的开场</span>
-            <span class="chip" data-play="mc:filtA:add9">🔊 Cadd9：头顶多一层波光：清澈、少年感（吉他流行的标配开场）</span>
-            <span class="chip" data-play="mc:filtA:maj9">🔊 Cmaj9：再叠大七：整句蒙上都市霓虹，瞬间「夜里的歌」</span>
-            <span class="chip" data-play="mc:filtA:sus2">🔊 对照 Csus2：三音换成二音：开场悬着，故事感但站不稳</span>
-            <span class="chip" data-play="mc:filtA:c6">🔊 C6：加大六度：复古的暖，像老唱片的开头</span>
-          </div>
+          <p><b>试验场一 · 主歌第一格（家的气质）。</b>骨架 1564 前半（C?–G–Am–F），旋律 <b style="color:var(--p3)">C5·G4｜D5·B4｜C5·A4｜A4</b>。只换第一格：</p>
+          <table class="ctab"><tr><th>版本</th><th>第一格的音（可点单听）</th><th>与素颜的差异</th><th>整句试听</th><th>气质</th></tr>
+            <tr><td>素颜 C</td><td class="play" data-play="notes:0,4,7">C·E·G</td><td>——基准</td><td class="play" data-play="mc:filtA:plain">▶ 整句</td><td>干净直白，民谣/儿歌的开场</td></tr>
+            <tr><td>Cadd9</td><td class="play" data-play="notes:0,4,7,14">C·E·G·<b>D5</b></td><td><b>＋D</b>（头顶波光）</td><td class="play" data-play="mc:filtA:add9">▶ 整句</td><td>清澈、少年感（吉他流行的标配开场）</td></tr>
+            <tr><td>Cmaj9</td><td class="play" data-play="notes:0,4,7,11,14">C·E·G·<b>B·D5</b></td><td><b>＋B＋D</b>（霓虹双层）</td><td class="play" data-play="mc:filtA:maj9">▶ 整句</td><td>都市霓虹，瞬间「夜里的歌」</td></tr>
+            <tr><td>Csus2（对照）</td><td class="play" data-play="notes:0,2,7">C·<b>D</b>·G</td><td><b>E→D</b>（三音换二音）</td><td class="play" data-play="mc:filtA:sus2">▶ 整句</td><td>开场悬着，故事感但站不稳</td></tr>
+            <tr><td>C6</td><td class="play" data-play="notes:0,4,7,9">C·E·G·<b>A</b></td><td><b>＋A</b>（大六度）</td><td class="play" data-play="mc:filtA:c6">▶ 整句</td><td>复古的暖，像老唱片的开头</td></tr></table>
+          <p style="font-size:12px;color:var(--muted);margin-top:4px">整句播放时，<b style="color:var(--p3)">旋律琴键以绿色点亮</b>、被替换的那格和弦以<b style="color:var(--p2)">金色</b>特别点亮——绿的不动、金的在变，差异一目了然。</p>
           <p style="font-size:12.5px;color:var(--muted)">听点：旋律首格只唱 C 和 G 两个音，五个版本里它都被稳稳接住——变的只是底下那格「家」的滤镜：素颜＝直白、add9＝波光、maj9＝霓虹、sus2＝悬空、6＝复古。开场第一格的滤镜，基本就定了整首歌的气质。</p>
 
-          <p><b>试验场二 · 句号前那格（推力的口味）。</b>骨架 1645 收束（C–Am–G?–C），旋律 E5·C5｜C5·A4｜D5·G4｜C5。只换属和弦那格：</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtB:plain">🔊 素颜 G：标准推力，干脆回家</span>
-            <span class="chip" data-play="mc:filtB:g9">🔊 G9：属和弦加 9：推力不减、多了爵士的涌动（R&B 句尾常客）</span>
-            <span class="chip" data-play="mc:filtB:gsus4">🔊 对照 Gsus4：三音换成四音：悬一下才回家，深情卖关子（⑮关的老朋友）</span>
-          </div>
+          <p><b>试验场二 · 句号前那格（推力的口味）。</b>骨架 1645 收束（C–Am–G?–C），旋律 <b style="color:var(--p3)">E5·C5｜C5·A4｜D5·G4｜C5</b>。只换属和弦那格：</p>
+          <table class="ctab"><tr><th>版本</th><th>属格的音（可点单听）</th><th>与素颜的差异</th><th>整句试听</th><th>气质</th></tr>
+            <tr><td>素颜 G</td><td class="play" data-play="notes:-5,-1,2">G·B·D</td><td>——基准</td><td class="play" data-play="mc:filtB:plain">▶ 整句</td><td>标准推力，干脆回家</td></tr>
+            <tr><td>G9</td><td class="play" data-play="notes:-5,-1,2,5,9">G·B·D·<b>F·A</b></td><td><b>＋F＋A</b>（七音+九音）</td><td class="play" data-play="mc:filtB:g9">▶ 整句</td><td>推力不减、多了爵士的涌动（R&B 句尾常客）</td></tr>
+            <tr><td>Gsus4（对照）</td><td class="play" data-play="notes:-5,0,2">G·<b>C</b>·D</td><td><b>B→C</b>（三音换四音）</td><td class="play" data-play="mc:filtB:gsus4">▶ 整句</td><td>悬一下才回家，深情卖关子（⑮关的老朋友）</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">听点：同一个「准备回家」的位置，素颜＝利落句号、加9＝带涌动的句号、sus4＝先吊住再落。属格的滤镜管的是<b>回家那一下的口味</b>。</p>
 
-          <p><b>试验场三 · 收尾的忧郁格（湿度）。</b>骨架 4536（F–G–Em–Am?），旋律 C5·A4｜B4·G4｜G4·E4｜A4。只换最后一格：</p>
-          <div class="row">
-            <span class="chip" data-play="mc:filtC:plain">🔊 素颜 Am：忧郁收住，干燥利落</span>
-            <span class="chip" data-play="mc:filtC:am7">🔊 Am7：加小七：忧郁被柔化，没那么「硬」了</span>
-            <span class="chip" data-play="mc:filtC:am9">🔊 Am9：再加 9：忧郁变松弛，城市夜雨的湿度（City Pop / R&B 收尾）</span>
-          </div>
+          <p><b>试验场三 · 收尾的忧郁格（湿度）。</b>骨架 4536（F–G–Em–Am?），旋律 <b style="color:var(--p3)">C5·A4｜B4·G4｜G4·E4｜A4</b>。只换最后一格：</p>
+          <table class="ctab"><tr><th>版本</th><th>末格的音（可点单听）</th><th>与素颜的差异</th><th>整句试听</th><th>气质</th></tr>
+            <tr><td>素颜 Am</td><td class="play" data-play="notes:-3,0,4">A·C·E</td><td>——基准</td><td class="play" data-play="mc:filtC:plain">▶ 整句</td><td>忧郁收住，干燥利落</td></tr>
+            <tr><td>Am7</td><td class="play" data-play="notes:-3,0,4,7">A·C·E·<b>G</b></td><td><b>＋G</b>（小七回潮）</td><td class="play" data-play="mc:filtC:am7">▶ 整句</td><td>忧郁被柔化，没那么「硬」了</td></tr>
+            <tr><td>Am9</td><td class="play" data-play="notes:-3,0,4,7,11">A·C·E·<b>G·B</b></td><td><b>＋G＋B</b>（起雾）</td><td class="play" data-play="mc:filtC:am9">▶ 整句</td><td>忧郁变松弛，城市夜雨的湿度（City Pop / R&B 收尾）</td></tr></table>
           <p style="font-size:12.5px;color:var(--muted)">听点：4536 的句尾本来就落在忧郁上，滤镜调的是<b>湿度</b>——三和弦干燥、m7 回潮、m9 起雾。三个试验场合起来一句话：<b>写歌想换气质，先挑一格换滤镜，旋律往往一个音都不用动。</b></p>
         </div>
       </details>
@@ -4395,7 +4411,7 @@ function teachCN(mId){
             <span class="chip" data-play="seq:vcFree">🔊 常规版：低音跟着和弦走（F3–G3–A3→C3）</span>
             <span class="chip" data-play="seq:vcPedal">🔊 持续低音版：低音钉死 G3（蓄力→爆发）</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">第⑬关你已经见过它的亲戚：F/G 本质就是"G 持续低音 + F 和弦"。</p>
+          <p style="font-size:12.5px;color:var(--muted)">第⑬关你已经见过它的亲戚：F/G 本质就是"G 持续低音 + F 和弦"。谱上这类段落正是用⑩关的<b>斜杠记号</b>写的（F/G、Am/G……钉住的音写在斜杠右边）；⑩关还演示过它的孪生兄弟——<b>主音持续</b>（C–F/C–G/C–C）。</p>
         </div>
       </details>
 
@@ -4664,6 +4680,7 @@ function teachCN(mId){
       <table class="ctab"><tr><th>情况</th><th>例子</th><th>怎么弹</th></tr>
         <tr><td>低音<b>是</b>和弦内音</td><td>C/E、G/B、C/G</td><td>弹<b>转位</b>(同一组音换最低音)；也可三和弦不动、底下再加低音</td></tr>
         <tr><td>低音<b>不是</b>和弦内音</td><td>C/D、F/G</td><td>没有对应的转位——<b>三和弦原样不动，底下直接加上那个低音</b></td></tr></table>
+      <p style="font-size:13px">记号会读了，再看它指挥低音的<b>两大实战用途</b>：①<b>让低音走线</b>（下面的卡农台阶）；②<b>让低音钉住</b>（再下面的持续低音）。</p>
       <p>卡农式下行是最经典的"低音下台阶"套路：低音 <b>C4→B3→A3→G3→F3</b> 一级一级往下走。真歌里通常<b>循环</b>着用——点一遍听，或直接循环起来感受：</p>
       <div class="row"><span class="chip" data-play="kloopseq:canonS">🔁 卡农下行：C→G/B→Am→C/G→F（低音 C4 B3 A3 G3 F3）</span></div>
       ${keyBar(false,true)}
@@ -4673,6 +4690,25 @@ function teachCN(mId){
         <span class="chip" data-play="hr:canonS:4">🔊 一小节一级（庄重，巴洛克步态）</span>
         <span class="chip" data-play="hr:canonS:2">🔊 两拍一级（流动，流行歌步态）</span>
       </div>
+
+      <details class="note"><summary>拓展：斜杠的另一大用途：钉住低音（持续低音）</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>卡农那招是「<b>和弦稳、低音走</b>」；斜杠还能反过来用——「<b>和弦走、低音钉死</b>」。最常见的是<b>主音持续</b>：整段低音咬住主音 C 不放，上方 F、G 照常换，谱上就写 <b>C–F/C–G/C–C</b>。对比听：</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:pedFree">🔊 低音跟走：C→F→G→C（每格低音＝根音，常规）</span>
+            <span class="chip" data-play="kseq:pedTon">🔊 低音钉死：C→F/C→G/C→C（低音一直是 C——安稳、朦胧的铺底）</span>
+          </div>
+          ${keyBar(false,true)}
+          <p><b>逐格拆开：每个斜杠分别是「转位」还是「硬加」？</b>妙处在于，这一段恰好把本关的「两种情况」各用了一遍（每格可点单听）：</p>
+          <table class="ctab"><tr><th>格子</th><th>低音 C 的身份</th><th>实现方式</th><th>实际按的音（可点）</th></tr>
+            <tr><td>① C</td><td>本来就是根音</td><td>原位</td><td class="play" data-play="notes:0,4,7">C4·E4·G4</td></tr>
+            <tr><td>② F/C</td><td>C 是 F 和弦（F·A·C）的<b>五音——内音</b></td><td><b>转位</b>（F 的第二转位）</td><td class="play" data-play="notes:0,5,9">C4·F4·A4</td></tr>
+            <tr><td>③ G/C</td><td>C <b>不在</b> G 和弦（G·B·D）里——<b>外音</b></td><td><b>硬加</b>：G 三和弦原样不动、底下加 C</td><td class="play" data-play="notes:0,7,11,14">C4＋G4·B4·D5</td></tr>
+            <tr><td>④ C</td><td>回家</td><td>原位</td><td class="play" data-play="notes:0,4,7">C4·E4·G4</td></tr></table>
+          <p>听点：钉死版里 F 的「出发」、G 的「紧张」都被那个不动的 C <b>蒙上一层安稳</b>——和声在动，句子却像没离开过家。流行歌的前奏和主歌开头极爱用它：有变化，又不破坏「还没出发」的氛围。</p>
+          <p style="font-size:12.5px;color:var(--muted)">两位亲戚：把钉住的音换成<b>属音 G</b> 就是「蓄力版」——⑬关会拆它的代表 F/G，㉘关第三式会把这种属持续蓄力练成手感。记号都是同一个：<b>斜杠右边写那个钉住的音</b>。</p>
+        </div>
+      </details>
 
       <details class="note"><summary>拓展：句号前的 C/G：低音先到门口站好</summary>
         <div style="line-height:1.8;color:#e9e3ff">
@@ -5988,7 +6024,7 @@ function bindTeachPlays(root){
         await playHR(SEQS[a[1]], per, {antic:f.includes("a"), late:f.includes("l")?1:0, meter:f.includes("3")?3:4}); }
       else if(cmd.startsWith("mc:")){ const a=cmd.split(":"); const d=MELODIES[a[1]];
         if(a[2]==="melody") await playSemis(d.mel.filter(x=>x!==null).map(x=>x+12),60,true,"2n",{stack:false,gap:0.55});
-        else await playMC(d.mel, d[a[2]||"good"], d.per); }
+        else await playMC(d.mel, d[a[2]||"good"], d.per, d.hi); }
       else if(cmd.startsWith("mel:")){ await playSemis(cmd.slice(4).split(",").map(Number),60,true,"2n",{stack:false,gap:0.6}); } // 纯旋律逐个弹，不合奏
       else if(cmd.startsWith("note:")){ await playSemis([+cmd.slice(5)],60,false,"2n"); } // 单个音
       else if(cmd.startsWith("prog:")){ await playProgression(cmd.slice(5)); }
@@ -6191,6 +6227,9 @@ const SEQS = {
   mlWhole:  [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[2,6,9],[9,13,16],[11,14,18],[7,11,14]], // 第二遍整体升全音
   mlRel:    [[9,12,16],[5,9,12],[9,12,16],[7,11,14],[0,4,7],[5,9,12],[7,11,14],[0,4,7,12]],// 暗主歌(Am F Am G)→亮副歌(C F G C)
   b3Move:   [[0,4,7],[3,7,10],[5,9,12],[0,4,7,12]],  // 借 ♭III：C → E♭ → F → C（突然变宽的转折）
+  // ⑩拓展 钉住低音：主音持续（C–F/C–G/C–C）vs 低音跟走对照
+  pedTon:  [[0,4,7],[0,5,9],[0,7,11,14],[0,4,7]],  // C → F/C(C4 F4 A4) → G/C(C4 G4 B4 D5) → C：低音咬住 C4 不放
+  pedFree: [[0,4,7],[5,9,12],[7,11,14],[0,4,7]],   // 对照：C → F → G → C，低音跟根音走 C4 F4 G4 C4
   // ⑩拓展 终止四六雏形：句号前低音提前站上 G
   k64no:    [[-7,-3,0],[-5,-1,2,5],[-12,0,4,7]],               // 普通收尾 F(F3 A3 C4) → G7(G3 B3 D4 F4) → C(C3 C4 E4 G4)
   k64yes:   [[-7,-3,0],[-5,0,4],[-5,-1,2,5],[-12,0,4,7]],      // 仪式版 F → C/G(G3 C4 E4) → G7 → C：低音提前两拍到 G
@@ -6256,18 +6295,24 @@ async function playHR(chords, perChord, opts={}){
   lastPlayed=events; markPlayUntil(events);
 }
 // 旋律+和弦：旋律每拍一音(高声部)，和弦每 perChord 拍一换(低声部轻奏)；mel 里 null=延音占位
-async function playMC(mel, chords, perChord){
+// hi=要"金色特别展示"的和弦下标：该格琴键在其时值内以金色高亮（hint 通道），格末熄灭
+async function playMC(mel, chords, perChord, hi){
   await initAudio(); const now=Tone.now(); const events=[]; const BEAT=0.55;
   chords.forEach((cs,ci)=>{
     const t=ci*perChord*BEAT;
     synth.triggerAttackRelease(cs.map(x=>semiToName(x,48)), perChord>=4?"1n":"2n", now+t, 0.5);
-    events.push({midis:cs.map(x=>48+x), t, dur: perChord>=4?"1n":"2n"});
+    // 高亮格：常规事件只保留清屏时序（空 midis），琴键全部交给金色通道——避免紫色 reveal 盖住金色
+    events.push({midis:(hi===ci)?[]:cs.map(x=>48+x), t, dur: perChord>=4?"1n":"2n"});
+    if(hi===ci){
+      events.push({midis:cs.map(x=>48+x), t:t+0.07, dur:"16n", hint:true});           // 金色与发声同刻点亮
+      events.push({midis:[], t:t+perChord*BEAT-0.03, dur:"16n", hint:true});           // 格末清掉
+    }
   });
   mel.forEach((m,k)=>{
     if(m===null) return;
     const dur = (k===mel.length-1 || mel[k+1]===null) ? "2n" : "4n";
     synth.triggerAttackRelease(semiToName(m,72), dur, now+k*BEAT, 0.95);
-    events.push({midis:[72+m], t:k*BEAT, dur});
+    events.push({midis:[72+m], t:k*BEAT, dur, mel:true}); // mel 标记：键盘上以绿色（vto）点亮
   });
   lastPlayed=events; markPlayUntil(events);
 }
@@ -6283,17 +6328,17 @@ const MELODIES = {
   home: {mel:[4,2,2,0,0,null,null,null], per:2, good:[[12,16,19],[7,11,14],[12,16,19],[12,16,19]],
          dec:[[12,16,19],[7,11,14],[9,12,16],[9,12,16]]},   // E D D C——：句号版 …G→C；拖一段版 …G→Am(阻碍终止)
   // ㉕ 滤镜试验场：三个流行骨架，每次只换一格，旋律不动（旋律音刻意避开滤镜音位，颜色全由和弦决定）
-  filtA:{mel:[12,7,14,11,12,9,9,null], per:2,                                  // 骨架 1564 前半：C?–G–Am–F；旋律 C5 G4|D5 B4|C5 A4|A4—（首格只踩 C/G，五个变体全接得住）
+  filtA:{mel:[0,-5,2,-1,0,-3,-3,null], per:2, hi:0,                                  // 骨架 1564 前半：C?–G–Am–F；旋律 C5 G4|D5 B4|C5 A4|A4—（首格只踩 C/G，五个变体全接得住）
     plain:[[12,16,19],[7,11,14],[9,12,16],[5,9,12]],
     add9:[[12,16,19,26],[7,11,14],[9,12,16],[5,9,12]],
     maj9:[[12,16,19,23,26],[7,11,14],[9,12,16],[5,9,12]],
     sus2:[[12,14,19],[7,11,14],[9,12,16],[5,9,12]],
     c6:[[12,16,19,21],[7,11,14],[9,12,16],[5,9,12]]},
-  filtB:{mel:[16,12,12,9,14,7,12,null], per:2,                                 // 骨架 1645 收束：C–Am–G?–C；旋律 E5 C5|C5 A4|D5 G4|C5—（属格只踩 G/D，三个变体全接得住）
+  filtB:{mel:[4,0,0,-3,2,-5,0,null], per:2, hi:2,                                 // 骨架 1645 收束：C–Am–G?–C；旋律 E5 C5|C5 A4|D5 G4|C5—（属格只踩 G/D，三个变体全接得住）
     plain:[[12,16,19],[9,12,16],[7,11,14],[12,16,19]],
     g9:[[12,16,19],[9,12,16],[7,11,14,17,21],[12,16,19]],
     gsus4:[[12,16,19],[9,12,16],[7,12,14],[12,16,19]]},
-  filtC:{mel:[12,9,11,7,7,4,9,null], per:2,                                    // 骨架 4536：F–G–Em–Am?；旋律 C5 A4|B4 G4|G4 E4|A4—（末格只踩 A，三个变体全接得住）
+  filtC:{mel:[0,-3,-1,-5,-5,-8,-3,null], per:2, hi:3,                                    // 骨架 4536：F–G–Em–Am?；旋律 C5 A4|B4 G4|G4 E4|A4—（末格只踩 A，三个变体全接得住）
     plain:[[5,9,12],[7,11,14],[4,7,11],[9,12,16]],
     am7:[[5,9,12],[7,11,14],[4,7,11],[9,12,16,19]],
     am9:[[5,9,12],[7,11,14],[4,7,11],[9,12,16,19,23]]},
@@ -9697,8 +9742,8 @@ function lightAlong(rootSel="#piano"){
     later(()=>{                          // 稍后再点亮 → 共有音也会"重新亮一下"
       ev.midis.forEach(m=>{
         const exact=root.querySelector(`.key[data-m="${m}"]`);
-        const keys = exact ? [exact] : [...root.querySelectorAll(`.key[data-pc="${m%12}"]`)];
-        keys.forEach(k=>k.classList.add("reveal"));
+        const keys = exact ? [exact] : (ev.mel ? [] : [...root.querySelectorAll(`.key[data-pc="${m%12}"]`)]); // 旋律只点精确键，不做同名回退
+        keys.forEach(k=>k.classList.add(ev.mel ? "vto" : "reveal"));
       });
     }, at+70);
     if(idx===lastPlayed.length-1) later(()=>{ clearAll(); clearHint(); }, at+70+durToMs(ev.dur)); // 末尾全部熄灭
