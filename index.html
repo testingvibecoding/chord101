@@ -1623,7 +1623,7 @@ function teachEN(mId){
       <p style="color:var(--muted);font-size:13px">This level's drills: the makeup of add9, telling add9 from sus2 and from C9, blind-hearing plain / maj7 / add9, picking a filter by mood, and building add9 chords.</p>`;
 
     case "passdim": return `
-      <p>Level ⑩ taught the arranging aesthetic: <b>a bass that walks in steps sounds best</b>. But moving C to Dm, the bass jumps C→D across a whole step — the chromatic slot in between (C♯) sits empty. Pop players' favorite filler is the <b>passing diminished 7th</b>:</p>
+      <p>Level ⑩ taught the arranging aesthetic: <b>a bass that walks in steps sounds best</b>. But moving C to Dm, the bass jumps C→D across a whole step — the chromatic slot in between (C♯) sits empty. Pop players' favorite filler is the <b>passing diminished 7th</b> (the term is unpacked just below):</p>
       <div class="row">
         <span class="chip" data-play="seq:pdPlain">🔊 Straight: C → Dm7 (bass leaps the gap)</span>
         <span class="chip" data-play="seq:pdSmooth">🔊 With glue: C → C♯°7 → Dm7 (bass climbs by half steps)</span>
@@ -1667,24 +1667,51 @@ function teachEN(mId){
         </div>
       </details>
 
-      <details class="note"><summary>Extra: the lift also fits between 5 and 6 (♯V°7)</summary>
+      <details class="note"><summary>Extra: the universal template — between which slots can the lift go? (not just C–D)</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Same trick, new location: degrees 5 and 6 are also a whole step apart (G→A), the slot between — <b>G♯</b> — equally vacant. Fill it with <b>G♯°7</b>: <b>G → G♯°7 → Am</b> (5–♯5°7–6m), the vintage pre-chorus elevator, a regular in oldies and City Pop. Straight vs lift first:</p>
+          <p>The main text's C→C♯°7→Dm is no monopoly of I and ii. One condition only: <b>two adjacent diatonic chords whose roots sit a whole step apart</b> — the chromatic slot between them is vacant, so a lift fits. The naming rule follows: <b>the ♯ is no extra alteration — it IS the vacant slot, written in degree terms</b> (the chord stands on the raised degree, hence ♯I°7, ♯IV°7…). The full inventory first:</p>
+          <table class="ctab"><tr><th>Position (tap to hear)</th><th>Bass line</th><th>Status</th></tr>
+            <tr><td class="play" data-play="seq:pdSmooth">I → ♯I°7 → ii ▶</td><td>C→C♯→D</td><td>explained above</td></tr>
+            <tr><td class="play" data-play="seq:pdUp45"><b>IV → ♯IV°7 → V</b> ▶</td><td>F→F♯→G</td><td>a high-frequency regular — detailed below</td></tr>
+            <tr><td class="play" data-play="seq:pdUp56"><b>V → ♯V°7 → vi</b> ▶</td><td>G→G♯→A</td><td>the vintage lift — detailed below</td></tr>
+            <tr><td class="play" data-play="seq:pdUp23">ii → ♯II°7 → iii ▶</td><td>D→D♯→E</td><td>same template — one quick listen</td></tr>
+            <tr><td style="color:var(--muted)">iii→IV, vii°→I</td><td style="color:var(--muted)">E–F, B–C</td><td style="color:var(--muted)">no lift possible — already a half step apart (level ②), <b>no vacant slot to fill</b>: <span class="chip" data-play="mel:4,5" style="font-size:12px;padding:3px 8px">🔊 E→F</span> <span class="chip" data-play="mel:11,12" style="font-size:12px;padding:3px 8px">🔊 B→C</span></td></tr></table>
+
+          <p style="margin-top:10px"><b>Position 1 · IV → ♯IV°7 → V (F→F♯°7→G).</b> The pre-chorus drive's staple. Straight vs lift first:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:pdUp45pl">🔊 Straight: F → G (bass strides F4→G4)</span>
+            <span class="chip" data-play="seq:pdUp45">🔊 With the lift: F → F♯°7 → G (bass crawls F4→F♯4→G4)</span>
+          </div>
+          <p><b>The lift's makeup</b>: from F♯, one note every 3 semitones — <b>F♯·A·C·E♭</b>; note that A and C are F-chord veterans, so <b>the common tones hold still</b> and only two newcomers enter:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:6,9,12,15">🔊 Note by note: F♯ A C E♭ (minor 3rds throughout)</span>
+            <span class="chip" data-play="notes:6,9,12,15">🔊 F♯°7 together (double sting)</span>
+          </div>
+          <p><b>Voice by voice</b> (orange = from, green = to): the bass F♯4 nudges into G4 (G's temporary leading tone); E♭5 falls a half step to D5; A and C settle nearby into B and D:</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:6,7">🔊 Bass F♯4 → G4 (the temporary leading tone)</span>
+            <span class="chip" data-play="vchord:6,9,12,15;7,11,14">🎹 Full picture: F♯°7 → G</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">Echo: this F♯ is <b>the same magnet</b> as the F♯ inside level ㉔'s D7 (V7/V) — both are G's temporary leading tone. Duration likewise: one beat passes best (<span class="chip" data-play="hr:pdUp45:3.1.4" style="font-size:12px;padding:3px 8px">🔊 hear 3+1+4 beats</span>).</p>
+
+          <p style="margin-top:10px"><b>Position 2 · V → ♯V°7 → vi (G→G♯°7→Am).</b> Degrees 5 and 6 are a whole step apart too (G→A), the <b>G♯</b> between them equally vacant — the vintage pre-chorus lift, a regular in oldies and City Pop. Compare:</p>
           <div class="row">
             <span class="chip" data-play="seq:pdUp56pl">🔊 Straight: G → Am7 (bass strides G3→A3)</span>
             <span class="chip" data-play="seq:pdUp56">🔊 With the lift: G → G♯°7 → Am7 (bass crawls G3→G♯3→A3)</span>
           </div>
-          <p><b>The lift's makeup</b>: from G♯, one note every 3 semitones — <b>G♯·B·D·F</b>, the very same symmetric tower as the main text's C♯°7:</p>
+          <p><b>The lift's makeup</b>: from G♯, every 3 semitones — <b>G♯·B·D·F</b>, the same symmetric tower as C♯°7:</p>
           <div class="row">
             <span class="chip" data-play="mel:-4,-1,2,5">🔊 Note by note: G♯ B D F (minor 3rds throughout)</span>
             <span class="chip" data-play="notes:-4,-1,2,5">🔊 G♯°7 together (double sting)</span>
           </div>
-          <p><b>Voice by voice</b> (orange = from, green = to): the bass G♯3 nudges into A3 (Am's temporary leading tone); above, B↗C and F↘E by half step, D folding into E from below — every note with a destination:</p>
+          <p><b>Voice by voice</b>: the bass G♯3 nudges into A3 (Am's temporary leading tone); B↗C and F↘E by half step; D folds into E from below:</p>
           <div class="row">
             <span class="chip" data-play="vpair:-4,-3">🔊 Bass G♯3 → A3 (the temporary leading tone)</span>
-            <span class="chip" data-play="vchord:-4,-1,2,5;-3,0,4">🎹 Full picture: G♯°7 → Am (B↗C, F↘E, D folds into E)</span>
+            <span class="chip" data-play="vchord:-4,-1,2,5;-3,0,4">🎹 Full picture: G♯°7 → Am</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">Two echoes: ① this G♯ is <b>the same magnet</b> as the G♯ inside level ㉔'s E7 (both are Am's temporary leading tone) — E7 carries one tritone pair, G♯°7 two, so it clings harder; ② the bass line G→G♯→A is <b>strictly isomorphic</b> to the main text's C→C♯→D — wherever the lift is installed, not one word of the principle changes. Duration likewise: one beat passes best (<span class="chip" data-play="hr:pdUp56:3.1.4" style="font-size:12px;padding:3px 8px">🔊 hear 3+1+4 beats</span>).</p>
+          <p style="font-size:12.5px;color:var(--muted)">Echo: this G♯ is <b>the same magnet</b> as the G♯ inside level ㉔'s E7 (V7/vi) — E7 carries one tritone pair, G♯°7 two, so it clings harder. Duration likewise: one beat passes best (<span class="chip" data-play="hr:pdUp56:3.1.4" style="font-size:12px;padding:3px 8px">🔊 hear 3+1+4 beats</span>).</p>
+
+          <p style="font-size:12.5px;color:var(--muted);margin-top:10px">Two closing easter eggs: ① against the 3-family table above — ♯I°7 lives in family ①, ♯II°7 and ♯IV°7 share family ③, ♯V°7 lives in family ② — the four positions tour all three families; ② the advanced equivalence: every passing dim7 is a <b>rootless dominant 7♭9</b> — C♯°7 = A7♭9 minus root (V7/ii), F♯°7 = D7♭9 minus root (V7/V), G♯°7 = E7♭9 minus root (V7/vi) — chromatic pull plus dominant pull, double insurance; no wonder the glue holds.</p>
         </div>
       </details>
 
@@ -4203,7 +4230,7 @@ function teachCN(mId){
       <p style="color:var(--muted);font-size:13px">本关练习：add9 的构成、add9 vs sus2 vs C9 辨析、素颜/maj7/add9 盲听、按情绪选滤镜、搭出 add9。</p>`;
 
     case "passdim": return `
-      <p>第⑩关讲过编曲美学：<b>低音走台阶最好听</b>。可 C 走到 Dm，低音 C→D 隔着一个全音——中间那格（C♯）空着。流行乐手最爱的填法，是塞进一个<b>经过减七和弦</b>：</p>
+      <p>第⑩关讲过编曲美学：<b>低音走台阶最好听</b>。可 C 走到 Dm，低音 C→D 隔着一个全音——中间那格（C♯）空着。流行乐手最爱的填法，是塞进一个<b>经过减七和弦</b>（下面会介绍这个词的含义）：</p>
       <div class="row">
         <span class="chip" data-play="seq:pdPlain">🔊 直接走：C → Dm7（低音跨一格）</span>
         <span class="chip" data-play="seq:pdSmooth">🔊 加黏合剂：C → C♯°7 → Dm7（低音半音爬）</span>
@@ -4247,24 +4274,51 @@ function teachCN(mId){
         </div>
       </details>
 
-      <details class="note"><summary>拓展：电梯还能装在 5 和 6 之间（♯V°7）</summary>
+      <details class="note"><summary>拓展：通用模板：电梯能装在哪两格之间？（不只 C–D）</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>同一招换个位置：5 级和 6 级之间也隔着一个全音（G→A），中间那格 <b>G♯</b> 同样空着——塞进 <b>G♯°7</b>，就是 <b>G → G♯°7 → Am</b>（5–♯5°7–6m），副歌前的复古电梯，老歌和 City Pop 的常客。先对比直走和加电梯：</p>
+          <p>主体拆的 C→C♯°7→Dm 不是 I 和 ii 的专利。条件只有一个：<b>相邻两个顺阶和弦的根音隔一个全音</b>——中间那格半音空着，就能装电梯。名字的规律也随之而来：<b>♯ 不是额外加工，它就是「空格本身」的级数写法</b>（踩在升起来的那一级上，故名 ♯I°7、♯IV°7……）。先盘点全部位置：</p>
+          <table class="ctab"><tr><th>位置（点击试听）</th><th>低音线</th><th>状态</th></tr>
+            <tr><td class="play" data-play="seq:pdSmooth">I → ♯I°7 → ii ▶</td><td>C→C♯→D</td><td>上文已解释</td></tr>
+            <tr><td class="play" data-play="seq:pdUp45"><b>IV → ♯IV°7 → V</b> ▶</td><td>F→F♯→G</td><td>高频常客，下文详解</td></tr>
+            <tr><td class="play" data-play="seq:pdUp56"><b>V → ♯V°7 → vi</b> ▶</td><td>G→G♯→A</td><td>复古电梯，下文详解</td></tr>
+            <tr><td class="play" data-play="seq:pdUp23">ii → ♯II°7 → iii ▶</td><td>D→D♯→E</td><td>同模板，顺手一听</td></tr>
+            <tr><td style="color:var(--muted)">iii→IV、vii°→I</td><td style="color:var(--muted)">E–F、B–C</td><td style="color:var(--muted)">装不了——本来只隔半音（②关），<b>没有空格可填</b>：<span class="chip" data-play="mel:4,5" style="font-size:12px;padding:3px 8px">🔊 E→F</span> <span class="chip" data-play="mel:11,12" style="font-size:12px;padding:3px 8px">🔊 B→C</span></td></tr></table>
+
+          <p style="margin-top:10px"><b>位置一 · IV → ♯IV°7 → V（F→F♯°7→G）。</b>副歌推进段的标配。先对比直走和加电梯：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:pdUp45pl">🔊 直接走：F → G（低音 F4→G4 跨一格）</span>
+            <span class="chip" data-play="seq:pdUp45">🔊 加电梯：F → F♯°7 → G（低音 F4→F♯4→G4 半音爬）</span>
+          </div>
+          <p><b>这格电梯的构成</b>：从 F♯ 起每隔 3 个半音叠一个——<b>F♯·A·C·E♭</b>，注意 A 和 C 正是 F 和弦的旧人，<b>共同音不动</b>、只来两位新客：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:6,9,12,15">🔊 逐音听：F♯ A C E♭（步步小三度）</span>
+            <span class="chip" data-play="notes:6,9,12,15">🔊 合奏 F♯°7（双倍刺）</span>
+          </div>
+          <p><b>逐声部看去向</b>（橙=出发，绿=落点）：低音 F♯4 半音蹭进 G4（G 的临时导音）；E♭5 半音落 D5；A、C 就近收进 B、D：</p>
+          <div class="row">
+            <span class="chip" data-play="vpair:6,7">🔊 低音 F♯4 → G4（临时导音）</span>
+            <span class="chip" data-play="vchord:6,9,12,15;7,11,14">🎹 全貌：F♯°7 → G</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">呼应：这块 F♯ 和㉔关 D7（V7/V）里的 F♯ 是<b>同一块磁铁</b>——都是 G 的临时导音。时值同理：电梯只占一拍最像「路过」（<span class="chip" data-play="hr:pdUp45:3.1.4" style="font-size:12px;padding:3px 8px">🔊 试听 3+1+4 拍</span>）。</p>
+
+          <p style="margin-top:10px"><b>位置二 · V → ♯V°7 → vi（G→G♯°7→Am）。</b>5 级和 6 级之间也隔全音（G→A），中间的 <b>G♯</b> 同样空着——副歌前的复古电梯，老歌和 City Pop 的常客。对比：</p>
           <div class="row">
             <span class="chip" data-play="seq:pdUp56pl">🔊 直接走：G → Am7（低音 G3→A3 跨一格）</span>
             <span class="chip" data-play="seq:pdUp56">🔊 加电梯：G → G♯°7 → Am7（低音 G3→G♯3→A3 半音爬）</span>
           </div>
-          <p><b>这格电梯的构成</b>：从 G♯ 起每隔 3 个半音叠一个——<b>G♯·B·D·F</b>，和主体的 C♯°7 同一套对称塔搭法：</p>
+          <p><b>这格电梯的构成</b>：从 G♯ 起每隔 3 个半音——<b>G♯·B·D·F</b>，和 C♯°7 同一套对称塔搭法：</p>
           <div class="row">
             <span class="chip" data-play="mel:-4,-1,2,5">🔊 逐音听：G♯ B D F（步步小三度）</span>
             <span class="chip" data-play="notes:-4,-1,2,5">🔊 合奏 G♯°7（双倍刺）</span>
           </div>
-          <p><b>逐声部看去向</b>（橙=出发，绿=落点）：低音 G♯3 半音蹭进 A3（Am 的临时导音）；上方 B↗C 半音、F↘E 半音，D 从下方并进 E——四个音个个有去处：</p>
+          <p><b>逐声部看去向</b>：低音 G♯3 半音蹭进 A3（Am 的临时导音）；B↗C、F↘E 半音；D 从下方并进 E：</p>
           <div class="row">
             <span class="chip" data-play="vpair:-4,-3">🔊 低音 G♯3 → A3（临时导音）</span>
-            <span class="chip" data-play="vchord:-4,-1,2,5;-3,0,4">🎹 全貌：G♯°7 → Am（B↗C、F↘E、D 并入 E）</span>
+            <span class="chip" data-play="vchord:-4,-1,2,5;-3,0,4">🎹 全貌：G♯°7 → Am</span>
           </div>
-          <p style="font-size:12.5px;color:var(--muted)">两个呼应：① 这块 G♯ 和㉔关 E7 里的 G♯ 是<b>同一块磁铁</b>（都是 Am 的临时导音）——E7 带一对三全音，G♯°7 带两对，吸得更黏；② 低音线 G→G♯→A 与主体的 C→C♯→D <b>完全同构</b>——电梯装在哪一格，原理一个字不变。时值也同理：电梯只占一拍最像"路过"（<span class="chip" data-play="hr:pdUp56:3.1.4" style="font-size:12px;padding:3px 8px">🔊 试听 3+1+4 拍</span>）。</p>
+          <p style="font-size:12.5px;color:var(--muted)">呼应：这块 G♯ 和㉔关 E7（V7/vi）里的 G♯ 是<b>同一块磁铁</b>——E7 带一对三全音，G♯°7 带两对，吸得更黏。时值同理：电梯只占一拍最像「路过」（<span class="chip" data-play="hr:pdUp56:3.1.4" style="font-size:12px;padding:3px 8px">🔊 试听 3+1+4 拍</span>）。</p>
+
+          <p style="font-size:12.5px;color:var(--muted);margin-top:10px">两个彩蛋收束：① 对照上面「3 个家族」表——♯I°7 住家族①、♯II°7 和 ♯IV°7 同住家族③、♯V°7 住家族②，四个位置恰好把三家走遍；② 进阶等价：每块经过减七都是「去掉根音的属七♭9」——C♯°7＝A7♭9 去根（V7/ii）、F♯°7＝D7♭9 去根（V7/V）、G♯°7＝E7♭9 去根（V7/vi）——半音引力之外还自带属功能引力，双保险，难怪黏得这么牢。</p>
         </div>
       </details>
 
@@ -6207,6 +6261,9 @@ const SEQS = {
   pdSmooth: [[0,4,7],[1,4,7,10],[2,5,9,12]],          // C → C♯°7(C♯4 E4 G4 B♭4) → Dm7：低音 C4→C♯4→D4 半音爬，E4 G4 共同音不动
   pdUp56:   [[-5,-1,2],[-4,-1,2,5],[-3,0,4,7]],       // G(G3 B3 D4) → G♯°7(G♯3 B3 D4 F4) → Am7(A3 C4 E4 G4)：5–♯5°7–6m 复古电梯
   pdUp56pl: [[-5,-1,2],[-3,0,4,7]],                   // 对照：G → Am7 直接走（低音 G3→A3 跨一格全音）
+  pdUp45pl: [[5,9,12],[7,11,14]],                     // 对照：F(F4 A4 C5) → G(G4 B4 D5) 直接走（低音跨一格全音）
+  pdUp45:   [[5,9,12],[6,9,12,15],[7,11,14]],         // F → F♯°7(F♯4 A4 C5 E♭5：A C 共同音) → G：低音 F4→F♯4→G4 半音爬
+  pdUp23:   [[2,5,9],[3,6,9,12],[4,7,11]],            // Dm → D♯°7(D♯4 F♯4 A4 C5) → Em：低音 D4→D♯4→E4 半音爬
   // ㉗ 流行调式
   mxLoop:   [[0,4,7],[-2,2,5],[5,9,12],[0,4,7]],      // Mixolydian 循环 I–♭VII–IV–I：C B♭ F C（♭VII 是常住居民）
   doLoop:   [[2,5,9],[7,11,14],[2,5,9],[7,11,14]],    // Dorian 循环 i–IV：Dm G Dm G（家在 Dm，G 是亮色邻居）
