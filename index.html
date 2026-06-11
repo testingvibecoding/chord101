@@ -434,13 +434,16 @@ const MODULES = [
   {id:"rhythm", num:"㉚", emoji:"🥁", color:"var(--p3)",
    title:"和声节奏 · 和弦何时换", desc:"几拍一组(拍号)；一小节一换还是两拍一换；换在重拍；提前半拍的推力",
    concepts:["density","where","antic","meter"], coreConcepts:["density","where","antic"]}, // 拍号是折叠拓展，仅训练场出现
-  {id:"cliche", num:"㉛", emoji:"🕯️", color:"var(--p4)",
+  {id:"texture", num:"㉛", emoji:"🧶", color:"var(--p4)",
+   title:"织体 · 和弦怎么动起来", desc:"四大类；八种主调织体；织体≠密度；织体曲线与扒歌三问",
+   concepts:["texclass","texid","texknob","texrole"]},
+  {id:"cliche", num:"㉜", emoji:"🕯️", color:"var(--p4)",
    title:"半音线条 · 和弦里的暗流", desc:"C–Caug–C6 / Am–AmM7–Am7–Am6：增和弦与 mM7 的实战",
    concepts:["lcmaj","lcmin","lchear","lcbuild"]},
-  {id:"harmonize", num:"㉜", emoji:"🎤", color:"var(--p2)",
+  {id:"harmonize", num:"㉝", emoji:"🎤", color:"var(--p2)",
    title:"给旋律配和弦 · 终极应用", desc:"旋律音住在哪三个和弦里；长音找内音；句尾按功能取舍",
    concepts:["cand","fit","pickc","cad"]},
-  {id:"earcopy", num:"㉝", emoji:"🎸", color:"var(--p1)",
+  {id:"earcopy", num:"㉞", emoji:"🎸", color:"var(--p1)",
    title:"扒歌四步法 · 毕业实战", desc:"定调→听低音→认套路→辨色彩：把全课串成一条工作流",
    concepts:["findhome","bassline","pattern","colorid"]},
 ];
@@ -486,6 +489,7 @@ const TRAIN_CATS = {
   voicing:{title:"和弦按法", type:"module", concepts:["spread","smooth","pedal","vcbuild"]},
   modulate:{title:"转调", type:"module", concepts:["lift","relswitch","modhear"]},
   rhythm:{title:"和声节奏", type:"module", concepts:["density","where","antic","meter"]},
+  texture:{title:"织体", type:"module", concepts:["texclass","texid","texknob","texrole"]},
   cliche:{title:"半音线条", type:"module", concepts:["lcmaj","lcmin","lchear","lcbuild"]},
   harmonize:{title:"给旋律配和弦", type:"module", concepts:["cand","fit","pickc","cad"]},
   earcopy:{title:"扒歌四步法", type:"module", concepts:["findhome","bassline","pattern","colorid"]},
@@ -554,6 +558,7 @@ const MOD_EN={ // 关卡卡片标题/简介英文
   voicing:["Voicings · How to Lay the Notes","close/open, common tones, pedal point"],
   modulate:["Modulation · The Chorus Booster","semitone lift; relative-key switch; by ear"],
   rhythm:["Harmonic Rhythm · When Chords Change","Meter (3 or 4 per bar); one chord per bar or two; downbeat changes; the anticipation push"],
+  texture:["Texture · How Chords Move","Four families; eight homophonic patterns; texture vs density; the texture curve"],
   cliche:["Chromatic Lines · The Hidden Current","C–Caug–C6 / Am–AmM7–Am7–Am6: aug & mM7 in action"],
   harmonize:["Harmonize a Melody · The Payoff","Which 3 chords host a note; long notes want chord tones; cadence by function"],
   earcopy:["Figure Out Songs · Graduation Run","Find home → hear the bass → match patterns → spot the colors"],
@@ -567,7 +572,7 @@ const CAT_EN={ // 训练场分类标题英文
   minv:"Minor v & V7", minv2:"Minor Resolution", minprog:"Minor Progressions", borrow:"Borrowed Chords",
   secdom:"Secondary Dominants", color:"Color Tones", passdim:"Passing Dim7",
   modes:"Pop Modes", voicing:"Voicings", modulate:"Modulation",
-  rhythm:"Harmonic Rhythm", cliche:"Chromatic Lines", harmonize:"Harmonize a Melody", earcopy:"Song Transcription",
+  rhythm:"Harmonic Rhythm", texture:"Texture", cliche:"Chromatic Lines", harmonize:"Harmonize a Melody", earcopy:"Song Transcription",
 };
 // 数据层术语词典：声音数据(和弦/音程的名称、色彩、情绪)按原文精确映射到英文
 const ZH2EN={
@@ -676,6 +681,7 @@ const FREQ = {
   minprog:{prog:6, modehear:6, mood:4, flip:4},
   borrow:{alien:5, hear:6, fill:5},
   rhythm:{density:6, where:5, antic:5, meter:4},
+  texture:{texclass:5, texid:6, texknob:5, texrole:4},
   cliche:{lcmaj:6, lcmin:6, lchear:5, lcbuild:4},
   harmonize:{cand:6, fit:6, pickc:6, cad:4},
   earcopy:{findhome:6, bassline:6, pattern:6, colorid:5},
@@ -716,7 +722,7 @@ function renderHome(){
         <div class="desc">${tr("按类别随机练，或锁定某一个和弦型反复打磨。可先「练习」熟悉声音，再「测试」检验。","Drill any category at random, or lock onto one item. Warm up in Practice, then prove it in Test.")}</div>
       </span>
     </button>
-    <p style="text-align:center;color:#4a4470;font-size:11px;margin:18px 0 6px">${tr("所用模型：Opus 4.8 · 增补关卡 ㉚–㉝：Fable 5　　乐理指导：福楼","Model: Opus 4.8 · Levels ㉚–㉝: Fable 5　　Theory advisor: Foulou")}</p>`;
+    <p style="text-align:center;color:#4a4470;font-size:11px;margin:18px 0 6px">${tr("所用模型：Opus 4.8 · 增补关卡 ㉚–㉞：Fable 5　　乐理指导：福楼","Model: Opus 4.8 · Levels ㉚–㉞: Fable 5　　Theory advisor: Foulou")}</p>`;
   document.querySelectorAll(".lvl").forEach(b=>{
     if(b.disabled) return;
     b.onclick=()=> openModule(MODULES[+b.dataset.i].id);
@@ -1736,85 +1742,202 @@ function teachEN(mId){
       <p style="color:var(--muted);font-size:13px">This level's drills: the symmetric makeup and spelling of dim7, hearing glue vs no glue, where the bass C♯ goes and why this is a super-magnet, and building C♯°7 / G♯°7.</p>`;
 
     case "modes": return `
-      <p>The course is called Chords and Modes — yet so far "modes" has meant just major and minor. You have surely heard songs that <b>loop from start to finish, never once dropping a V7→I period, and still feel perfectly grounded</b>. This level adds the missing piece: modal color loops — <b>no rush to go home</b>.</p>
+      <p>So far in this course, "modes" have come in two foundations only: major and minor. This level completes the picture. <b>What is a mode?</b> We take the most practical view: <b>start from the major or minor foundation and move exactly one "signature note" — you get a new color</b>. Which note moves, and which way, decides whether the color brightens or darkens.</p>
 
-      <details class="note" open><summary><b>Mixolydian: major with a lowered 7th — open, laid-back</b></summary>
+      <details class="note" open><summary><b>Map 1 · the brightness spectrum: the full mode family (makeup + color trailer)</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Lower the major scale's <b>7th note a half step</b> (B→B♭ in C) and you have C Mixolydian. The leading tone is gone; nobody hurries you home:</p>
+          <p>Lay the seven modes out bright → dark (tonic C throughout for fair comparison; tap row by row and hear the sky darken). <b>Major and minor are already in the family</b> — their proper names are Ionian and Aeolian. Each row ends with that mode's typical progression: <b>a listen-only trailer, no explanations yet</b> — every one gets unpacked below:</p>
+          <table class="ctab"><tr><th>Mode (bright→dark)</th><th>How it is made</th><th>Stair formula</th><th>Scale</th><th>One word</th><th>Trailer (listen only)</th></tr>
+            <tr><td>Lydian</td><td>major, <b>raised 4</b> (F→F♯)</td><td>W-W-<b>W-H</b>-W-W-H</td><td class="play" data-play="mel:0,2,4,6,7,9,11,12">▶</td><td>floating</td><td class="play" data-play="kseq:lydVamp">I–II ▶</td></tr>
+            <tr><td>Ionian = <b>major</b></td><td><b>the bright baseline</b></td><td><b>W-W-H-W-W-W-H</b></td><td class="play" data-play="mel:0,2,4,5,7,9,11,12">▶</td><td>grounded</td><td class="play" data-play="kloopseq:pp1564">1564 ▶</td></tr>
+            <tr><td><b>★ Mixolydian</b></td><td>major, <b>lowered 7</b> (B→B♭)</td><td>W-W-H-W-W-<b>H-W</b></td><td class="play" data-play="mel:0,2,4,5,7,9,10,12">▶</td><td>relaxed</td><td class="play" data-play="kloopseq:mxLoop">I–♭VII–IV ▶</td></tr>
+            <tr><td><b>★ Dorian</b></td><td>minor, <b>raised 6</b> (A♭→A)</td><td>W-H-W-W-<b>W-H</b>-W</td><td class="play" data-play="mel:0,2,3,5,7,9,10,12">▶</td><td>translucent</td><td class="play" data-play="kloopseq:doLoop">i–IV ▶</td></tr>
+            <tr><td><b>★ Aeolian = natural minor</b></td><td><b>the dark baseline</b></td><td><b>W-H-W-W-H-W-W</b></td><td class="play" data-play="mel:0,2,3,5,7,8,10,12">▶</td><td>dark</td><td class="play" data-play="kloopseq:mLoop">i–VI–III–VII ▶</td></tr>
+            <tr><td>Phrygian</td><td>minor, <b>lowered 2</b> (D→D♭)</td><td><b>H-W</b>-W-W-H-W-W</td><td class="play" data-play="mel:0,1,3,5,7,8,10,12">▶</td><td>oppressive</td><td class="play" data-play="kseq:phrVamp">i–♭II ▶</td></tr>
+            <tr><td style="color:var(--muted)">Locrian</td><td style="color:var(--muted)">lower the 5 too (the floor gives way)</td><td style="color:var(--muted)">H-W-W-<b>H-W</b>-W-W</td><td class="play" data-play="mel:0,1,3,5,6,8,10,12">▶</td><td style="color:var(--muted)">all but unused</td><td style="color:var(--muted)">—</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">Adjacent rows differ by exactly one note — the entire mathematics of the signature-note view. The formulas show it plainly: <b>moving one note = swapping a neighboring W/H pair in the formula</b> (each row's bold marks the pair swapped against its baseline; the two baselines were memorized back in levels ② and ⑯; one more elegant secret hides among the seven formulas — revealed in the closing "one scale, several names" section). The ★ three are this level's protagonists; Lydian and Phrygian guest-star in that closing section. (Below, Dorian is taught on tonic D — all white keys, clearest on the keyboard.)</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Map 2 · the half-step magnet map: the difference that matters most</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Level ② showed that major's half steps sit only at <b>3–4</b> and <b>7–1</b>. Generalize: <b>every mode has exactly two half steps — only their positions differ</b>. And levels ⑪⑫ showed that half steps are magnets — so <b>each mode carries a different gravity map, and therefore drives a song differently</b>. The cell that matters most is the magnet just below the tonic (the leading tone):</p>
+          <table class="ctab"><tr><th>Mode</th><th>Where its two half steps sit</th><th>Leading tone below the tonic?</th></tr>
+            <tr><td>Lydian</td><td>♯4–5, 7–1</td><td><b>yes</b> (plus an extra magnet pulling to 5)</td></tr>
+            <tr><td>Ionian = major</td><td>3–4, 7–1</td><td><b>yes</b></td></tr>
+            <tr><td>Mixolydian</td><td>3–4, 6–♭7</td><td>no</td></tr>
+            <tr><td>Dorian</td><td>2–♭3, 6–♭7</td><td>no</td></tr>
+            <tr><td>Aeolian = natural minor</td><td>2–♭3, 5–♭6</td><td>no</td></tr>
+            <tr><td>Phrygian</td><td><b>1–♭2</b>, 5–♭6</td><td>no (but a rare <b>upper</b> leading tone, ♭2→1)</td></tr>
+            <tr><td style="color:var(--muted)">Locrian</td><td style="color:var(--muted)">1–♭2, 4–♭5</td><td style="color:var(--muted)">no (even the stable 5th is gone)</td></tr></table>
           <div class="row">
-            <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C major scale (…B slides into C)</span>
-            <span class="chip" data-play="mel:0,2,4,5,7,9,10,12">🔊 C Mixolydian (…B♭ ambles back to C)</span>
+            <span class="chip" data-play="mel:11,12">🔊 Major's leading tone: B→C (a half-step shuffle home)</span>
+            <span class="chip" data-play="mel:10,12">🔊 Mixolydian's tail: B♭→C (a whole step — magnet gone)</span>
+            <span class="chip" data-play="mel:6,7">🔊 Lydian's second magnet: F♯→G (pulling to 5)</span>
+            <span class="chip" data-play="mel:1,0">🔊 Phrygian's upper leading tone: D♭→C (pressing home from above)</span>
           </div>
-          <p>The signature loop <b>I–♭VII–IV–I</b> (C–B♭–F–C) — the wide-open anthem feel of rock and folk:</p>
+          <p><b>One-line conclusion: only the two bright modes (Lydian, Ionian) keep a leading tone at home</b>; every other mode has its magnets relocated — they cannot print a V7→I period. Level ⑲ now reads even clearer: <b>forging a leading tone (G♯) onto Aeolian = defecting to functional syntax</b> — the result is no longer Aeolian but harmonic minor.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Map 3 · you have already taken two modes' progression courses: resolving vs repeating</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Look back: <b>level ⑭ was, in truth, Ionian's (major's) progression course; level ㉑ was Aeolian's (natural minor's)</b>. And those progressions always came in two families:</p>
+          <div class="row">
+            <span class="chip" data-play="seq:fnCad">🔊 Ionian · resolving: IV–V7–I (leading tone pushes the door — a period)</span>
+            <span class="chip" data-play="kloopseq:pp1564">🔁 Ionian · repeating: 1564 (circling, no period)</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="mkseq:mCadV7">🔊 Aeolian · resolving: i–iv–V7–i (level ⑲'s forged leading tone)</span>
+            <span class="chip" data-play="kloopseq:mLoop">🔁 Aeolian · repeating: i–VI–III–VII (home built by repetition)</span>
+          </div>
+          <p><b>Resolving music stands on magnets; repeating music stands on loops — both are stable.</b> Check against the magnet map and it clicks: modes with a leading tone master both families; modes without lean naturally toward repetition. The rest of this level fills in the remaining modes — <b>their traits, colors, and how each drives a song</b> — inside this framework.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Protagonist 1 · Mixolydian: major with a lowered 7th — open, laid-back</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p><b>① The signature note.</b> Lower the major scale's <b>7th a half step</b> (B→B♭ in C): the leading tone is gone, and nobody hurries you home:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C major scale (…B shuffles into C)</span>
+            <span class="chip" data-play="mel:0,2,4,5,7,9,10,12">🔊 C Mixolydian (…B♭ strolls back to C)</span>
+          </div>
+          <p><b>② Which chord houses it?</b> The ♭7 (B♭) is precisely <b>the root of the ♭VII chord (B♭·D·F)</b> — the landmark chord lays the signature note on the table. Against the in-key V: V carries the leading tone and presses; ♭VII carries none, and relaxes:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2">🔊 In-key V: G·B·D (leading tone aboard — pressing)</span>
+            <span class="chip" data-play="notes:-2,2,5">🔊 The landmark ♭VII: B♭·D·F (no leading tone — easy)</span>
+          </div>
+          <p><b>③ No leading tone — then how does the song move?</b> Two legs: the <b>rotation of the loop itself</b> (one turn of I–♭VII–IV–I is one sentence); and, when a close is wanted, the <b>"strolling period" ♭VII→I</b> — the bass strides a whole step through the door: no squeeze, no rush, yet it lands (level ⑫'s extra took it apart). Against the magnet period:</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:v2I">🔊 The magnet period: V→I (B nudges into C — pressing)</span>
+            <span class="chip" data-play="kseq:b72I">🔊 Mixolydian's strolling period: ♭VII→I (B♭ strides into C — easy)</span>
+          </div>
+          <p><b>④ The landmark loop I–♭VII–IV–I</b> (C–B♭–F–C) — the wide-open anthem feel of rock and folk:</p>
           <div class="row"><span class="chip" data-play="kloopseq:mxLoop">🔁 C–B♭–F–C (loop)</span></div>
           ${keyBar(false,true)}
-          <p>The dividing line from level ㉒'s borrowing is <b>frequency</b>: a B♭ flashing by once is a borrowed visitor; in <b>permanent residence</b> like this, it is a full member of the scale — the song lives in Mixolydian.</p>
+          <p><b>⑤ The hook.</b> The watershed against level ㉒'s borrowing is <b>frequency</b>: a B♭ flashing by once is a loan; residing permanently, it is a full member — the whole song lives in Mixolydian.</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>Dorian: minor with a raised 6th — wistful but relaxed</b></summary>
+      <details class="note" open><summary><b>Protagonist 2 · Dorian: minor with a raised 6th — melancholy that breathes</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Raise natural minor's <b>6th note a half step</b> (B♭→B in D minor) and you have D Dorian. One note turns gloom into "wistful but breathing" — the signature of R&B, funk and neo-soul:</p>
+          <p><b>① The signature note.</b> Raise the natural minor's <b>6th a half step</b> (B♭→B in D minor) — one note turns gloom into "melancholy with air":</p>
           <div class="row">
             <span class="chip" data-play="mel:2,4,5,7,9,10,12,14">🔊 D natural minor (…the 6th is B♭)</span>
-            <span class="chip" data-play="mel:2,4,5,7,9,11,12,14">🔊 D Dorian (…the 6th is B — light gets in)</span>
+            <span class="chip" data-play="mel:2,4,5,7,9,11,12,14">🔊 D Dorian (…the 6th is B — light let in)</span>
           </div>
-          <p>The signature loop <b>i–IV</b> (Dm–G): the raised B lands as G's 3rd, turning the IV from dark (Gm) to bright (G):</p>
+          <p><b>② Which chord houses it?</b> The raised ♮6 (B) is precisely <b>the 3rd of the IV chord</b> — degree four turns from dark Gm to bright G, Dorian's trademark slot:</p>
           <div class="row">
-            <span class="chip" data-play="kloopseq:doMinor">🔁 Natural minor: Dm–Gm (dark)</span>
-            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian: Dm–G (lit)</span>
+            <span class="chip" data-play="notes:7,10,14">🔊 Natural minor's iv: Gm (G·B♭·D — dark)</span>
+            <span class="chip" data-play="notes:7,11,14">🔊 Dorian's IV: G (G·B·D — the signature B as its 3rd: bright)</span>
+          </div>
+          <p><b>③ No leading tone — then how does the song move?</b> Dorian is very nearly a <b>pure repeater</b>: i and IV rock back and forth like breathing (one dark breath, one bright), the bright IV serving as a "pseudo-resolution" that lets the line exhale; to stop, simply settle on i a couple of beats longer — confirmation by <b>repetition</b>, never by magnet. That is the source of R&B / funk / neo-soul's "always grooving, never standing at attention":</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:doMinor">🔁 Natural minor: Dm–Gm (dark — the breath never lightens)</span>
+            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian: Dm–G (dark-bright alternation — breathing)</span>
           </div>
           ${keyBar(false,true)}
-          <p>⚠️ Don't hear Dm–G as "ii–V in C major": a ii–V reports back to C; this loop <b>never visits C — home is Dm</b>. Same chords, different address.</p>
+          <p><b>⑤ The hook.</b> ⚠ Do not hear Dm–G as "ii–V in C major": a ii–V reports back to C; this loop <b>never visits C — home is Dm</b>. Same chords, different address.</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>Aeolian: you already know it — the natural-minor loop</b></summary>
+      <details class="note" open><summary><b>Protagonist 3 · Aeolian: you already know it — the natural-minor loop</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Nail the name down first: <b>the Aeolian scale ＝ the natural minor scale, note for note</b> — A Aeolian is precisely level ⑯'s A natural minor (A B C D E F G, stairs W-H-W-W-H-W-W), not one note different:</p>
+          <p><b>① Its signature note? It IS the dark baseline itself.</b> Nail the name down first: <b>the Aeolian scale ＝ the natural minor scale, note for note</b> — A Aeolian is precisely level ⑯'s A natural minor (A B C D E F G):</p>
           <div class="row"><span class="chip" data-play="natminor:9">🔊 A Aeolian ＝ A natural minor (one and the same scale)</span></div>
-          <p>Then why two names for one scale? Because of <b>two usages, two stances</b>: inside the major-minor system we call it "natural minor" — and the next move is usually level ⑲'s hack, forging a V7 to print periods; but when the music <b>stays natural on purpose — no forged leading tone, home built by repetition</b> — we switch to its modal name, <b>Aeolian</b>, to flag that stance. The name changes the attitude; the scale never moves a note. Level ㉑'s universal minor loop <b>i–VI–III–VII</b> (Am–F–C–G) is the Aeolian stance in standard use: <b>no leading tone ever takes you home</b> — no G♯ anywhere; the loop itself establishes Am as the center:</p>
-          <div class="row"><span class="chip" data-play="kloopseq:mLoop">🔁 Am–F–C–G (Aeolian float)</span></div>
-          ${keyBar(false,true)}
-          <p>Set against levels ⑲–⑳: in the same A minor, a <b>fateful period</b> calls for the engineered V7 (harmonic minor); a <b>floating loop</b> stays natural (Aeolian). Both are right — it depends what the song wants.</p>
-        </div>
-      </details>
-
-      <details class="note" open><summary><b>The judgment: functional homecoming vs modal floating</b></summary>
-        <div style="line-height:1.8;color:#e9e3ff">
-          <p>The ear asks exactly one question: <b>is a leading tone hurrying things along?</b></p>
+          <p>Why two names? <b>Two usages, two stances</b>: inside the major-minor system we say "natural minor" — and the next move is usually level ⑲'s hack, forging a V7 to print periods; when the music <b>stays natural on purpose</b>, we switch to its modal name, <b>Aeolian</b>, to flag the stance. The name changes the attitude; the scale never moves a note.</p>
+          <p><b>② Its magnet map: no magnet below the tonic.</b> The 7th, G, sits a whole step from A — nobody presses:</p>
           <div class="row">
-            <span class="chip" data-play="seq:fnCad">🔊 Functional: IV–V7–I (leading tone pushes the door — period)</span>
-            <span class="chip" data-play="seq:mxLoop">🔊 Modal: I–♭VII–IV–I (nobody hurries — floating)</span>
+            <span class="chip" data-play="mel:7,9">🔊 G → A (whole step, easy — Aeolian as built)</span>
+            <span class="chip" data-play="mel:8,9">🔊 Contrast: G♯ → A (the half-step magnet — that is level ⑲'s harmonic minor)</span>
           </div>
-          <p>Both are "stable" — the functional kind through <b>resolution</b>, the modal kind through <b>repetition</b>. After levels ⑪–⑫ it is tempting to think every song needs V→I: in truth, a great many pop loops live on the right-hand side.</p>
+          <p><b>③ No leading tone — then how does the song move? Both roads stay open; that is minor's privilege.</b> For <b>floating</b>, stay natural: rotate the loop, build home by repetition (the repeating family); for the <b>fateful period</b>, take level ⑲'s road: forge the leading tone, raise a V7 (the resolving family) — remembering that the instant you forge it, you have left Aeolian and moved into harmonic minor:</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:mLoop">🔁 Repeating: i–VI–III–VII (Am–F–C–G) · the Aeolian float — no G♯ anywhere</span>
+            <span class="chip" data-play="mkseq:mCadV7">🔊 Resolving: i–iv–V7–i (Am–Dm–E7–Am) · forged G♯, period placed — harmonic minor now</span>
+          </div>
+          ${keyBar(false,true)}
+          <p><b>⑤ The hook.</b> Set against levels ⑲–⑳: both roads are right — ask what the song wants. Level ㉑'s universal loop is the repeating family's standard answer.</p>
         </div>
       </details>
 
-      <details class="note"><summary>Extra: one-line calling cards for the other modes</summary>
+      <details class="note" open><summary><b>Summary · magnet layout ↔ drive style</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>· <b>Lydian</b> (major, raised 4th): airborne dreaminess, beloved of film scores. One note away from major — compare (degree 4, F→F♯, and the whole scale lifts off):</p>
+          <p>Put the three protagonists back on the magnet map and the law folds into one line: <b>whether a magnet sits below the tonic decides how the mode drives a song</b> —</p>
+          <p>· <b>Leading tone present</b> (Ionian, Lydian): strong in both families — V7→I periods AND endless 1564 loops;<br>
+             · <b>Leading tone absent</b> (Mixolydian, Dorian, Aeolian, Phrygian): naturally biased toward <b>repetition</b>. To close, two tools: the <b>strolling period</b> (♭VII→I whole-step stride) or a <b>forged leading tone</b> (level ⑲ — which amounts to moving back into the functional system).</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:auth">🔊 The magnet period: G7→C (the resolving family's standard close)</span>
+            <span class="chip" data-play="kseq:b72I">🔊 The strolling period: ♭VII→I (the leading-tone-less close)</span>
+            <span class="chip" data-play="kloopseq:mLoop">🔁 No close at all: home by repetition (the modal loop's default)</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">That is the entire physics of "resolving vs repeating": magnet present, periods come cheap; magnet gone, the loop stands in.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary>The spectrum's two ends, and why one scale carries several names</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>The brightest and darkest ends, occasional guests in pop:</p>
+          <p>· <b>Lydian</b> (major, raised 4th): airborne dreaminess, beloved of film scores. One note from major (degree 4, F→F♯, and the whole scale lifts off):</p>
           <div class="row">
             <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C major scale (feet on the ground)</span>
             <span class="chip" data-play="mel:0,2,4,6,7,9,11,12">🔊 C Lydian (the F♯ floats it)</span>
           </div>
-          <p>· <b>Phrygian</b> (minor, lowered 2nd): oppressive, exotic — metal and flamenco. Also one note from natural minor (degree 2, D→D♭, pressing down right at the door):</p>
+          <p>· <b>Phrygian</b> (minor, lowered 2nd): oppressive, exotic — metal and flamenco. One note from natural minor (degree 2, D→D♭, pressing down at the door):</p>
           <div class="row">
             <span class="chip" data-play="mel:0,2,3,5,7,8,10,12">🔊 C natural minor (the standard dark)</span>
             <span class="chip" data-play="mel:0,1,3,5,7,8,10,12">🔊 C Phrygian (D♭ up close — oppressive)</span>
           </div>
-          <p>
-             · <b>Ionian / Aeolian</b>: <b>not new scales</b> — the Ionian scale ＝ the major scale, the Aeolian scale ＝ the natural minor scale, <b>note for note</b>: two names for one scale each. Hear the proof:</p>
+          <p>· <b>Ionian / Aeolian</b>: <b>not new scales</b> — Ionian ＝ the major scale, Aeolian ＝ the natural minor scale, <b>note for note</b>. Hear the proof:</p>
           <div class="row">
             <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C Ionian ＝ the C major scale (one and the same)</span>
             <span class="chip" data-play="mel:9,11,12,14,16,17,19,21">🔊 A Aeolian ＝ A natural minor (one and the same)</span>
           </div>
-          <p>Why several names for one thing? The Greek names come from the <b>church-mode</b> naming system: let each of the 7 white keys take a turn as tonic and you get 7 scales, each with its own name (Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, Locrian) — two of which later became the protagonists of the major-minor system, and so acquired both an everyday in-system name (major / natural minor) and a modal-stance proper name (Ionian / Aeolian). Working convention: say <b>major / minor</b> for functional progressions; switch to the <b>Greek names</b> to flag the no-rush-home modal stance (the Aeolian section just demonstrated that switch).</p>
-          <p style="font-size:12.5px;color:var(--muted)">One more mix-up to clear: "minor" is an <b>umbrella</b> — under it also lives level ⑲'s forged <b>harmonic minor</b> (the one with G♯); Aeolian equals only the natural strand. The modes pop leans hardest on are this level's three.</p>
+          <p>Why several names for one thing? The Greek names come from the <b>church-mode</b> naming system: each of the 7 white keys takes a turn as tonic, yielding 7 scales, each named (Ionian, Dorian, Phrygian, Lydian, Mixolydian, Aeolian, Locrian) — two of which later became the major-minor system's protagonists, acquiring both an in-system everyday name and a modal proper name. Convention: say <b>major / minor</b> for functional progressions; the <b>Greek names</b> flag the no-rush-home stance.</p>
+          <p><b>The rotation easter egg: the spectrum table's seven stair formulas are one and the same ring.</b> The gaps between white keys are welded in place: C-D W, D-E W, E-F H, F-G W, G-A W, A-B W, B-C H — join those seven symbols end to end into a ring (past the octave it repeats forever). <b>Choosing which white key is the tonic = choosing where on the ring to start reading</b>, seven symbols at a time. Verify all seven entry points (each row walks one octave of white keys from that note — tap to hear; it IS that mode):</p>
+          <table class="ctab"><tr><th>Start reading from</th><th>The formula read off</th><th>Which mode that is</th><th>Hear (one white-key lap)</th></tr>
+            <tr><td>C</td><td><b>W-W-H-W-W-W-H</b></td><td>Ionian = major</td><td class="play" data-play="mel:0,2,4,5,7,9,11,12">▶</td></tr>
+            <tr><td>D</td><td>W-H-W-W-W-H-W</td><td>Dorian</td><td class="play" data-play="mel:2,4,5,7,9,11,12,14">▶</td></tr>
+            <tr><td>E</td><td>H-W-W-W-H-W-W</td><td>Phrygian</td><td class="play" data-play="mel:4,5,7,9,11,12,14,16">▶</td></tr>
+            <tr><td>F</td><td>W-W-W-H-W-W-H</td><td>Lydian</td><td class="play" data-play="mel:5,7,9,11,12,14,16,17">▶</td></tr>
+            <tr><td>G</td><td>W-W-H-W-W-H-W</td><td>Mixolydian</td><td class="play" data-play="mel:7,9,11,12,14,16,17,19">▶</td></tr>
+            <tr><td>A</td><td><b>W-H-W-W-H-W-W</b></td><td>Aeolian = natural minor</td><td class="play" data-play="mel:9,11,12,14,16,17,19,21">▶</td></tr>
+            <tr><td>B</td><td>H-W-W-H-W-W-W</td><td>Locrian</td><td class="play" data-play="mel:11,12,14,16,17,19,21,23">▶</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">All seven formulas, no more and no fewer, are this one ring's seven entry points; each one-notch turn swaps a neighboring W/H pair — which is precisely where the spectrum footnote's rule comes from. Note these modes grow on the white keys (D Dorian, E Phrygian…), while the spectrum table put everything on tonic C for fair comparison — same mode, different tonic, identical formula (level ㉓'s transposition logic). Two views, one family of scales.</p>
+          <p style="font-size:12.5px;color:var(--muted)">One more mix-up: "minor" is an <b>umbrella</b> — under it also lives level ⑲'s forged <b>harmonic minor</b>; Aeolian equals only the natural strand.</p>
         </div>
       </details>
 
-      <p style="color:var(--muted);font-size:13px">This level's drills: which note Mixolydian / Dorian changes, resident vs visitor, Dm–G vs Dm–Gm by ear, functional vs modal judgment, and building modal scales.</p>`;
+      <p><b>The wrap · using this when transcribing.</b> On meeting a "circling, never-home" passage: <b>① confirm nobody presses</b> (no leading tone nudging into the tonic) → <b>② catch the signature note</b> (usually seated in the landmark chord: ♭VII's root, the major IV's 3rd…) → <b>③ place it on the spectrum</b>. Exactly the modal branch of level ㉞'s step ④.</p>
+
+      <p><b>Coda · can modes switch inside one song?</b> Yes — in three doses: <b>one slot</b> ＝ borrowing (level ㉒, that F→Fm flash); <b>one section</b> ＝ section-level switching (verse in one mode, chorus in another — the extra below); <b>the whole song</b> ＝ residency (this level's home turf). Level ㉒'s "frequency watershed" was really the two ends of this continuum; the middle dose unfolds below:</p>
+
+      <details class="note"><summary>Extra: dose two — section-level mode switching: one color for the verse, another for the chorus</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>Section-level switching comes in two postures — one moves the <b>scale</b>, the other moves the <b>center</b>:</p>
+          <p><b>Posture 1 · parallel switch (same tonic, new scale).</b> The classic layout: verse lives in C Mixolydian (repeating loop), chorus returns to C Ionian with functional syntax (IV–V7–I). Note this one cut slices <b>two things at once</b> — color (Mixo→Ionian) and drive (repeating→resolving): <b>the magnet returns, and so does the period</b>. Hear them apart, then joined:</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:mxLoop">🔁 Verse: C Mixolydian circling (B♭ resident, nobody pressing)</span>
+            <span class="chip" data-play="seq:fnCad">🔊 Chorus: C Ionian functional period (B reinstated, the door pushed)</span>
+            <span class="chip" data-play="kseq:parSwitch">🔊 Joined: verse I–♭VII–IV–I ‖ chorus IV–V7–I (catch the moment B♭ turns back into B)</span>
+          </div>
+          <p><b>Posture 2 · relative switch (same notes, new center).</b> Level ㉙'s "dark verse → bright chorus", restated in this level's language: <b>an Aeolian ↔ Ionian mode switch</b> — not one of the seven notes moves; the householder changes from Am to C. The before/after, itemized:</p>
+          <table class="ctab"><tr><th>Section</th><th>Chords, one by one</th><th>Numerals (counted from each tonic)</th><th>Householder / mode</th><th>Solo listen</th></tr>
+            <tr><td>Verse (dark)</td><td>Am → F → Am → G</td><td>i–VI–i–VII</td><td>Am / A Aeolian</td><td class="play" data-play="seq:mlRelV">▶</td></tr>
+            <tr><td>Chorus (bright)</td><td>C → F → G → C</td><td>I–IV–V–I</td><td>C / C Ionian</td><td class="play" data-play="seq:mlRelC">▶</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">Note F and G appear <b>on both sides</b> — the chords never change; what changes is whom they orbit. In the verse F and G circle Am (VI, VII — no close); in the chorus the same pair becomes IV–V, pushing the sentence home to C (close). That is the concrete meaning of "same people, new householder".</p>
+          <div class="row"><span class="chip" data-play="seq:mlRel">🔊 Joined: dark verse (Am–F–Am–G) → bright chorus (C–F–G–C)</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">A deliberate detail: both sections sit in <b>the same register</b> (hugging middle C), so every bit of dark/bright you hear comes <b>entirely from the change of householder</b> — register is itself a powerful brightness cue, and the comparison is only clean once it is pinned down. Only the final chord lets the top flip up a root (C4E4G4C5), a gentle nudge in the same direction as the daylight.</p>
+          <p><b>Boundary with level ㉙'s modulation</b> (level ⑰'s parallel/relative vocabulary upgrades intact):</p>
+          <table class="ctab"><tr><th>Device</th><th>Tonic</th><th>Scale</th><th>Typical feel</th></tr>
+            <tr><td>Bulldozer modulation (㉙)</td><td><b>moves</b> (lifted wholesale)</td><td>pattern unchanged</td><td>"one floor up"</td></tr>
+            <tr><td>Parallel mode switch</td><td>stays</td><td><b>moves</b> (the B♭↔B kind)</td><td>"same home, new weather"</td></tr>
+            <tr><td>Relative mode switch</td><td>center moves</td><td>stays (same notes)</td><td>"same people, new householder"</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">Songwriter's note: for that "dawn breaks" chorus moment, a parallel switch (Mixo/Dorian verse → Ionian chorus) is far cheaper than lifting a half step — no key change, just put the signature note back.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: which note Mixolydian / Dorian changes, resident vs visitor, Dm–G vs Dm–Gm by ear, functional vs modal judgment, and building the mode scales.</p>`;
 
     case "voicing": return `
       <p>A chord symbol tells you <b>which notes</b> — never <b>how to lay them out</b>. The same C can sound like an étude or like pop piano depending on the layout. This level is about layouts (voicings). Hear one C three ways:</p>
@@ -1893,9 +2016,11 @@ function teachEN(mId){
 
       <details class="note" open><summary><b>Move two: the relative-key switch — dark verse, bright chorus</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Level ㉑'s "perspective flip", set in motion: the verse circles its weight around <b>Am</b> (dark); the chorus moves the weight to <b>C</b> (bright). All seven notes stay put — only "home" moves:</p>
+          <p>Level ㉑'s "perspective flip", set in motion: the verse circles its weight around <b>Am</b> (dark); the chorus moves the weight to <b>C</b> (bright). All seven notes stay put — only "home" moves — in mode language, Aeolian switching to Ionian:</p>
           <div class="row"><span class="chip" data-play="seq:mlRel">🔊 Dark verse (Am–F–Am–G) → bright chorus (C–F–G–C)</span></div>
-          <p>The reverse is just as common: major verse, relative-minor chorus — instant overcast. Since not a single new note enters, this is the <b>most seamless</b> modulation there is.</p>
+          <p>The reverse is just as common: major verse, relative-minor chorus — instant overcast. Since not a single new note enters, this is the <b>most seamless</b> modulation there is. Hear it in reverse — bright verse C–F–G–C (I–IV–V–I, a sunny period), then the chorus moves the householder back to Am over the very same notes: Am–F–G–Am (i–VI–VII–i, ending on i to nail the dark color down) — instant overcast — Ionian switching to Aeolian:</p>
+          <div class="row"><span class="chip" data-play="seq:mlRelRev">🔊 Bright verse (C–F–G–C) → dark chorus (Am–F–G–Am)</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">Both examples deliberately sit in one register (hugging middle C): all the dark/bright you hear comes from the change of householder, with no help from pitch height. Each ending flips its top up a root in its own direction — the bright one up to C5, the dark one settling low on A (A3C4E4A4) — a gentle nudge that agrees with the words.</p>
         </div>
       </details>
 
@@ -3108,7 +3233,7 @@ function teachEN(mId){
           <p><b>Sentence 2 · the division of labor among three look-alikes.</b> One governs space; two govern time (one micro, one macro):</p>
           <table class="ctab"><tr><th>Concept</th><th>Governs</th><th>Change it and…</th><th>Where</th></tr>
             <tr><td><b>Voicing</b></td><td>which <b>heights</b> the notes occupy (space)</td><td>thickness and shade change</td><td>level ㉘</td></tr>
-            <tr><td><b>Texture</b></td><td>how notes enter <b>within the beat</b> (time · micro)</td><td>stamp ↔ stream</td><td>this extra</td></tr>
+            <tr><td><b>Texture</b></td><td>how notes enter <b>within the beat</b> (time · micro)</td><td>stamp ↔ stream</td><td>level ㉛</td></tr>
             <tr><td><b>Harmonic rhythm</b></td><td>when chords change <b>between beats</b> (time · macro)</td><td>drive vs calm of sections</td><td>this level</td></tr></table>
           <p>Separate voicing from texture by ear: the two buttons below change <b>voicing</b> — same block entrance, different <b>heights</b>; the toggle above changed <b>texture</b> — same heights, different <b>order</b>. Independent things:</p>
           <div class="row">
@@ -3125,11 +3250,106 @@ function teachEN(mId){
             <span class="chip" data-play="kloopseq:pp1564">🔁 Exp 2 · within the beat: loop it, cycle block → arpeggio → combo (texture)</span>
           </div>
           ${keyBar(false,true)}
-          <p style="font-size:12.5px;color:var(--muted)">Listen for it: cycling texture never moves the chord changes; changing density never alters the touch — so arranging tunes <b>three layers separately</b>: set harmonic rhythm first (macro drive), choose texture (micro flow), then adjust voicing (spatial thickness). Transcribing (level ㉝) asks the three in reverse: how often? played how? laid how high?</p>
+          <p style="font-size:12.5px;color:var(--muted)">Listen for it: cycling texture never moves the chord changes; changing density never alters the touch — so arranging tunes <b>three layers separately</b>: set harmonic rhythm first (macro drive), choose texture (micro flow), then adjust voicing (spatial thickness). Transcribing (level ㉞) asks the three in reverse: how often? played how? laid how high? The full panorama of texture — the four families, the eight workhorse patterns, the texture curve — has grown into its own level ㉛; here, just keep the boundaries straight.</p>
         </div>
       </details>
 
       <p style="color:var(--muted);font-size:13px">This level's drills: density by ear (4 vs 2 beats per chord), pairing density with sections, whether changes land on the downbeat, and spotting anticipation; the training ground adds a meter special (3/4 vs 4/4).</p>`;
+
+    case "texture": return `
+      <p>Every earlier level answered <b>which</b> chord to play; level ㉘ answered <b>how high</b>; level ㉚ answered <b>when to change</b>. One question remains: <b>how do these notes move inside the beat?</b> That is <b>texture</b>. The same C chord can stand like a wall or run like water — a song's whole bearing turns on it. First, pin down the four knobs:</p>
+      <table class="ctab"><tr><th>Knob</th><th>Governs</th><th>Change it and…</th><th>Where</th></tr>
+        <tr><td>Chord chart</td><td><b>which notes</b></td><td>harmonic color</td><td>levels ③–㉗</td></tr>
+        <tr><td>Voicing</td><td>which <b>heights</b> (space)</td><td>thickness, shade</td><td>level ㉘</td></tr>
+        <tr><td>Harmonic rhythm</td><td>when chords change <b>between beats</b> (time · macro)</td><td>drive vs calm</td><td>level ㉚</td></tr>
+        <tr><td><b>Texture</b></td><td>how notes move <b>within the beat</b> (time · micro)</td><td>stamp ↔ stream</td><td>this level</td></tr></table>
+      <p style="color:var(--muted)">The courseware's global block/arpeggio/combo toggle is just three of texture's most common presets. This level opens the full panorama: the four scholarly families first, then pop's eight workhorse patterns one by one.</p>
+
+      <details class="note" open><summary><b>Stop 1 · The scholarly ground floor: four families of texture</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>The first cut asks only two things: <b>how many lines, and what is their relationship</b>. Minimal experiment on the first two bars of Twinkle Twinkle (melody lit green):</p>
+          <p><b>① Monophony: one line, alone.</b> No accompaniment, no harmony — a cappella folk song, a lone bugle:</p>
+          <div class="row"><span class="chip" data-play="texm:solo">🔊 Monophony: the bare Twinkle tune</span></div>
+          <p><b>② Homophony: one lead line + everyone else accompanying.</b> The melody stars; all other voices hold it up. Pop music lives here 99% of the time — and the eight patterns later in this level are all flavors inside homophony:</p>
+          <div class="row"><span class="chip" data-play="texm:block4">🔊 Homophony: same tune + block-chord backing</span></div>
+          <p><b>③ Polyphony: several independent lines interweaving.</b> Nobody accompanies anybody; every line is a melody. Fugues and rounds are the extreme; the counter-melody that sneaks into a final chorus is its pop-sized version. Listen: a second, half-note line below <b>walking its own walk</b>:</p>
+          <div class="row"><span class="chip" data-play="texm:poly">🔊 Polyphony: tune + one independent counter-line</span></div>
+          <p><b>④ Heterophony: several versions of the same melody at once.</b> Everyone sings the same phrase, each ornamenting freely — the daily bread of folk ensembles. Listen: an embellishing companion an octave below, circling the same tune:</p>
+          <div class="row"><span class="chip" data-play="texm:hetero">🔊 Heterophony: tune + its ornamented twin</span></div>
+          <p style="color:var(--muted)">Field guide: <b>count the lines, ask the relationship</b> — one line = monophony; one master, many servants = homophony; all equals = polyphony; one line with body doubles = heterophony.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Stop 2 · The homophonic toolbox: eight workhorse textures, hands-on</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>Fixed apparatus: the same 1645 (C–G–Am–F), one chord per bar, not a note changed — <b>the only thing changing below is the texture</b>. Memorize the baseline, then compare each against it:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:block4">🔊 Baseline · quarter-note block: one stamp per beat</span></div>
+          <p><b>① Sustained pad.</b> Hold the whole bar: bass and harmony delivered at once, then only resonance. Zero pulse, so its job is to lie underneath — string pads, synth pads, a ballad's first verse. Least effort, least presence:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:pad">🔊 Pad (vs baseline: 4 actions per bar down to 1)</span></div>
+          <p><b>② Quarter-note block (the baseline itself).</b> One full chord per beat; the accents come from the beats themselves. Default gear of strummed guitar and sing-along piano — steady, but stuffy if it never changes:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:block4">🔊 Quarter-note block (the baseline above, replayed in place)</span></div>
+          <p><b>③ Eighth-note pulse.</b> Split the quarters in two, soften the off-beats — twice the motion, and a heartbeat appears. Pop-rock's main gear (Coldplay's "The Scientist" runs on it end to end):</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:pulse8">🔊 Pulse (vs baseline: 1 hit per beat → 2, off-beats lighter)</span></div>
+          <p><b>④ Bass + chord division of labor.</b> Left hand drops the root on beat 1 and lets it ring; right hand answers with chords from beat 2 — one layer for the foundation, one for the walls. The moment labor divides, it "sounds arranged". Folk-piano standard issue:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:bassChord">🔊 Division (vs baseline: bass and harmony no longer land together)</span></div>
+          <p><b>⑤ Alberti bass.</b> Break the chord into a <b>low-high-mid-high</b> eighth-note cycle — the default texture of classical beginner pieces (Mozart K.545 opens with it). The ancestor of all flowing accompaniment:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:alberti">🔊 Alberti (vs ③: also eighths, but one note at a time, in a fixed figure)</span></div>
+          <p><b>⑥ Sixteenth-note stream.</b> Spread the chord across two octaves and fill the bar with rising-falling 16ths — the fully-loaded arpeggio ("River Flows in You", piano Canons). The most ornate and the most space-hungry — make way when a voice enters:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:flow16">🔊 Stream (vs ⑤: longer figure, two octaves, twice as dense)</span></div>
+          <p><b>⑦ Syncopated comping.</b> Bass holds the downbeats steady; the chords strike only off-beats and cracks — the groove is manufactured precisely by <b>dodging the beat</b>. R&B and jazz accompaniment's signature move:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:syncop">🔊 Comping (vs baseline: same chords, stamps no longer on the beats)</span></div>
+          <p><b>⑧ Octave tremolo.</b> Upper chord held soft; the bass hammers 16ths between two octaves of the root — maximum tension. Pre-chorus build-ups, rock bridges:</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:octTrem">🔊 Tremolo (vs ①: the top is equally still, but the floor goes from silence to war drums)</span></div>
+          <p style="color:var(--muted)">For each, remember three things: <b>each layer's role, the rhythmic figure, the typical habitat</b>. From ① to ⑧ the motion density roughly climbs — which is the next stop's cue.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Stop 3 · Texture ≠ density: two independent hands</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>"Playing denser" comes in two utterly different kinds: <b>denser texture</b> = more motion within the beat (this level's knob); <b>denser harmonic rhythm</b> = chords changing more often between beats (level ㉚'s knob). Three experiments on the same 1645:</p>
+          <div class="row">
+            <span class="chip" data-play="tex:canonO:pad">🔊 A1: pad · one chord per bar</span>
+            <span class="chip" data-play="tex:canonO:flow16">🔊 A2: stream · one chord per bar (texture upgraded, harmonic rhythm untouched)</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="tex:canonO:block4">🔊 B1: block · one chord per bar</span>
+            <span class="chip" data-play="tex:canonO:block4:2">🔊 B2: block · two beats per chord (harmonic rhythm upgraded, texture untouched)</span>
+          </div>
+          <div class="row"><span class="chip" data-play="tex:canonO:flow16:2">🔊 C: both upgraded (stream + two-beat changes) — the classic chorus setup</span></div>
+          <p style="color:var(--muted)">Listen for it: in group A the <b>change points</b> never move — only the inside of the beat does; in group B every hit is still a stamp — the stamps just change ink more often. The two hands can push separately or together (C) — most arranging "crescendos" are built exactly this way.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Stop 4 · New clothes for Twinkle: melody fixed, textures rotating</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>Inside homophony, <b>changing texture = changing the melody's clothes</b>. The tune (green) keeps every note; the backing changes outfit:</p>
+          <div class="row">
+            <span class="chip" data-play="texm:pad">🔊 Outfit ①: pad (lullaby)</span>
+            <span class="chip" data-play="texm:bassChord">🔊 Outfit ②: bass + chord (folk sing-along)</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="texm:alberti">🔊 Outfit ③: Alberti (little classical sonatina)</span>
+            <span class="chip" data-play="texm:flow16">🔊 Outfit ④: 16th stream (wedding piano)</span>
+          </div>
+          <p style="color:var(--muted)">This game has a famous pedigree: Mozart's Twinkle variations, K.265 — one melody, twelve variations, a new texture almost every time. You just heard the miniature. And note the echo of level ㉝: melody unchanged, chords unchanged — <b>the entire character came from texture</b>.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Stop 5 · The texture curve: breathing with the sections</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>Level ㉚ taught the density curve (sparse verse → dense chorus); texture has a curve of its own, and the two usually push together. One demo, one full breath: verse pad (still) → pre-chorus pulse (charging) → chorus bass + stream (floodgates) — note the harmonic rhythm <b>never changes once</b>; everything that surges is texture:</p>
+          <div class="row"><span class="chip" data-play="texcurve">🔊 Texture curve: pad (2 bars) → pulse (2 bars) → bass + stream (4 bars)</span></div>
+          <p style="color:var(--muted)">Songwriting memo: to lift a section, reach for texture first, density second, new chords last — texture is the cheapest (not one note changes) and the most audible.</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>Stop 6 · Transcriber's hook: hear the texture in three steps</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>For any song, ask three questions in order and the texture shows itself. <b>Step 1: does the bass move?</b> Lying across the bar = pad family; dotting the downbeats = division family; rolling 16ths = tremolo / bass-plus-stream family. <b>Step 2: does the top land together or spread?</b> Whole chords = block family; note by note = Alberti / stream family. <b>Step 3: on-beat or off-beat?</b> On = steady; deliberately off = comping family. The three answers combined are precisely the full reply to "played how?" in level ㉞'s transcription method.</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">This level's drills: the four families, blind-hearing the eight textures, "which knob changed" (voicing / texture / harmonic rhythm), and matching textures to roles and scenes.</p>`;
 
     case "cliche": return `
       <p>Level ⑩'s Canon bass walked <b>downstairs</b>; level ㉖'s dim7 made the bass <b>crawl by half steps</b> — now the line hides <b>inside the chord</b>: the name stays C or Am throughout, yet one chromatic line keeps moving within. The trade name is the <b>line cliché</b>, found everywhere from jazz standards to pop ballads. Compare first:</p>
@@ -3268,6 +3488,18 @@ function teachEN(mId){
             <span class="chip" data-play="mc:home:dec">🔊 Same phrase — the carry-on version: …G → Am</span>
           </div>
           <p>The complete three-step method: <b>① list the long note's three host chords → ② pick one by function and bass line → ③ at phrase ends, decide the cadence by whether you want a period</b>. Levels ⑪ and ⑫ just became production tools.</p>
+        </div>
+      </details>
+
+      <details class="note"><summary><b>Extra: chords chosen — one garment still missing: texture</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>The three-step method only decides <b>what chords to wear</b>; how that harmony <b>moves inside the beat</b> is level ㉛'s texture knob — the very next decision after harmonizing. Same phrase E E D D C—, same approved C–G–C–C, three outfits:</p>
+          <div class="row">
+            <span class="chip" data-play="mtex:sun:good:pad">🔊 Outfit ①: pad (lullaby)</span>
+            <span class="chip" data-play="mtex:sun:good:bassChord">🔊 Outfit ②: bass + chord (folk sing-along)</span>
+            <span class="chip" data-play="mtex:sun:good:flow16">🔊 Outfit ③: 16th stream (wedding piano)</span>
+          </div>
+          <p style="color:var(--muted)">Not one melody note moved, not one chord changed — the harmonization is identical; the character was rewritten entirely by texture. The full workflow is four steps: <b>candidates → function → cadence → texture (level ㉛'s toolbox)</b>.</p>
         </div>
       </details>
 
@@ -4342,63 +4574,142 @@ function teachCN(mId){
       <p style="color:var(--muted);font-size:13px">本关练习：减七的对称构成与组成音、有无黏合剂听辨、低音 C♯ 的去向与"超级磁铁"原理、搭出 C♯°7 / G♯°7。</p>`;
 
     case "modes": return `
-      <p>课程叫《和弦与调式》——到目前为止"调式"只有大调和小调两种。但你一定听过这样的歌：<b>从头到尾绕圈，从不来一记 V7→I 的句号，却一点也不觉得没着落</b>。这一关补上拼图：调式色彩循环——<b>不一定非要回家</b>。</p>
+      <p>课程到目前为止，「调式」只讲过两种地基：大调和小调。这一关把拼图补全。<b>什么是调式？</b>本课采用最实用的视角：<b>在大调或小调的地基上，只动一个「特征音」，就得到一种新颜色</b>——动哪个音、往哪边动，决定了它色彩的亮或暗。</p>
 
-      <details class="note" open><summary><b>Mixolydian：大调降 7：开阔、慵懒</b></summary>
+      <details class="note" open><summary><b>总图一 · 亮度光谱：调式全家福（构成＋色彩预告）</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>把大调音阶的<b>第 7 音降半音</b>（C 调里 B→B♭），就是 C Mixolydian。导音没了，谁也不催着回家：</p>
+          <p>把七个调式按「亮 → 暗」排开（统一用 C 当主音对比构成；逐行点听音阶，感受天色一格格暗下来）。<b>大调和小调就在其中</b>——它们的本名叫 Ionian 和 Aeolian。每行末尾给一个该调式的典型套路，<b>先听个响、不解释</b>，后文逐一拆：</p>
+          <table class="ctab"><tr><th>调式（亮→暗）</th><th>怎么得到</th><th>台阶口诀</th><th>听音阶</th><th>色彩一词</th><th>套路预告（只听）</th></tr>
+            <tr><td>Lydian</td><td>大调<b>升4</b>（F→F♯）</td><td>全全<b>全半</b>全全半</td><td class="play" data-play="mel:0,2,4,6,7,9,11,12">▶</td><td>飘</td><td class="play" data-play="kseq:lydVamp">I–II ▶</td></tr>
+            <tr><td>Ionian＝<b>大调</b></td><td><b>亮的基准</b></td><td><b>全全半全全全半</b></td><td class="play" data-play="mel:0,2,4,5,7,9,11,12">▶</td><td>踏实</td><td class="play" data-play="kloopseq:pp1564">1564 ▶</td></tr>
+            <tr><td><b>★ Mixolydian</b></td><td>大调<b>降7</b>（B→B♭）</td><td>全全半全全<b>半全</b></td><td class="play" data-play="mel:0,2,4,5,7,9,10,12">▶</td><td>松</td><td class="play" data-play="kloopseq:mxLoop">I–♭VII–IV ▶</td></tr>
+            <tr><td><b>★ Dorian</b></td><td>小调<b>升6</b>（A♭→A）</td><td>全半全全<b>全半</b>全</td><td class="play" data-play="mel:0,2,3,5,7,9,10,12">▶</td><td>透光</td><td class="play" data-play="kloopseq:doLoop">i–IV ▶</td></tr>
+            <tr><td><b>★ Aeolian＝自然小调</b></td><td><b>暗的基准</b></td><td><b>全半全全半全全</b></td><td class="play" data-play="mel:0,2,3,5,7,8,10,12">▶</td><td>暗</td><td class="play" data-play="kloopseq:mLoop">i–VI–III–VII ▶</td></tr>
+            <tr><td>Phrygian</td><td>小调<b>降2</b>（D→D♭）</td><td><b>半全</b>全全半全全</td><td class="play" data-play="mel:0,1,3,5,7,8,10,12">▶</td><td>压迫</td><td class="play" data-play="kseq:phrVamp">i–♭II ▶</td></tr>
+            <tr><td style="color:var(--muted)">Locrian</td><td style="color:var(--muted)">再降5（地基塌了）</td><td style="color:var(--muted)">半全全<b>半全</b>全全</td><td class="play" data-play="mel:0,1,3,5,6,8,10,12">▶</td><td style="color:var(--muted)">几乎不用</td><td style="color:var(--muted)">——</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">光谱上挨着的两行只差一个音——这就是「特征音」的全部数学。口诀里看得更清：<b>动一个音 ＝ 口诀里相邻两格的「全/半」对调</b>（各行加粗处就是与基准对调的那两格；两条基准②⑯关早已背过；这七条口诀之间还藏着一个漂亮的秘密，课末「一物多名」一节揭晓）。打 ★ 的三位是本关主角；Lydian、Phrygian 在课末「一物多名」一节客串。（下文 Dorian 的实例用 D 当主音讲——D Dorian 全是白键，看键盘最清楚。）</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>总图二 · 半音磁铁地图：调式之间最要紧的区别</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>②关讲过：大调的半音只在 <b>3–4</b> 和 <b>7–1</b> 两处。推广到所有调式：<b>每个调式都恰有两处半音，只是位置不同</b>。而⑪⑫关讲过，半音就是磁铁——所以<b>每个调式的「引力地图」不同，推进歌曲的方式也就不同</b>。最要紧的一格是「主音下方」那块磁铁（导音）：</p>
+          <table class="ctab"><tr><th>调式</th><th>两处半音（磁铁）在哪</th><th>主音下方有导音？</th></tr>
+            <tr><td>Lydian</td><td>♯4–5、7–1</td><td><b>有</b>（还多一块吸向 5 的）</td></tr>
+            <tr><td>Ionian＝大调</td><td>3–4、7–1</td><td><b>有</b></td></tr>
+            <tr><td>Mixolydian</td><td>3–4、6–♭7</td><td>没有</td></tr>
+            <tr><td>Dorian</td><td>2–♭3、6–♭7</td><td>没有</td></tr>
+            <tr><td>Aeolian＝自然小调</td><td>2–♭3、5–♭6</td><td>没有</td></tr>
+            <tr><td>Phrygian</td><td><b>1–♭2</b>、5–♭6</td><td>没有（但有罕见的「上方导音」♭2→1）</td></tr>
+            <tr><td style="color:var(--muted)">Locrian</td><td style="color:var(--muted)">1–♭2、4–♭5</td><td style="color:var(--muted)">没有（连稳定五音都没了）</td></tr></table>
+          <div class="row">
+            <span class="chip" data-play="mel:11,12">🔊 大调的导音：B→C（半音蹭进家）</span>
+            <span class="chip" data-play="mel:10,12">🔊 Mixolydian 的尾巴：B♭→C（全音，磁铁没了）</span>
+            <span class="chip" data-play="mel:6,7">🔊 Lydian 的第二块磁铁：F♯→G（吸向 5）</span>
+            <span class="chip" data-play="mel:1,0">🔊 Phrygian 的上方导音：D♭→C（从上面压进家）</span>
+          </div>
+          <p><b>结论一句话：导音只在亮系两位（Lydian、Ionian）家里</b>；其余调式的磁铁都挪去了别处——它们做不出 V7→I 式的句号。⑲关干的事现在看得更清了：<b>给 Aeolian 人造一个导音（G♯）＝向功能语法投诚</b>，造出来的已经不是 Aeolian，是和声小调。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>总图三 · 你已经学过两个调式的套路课：解决类与反复类</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>回头看：<b>⑭关其实是 Ionian（大调）的套路课，㉑关其实是 Aeolian（自然小调）的套路课</b>。而那两关的套路，本来就分成两类：</p>
+          <div class="row">
+            <span class="chip" data-play="seq:fnCad">🔊 Ionian·解决类：IV–V7–I（导音推门，句号）</span>
+            <span class="chip" data-play="kloopseq:pp1564">🔁 Ionian·反复类：1564（绕圈不打句号）</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="mkseq:mCadV7">🔊 Aeolian·解决类：i–iv–V7–i（⑲关人造导音）</span>
+            <span class="chip" data-play="kloopseq:mLoop">🔁 Aeolian·反复类：i–VI–III–VII（靠反复立家）</span>
+          </div>
+          <p><b>解决类靠磁铁立足，反复类靠循环立足——两种都稳定。</b>对上面的磁铁地图就明白：有导音的调式两类都拿手；没有导音的调式天然偏科反复类。本课就在这个框架下，把其余调式的<b>特点、色彩、推进歌曲的功用</b>逐一讲清。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>主角一 · Mixolydian：大调降 7——开阔、慵懒</b></summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p><b>① 特征音。</b>把大调音阶的<b>第 7 音降半音</b>（C 调里 B→B♭）：导音没了，谁也不催着回家：</p>
           <div class="row">
             <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C 大调音阶（…B 蹭进 C）</span>
             <span class="chip" data-play="mel:0,2,4,5,7,9,10,12">🔊 C Mixolydian（…B♭ 松松走回 C）</span>
           </div>
-          <p>标志性循环 <b>I–♭VII–IV–I</b>（C–B♭–F–C）——摇滚与民谣的开阔国歌感：</p>
+          <p><b>② 特征音住进哪个和弦？</b>♭7（B♭）正是 <b>♭VII 和弦（B♭·D·F）的根音</b>——标志和弦把特征音摆上桌面。对比调内的 V：V 揣着导音催命，♭VII 连导音都没有，松：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:-5,-1,2">🔊 调内 V：G·B·D（揣着导音 B，催）</span>
+            <span class="chip" data-play="notes:-2,2,5">🔊 标志和弦 ♭VII：B♭·D·F（没有导音，松）</span>
+          </div>
+          <p><b>③ 没有导音，歌怎么推进？</b>两条腿：一是<b>循环本身的轮转</b>（I–♭VII–IV–I 转一圈就是一句话）；二是想收的时候，用 <b>♭VII→I 的「散步句号」</b>——低音全音迈进家门，不挤不催，但照样落定（⑫关拓展拆过它）。和带导音的句号对比：</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:v2I">🔊 带磁铁的句号：V→I（B 半音蹭进 C，催）</span>
+            <span class="chip" data-play="kseq:b72I">🔊 Mixolydian 的散步句号：♭VII→I（B♭ 全音迈进 C，松）</span>
+          </div>
+          <p><b>④ 标志循环 I–♭VII–IV–I</b>（C–B♭–F–C）——摇滚与民谣的开阔国歌感：</p>
           <div class="row"><span class="chip" data-play="kloopseq:mxLoop">🔁 C–B♭–F–C（循环）</span></div>
           ${keyBar(false,true)}
-          <p>和㉒关借用的分水岭在<b>频率</b>：B♭ 偶尔闪现一次是借用；像这样<b>长期常驻</b>，它就是音阶的正式成员——整首歌住在 Mixolydian 里。</p>
+          <p><b>⑤ 钩子。</b>和㉒关借用的分水岭在<b>频率</b>：B♭ 偶尔闪现一次是借用；像这样<b>长期常驻</b>，它就是音阶的正式成员——整首歌住在 Mixolydian 里。</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>Dorian：小调升 6：忧郁但松弛</b></summary>
+      <details class="note" open><summary><b>主角二 · Dorian：小调升 6——忧郁但松弛</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>把自然小调的<b>第 6 音升半音</b>（D 小调里 B♭→B），就是 D Dorian。一个音，把阴郁调成"忧郁但透气"——R&B / funk / neo-soul 的招牌：</p>
+          <p><b>① 特征音。</b>把自然小调的<b>第 6 音升半音</b>（D 小调里 B♭→B），一个音把阴郁调成「忧郁但透气」：</p>
           <div class="row">
             <span class="chip" data-play="mel:2,4,5,7,9,10,12,14">🔊 D 自然小调（…第 6 音是 B♭）</span>
             <span class="chip" data-play="mel:2,4,5,7,9,11,12,14">🔊 D Dorian（…第 6 音是 B，透光）</span>
           </div>
-          <p>标志性循环 <b>i–IV</b>（Dm–G）：升出来的 B 正好是 G 的三音，四级从暗（Gm）变亮（G）：</p>
+          <p><b>② 特征音住进哪个和弦？</b>升出来的 ♮6（B）正是 <b>IV 级和弦的三音</b>——四级从暗的 Gm 变成亮的 G，这一格就是 Dorian 的招牌：</p>
           <div class="row">
-            <span class="chip" data-play="kloopseq:doMinor">🔁 自然小调：Dm–Gm（暗）</span>
-            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian：Dm–G（透光）</span>
+            <span class="chip" data-play="notes:7,10,14">🔊 自然小调的 iv：Gm（G·B♭·D，暗）</span>
+            <span class="chip" data-play="notes:7,11,14">🔊 Dorian 的 IV：G（G·B·D，特征音 B 当三音——亮）</span>
+          </div>
+          <p><b>③ 没有导音，歌怎么推进？</b>Dorian 几乎是<b>纯反复类</b>的住户：i 和 IV 像呼吸一样来回摆（暗一口、亮一口），亮的 IV 充当「假解决」给句子透气；真要停下，就落回 i 多待两拍，靠<b>重复确认</b>而不是磁铁宣告。这正是 R&B / funk / neo-soul 那股「永远在律动、从不立正」的来源：</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:doMinor">🔁 自然小调：Dm–Gm（暗，呼吸不透）</span>
+            <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian：Dm–G（一暗一亮，呼吸感）</span>
           </div>
           ${keyBar(false,true)}
-          <p>⚠️ 别把 Dm–G 听成"C 大调的 ii–V"：ii–V 是要回 C 交差的；这段循环<b>从不去 C，家就在 Dm</b>。和弦一样，住址不同。</p>
+          <p><b>⑤ 钩子。</b>⚠ 别把 Dm–G 听成「C 大调的 ii–V」：ii–V 是要回 C 交差的；这段循环<b>从不去 C，家就在 Dm</b>。和弦一样，住址不同。</p>
         </div>
       </details>
 
-      <details class="note" open><summary><b>Aeolian：你早就会了：自然小调循环</b></summary>
+      <details class="note" open><summary><b>主角三 · Aeolian：你早就会了——自然小调循环</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>先把名字钉死：<b>Aeolian 音阶 ＝ 自然小调音阶，逐音相同</b>——A Aeolian 就是⑯关学的 A 自然小调（A B C D E F G，台阶「全半全全半全全」），一个音都不差：</p>
+          <p><b>① 特征音？它就是「暗的基准」本身。</b>先把名字钉死：<b>Aeolian 音阶 ＝ 自然小调音阶，逐音相同</b>——A Aeolian 就是⑯关学的 A 自然小调（A B C D E F G），一个音都不差：</p>
           <div class="row"><span class="chip" data-play="natminor:9">🔊 A Aeolian ＝ A 自然小调（同一条音阶）</span></div>
-          <p>那为什么一条音阶要两个名字？因为<b>两种用法、两个视角</b>：在大小调体系里叫它「自然小调」——通常下一步就是⑲关的魔改，造出 V7 来打句号；而当音乐<b>故意保持自然、不造导音、靠反复立家</b>时，改用它的调式名「<b>Aeolian</b>」来强调这种玩法。名字切换的是态度，音阶一个音没变。第㉑关的小调万能循环 <b>i–VI–III–VII</b>（Am–F–C–G）正是 Aeolian 态度的标准用法：<b>不靠导音回家</b>，全程没有 G♯，靠循环本身确立 Am 是中心：</p>
-          <div class="row"><span class="chip" data-play="kloopseq:mLoop">🔁 Am–F–C–G（Aeolian 悬浮）</span></div>
-          ${keyBar(false,true)}
-          <p>对照第⑲⑳关：同一个 A 小调，想要<b>宿命句号</b>就魔改出 V7（和声小调）；想要<b>漂浮循环</b>就保持自然（Aeolian）。两条路都对，看歌要什么。</p>
-        </div>
-      </details>
-
-      <details class="note" open><summary><b>判断：功能型回家 vs 调式型悬浮</b></summary>
-        <div style="line-height:1.8;color:#e9e3ff">
-          <p>耳朵只问一件事：<b>有没有导音在催？</b></p>
+          <p>那为什么一条音阶要两个名字？因为<b>两种用法、两个视角</b>：在大小调体系里叫它「自然小调」——通常下一步就是⑲关的魔改，造出 V7 来打句号；而当音乐<b>故意保持自然、不造导音、靠反复立家</b>时，改用它的调式名「<b>Aeolian</b>」来强调这种玩法。名字切换的是态度，音阶一个音没变。</p>
+          <p><b>② 它的磁铁地图：主音下方没有磁铁。</b>第 7 音 G 离主音 A 整整一个全音——没有人催：</p>
           <div class="row">
-            <span class="chip" data-play="seq:fnCad">🔊 功能型：IV–V7–I（导音推门，句号）</span>
-            <span class="chip" data-play="seq:mxLoop">🔊 调式型：I–♭VII–IV–I（没人催，悬浮）</span>
+            <span class="chip" data-play="mel:7,9">🔊 G → A（全音，松——Aeolian 的原装）</span>
+            <span class="chip" data-play="mel:8,9">🔊 对照：G♯ → A（半音磁铁——那是⑲关魔改后的和声小调）</span>
           </div>
-          <p>两种都"稳定"——功能型靠<b>解决</b>稳定，调式型靠<b>反复</b>稳定。学完⑪⑫关容易以为所有歌都要 V→I：其实大量流行循环住在右边这种状态里。</p>
+          <p><b>③ 没有导音，歌怎么推进？两条路都通，这正是小调的特权。</b>想要<b>漂浮</b>就保持自然：循环轮转、靠反复立家（反复类）；想要<b>宿命句号</b>就走⑲关：人造导音、魔改出 V7（解决类）——但记住，人造的那一刻你已经离开 Aeolian、搬进和声小调：</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:mLoop">🔁 反复类：i–VI–III–VII（Am–F–C–G）· Aeolian 悬浮，全程无 G♯</span>
+            <span class="chip" data-play="mkseq:mCadV7">🔊 解决类：i–iv–V7–i（Am–Dm–E7–Am）· 人造 G♯，句号落定——已是和声小调</span>
+          </div>
+          ${keyBar(false,true)}
+          <p><b>⑤ 钩子。</b>对照第⑲⑳关：两条路都对，看歌要什么。第㉑关的万能循环正是「反复类」的标准答案。</p>
         </div>
       </details>
 
-      <details class="note"><summary>拓展：另外几个调式的一句话名片</summary>
+      <details class="note" open><summary><b>总结 · 磁铁分布 ↔ 推进方式</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
+          <p>把三位主角放回磁铁地图，规律收拢成一句话：<b>主音下方有没有磁铁，决定了这个调式怎么推进歌曲</b>——</p>
+          <p>· <b>有导音</b>（Ionian、Lydian）：解决类、反复类两手都硬——既能 V7→I 打句号，也能 1564 绕圈；<br>
+             · <b>没导音</b>（Mixolydian、Dorian、Aeolian、Phrygian）：天然偏科<b>反复类</b>。要「收」有两招：<b>散步句号</b>（♭VII→I 式全音迈步）或<b>人造导音</b>（⑲关，但等于搬回功能体系）。</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:auth">🔊 磁铁句号：G7→C（解决类的标准收法）</span>
+            <span class="chip" data-play="kseq:b72I">🔊 散步句号：♭VII→I（无导音调式的收法）</span>
+            <span class="chip" data-play="kloopseq:mLoop">🔁 不收：反复立家（调式循环的常态）</span>
+          </div>
+          <p style="font-size:12.5px;color:var(--muted)">这就是「解决类 vs 反复类」的全部物理：磁铁在，句号易；磁铁失，循环立。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary>光谱两端的客串，以及「一物多名」的来历</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>光谱最亮与最暗的两端，流行里偶尔客串：</p>
           <p>· <b>Lydian</b>（大调升 4）：飘起来的梦幻感，影视配乐爱用。和大调只差一个音，对比听（第 4 音 F→F♯，整条音阶离地半寸）：</p>
           <div class="row">
             <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C 大调音阶（脚踏实地）</span>
@@ -4414,8 +4725,47 @@ function teachCN(mId){
             <span class="chip" data-play="mel:0,2,4,5,7,9,11,12">🔊 C Ionian ＝ C 大调音阶（同一条）</span>
             <span class="chip" data-play="mel:9,11,12,14,16,17,19,21">🔊 A Aeolian ＝ A 自然小调（同一条）</span>
           </div>
-          <p>那为什么一物多名？因为这套希腊名来自<b>教会调式</b>的命名体系：把 7 个白键轮流当主音，得到 7 条音阶，每条各有名字（Ionian、Dorian、Phrygian、Lydian、Mixolydian、Aeolian、Locrian）——其中两条恰好成了后来大小调体系的主角，于是各自有了「体系内的常用名」（大调 / 自然小调）和「调式视角的本名」（Ionian / Aeolian）。日常约定：讲功能进行时说<b>大调 / 小调</b>，强调「不急着回家」的调式玩法时用<b>希腊名</b>（Aeolian 一节刚演示过这种视角切换）。</p>
-          <p style="font-size:12.5px;color:var(--muted)">再排掉一个易混点：「小调」是<b>总称</b>——它底下还有⑲关魔改出的<b>和声小调</b>（带 G♯ 那条）；Aeolian 只等于其中「自然」的那一条。流行里最常用的调式就是本关这三个。</p>
+          <p>那为什么一物多名？因为这套希腊名来自<b>教会调式</b>的命名体系：把 7 个白键轮流当主音，得到 7 条音阶，每条各有名字（Ionian、Dorian、Phrygian、Lydian、Mixolydian、Aeolian、Locrian）——其中两条恰好成了后来大小调体系的主角，于是各自有了「体系内的常用名」（大调 / 自然小调）和「调式视角的本名」（Ionian / Aeolian）。日常约定：讲功能进行时说<b>大调 / 小调</b>，强调「不急着回家」的调式玩法时用<b>希腊名</b>。</p>
+          <p><b>轮转的彩蛋：光谱表那七条台阶口诀，其实是同一个环。</b>白键之间的台阶是焊死的一圈：C-D 全、D-E 全、E-F 半、F-G 全、G-A 全、A-B 全、B-C 半——把这七个字首尾相接，想成一个环（过了八度它无限重复）。<b>选哪个白键当主音 ＝ 从环的哪一格开始读</b>，一次读七格。七个进场点逐一验证（每行从那个白键起、沿白键走一个八度，正是该调式——可点）：</p>
+          <table class="ctab"><tr><th>从哪个白键起读</th><th>读出的口诀</th><th>就是哪个调式</th><th>听（白键一圈）</th></tr>
+            <tr><td>C 起</td><td><b>全全半全全全半</b></td><td>Ionian＝大调</td><td class="play" data-play="mel:0,2,4,5,7,9,11,12">▶</td></tr>
+            <tr><td>D 起</td><td>全半全全全半全</td><td>Dorian</td><td class="play" data-play="mel:2,4,5,7,9,11,12,14">▶</td></tr>
+            <tr><td>E 起</td><td>半全全全半全全</td><td>Phrygian</td><td class="play" data-play="mel:4,5,7,9,11,12,14,16">▶</td></tr>
+            <tr><td>F 起</td><td>全全全半全全半</td><td>Lydian</td><td class="play" data-play="mel:5,7,9,11,12,14,16,17">▶</td></tr>
+            <tr><td>G 起</td><td>全全半全全半全</td><td>Mixolydian</td><td class="play" data-play="mel:7,9,11,12,14,16,17,19">▶</td></tr>
+            <tr><td>A 起</td><td><b>全半全全半全全</b></td><td>Aeolian＝自然小调</td><td class="play" data-play="mel:9,11,12,14,16,17,19,21">▶</td></tr>
+            <tr><td>B 起</td><td>半全全半全全全</td><td>Locrian</td><td class="play" data-play="mel:11,12,14,16,17,19,21,23">▶</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">七条口诀一个不多一个不少，全是这个环的七个进场点；环每转一格，口诀里就有相邻两格「全/半」对调——光谱脚注那条规律的出处就在这。注意这张表的调式都长在白键上（D Dorian、E Phrygian…），而光谱表为了同台对比统一用了 C 当主音——同一个调式换主音，口诀不变（㉓关移调的道理）。两种视角，同一批音阶。</p>
+          <p style="font-size:12.5px;color:var(--muted)">再排掉一个易混点：「小调」是<b>总称</b>——它底下还有⑲关魔改出的<b>和声小调</b>（带 G♯ 那条）；Aeolian 只等于其中「自然」的那一条。</p>
+        </div>
+      </details>
+
+      <p><b>收束 · 扒歌时怎么用？</b>听到「绕圈不回家」的段落，按三步走：<b>① 确认没人催</b>（找不到导音半音蹭进主音）→ <b>② 揪出特征音</b>（通常就坐在标志和弦里：♭VII 的根音、大 IV 的三音…）→ <b>③ 对照光谱定调式</b>。这正是㉞关四步法第④步「辨色彩」的调式分支。</p>
+
+      <p><b>尾声 · 调式可以在一首歌里切换吗？</b>可以，而且按「剂量」分三档：<b>一格</b>＝离调借用（㉒关，F→Fm 那一闪）；<b>一段</b>＝段落级切换（主歌一种调式、副歌另一种——见下面拓展）；<b>整曲</b>＝常驻（本关的主场）。㉒关说的「频率分水岭」其实是这条连续谱的两端，中间那档展开如下：</p>
+
+      <details class="note"><summary>拓展：第二档·段落级调式切换——主歌一种色，副歌另一种色</summary>
+        <div style="line-height:1.8;color:#e9e3ff">
+          <p>段落级切换有两种姿势，分别动「音阶」和动「中心」：</p>
+          <p><b>姿势一 · 平行切换（同主音、换音阶）。</b>最经典的安排：主歌住 C Mixolydian（反复类绕圈），副歌切回 C Ionian 并启用功能语法（IV–V7–I）。注意这一刀<b>同时切了两件事</b>——色彩（Mixo→Ionian）和推进方式（反复→解决）：<b>磁铁回来了，句号也就回来了</b>。先分开听，再连听：</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:mxLoop">🔁 主歌：C Mixolydian 绕圈（B♭ 常驻，没人催）</span>
+            <span class="chip" data-play="seq:fnCad">🔊 副歌：C Ionian 功能句号（B 归位，导音推门）</span>
+            <span class="chip" data-play="kseq:parSwitch">🔊 连听：主歌 I–♭VII–IV–I ‖ 副歌 IV–V7–I（听 B♭ 变回 B 的那一刻）</span>
+          </div>
+          <p><b>姿势二 · 关系切换（同一批音、换中心）。</b>㉙关教过的「暗主歌→亮副歌」，用本关的语言重新说一遍就是：<b>Aeolian ↔ Ionian 的调式切换</b>——七个音一个没动，户主从 Am 换成 C。切换前后逐项列清楚：</p>
+          <table class="ctab"><tr><th>段落</th><th>和弦逐个列出</th><th>级数（按各自户主数）</th><th>户主 / 调式</th><th>单听</th></tr>
+            <tr><td>主歌（暗）</td><td>Am → F → Am → G</td><td>i–VI–i–VII</td><td>Am / A Aeolian</td><td class="play" data-play="seq:mlRelV">▶</td></tr>
+            <tr><td>副歌（亮）</td><td>C → F → G → C</td><td>I–IV–V–I</td><td>C / C Ionian</td><td class="play" data-play="seq:mlRelC">▶</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">注意 F 和 G <b>两边都在用</b>——和弦没换批，换的是它们围着谁转：主歌里 F、G 绕着 Am 打转（VI、VII，不收）；副歌里同一对 F、G 变成 IV–V，把句子推回 C（收）。这就是「同一批人，换了户主」的具体含义。</p>
+          <div class="row"><span class="chip" data-play="seq:mlRel">🔊 连听：暗主歌（Am–F–Am–G）→ 亮副歌（C–F–G–C）</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">细节：两段刻意排在<b>同一音区</b>（都贴着中央 C），你听到的亮/暗差<b>全部来自户主换人</b>——因为音区本身也是一条很强的「明亮度」线索，不按住它，比较就不干净。只在收尾让顶音顺势翻个根音（C4E4G4C5），给「天亮」轻轻帮腔。</p>
+          <p><b>和㉙关转调划清边界</b>（⑰关的「平行/关系」词汇原样升级适用）：</p>
+          <table class="ctab"><tr><th>手法</th><th>主音</th><th>音阶</th><th>典型听感</th></tr>
+            <tr><td>推土机转调（㉙）</td><td><b>换</b>（整体抬高）</td><td>模式不变</td><td>「又上一层楼」</td></tr>
+            <tr><td>平行调式切换</td><td>不换</td><td><b>换</b>（B♭↔B 这类）</td><td>「同一个家，换了天色」</td></tr>
+            <tr><td>关系调式切换</td><td>中心换</td><td>不换（同一批音）</td><td>「同一批人，换了户主」</td></tr></table>
+          <p style="font-size:12.5px;color:var(--muted)">写歌备忘：想给副歌「天亮」的瞬间，平行切换（Mixo/Dorian 主歌 → Ionian 副歌）比硬抬半音便宜得多——不用换调，只需把特征音放回去。</p>
         </div>
       </details>
 
@@ -4498,9 +4848,11 @@ function teachCN(mId){
 
       <details class="note" open><summary><b>第二招：关系大小调切换：暗主歌、亮副歌</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>第㉑关的"视角翻转"动态化：主歌让重心绕着 <b>Am</b> 打转（暗），副歌把重心搬到 <b>C</b>（亮）。七个音全程没换，换的只是"家"：</p>
+          <p>第㉑关的"视角翻转"动态化：主歌让重心绕着 <b>Am</b> 打转（暗），副歌把重心搬到 <b>C</b>（亮）。七个音全程没换，换的只是"家"——用调式的话说，就是 Aeolian 切到 Ionian：</p>
           <div class="row"><span class="chip" data-play="seq:mlRel">🔊 暗主歌（Am–F–Am–G）→ 亮副歌（C–F–G–C）</span></div>
-          <p>反向同样常用：大调主歌、关系小调副歌，瞬间转阴。因为不引入任何新音，这是<b>最无缝</b>的转调。</p>
+          <p>反向同样常用：大调主歌、关系小调副歌，瞬间转阴。因为不引入任何新音，这是<b>最无缝</b>的转调。听个反向的例子——亮主歌 C–F–G–C（I–IV–V–I，句号亮堂），副歌同一批音把户主搬回 Am：Am–F–G–Am（i–VI–VII–i，结尾落 i 把暗色钉住），天色瞬间转阴——Ionian 切到 Aeolian：</p>
+          <div class="row"><span class="chip" data-play="seq:mlRelRev">🔊 亮主歌（C–F–G–C）→ 暗副歌（Am–F–G–Am）</span></div>
+          <p style="font-size:12.5px;color:var(--muted)">两个例子都刻意排在同一音区（贴着中央 C）：亮/暗差全部来自户主换人，不掺音高高低的功劳。收尾各让顶音顺势翻个根音——亮段翻上 C5、暗段落在低处的 A（A3C4E4A4），方向与文字一致，只做轻轻帮腔。</p>
         </div>
       </details>
 
@@ -5722,7 +6074,7 @@ function teachCN(mId){
           <p><b>第二句 · 它和两位近亲的分工。</b>三个最容易混的概念，其实各管一件事——一个管空间、两个管时间（一微观一宏观）：</p>
           <table class="ctab"><tr><th>概念</th><th>管什么</th><th>改了它，什么变</th><th>在哪学</th></tr>
             <tr><td><b>排列 voicing</b></td><td>音摆在哪些<b>高度</b>（空间）</td><td>厚薄、明暗的质感</td><td>㉘关</td></tr>
-            <tr><td><b>织体 texture</b></td><td>音在<b>拍内</b>怎么出场（时间·微观）</td><td>盖章感 ↔ 水流感</td><td>本拓展</td></tr>
+            <tr><td><b>织体 texture</b></td><td>音在<b>拍内</b>怎么出场（时间·微观）</td><td>盖章感 ↔ 水流感</td><td>㉛关</td></tr>
             <tr><td><b>和声节奏</b></td><td><b>拍间</b>何时换和弦（时间·宏观）</td><td>段落的推进/从容</td><td>本关</td></tr></table>
           <p>用声音把「排列」和「织体」分开：下面两个按钮改的是<b>排列</b>——同样齐奏出场，音的<b>高度</b>变了；而上面的切换钮改的是<b>织体</b>——高度一个没动，<b>先后</b>变了。两件事互不相干：</p>
           <div class="row">
@@ -5739,11 +6091,106 @@ function teachCN(mId){
             <span class="chip" data-play="kloopseq:pp1564">🔁 实验二·改「拍内」：循环起来，用右边按钮切 齐奏→分解→综合（织体层）</span>
           </div>
           ${keyBar(false,true)}
-          <p style="font-size:12.5px;color:var(--muted)">听点：实验二切织体时，「何时换和弦」从头到尾没变；实验一改密度时，弹法也丝毫没动——所以编曲是<b>三层各自调</b>：先定和声节奏（宏观推进），再选织体（微观流动），最后调排列（空间厚薄）。扒歌（㉝关）反过来也分三问：几拍一换？怎么弹的？摆多高？</p>
+          <p style="font-size:12.5px;color:var(--muted)">听点：实验二切织体时，「何时换和弦」从头到尾没变；实验一改密度时，弹法也丝毫没动——所以编曲是<b>三层各自调</b>：先定和声节奏（宏观推进），再选织体（微观流动），最后调排列（空间厚薄）。扒歌（㉞关）反过来也分三问：几拍一换？怎么弹的？摆多高？织体的全景——四大类、八种常用织体、织体曲线——已扩建成独立的第㉛关，这里记住边界即可。</p>
         </div>
       </details>
 
       <p style="color:var(--muted);font-size:13px">本关练习：密度听辨（4 拍/2 拍一换）、密度与段落的搭配、换点踩没踩重拍、有没有抢拍；训练场另有拍号（3/4 vs 4/4）专项。</p>`;
+
+    case "texture": return `
+      <p>前面的关卡回答的都是弹<b>什么</b>和弦；㉘关回答<b>摆多高</b>；㉚关回答<b>何时换</b>。还剩最后一问：<b>这些音在拍子里怎么动起来？</b>——这就是<b>织体 (texture)</b>。同一格 C 和弦，可以像一堵墙立着不动，也可以像水流淌个不停，歌的气质就差在这一下。先把四个旋钮的边界立清楚：</p>
+      <table class="ctab"><tr><th>旋钮</th><th>管什么</th><th>改了它什么变</th><th>在哪学</th></tr>
+        <tr><td>和弦表</td><td>用<b>哪些音</b></td><td>和声颜色</td><td>③–㉗关</td></tr>
+        <tr><td>排列 voicing</td><td>摆在<b>哪些高度</b>（空间）</td><td>厚薄明暗</td><td>㉘关</td></tr>
+        <tr><td>和声节奏</td><td><b>拍间</b>何时换（时间·宏观）</td><td>推进/从容</td><td>㉚关</td></tr>
+        <tr><td><b>织体</b></td><td><b>拍内</b>怎么动（时间·微观）</td><td>盖章感 ↔ 水流感</td><td>本关</td></tr></table>
+      <p style="color:var(--muted)">课件全局的「齐奏/分解/综合」切换键，其实是织体的三个最常用预设。本关把全景打开：先分四大类，再把流行歌最常用的八种织体一个个过手。</p>
+
+      <details class="note" open><summary><b>第一站 · 学理地基：织体先分四大类</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>第一层分类只看两件事：<b>几条线、什么关系</b>。用小星星的前两句做最小实验（旋律绿色点亮）：</p>
+          <p><b>① 单声 monophony：只有一条线。</b>没有伴奏没有和声，旋律孤身上路——清唱、山歌、号子都是它：</p>
+          <div class="row"><span class="chip" data-play="texm:solo">🔊 单声：小星星裸旋律</span></div>
+          <p><b>② 主调 homophony：一条主线 + 全员伴奏。</b>旋律当主角，其余声部只负责托底——流行歌 99% 的时间住在这里。本关后面的八种织体，全是主调内部的花样：</p>
+          <div class="row"><span class="chip" data-play="texm:block4">🔊 主调：同一旋律 + 柱式伴奏</span></div>
+          <p><b>③ 复调 polyphony：几条独立的线互相缠绕。</b>没有谁伴奏谁，条条都是旋律——赋格、卡农轮唱是极致；流行歌副歌后段加进来的对位副旋律是它的轻量版。听：下方多了一条<b>自己走自己的</b>二分音线：</p>
+          <div class="row"><span class="chip" data-play="texm:poly">🔊 复调：旋律 + 一条独立对位线</span></div>
+          <p><b>④ 支声 heterophony：同一条旋律的几个版本同时进行。</b>大家唱的是同一句，但各自加花——民乐合奏、民歌帮腔的常态。听：低八度有个爱加花的同伴，绕着同一条旋律走：</p>
+          <div class="row"><span class="chip" data-play="texm:hetero">🔊 支声：旋律 + 它的加花版同行</span></div>
+          <p style="color:var(--muted)">判别口诀：<b>数线、问关系</b>——一条线＝单声；一主多仆＝主调；条条平等＝复调；同一条线开分身＝支声。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第二站 · 主调工具箱：八种最常用织体，一个个过手</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>道具固定：同一个 1645（C–G–Am–F）、每小节一换、和弦音一个不变——<b>下面唯一在换的就是织体</b>。先记住基准，再逐个与它对比：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:block4">🔊 基准 · 柱式四分：每拍盖一个章</span></div>
+          <p><b>① 长音铺底 pad。</b>整小节按住不动：低音和声一次给齐，之后只剩余响。零律动，所以专职垫底——弦乐垫、合成器 pad、抒情歌第一遍主歌。劲最省，存在感也最弱：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:pad">🔊 铺底（对比基准：动作从每小节 4 次降到 1 次）</span></div>
+          <p><b>② 柱式四分（基准本人）。</b>每拍整和弦一击，强弱全靠拍点自带。民谣吉他下扫、钢琴弹唱的默认挡位——稳，但久了发闷：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:block4">🔊 柱式四分（就是上面的基准，就地再听一遍）</span></div>
+          <p><b>③ 八分脉冲。</b>四分劈成八分、反拍减力——动作翻倍，心跳感出来了。流行摇滚的主力挡（《The Scientist》整首就是它）：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:pulse8">🔊 八分脉冲（对比基准：每拍 1 下 → 2 下，反拍轻）</span></div>
+          <p><b>④ 低音 + 和弦分工。</b>左手拍 1 根音落底延住，右手拍 2 起补柱式——一层管地基、一层管墙。分工一出现，「编曲感」立刻出现。民谣钢琴标配：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:bassChord">🔊 分工（对比基准：低音与和声不再同时落，各管各的）</span></div>
+          <p><b>⑤ Alberti 低音。</b>和弦拆成<b>低-高-中-高</b>的八分循环——古典启蒙曲的默认织体（莫扎特 K.545 开头就是）。流水感的鼻祖：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:alberti">🔊 Alberti（对比③：同是八分，每下只有一个音、按固定花样转圈）</span></div>
+          <p><b>⑥ 流水 16 分。</b>和弦音摊开两个八度，16 分上行再下行铺满——琶音的满配版（《River Flows in You》、卡农钢琴版的式样）。最华丽也最占地方，人声进来时要让路：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:flow16">🔊 流水 16 分（对比⑤：花样更长、跨两个八度、密一倍）</span></div>
+          <p><b>⑦ 切分 comping。</b>低音踩正拍稳住，和弦专挑反拍和夹缝下手——律动全靠「躲开正拍」制造。R&B / 爵士伴奏的看家本领：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:syncop">🔊 切分（对比基准：同样的和弦，章不再盖在拍点上）</span></div>
+          <p><b>⑧ 八度震音。</b>上方和弦轻按住，低音在根音两个八度之间 16 分来回打点——紧张度拉满。副歌前蓄力、摇滚桥段常客：</p>
+          <div class="row"><span class="chip" data-play="tex:canonO:octTrem">🔊 八度震音（对比①：同样上方不动，底下从静止变成擂鼓）</span></div>
+          <p style="color:var(--muted)">每种记三件事：<b>每层什么角色、节奏型长什么样、典型出现在哪</b>。①→⑧动作密度大体递增——这正是下一站的引子。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第三站 · 织体 ≠ 密度：两只独立的手</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>「越弹越密」有两种完全不同的密法：<b>织体变密</b>＝拍内动作变多（本关旋钮）；<b>密度变密</b>＝拍间换和弦变勤（㉚关旋钮）。同一个 1645 做三组实验：</p>
+          <div class="row">
+            <span class="chip" data-play="tex:canonO:pad">🔊 A1：铺底 · 一小节一换</span>
+            <span class="chip" data-play="tex:canonO:flow16">🔊 A2：流水 · 一小节一换（织体升级，和声节奏没动）</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="tex:canonO:block4">🔊 B1：柱式 · 一小节一换</span>
+            <span class="chip" data-play="tex:canonO:block4:2">🔊 B2：柱式 · 两拍一换（和声节奏升级，织体没动）</span>
+          </div>
+          <div class="row"><span class="chip" data-play="tex:canonO:flow16:2">🔊 C：双升级（流水 + 两拍一换）——副歌的常用配置</span></div>
+          <p style="color:var(--muted)">听点：A 组里和弦的<b>换点</b>纹丝不动，动的只是拍子内部；B 组里每下都还是盖章，只是章换得勤了。两只手可以各推各的，也可以一起推（C）——编曲的「渐强」大多这么造。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第四站 · 给小星星换衣服：旋律不动，织体轮换</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>主调音乐里<b>换织体＝给同一条旋律换衣服</b>。旋律（绿色）从头到尾一个音不改，伴奏逐套换上：</p>
+          <div class="row">
+            <span class="chip" data-play="texm:pad">🔊 衣服①：铺底（摇篮曲气质）</span>
+            <span class="chip" data-play="texm:bassChord">🔊 衣服②：低音+和弦（民谣弹唱气质）</span>
+          </div>
+          <div class="row">
+            <span class="chip" data-play="texm:alberti">🔊 衣服③：Alberti（古典小奏鸣曲气质）</span>
+            <span class="chip" data-play="texm:flow16">🔊 衣服④：流水 16 分（婚礼钢琴气质）</span>
+          </div>
+          <p style="color:var(--muted)">这个玩法有个著名出处：莫扎特《小星星变奏曲》K.265——同一条旋律十二段变奏，几乎每段换一种织体，你刚才听的就是迷你版。顺带呼应㉝关：旋律没动、和弦也没动，<b>气质全是织体给的</b>。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第五站 · 织体曲线：跟着段落呼吸</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>㉚关有「密度曲线」（主歌疏→副歌密）；织体也有同款曲线，两条常常一起推。一条 demo 听完整呼吸：主歌铺底（静）→ 预副歌八分脉冲（蓄力）→ 副歌低音+流水（开闸）——注意全程<b>和声节奏一拍未变</b>，涌起来的全是织体：</p>
+          <div class="row"><span class="chip" data-play="texcurve">🔊 织体曲线：铺底(2小节) → 脉冲(2小节) → 低音+流水(4小节)</span></div>
+          <p style="color:var(--muted)">写歌备忘：段落要升级时，先想换织体、再想加密度、最后才想加和弦——换织体最便宜（一个音不用改），效果却最显著。</p>
+        </div>
+      </details>
+
+      <details class="note" open><summary><b>第六站 · 扒歌钩子：三步听出织体</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>听任何歌，按顺序问三个问题，织体就现形：<b>第一步：低音动不动？</b>整小节躺着＝铺底系；正拍打点＝分工系；16 分滚动＝震音/低音+流水系。<b>第二步：上方是齐是散？</b>整和弦齐落＝柱式系；逐音散开＝Alberti/流水系。<b>第三步：踩不踩反拍？</b>踩正拍＝稳；专挑反拍＝切分系。三个答案一拼，正是㉞关扒歌四步法里「怎么弹的」那一问的完整答案。</p>
+        </div>
+      </details>
+
+      <p style="color:var(--muted);font-size:13px">本关练习：四大类辨认、八种织体盲听、「哪个旋钮变了」（排列/织体/和声节奏）、织体的角色与场景搭配。</p>`;
 
     case "cliche": return `
       <p>⑩关的卡农低音在<b>下台阶</b>，㉖关的减七让低音<b>爬半音</b>——这一关，线藏进了<b>和弦内部</b>：和弦名一直姓 C 或姓 Am，里面却有一条半音线在悄悄移动。这种写法有个行话名字：<b>line cliché（半音线条）</b>，从爵士老歌到华语抒情歌随处可见。先对比一耳朵：</p>
@@ -5885,6 +6332,18 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary><b>拓展：配完和弦，还差一件衣服：织体</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>三步法定下的只是「<b>穿什么</b>和弦」；这套和弦在拍子里<b>怎么动</b>，是㉛关的织体旋钮——选完和弦之后的下一个决定。听同一句 E E D D C—、同一套配好的 C–G–C–C，换三件外衣：</p>
+          <div class="row">
+            <span class="chip" data-play="mtex:sun:good:pad">🔊 外衣①：铺底（摇篮曲）</span>
+            <span class="chip" data-play="mtex:sun:good:bassChord">🔊 外衣②：低音+和弦（民谣弹唱）</span>
+            <span class="chip" data-play="mtex:sun:good:flow16">🔊 外衣③：流水16分（婚礼钢琴）</span>
+          </div>
+          <p style="color:var(--muted)">旋律一个音没动、和弦一家没换——配和弦的答案完全相同，气质全靠织体改写。所以完整的工作流是四步：<b>候选 → 功能 → 终止 → 织体（㉛关的工具箱）</b>。</p>
+        </div>
+      </details>
+
       <p style="color:var(--muted);font-size:13px">本关练习：说出一个音的三家候选、听辨长音接住没接住、整句配和弦三版选优、句尾按意图选终止。</p>`;
 
     case "earcopy": return `
@@ -5973,6 +6432,11 @@ function bindTeachPlays(root){
   root.querySelectorAll("[data-play]").forEach(el=>{
     el.onclick = async ()=>{
       const cmd = el.dataset.play;
+      // 全局抢占：任何会发声的按钮按下时，先停掉上一个按钮的声音（含还没响完的排程和教学循环），再开始自己——两个演示不打架
+      const _silent = cmd==="kswitch"||cmd==="mkswitch"||cmd==="arpToggle"||cmd==="kloop"
+        || cmd.startsWith("ksel:")||cmd.startsWith("mksel:");
+      const _loopSwitch = loopTimer && (cmd.startsWith("kloopset:")||cmd.startsWith("kloopseq:")||cmd.startsWith("mkloopseq:")); // 循环转着时点循环套路＝下一圈无缝切换，不该打断
+      if(!_silent && !_loopSwitch){ if(loopTimer) stopLoop(); stopAllSound(); }
       if(cmd.startsWith("semi:")){
         const s=cmd.slice(5).split(",").map(Number);
         // 半音/全音/大三度/小三度 + 习题共享根音：3秒内沿用上一次的根音
@@ -6081,6 +6545,10 @@ function bindTeachPlays(root){
         else await playMC(d.mel, d[a[2]||"good"], d.per, d.hi); }
       else if(cmd.startsWith("mel:")){ await playSemis(cmd.slice(4).split(",").map(Number),60,true,"2n",{stack:false,gap:0.6}); } // 纯旋律逐个弹，不合奏
       else if(cmd.startsWith("note:")){ await playSemis([+cmd.slice(5)],60,false,"2n"); } // 单个音
+      else if(cmd.startsWith("tex:")){ const a=cmd.split(":"); await playTexture(a[1],a[2],a[3]?+a[3]:1); } // 织体：进行+织体名(+每小节和弦数)
+      else if(cmd.startsWith("texm:")){ await playTexMel(cmd.slice(5)); } // 小星星+织体/声部组合
+      else if(cmd==="texcurve"){ await playTexCurve(); } // 织体曲线 demo
+      else if(cmd.startsWith("mtex:")){ const a=cmd.split(":"); await playMelTex(a[1],a[2],a[3]); } // 配好的和弦×织体外衣
       else if(cmd.startsWith("prog:")){ await playProgression(cmd.slice(5)); }
       lightAlong("#piano"); // 底部悬浮键盘随声音同步点亮
     };
@@ -6113,6 +6581,7 @@ const SEQS = {
   slashA: [[0,4,7],[5,9,12]],                     // C(C4 E4 G4) → F(F4 A4 C5)，低音 C4 一步迈到 F4
   slashB: [[0,4,7],[4,7,12],[5,9,12]],            // C → C/E(E4 G4 C5，转位) → F，低音 C4→E4→F4 走台阶
   canonO: [[0,4,7],[7,11,14],[9,12,16],[5,9,12]], // C G Am F 原位
+  canon2: [[0,4,7],[7,11,14]],                    // C G 两小节短对(织体测验用，控制时长)
   // 斜杠和弦·低音不在和弦内：三和弦不动，底下直接加低音
   slashCD:   [[-10,0,4,7]],                    // C/D = D3 + C4 E4 G4（低音在低八度，留出正常空隙）
   slashCDcmp:[[0,4,7],[-10,0,4,7]],            // 对比：C → C/D（上方三音不动，底下加 D3）
@@ -6266,6 +6735,9 @@ const SEQS = {
   pdUp23:   [[2,5,9],[3,6,9,12],[4,7,11]],            // Dm → D♯°7(D♯4 F♯4 A4 C5) → Em：低音 D4→D♯4→E4 半音爬
   // ㉗ 流行调式
   mxLoop:   [[0,4,7],[-2,2,5],[5,9,12],[0,4,7]],      // Mixolydian 循环 I–♭VII–IV–I：C B♭ F C（♭VII 是常住居民）
+  lydVamp:  [[0,4,7],[2,6,9]],                        // Lydian 套路预告 I–II：C → D（F♯ 当三音，飘）
+  phrVamp:  [[4,7,11],[5,9,12]],                      // Phrygian 套路预告 i–♭II：Em → F（E Phrygian，全白键）
+  parSwitch:[[0,4,7],[-2,2,5],[5,9,12],[0,4,7],[5,9,12],[7,11,14,17],[12,16,19]], // 段落级平行切换：主歌 C Mixo(I–♭VII–IV–I) ‖ 副歌 C Ionian(IV–V7–I)——落点与 fnCad 完全一致：B4→C5 导音推门、F5→E5 七音落地
   doLoop:   [[2,5,9],[7,11,14],[2,5,9],[7,11,14]],    // Dorian 循环 i–IV：Dm G Dm G（家在 Dm，G 是亮色邻居）
   doMinor:  [[2,5,9],[7,10,14],[2,5,9],[7,10,14]],    // 对照：自然小调 i–iv：Dm Gm（四级是暗的）
   fnCad:    [[5,9,12],[7,11,14,17],[12,16,19]],       // 功能型对照：IV–V7–I 推门回家，有句号
@@ -6282,7 +6754,10 @@ const SEQS = {
   mlNone:   [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[0,4,7],[7,11,14],[9,12,16],[5,9,12]],   // 1564 两遍原调（没转）
   mlHalf:   [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[1,5,8],[8,12,15],[10,13,17],[6,10,13]], // 第二遍整体升半音（推土机）
   mlWhole:  [[0,4,7],[7,11,14],[9,12,16],[5,9,12],[2,6,9],[9,13,16],[11,14,18],[7,11,14]], // 第二遍整体升全音
-  mlRel:    [[9,12,16],[5,9,12],[9,12,16],[7,11,14],[0,4,7],[5,9,12],[7,11,14],[0,4,7,12]],// 暗主歌(Am F Am G)→亮副歌(C F G C)
+  mlRel:    [[-3,0,4],[-7,-3,0],[-3,0,4],[-5,-1,2],[0,4,7],[-7,-3,0],[-5,-1,2],[0,4,7,12]],// 暗主歌(Am F Am G)→亮副歌(C F G C)，全部贴中央C同音区，亮暗只来自户主；亮落点顶音翻上C5轻轻帮腔
+  mlRelV:   [[-3,0,4],[-7,-3,0],[-3,0,4],[-5,-1,2]],   // 关系切换·主歌单听 Am F Am G（A3C4E4 起，同音区）
+  mlRelC:   [[0,4,7],[-7,-3,0],[-5,-1,2],[0,4,7,12]],  // 关系切换·副歌单听 C F G C（同音区，落点C4E4G4C5）
+  mlRelRev: [[0,4,7],[-7,-3,0],[-5,-1,2],[0,4,7],[-3,0,4],[-7,-3,0],[-5,-1,2],[-3,0,4,9]], // 反向：亮主歌(C F G C)→暗副歌(Am F G Am)同音区；暗落点A3C4E4A4，低处落 i 钉住转阴
   b3Move:   [[0,4,7],[3,7,10],[5,9,12],[0,4,7,12]],  // 借 ♭III：C → E♭ → F → C（突然变宽的转折）
   // ⑩拓展 钉住低音：主音持续（C–F/C–G/C–C）vs 低音跟走对照
   pedTon:  [[0,4,7],[0,5,9],[0,7,11,14],[0,4,7]],  // C → F/C(C4 F4 A4) → G/C(C4 G4 B4 D5) → C：低音咬住 C4 不放
@@ -6319,7 +6794,7 @@ const SEQS = {
   // ㉒拓展 皮卡迪三度：小调结尾偷一束光
   picNat:   [[-3,0,4],[2,5,9],[-8,-4,2,4],[-3,0,4]],           // Am → Dm → E7(E3 G♯3 D4 E4) → Am（留在夜里）
   picMaj:   [[-3,0,4],[2,5,9],[-8,-4,2,4],[-3,1,4]],           // Am → Dm → E7 → A(A3 C♯4 E4)：三音 C→C♯，天窗打开
-  // ㉛ 半音线条 line cliché
+  // ㉜ 半音线条 line cliché
   lcMaj:     [[0,4,7],[0,4,8],[0,4,9],[0,4,10],[-7,5,9,12]],   // C→Caug→C6→C7→F：内声部 G4→G♯4→A4→B♭4 爬到 F 的三音 A…落 F(F3 F4 A4 C5)
   lcMajPlain:[[0,4,7],[0,4,7],[0,4,7],[0,4,7],[-7,5,9,12]],    // 对照：C 原地踏四拍再去 F——没有暗流
   lcMin:     [[-3,0,4,9],[-3,0,4,8],[-3,0,4,7],[-3,0,4,6]],    // Am→AmM7→Am7→Am6：顶声部 A4→G♯4→G4→F♯4 半音下楼（可循环）
@@ -6327,7 +6802,7 @@ const SEQS = {
   lcMinFull: [[-3,0,4,9],[-3,0,4,8],[-3,0,4,7],[-3,0,4,6],[-7,-3,0,5],[-8,-4,2,4],[-3,0,4]], // 续完整条线 A→G♯→G→F♯→F(顶音F4)→E7→Am：六步半音下楼后落地
   lcAug:     [[0,4,7],[0,4,8],[0,4,9]],                        // C→Caug→C6 三连：增和弦当"半音电梯"的经过格
 };
-/* ===== ㉚㉜ 专用演奏引擎 ===== */
+/* ===== ㉚㉝ 专用演奏引擎 ===== */
 // 和声节奏演示：每拍一声节拍器(小节第1拍重)，和弦只在"换"的时刻整体落下并延住
 // perChord=每个和弦占几拍(数字=统一；数组=逐个指定，支持变长和声节奏)
 // opts.meter=每小节几拍(默认4，可为3=三拍子)；opts.antic=每次换和弦提前半拍抢进；opts.late=换点整体推迟几拍(弱拍反例)
@@ -6373,7 +6848,7 @@ async function playMC(mel, chords, perChord, hi){
   });
   lastPlayed=events; markPlayUntil(events);
 }
-// ㉜ 配和弦教学/出题用的小旋律库：mel 以 C5 为 0 每拍一音；chords 以 C3 为 0；per=每和弦拍数
+// ㉝ 配和弦教学/出题用的小旋律库：mel 以 C5 为 0 每拍一音；chords 以 C3 为 0；per=每和弦拍数
 const MELODIES = {
   sun:  {mel:[4,4,2,2,0,0,0,null], per:2, good:[[12,16,19],[7,11,14],[12,16,19],[12,16,19]],
          bad:[[14,17,21],[9,12,16],[7,11,14],[7,11,14]],  // E E D D C—：好版 C G C C(音音被接住)；坏版 Dm Am G G(句尾长音 C 挂在 G 外)
@@ -6402,6 +6877,166 @@ const MELODIES = {
   probe1:{mel:[4,null,null,null], per:4, good:[[12,16,19]], bad:[[14,17,21]]},  // 单拍对照：长音 E 坐进 C(三音) vs 挂在 Dm 外(还蹭着内音 F 的半音)
   probe2:{mel:[0,null,null,null], per:4, good:[[12,16,19]], bad:[[7,11,14]]},   // 单拍对照：长音 C 坐进 C(根音) vs 挂在 G 外(正是 Gsus4 的挂留音)
 };
+/* ===== ㉛ 织体演奏引擎：同一个和弦的不同"动法" ===== */
+// 每个织体 = 在一个槽(beats 拍)内调度同一个和弦的一种方式；cs 相对 C4=60，低音自动取 cs[0]-12
+const TEX_BEAT=0.48; // 织体演示拍长(秒)，一小节=4拍
+const TEX_PATTERNS={
+  pad:(cs,t0,beats,now,ev)=>{ // 长音铺底：整槽按住不动(弦乐垫)
+    const dur=beats>=4?"1n":"2n";
+    synth.triggerAttackRelease(cs.map(s=>semiToName(s,60)),dur,now+t0,0.7);
+    ev.push({midis:cs.map(s=>60+s),t:t0,dur});
+  },
+  block4:(cs,t0,beats,now,ev)=>{ // 柱式四分：每拍整和弦一击
+    for(let b=0;b<beats;b++){
+      synth.triggerAttackRelease(cs.map(s=>semiToName(s,60)),"4n",now+t0+b*TEX_BEAT,0.8);
+      ev.push({midis:cs.map(s=>60+s),t:t0+b*TEX_BEAT,dur:"4n"});
+    }
+  },
+  pulse8:(cs,t0,beats,now,ev)=>{ // 八分脉冲：每半拍一击，反拍轻(强弱交替才有"推")
+    for(let h=0;h<beats*2;h++){
+      synth.triggerAttackRelease(cs.map(s=>semiToName(s,60)),"8n",now+t0+h*TEX_BEAT/2,h%2?0.45:0.8);
+      ev.push({midis:cs.map(s=>60+s),t:t0+h*TEX_BEAT/2,dur:"8n"});
+    }
+  },
+  bassChord:(cs,t0,beats,now,ev)=>{ // 低音+和弦分工：拍1左手根音落底延住，拍2起右手柱式
+    const bass=cs[0]-12;
+    synth.triggerAttackRelease(semiToName(bass,60),"2n",now+t0,0.9);
+    ev.push({midis:[60+bass],t:t0,dur:"2n"});
+    for(let b=1;b<beats;b++){
+      synth.triggerAttackRelease(cs.map(s=>semiToName(s,60)),"4n",now+t0+b*TEX_BEAT,0.65);
+      ev.push({midis:cs.map(s=>60+s),t:t0+b*TEX_BEAT,dur:"4n"});
+    }
+  },
+  alberti:(cs,t0,beats,now,ev)=>{ // Alberti 低音：低-高-中-高 八分循环(古典启蒙曲默认)
+    const lo=cs[0], hi=cs[cs.length-1], mid=cs[1]!==undefined&&cs.length>2?cs[1]:lo;
+    const cyc=[lo,hi,mid,hi];
+    for(let h=0;h<beats*2;h++){
+      const x=cyc[h%4];
+      synth.triggerAttackRelease(semiToName(x,60),"8n",now+t0+h*TEX_BEAT/2,0.75);
+      ev.push({midis:[60+x],t:t0+h*TEX_BEAT/2,dur:"8n"});
+    }
+  },
+  flow16:(cs,t0,beats,now,ev)=>{ // 流水16分：和弦音两个八度上行再下行，铺满整槽
+    const up=[...cs,...cs.map(x=>x+12)];
+    const run=[...up,...up.slice(1,-1).reverse()];
+    for(let i=0;i<beats*4;i++){
+      const x=run[i%run.length];
+      synth.triggerAttackRelease(semiToName(x,60),"16n",now+t0+i*TEX_BEAT/4,0.7);
+      ev.push({midis:[60+x],t:t0+i*TEX_BEAT/4,dur:"16n"});
+    }
+  },
+  syncop:(cs,t0,beats,now,ev)=>{ // 切分 comping：低音踩正拍，和弦专踩反拍/夹缝
+    const bass=cs[0]-12;
+    synth.triggerAttackRelease(semiToName(bass,60),"2n",now+t0,0.85);
+    ev.push({midis:[60+bass],t:t0,dur:"2n"});
+    const hits=beats>=4?[1.5,2.5,3.5]:[1.5];
+    hits.forEach(b=>{
+      synth.triggerAttackRelease(cs.map(x=>semiToName(x,60)),"8n",now+t0+b*TEX_BEAT,0.7);
+      ev.push({midis:cs.map(x=>60+x),t:t0+b*TEX_BEAT,dur:"8n"});
+    });
+  },
+  octTrem:(cs,t0,beats,now,ev)=>{ // 八度震音：上方和弦轻按住，低音根音两个八度16分来回打点(蓄力)
+    const dur=beats>=4?"1n":"2n";
+    synth.triggerAttackRelease(cs.map(x=>semiToName(x,60)),dur,now+t0,0.4);
+    ev.push({midis:cs.map(x=>60+x),t:t0,dur});
+    for(let i=0;i<beats*4;i++){
+      const x=i%2? cs[0] : cs[0]-12;
+      synth.triggerAttackRelease(semiToName(x,60),"16n",now+t0+i*TEX_BEAT/4,0.7);
+      ev.push({midis:[60+x],t:t0+i*TEX_BEAT/4,dur:"16n"});
+    }
+  },
+  flowBass:(cs,t0,beats,now,ev)=>{ // 副歌满配：低音根音拍1/拍3 + 上方流水16分(分工+流水的合体)
+    const bass=cs[0]-12;
+    for(let b=0;b<beats;b+=2){
+      synth.triggerAttackRelease(semiToName(bass,60),"2n",now+t0+b*TEX_BEAT,0.9);
+      ev.push({midis:[60+bass],t:t0+b*TEX_BEAT,dur:"2n"});
+    }
+    const up=[...cs,...cs.map(x=>x+12)];
+    const run=[...up,...up.slice(1,-1).reverse()];
+    for(let i=0;i<beats*4;i++){
+      const x=run[i%run.length];
+      synth.triggerAttackRelease(semiToName(x,60),"16n",now+t0+i*TEX_BEAT/4,0.6);
+      ev.push({midis:[60+x],t:t0+i*TEX_BEAT/4,dur:"16n"});
+    }
+  }
+};
+// 把 SEQS 里的一个进行按指定织体播放；perBar=每小节几个和弦(织体vs密度实验用，默认1)
+async function playTexture(seqName,pat,perBar){
+  await initAudio(); const now=Tone.now(); const ev=[];
+  const chords=SEQS[seqName]; const beats=4/(perBar||1);
+  chords.forEach((cs,i)=>TEX_PATTERNS[pat](cs,i*beats*TEX_BEAT,beats,now,ev));
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// 小星星前两句(2小节)：旋律(绿) + 指定织体/声部组合——四大类与"换织体"演示共用
+const TW={
+  mel:[0,0,7,7,9,9,7,null],                       // C C G G A A G–(相对 C5)
+  chords:[{cs:[0,4,7],b:0,beats:4},{cs:[-7,-3,0],b:4,beats:2},{cs:[0,4,7],b:6,beats:2}], // C | F C
+  counter:[{x:0,b:0},{x:4,b:2},{x:5,b:4},{x:7,b:6}],  // 对位线：C4 E4 F4 G4 二分音，独立旋律
+  hetero:[[0,1],[2,0.5],[0,0.5],[7,1],[9,0.5],[7,0.5],[9,1],[11,0.5],[9,0.5],[7,2]] // 加花版(低八度)：邻音填缝
+};
+async function playTexMel(mode){
+  await initAudio(); const now=Tone.now(); const ev=[];
+  TW.mel.forEach((m,k)=>{
+    if(m===null) return;
+    const dur=(k===TW.mel.length-1||TW.mel[k+1]===null)?"2n":"4n";
+    synth.triggerAttackRelease(semiToName(m,72),dur,now+k*TEX_BEAT,0.95);
+    ev.push({midis:[72+m],t:k*TEX_BEAT,dur,mel:true});
+  });
+  if(mode==="poly"){ // 复调：再来一条独立的二分音对位线
+    TW.counter.forEach(c=>{
+      synth.triggerAttackRelease(semiToName(c.x,60),"2n",now+c.b*TEX_BEAT,0.7);
+      ev.push({midis:[60+c.x],t:c.b*TEX_BEAT,dur:"2n"});
+    });
+  } else if(mode==="hetero"){ // 支声：同一旋律的加花版(低八度)同时进行
+    let b=0;
+    TW.hetero.forEach(([x,len])=>{
+      synth.triggerAttackRelease(semiToName(x,60),len>=2?"2n":len>=1?"4n":"8n",now+b*TEX_BEAT,0.7);
+      ev.push({midis:[60+x],t:b*TEX_BEAT,dur:len>=2?"2n":len>=1?"4n":"8n"});
+      b+=len;
+    });
+  } else if(mode!=="solo"){ // 主调：旋律 + 任一织体伴奏
+    TW.chords.forEach((c,ci)=>{
+      const last=ci===TW.chords.length-1;
+      if(last&&(mode==="block4"||mode==="bassChord")){
+        // 句尾随旋律一起收：旋律末音是两拍长音(只起音一次)，打点型伴奏末槽不再逐拍盖章，改为一次落定延住——否则会比旋律"多敲一下"
+        if(mode==="bassChord"){ synth.triggerAttackRelease(semiToName(c.cs[0]-12,60),"2n",now+c.b*TEX_BEAT,0.85); ev.push({midis:[60+c.cs[0]-12],t:c.b*TEX_BEAT,dur:"2n"}); }
+        synth.triggerAttackRelease(c.cs.map(x=>semiToName(x,60)),"2n",now+c.b*TEX_BEAT,0.7);
+        ev.push({midis:c.cs.map(x=>60+x),t:c.b*TEX_BEAT,dur:"2n"});
+      } else TEX_PATTERNS[mode](c.cs,c.b*TEX_BEAT,c.beats,now,ev);
+    });
+  }
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// ㉝×㉛ 桥：同一句旋律、同一套配好的和弦，按指定织体演奏（旋律绿色；和弦相对 C3 故移 -12 交给模板）
+async function playMelTex(name,variant,pat){
+  await initAudio(); const now=Tone.now(); const ev=[];
+  const d=MELODIES[name]; const chords=d[variant]; const beats=d.per;
+  // 跨两个八度铺开的织体(流水/低音+流水/震音)整体再降一个八度，免得顶进旋律音区
+  const shift=(pat==="flow16"||pat==="flowBass"||pat==="octTrem")?-24:-12;
+  chords.forEach((cs,ci)=>{
+    const last=ci===chords.length-1;
+    if(last&&(pat==="block4"||pat==="bassChord")){ // 句尾随旋律长音一起收（同 texm 的处理）
+      if(pat==="bassChord"){ synth.triggerAttackRelease(semiToName(cs[0]+shift-12,60),"2n",now+ci*beats*TEX_BEAT,0.85); ev.push({midis:[60+cs[0]+shift-12],t:ci*beats*TEX_BEAT,dur:"2n"}); }
+      synth.triggerAttackRelease(cs.map(x=>semiToName(x+shift,60)),"2n",now+ci*beats*TEX_BEAT,0.7);
+      ev.push({midis:cs.map(x=>60+x+shift),t:ci*beats*TEX_BEAT,dur:"2n"});
+    } else TEX_PATTERNS[pat](cs.map(x=>x+shift), ci*beats*TEX_BEAT, beats, now, ev);
+  });
+  d.mel.forEach((m,k)=>{
+    if(m===null) return;
+    const dur=(k===d.mel.length-1||d.mel[k+1]===null)?"2n":"4n";
+    synth.triggerAttackRelease(semiToName(m,72),dur,now+k*TEX_BEAT,0.95);
+    ev.push({midis:[72+m],t:k*TEX_BEAT,dur,mel:true});
+  });
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// 织体曲线：主歌铺底(2小节) → 预副歌八分脉冲(2小节) → 副歌低音+流水满配(4小节)，和声节奏全程不变
+async function playTexCurve(){
+  await initAudio(); const now=Tone.now(); const ev=[];
+  const cyc=SEQS.canonO; // C G Am F
+  const plan=[["pad",0],["pad",1],["pulse8",2],["pulse8",3],["flowBass",0],["flowBass",1],["flowBass",2],["flowBass",3]];
+  plan.forEach(([pat,ci],bar)=>TEX_PATTERNS[pat](cyc[ci],bar*4*TEX_BEAT,4,now,ev));
+  lastPlayed=ev; markPlayUntil(ev);
+}
 let playStyle="block"; // 进行演示的演奏方式：block 柱式齐奏 | arp 分解和弦 | mix 柱式+分解综合
 function styleLabel(){
   return playStyle==="arp" ? tr("🌊 分解","🌊 Arpeggio") : playStyle==="mix" ? tr("🎼 综合","🎼 Combo") : tr("🎹 齐奏","🎹 Block");
@@ -6652,6 +7287,7 @@ function buildQuestion(mId, concept){
   if(mId==="voicing")  return q_voicing(concept);
   if(mId==="modulate") return q_modulate(concept);
   if(mId==="rhythm")   return q_rhythm(concept);
+  if(mId==="texture")  return q_texture(concept);
   if(mId==="cliche")   return q_cliche(concept);
   if(mId==="harmonize")return q_harmonize(concept);
   if(mId==="earcopy")  return q_earcopy(concept);
@@ -8761,7 +9397,110 @@ function q_rhythm(concept){
     explain:tr("提前的半拍像抢先迈出的半步：和声内容一个音没变，只挪了进场时刻，律动立刻从「端正」变「带劲」。注意区分错位到第 2 拍的反例——抢拍落在半拍这个真实律动点上，是风味；错位是事故。","That early half-beat is an eager half step: not one note changes, only the arrival time — and the groove turns from upright to driving. Distinguish the beat-2 misalignment: anticipation lands on a real groove point (the off-beat); misalignment merely stumbles.")};
 }
 
-/* ---- ㉛ 半音线条 ---- */
+/* ---- ㉛ 织体 ---- */
+const TEXL={pad:["长音铺底","Sustained pad"],block4:["柱式四分","Quarter-note block"],pulse8:["八分脉冲","Eighth-note pulse"],
+  bassChord:["低音+和弦分工","Bass + chord division"],alberti:["Alberti 低音","Alberti bass"],flow16:["流水16分","16th-note stream"],
+  syncop:["切分 comping","Syncopated comping"],octTrem:["八度震音","Octave tremolo"]};
+const TEXHINT={pad:["整小节按住不动","held for the whole bar"],block4:["每拍整和弦盖章","one full stamp per beat"],
+  pulse8:["每拍两下、反拍轻","two hits per beat, off-beats lighter"],bassChord:["低音拍1落底、右手拍2起","bass on 1, chords from beat 2"],
+  alberti:["低-高-中-高转圈","low-high-mid-high cycle"],flow16:["两个八度上行下行铺满","two octaves up and down, wall to wall"],
+  syncop:["和弦专挑反拍下手","chords strike only off-beats"],octTrem:["低音两个八度16分打点","bass hammers 16ths across two octaves"]};
+function q_texture(concept){
+  if(concept==="texclass"){
+    if(Math.random()<0.55){ // 听辨四大类
+      const fam=rand(["solo","block4","poly","hetero"]);
+      const FAML={solo:tr("单声（只有一条线）","Monophony (one line alone)"),block4:tr("主调（旋律+伴奏）","Homophony (melody + backing)"),
+        poly:tr("复调（几条独立线）","Polyphony (independent lines)"),hetero:tr("支声（同一旋律各自加花）","Heterophony (one tune, ornamented twins)")};
+      return {kind:"choice",concept,qtype:tr("织体 · 四大类听辨","Texture · the four families"),
+        prompt:tr("听这版小星星：它属于织体四大类中的哪一类？","Listen to this Twinkle: which of the four texture families is it?"),
+        play:()=>playTexMel(fam),
+        options:shuffle(["solo","block4","poly","hetero"].map(f=>({label:FAML[f],correct:f===fam}))),
+        explain: fam==="solo"?tr("全程只有一条旋律线、没有任何其他声部——单声。判别第一步永远是数线。","One melodic line and nothing else — monophony. Step one is always to count the lines.")
+          : fam==="block4"?tr("一条旋律当主角，下面的柱式只负责托底（一主多仆）——主调，流行歌的常态。","One melody stars while the blocks below only support it (one master, many servants) — homophony, pop's home base.")
+          : fam==="poly"?tr("下方那条二分音线不是伴奏——它有自己的走向，与旋律平起平坐（条条平等）——复调。","The half-note line below is no accompaniment — it walks its own walk, equal to the tune — polyphony.")
+          : tr("低八度那条线唱的是同一句旋律、只是各自加花（同一条线开分身）——支声。","The lower line sings the same tune, just ornamented (one line with body doubles) — heterophony.")};
+    }
+    const sc=rand([
+      {cn:"一首赋格：三条旋律互相追逐，谁也不伴奏谁",en:"A fugue: three melodies chase each other; nobody accompanies anybody",a:"poly"},
+      {cn:"主唱唱歌，吉他在下面扫弦",en:"A singer with strummed guitar underneath",a:"homo"},
+      {cn:"无伴奏清唱一段山歌",en:"An unaccompanied folk song",a:"mono"},
+      {cn:"民乐合奏同一条旋律，各件乐器各自加花",en:"A folk ensemble plays one tune, each instrument ornamenting freely",a:"hetero"},
+      {cn:"卡农轮唱：同一旋律错开进入、互相缠绕",en:"A round: the same melody enters staggered and interweaves",a:"poly"}]);
+    const L={mono:tr("单声","Monophony"),homo:tr("主调","Homophony"),poly:tr("复调","Polyphony"),hetero:tr("支声","Heterophony")};
+    return {kind:"choice",concept,qtype:tr("织体 · 四大类归类","Texture · classify the scene"),
+      prompt:tr("这属于哪一类织体？——","Which texture family is this? — ")+"<b>"+tr(sc.cn,sc.en)+"</b>",
+      play:()=>playTexMel(sc.a==="poly"?"poly":sc.a==="hetero"?"hetero":sc.a==="mono"?"solo":"block4"),
+      options:shuffle(["mono","homo","poly","hetero"].map(f=>({label:L[f],correct:f===sc.a}))),
+      explain:tr("口诀：数线、问关系——一条线＝单声；一主多仆＝主调；条条平等＝复调；同一条线开分身＝支声。","Count the lines, ask the relationship: one line = mono; one master many servants = homo; all equals = poly; one line with doubles = hetero.")};
+  }
+  if(concept==="texid"){
+    const pool=Object.keys(TEXL);
+    const ans=rand(pool);
+    const ds=shuffle(pool.filter(p=>p!==ans)).slice(0,3);
+    return {kind:"choice",concept,qtype:tr("织体 · 盲听","Texture · by ear"),
+      prompt:tr("同一个 C→G、每小节一换。听拍子内部的动法：这是哪种织体？","Same C→G, one chord per bar. Listen to the motion inside the beat: which texture is this?"),
+      play:()=>playTexture("canon2",ans),
+      options:shuffle([{label:tr(TEXL[ans][0],TEXL[ans][1]),sub:tr(TEXHINT[ans][0],TEXHINT[ans][1]),correct:true},
+        ...ds.map(d=>({label:tr(TEXL[d][0],TEXL[d][1]),sub:tr(TEXHINT[d][0],TEXHINT[d][1]),correct:false}))]),
+      explain:tr("特征复核：","Check the signature: ")+tr(TEXL[ans][0],TEXL[ans][1])+" — "+tr(TEXHINT[ans][0],TEXHINT[ans][1])+tr("。扒歌三步：低音动不动→上方齐还是散→踩不踩反拍。",". The three steps: does the bass move → top together or spread → on or off the beat.")};
+  }
+  if(concept==="texknob"){
+    if(Math.random()<0.5){ // 听辨：哪个旋钮变了
+      const tex=Math.random()<0.5;
+      return {kind:"choice",concept,qtype:tr("织体 · 哪个旋钮变了(听)","Texture · which knob moved (ear)"),
+        prompt:tr("先后听两段同样的 C→G。第二段相对第一段，<b>变的是哪个旋钮</b>？","Two passes of the same C→G. In the second pass, <b>which knob moved</b>?"),
+        play:async()=>{ await playTexture("canon2","block4"); await new Promise(r=>setTimeout(r,700)); await playTexture("canon2", tex?"flow16":"block4", tex?1:2); },
+        options:shuffle([
+          {label:tr("织体（拍内动法变了）","Texture (motion within the beat)"),correct:tex},
+          {label:tr("和声节奏（换和弦变勤了）","Harmonic rhythm (chords change more often)"),correct:!tex},
+          {label:tr("排列（音的高度变了）","Voicing (the heights changed)"),correct:false},
+        ]),
+        explain: tex?tr("和弦还是每小节一换（换点没动），但拍子内部从盖章变成了流水——动的是织体旋钮。","The chords still change once per bar (change points untouched), but inside the beat the stamp became a stream — the texture knob.")
+                    :tr("每下还是整和弦盖章（弹法没动），但换章的频率翻倍了——动的是和声节奏旋钮。","Every hit is still a stamp (touch untouched), but the stamps change twice as often — the harmonic-rhythm knob.")};
+    }
+    const sc=rand([
+      {cn:"把 C4·E4·G4 改成 C3·G3·E4",en:"Re-laying C4-E4-G4 as C3-G3-E4",a:"v"},
+      {cn:"从每小节一换改成两拍一换",en:"From one change per bar to one every two beats",a:"h"},
+      {cn:"从柱式齐奏改成流水 16 分",en:"From block chords to a 16th-note stream",a:"t"},
+      {cn:"把 G 换成 G7",en:"Swapping G for G7",a:"c"},
+      {cn:"低音不动，把上方从齐落改成专踩反拍",en:"Bass unchanged; the top now strikes only off-beats",a:"t"}]);
+    const L={v:tr("排列 voicing（空间）","Voicing (space)"),t:tr("织体（拍内·时间微观）","Texture (within the beat)"),
+      h:tr("和声节奏（拍间·时间宏观）","Harmonic rhythm (between beats)"),c:tr("和弦表（用哪些音）","Chord chart (which notes)")};
+    return {kind:"choice",concept,qtype:tr("织体 · 哪个旋钮变了","Texture · which knob moved"),
+      prompt:tr("这个操作动的是哪个旋钮？——","Which knob does this move? — ")+"<b>"+tr(sc.cn,sc.en)+"</b>",
+      play:()=>playTexture("canon2", sc.a==="t"?"flow16":"block4", sc.a==="h"?2:1),
+      options:shuffle(["v","t","h","c"].map(k=>({label:L[k],correct:k===sc.a}))),
+      explain:tr("四旋钮各管一摊：换音＝和弦表；换高度＝排列；拍内动法＝织体；拍间换频＝和声节奏。改其中一个，其余三个可以纹丝不动。","Each knob owns one thing: notes = chart; heights = voicing; within-beat motion = texture; between-beat rate = harmonic rhythm. Move one and the other three can stay frozen.")};
+  }
+  // texrole：角色与场景
+  const bank=[
+    {q:["哪种织体里低音拍 1 落底延住、右手拍 2 起补柱式？","In which texture does the bass land on beat 1 and ring while chords answer from beat 2?"],a:"bassChord",
+     why:["分工织体：一层管地基、一层管墙——「编曲感」的最小配方。","Division of labor: one layer for the foundation, one for the walls — the minimal recipe for an arranged sound."]},
+    {q:["Alberti 低音的循环顺序是？","What is the Alberti bass cycle?"],a:"alberti",
+     opts:[["低-高-中-高","low-high-mid-high",true],["低-中-高-中","low-mid-high-mid",false],["高-中-低-中","high-mid-low-mid",false]],
+     why:["低-高-中-高——古典启蒙曲的默认花样（K.545 开头）。","Low-high-mid-high — the default figure of classical beginner pieces (K.545's opening)."]},
+    {q:["副歌前想把紧张度拉满、上方保持不动，最顺手的织体？","Pre-chorus, you want maximum tension with the top frozen — the go-to texture?"],a:"octTrem",
+     why:["八度震音：上方轻按不动，低音两个八度 16 分擂鼓——蓄力专用。","Octave tremolo: top held soft, bass hammering 16ths across two octaves — purpose-built for charging up."]},
+    {q:["主歌想给人声留足空间、伴奏越省越好，选哪种？","The verse should leave maximum room for the voice with minimal backing — pick one?"],a:"pad",
+     why:["长音铺底动作最少（每小节 1 次）、存在感最弱——给人声让路的标准答案。","The pad moves least (once per bar) and asserts least — the standard way to clear room for a voice."]},
+    {q:["律动靠「专挑反拍下手」制造的是哪种织体？","Which texture builds its groove by deliberately striking off the beat?"],a:"syncop",
+     why:["切分 comping：低音稳住正拍，和弦躲开正拍打夹缝——躲拍本身就是律动。","Syncopated comping: bass holds the downbeats, chords dodge them — the dodge itself is the groove."]},
+    {q:["流水 16 分的音从哪里来？","Where do the notes of the 16th-note stream come from?"],a:"flow16",
+     opts:[["和弦音摊开两个八度，上行再下行","the chord tones spread over two octaves, up then down",true],
+           ["整条大调音阶来回跑","the whole major scale run up and down",false],
+           ["随机挑好听的音","random pretty notes",false]],
+     why:["流水是琶音的满配版：材料只有和弦音，铺开两个八度填满 16 分格。","The stream is the fully-loaded arpeggio: chord tones only, spread across two octaves to fill the 16th grid."]}];
+  const it=rand(bank);
+  const opts = it.opts ? it.opts.map(o=>({label:tr(o[0],o[1]),correct:o[2]}))
+    : shuffle([it.a,...shuffle(Object.keys(TEXL).filter(k=>k!==it.a)).slice(0,2)]).map(k=>({label:tr(TEXL[k][0],TEXL[k][1]),sub:tr(TEXHINT[k][0],TEXHINT[k][1]),correct:k===it.a}));
+  return {kind:"choice",concept:"texrole",qtype:tr("织体 · 角色与场景","Texture · roles & scenes"),
+    prompt:tr(it.q[0],it.q[1]),
+    play:()=>playTexture("canon2",it.a),
+    options:shuffle(opts),
+    explain:tr(it.why[0],it.why[1])};
+}
+
+/* ---- ㉜ 半音线条 ---- */
 const LC_CHORDS={
   Caug:{pcs:[0,4,8],  root:0, jian:"C E G♯",  cn:"增三和弦（大三度+大三度）", en:"augmented triad (M3+M3)"},
   C6:  {pcs:[0,4,7,9],root:0, jian:"C E G A",  cn:"大三和弦+大六度",          en:"major triad + major 6th"},
@@ -8838,7 +9577,7 @@ function q_cliche(concept){
                `${nm} = ${L.jian}. Memory anchor: one stair of the chromatic line — ${nm==="Caug"?"the middle floor of G→G♯→A":nm==="C6"?"the slot where the line reaches A":nm==="AmM7"?"the first step down from A (G♯)":"the third step down from A (F♯)"}.`)};
 }
 
-/* ---- ㉜ 给旋律配和弦 ---- */
+/* ---- ㉝ 给旋律配和弦 ---- */
 function q_harmonize(concept){
   const K=RKEYS["C"];
   if(concept==="cand"){
@@ -8921,7 +9660,7 @@ function q_harmonize(concept){
     explain:tr("C 和 Am 都接得住旋律的 C（分别当根音/三音）——所以这题考的不是「合法」，是<b>意图</b>：要句号用 V→I，要悬念用 V→vi；B° 接不住 C 还浑身是刺，两头不沾。","Both C and Am catch the melody C (as root / as 3rd) — so this is about <b>intent</b>, not legality: V→I for the period, V→vi for suspense; B° neither catches the C nor calms the ear.")};
 }
 
-/* ---- ㉝ 扒歌四步法 ---- */
+/* ---- ㉞ 扒歌四步法 ---- */
 function q_earcopy(concept){
   if(concept==="findhome"){
     const isMaj=Math.random()<0.5; const k=rand(RKEY_LIST);
@@ -9066,7 +9805,7 @@ function renderDeepDive(){
     "</div>";
   bindTeachPlays(panel);
   const rp=document.getElementById("ddReplay");
-  if(rp) rp.onclick=()=>{ stopAllSound(); if(cur.play) cur.play(); };
+  if(rp) rp.onclick=()=>{ if(loopTimer) stopLoop(); stopAllSound(); if(cur.play) cur.play(); };
   const dq=document.getElementById("deepq"); if(dq) dq.style.display="none";
   if(panel.scrollIntoView) try{ panel.scrollIntoView({behavior:"smooth",block:"nearest"}); }catch(e){}
 }
@@ -9346,6 +10085,7 @@ const TRAIN_SPEC_LABELS={
   voicing:{spread:["密集 vs 开放","同音不同摆","Close vs open","same notes, new layout"],smooth:["共同音保留","最近转位","Common tones","nearest inversion"],pedal:["持续低音","低音不动蓄力","Pedal point","bass holds, energy builds"],vcbuild:["搭按法","精确到音区","Build a voicing","exact register"]},
   modulate:{lift:["升半调推土机","副歌再推一把","The lift","push the last chorus"],relswitch:["关系调切换","暗主歌亮副歌","Relative switch","dark verse, bright chorus"],modhear:["转调盲听","半音/全音/没转","Hear modulation","half/whole/none"]},
   rhythm:{density:["换和弦密度","一小节一换/两拍一换","Density","1 vs 2 chords per bar"],where:["换在重拍","小节第一拍落地","On the downbeat","land on beat 1"],antic:["提前半拍","抢拍的推力","Anticipation","push in early"],meter:["拍号听辨","三拍一组/四拍一组","Meter by ear","3 or 4 per bar"]},
+  texture:{texclass:["四大类","单声/主调/复调/支声","Four families","mono/homo/poly/hetero"],texid:["盲听辨织体","八种主调织体","Texture by ear","the eight patterns"],texknob:["哪个旋钮变了","排列/织体/和声节奏","Which knob moved","voicing/texture/HR"],texrole:["角色与场景","低音角色/典型用途","Roles & scenes","bass role / habitat"]},
   cliche:{lcmaj:["大调线条","C–Caug–C6–C7","Major cliché","C–Caug–C6–C7"],lcmin:["小调线条","Am–AmM7–Am7–Am6","Minor cliché","Am–AmM7–Am7–Am6"],lchear:["听辨暗流","静止 vs 半音爬行","Hear the current","static vs creeping"],lcbuild:["搭线条和弦","Caug / AmM7 / C6 / Am6","Build the chords","Caug / AmM7 / C6 / Am6"]},
   harmonize:{cand:["候选和弦","一个音住三家","Host chords","one note, three homes"],fit:["接住还是悬着","长音找内音","Caught or hanging","long notes want chord tones"],pickc:["整句配和弦","三版盲听选优","Harmonize a phrase","pick the best of three"],cad:["句尾的抉择","句号 vs 拖一段","The cadence call","full stop vs carry on"]},
   earcopy:{findhome:["第一步·定调","家是亮的还是暗的","Step 1 · find home","bright or dark"],bassline:["第二步·听低音","下楼/爬坡/荡秋千","Step 2 · the bass","down / up / swing"],pattern:["第三步·认套路","大小调混合盲听","Step 3 · match patterns","major & minor mixed"],colorid:["第四步·辨色彩","哪里加了什么料","Step 4 · spot the color","which trick was used"]},
@@ -9442,6 +10182,9 @@ const DEEP_DIVE={
   rhythm:{m:["节奏题先数拍：重音多久回来=拍号；两声重音之间换了几次和弦=密度；换的瞬间压没压在重音上=位置；新和弦是不是早到半拍=抢拍。全部用「数」解决，不靠玄学。",
     "Count first: how often the heavy tick returns = meter; how many changes between heavy ticks = density; whether the change lands on the accent = placement; whether the new chord arrives half a beat early = anticipation. Everything yields to counting — no mystique."],
    p:[["hr:pp1564:4","一小节一换","once per bar"],["hr:pp1564:2","两拍一换(密)","every two beats (dense)"],["hr:pp1564:4:a","抢拍版(往前倾)","anticipated (leaning in)"],["hr:pp1564:3:3","三拍子(摇曳)","in 3/4 (swaying)"]]},
+  texture:{m:["织体题三步走：先数低音（整小节躺着/正拍打点/16分滚动），再听上方（整和弦齐落=柱式系、逐音散开=Alberti/流水系），最后看正反拍（专躲正拍=切分系）。「哪个旋钮」题对照口诀：换音=和弦表、换高度=排列、拍内变=织体、拍间变=和声节奏。四大类先数线再问关系：一条线单声、一主多仆主调、条条平等复调、一线分身支声。",
+    "Texture questions in three steps: count the bass first (lying across the bar / dotting downbeats / rolling 16ths), then the top (whole chords = block family, note-by-note = Alberti/stream family), then the beat (dodging downbeats = comping). For knob questions: notes = chart, heights = voicing, within-beat = texture, between-beat = harmonic rhythm. For the four families count lines then ask the relationship: one = mono, master-servants = homo, equals = poly, doubles = hetero."],
+   p:[["tex:canon2:block4","柱式基准","block baseline"],["tex:canon2:flow16","流水对照","stream contrast"],["tex:canon2:syncop","切分对照","comping contrast"],["texm:solo","单声小星星","monophony"],["texm:poly","复调小星星","polyphony"]]},
   cliche:{m:["和弦名几乎不动、耳朵却觉得在走→找那条半音线。小调版动的是根音上方那条(A→G♯→G→F♯ 下楼)；大调版动的是五音(G→G♯→A 上爬)。AmM7、Caug 这些「怪和弦」都是线路过的台阶。",
     "Names barely change yet the ear senses motion → hunt the chromatic line. The minor line walks above the root (A→G♯→G→F♯, downstairs); the major line climbs the 5th (G→G♯→A). Odd chords like AmM7 and Caug are merely stairs the line passes."],
    p:[["seq:lcMinPlain","原地踏步(对照)","treading water (control)"],["seq:lcMin","小调线条(下楼)","the minor line (down)"],["seq:lcAug","大调线条(上爬)","the major line (up)"]]},
@@ -9776,7 +10519,7 @@ function hideDock(){
 }
 
 // 把音符时值粗略换算成点亮时长(毫秒)；齐奏(1n)亮约2秒后熄灭
-function durToMs(d){ return {"8n":340,"4n":620,"2n":1000,"1n":2000}[d] || 600; }
+function durToMs(d){ return {"16n":170,"8n":340,"4n":620,"2n":1000,"1n":2000}[d] || 600; }
 // 跟随 lastPlayed 的时间线点亮键盘(可指定哪一个键盘容器)：先全熄，再随每个音响起点亮、到时熄灭
 function lightAlong(rootSel="#piano"){
   const root=document.querySelector(rootSel); if(!root) return;
