@@ -832,7 +832,8 @@ function teachEN(mId){
       <details class="note" open><summary>Why learn only the major scale?</summary>
         <p style="color:var(--muted);line-height:1.7">There are many scales (natural minor, harmonic minor, the modes…). We start with only the <b>major scale</b>
         because it is the "prototype ruler" of the whole tonal system — minor keys and modes can all be seen as variants of it. Master the major stairs
-        and the chords built from them first, and every other scale will come quickly later.</p>
+        and the chords built from them first, and every other scale will come quickly later. A teaser: remove two notes from the major scale and you get the <b>pentatonic</b> (the skeleton of Chinese-style pop) — level ㉗ ends with a full extra, improvisation pad included:</p>
+        <div class="row"><span class="chip" data-play="mel:0,2,4,7,9,12">🔊 A sneak listen: 1 2 3 5 6 (pentatonic)</span></div>
       </details>`;
     case "key": return `
       <p>Where does a "<b>key</b>" come from? Simple: <b>pick a starting note (the "tonic") and apply the major stair pattern W-W-H-W-W-W-H from it</b>. The 7 notes you land on are the notes that key may use.</p>
@@ -903,6 +904,14 @@ function teachEN(mId){
         <tr><td class="play" data-play="majscale:5">F major</td><td class="play" data-play="natminor:2">D minor</td><td>F G A B♭ C D E</td><td>1 flat (B♭)</td></tr>
       </table>
       <p style="color:var(--muted)">Note: listening along you'll find the two scales start at different spots (say C major from C4 to C5, A minor from A3 to A4) — <b>the octave doesn't affect whether the notes count as "the same"</b>. "Same notes" means the 7 <b>letter names</b> (C D E F G A B) match exactly; a note of the same name in any octave (C4, C5…) counts as one and the same note for key membership.</p>
+
+      <details class="note"><summary>The classics agree · the Moonlight opening is just a broken minor tonic</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>The opening of Beethoven's Moonlight Sonata, first movement (originally C♯ minor; sketched here in A minor): the right hand cycles nothing but <b>Am's three notes, A–C–E</b>, over a held bass — the entire moonlight is <b>minor-triad color × triplet-arpeggio texture</b>, not one extra chord. Hear the cycle:</p>
+          <div class="row"><span class="chip" data-play="mel:-3,0,4,-3,0,4,-3,0,4">🔊 A–C–E cycling (Moonlight-style arpeggio, slow sketch)</span></div>
+          <p style="color:var(--muted)">A preview of two later levels in one page of a master: the chord chart only says <b>which notes</b> (this level's minor color); <b>how they move</b> belongs to texture, level ㉛ — the two knobs kept perfectly separate.</p>
+        </div>
+      </details>
 
       <p style="color:var(--muted)">Drills below: hear major vs. minor, find relative pairs, and build a minor scale on the keyboard.</p>`;
     case "triad": return `
@@ -1287,9 +1296,9 @@ function teachEN(mId){
       <p>Same progression, new key: <b>the chord names change but the degrees (Roman numerals) don't</b> — this is the underlying skill that lets musicians improvise or transcribe in any key.</p>
       <p style="color:var(--muted)">Drills span C/G/D/A/F/B♭ and test both directions: Roman → actual chord, actual chord → Roman, and transposing whole progressions.</p>
 
-      <details class="note" open><summary><b>🎓 Graduation review · every progression, any key, one more listen</b></summary>
+      <details class="note" open><summary><b>🎓 Main-line review · every progression, any key, one more listen</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>Transposition is the main storyline's "final puzzle piece" — so let's gather <b>every progression you've learned</b>: switch keys at will, loop at will, toggle block/arpeggio/combo at will, and verify with your own hands that "degrees stay put while keys travel". (Don't leave after clearing it: six levels of <b>advanced pop harmony</b> await from ㉔ on.)</p>
+          <p>Transposition is the main storyline's "final puzzle piece" — so let's gather <b>every progression you've learned</b>: switch keys at will, loop at will, toggle block/arpeggio/combo at will, and verify with your own hands that "degrees stay put while keys travel". (Don't leave after the review: the <b>advanced pop-harmony chapters</b> run from ㉔ all the way to the transcription finale at ㉞.)</p>
           <p><b>The six big major progressions</b> (level ⑭). First, the 7-degree cheat sheet (C major as example, every cell playable; when you switch keys, <b>the digits and Romans stay fixed</b> — translate the note names into the target key yourself; that's precisely this level's skill):</p>
           <table class="ctab"><tr><th>Digit</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>Roman</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
@@ -1335,34 +1344,40 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: the circle of fifths: twelve keys on one clock face</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · what this picture is.</b> Arrange the 12 major keys on a clock so that <b>neighbors sit a perfect fifth apart</b>: <b>one step clockwise = tonic up a fifth = one more ♯</b> (C→G→D→A…), one step counterclockwise = one more ♭ (C→F→B♭…). Outer ring: majors; sharing each slot on the inner ring lives the <b>relative minor</b> (level ㉑'s "same notes, new householder"). Every key is tappable — outer plays its major scale, inner its natural minor:</p>
+          <p><b>What this picture is.</b> Arrange the 12 major keys on a clock so that <b>neighbors sit a perfect fifth apart</b>: <b>one step clockwise = tonic up a fifth = one more ♯</b> (C→G→D→A…), one step counterclockwise = one more ♭ (C→F→B♭…). Outer ring: majors; sharing each slot on the inner ring lives the <b>relative minor</b> (level ㉑'s "same notes, new householder"). Every key is tappable — outer plays its major scale, inner its natural minor:</p>
           ${fifthsSVG()}
-          <p><b>Sentence 2 · distance = similarity.</b> The closer two keys sit, the more notes they share: <b>adjacent slots share 6 of 7</b>. Verify by ear — C major vs its right neighbor G (only F↔F♯ differs), then vs F♯ straight across (six notes replaced; a foreign language):</p>
+          <p><b>Distance = similarity.</b> The closer two keys sit, the more notes they share: <b>adjacent slots share 6 of 7</b>. Verify by ear — C major vs its right neighbor G (only F↔F♯ differs), then vs F♯ straight across (six notes replaced; a foreign language):</p>
           <div class="row">
             <span class="chip" data-play="majscale:0">🔊 C major scale (baseline)</span>
             <span class="chip" data-play="majscale:7">🔊 Neighbor G major (one note swapped — practically family)</span>
             <span class="chip" data-play="majscale:6">🔊 Opposite F♯ major (nearly all swapped — a stranger)</span>
           </div>
-          <p><b>Sentence 3 · the course has been using this map all along.</b> ① <b>Modulation (㉙)</b> prefers neighbors — many shared notes, seamless; ② <b>secondary dominants (㉔)</b> = look one step clockwise: any chord's private V7 is the dominant 7th of the slot to its right (to push Dm, borrow A7 — A sits to D's right); ③ <b>key signatures (③)</b>: count slots clockwise/counterclockwise and you have the number of ♯/♭. One picture, three lessons' map.</p>
+          <p><b>The course has been using this map all along.</b> ① <b>Modulation (㉙)</b> prefers neighbors — many shared notes, seamless; ② <b>secondary dominants (㉔)</b> = look one step clockwise: any chord's private V7 is the dominant 7th of the slot to its right (to push Dm, borrow A7 — A sits to D's right); ③ <b>key signatures (③)</b>: count slots clockwise/counterclockwise and you have the number of ♯/♭. One picture, three lessons' map.</p>
           <p style="color:var(--muted)">Transposing cheat: when a song sits too high or low, slide 1–2 slots along the circle — the signature barely changes and players stay happy. That is exactly this level's "parallel shift", drawn on the clock.</p>
         </div>
       </details>
 
       <details class="note"><summary>Extra: keying a song to your own voice — transposition, the singer's way</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · the original key is the original singer's key.</b> A song is keyed to its recording artist's range; covering it, the only question is "<b>does the song's highest note land inside my comfortable register?</b>" Karaoke pitch buttons and guitar capos both do this level's job: the parallel shift.</p>
-          <p><b>Sentence 2 · the three-step keying method.</b> ① Find the song's <b>highest note</b> (usually in the chorus); ② find <b>your own</b> highest relaxed note (hum upward — the last note that needs no shouting); ③ the gap between them = <b>the transposition</b>, applied to the whole song. Hear one phrase in three registers — imagine singing along:</p>
+          <p><b>The original key is the original singer's key.</b> A song is keyed to its recording artist's range; covering it, the only question is "<b>does the song's highest note land inside my comfortable register?</b>" Karaoke pitch buttons and guitar capos both do this level's job: the parallel shift.</p>
+          <p><b>The three-step keying method.</b> ① Find the song's <b>highest note</b> (usually in the chorus); ② find <b>your own</b> highest relaxed note (hum upward — the last note that needs no shouting); ③ the gap between them = <b>the transposition</b>, applied to the whole song. Hear one phrase in three registers — imagine singing along:</p>
           <div class="row">
             <span class="chip" data-play="mel:4,4,2,2,0">🔊 Too low (stuck in the throat, no leverage)</span>
             <span class="chip" data-play="mel:16,16,14,14,12">🔊 Just right (the peak sits in the bright spot)</span>
             <span class="chip" data-play="mel:23,23,21,21,19">🔊 Too high (the peak turns into a shout — transpose down)</span>
           </div>
-          <p><b>Sentence 3 · rough reference (individuals vary — trust your own step ②):</b></p>
+          <p><b>Rough reference (individuals vary — trust your own step ②):</b></p>
           <table class="ctab"><tr><th>Voice</th><th>Comfort zone (approx.)</th><th>Relaxed top (approx.)</th></tr>
             <tr><td>Bass/baritone</td><td>G2–C4</td><td>D4–E4</td></tr>
             <tr><td>Tenor</td><td>C3–E4</td><td>around G4</td></tr>
             <tr><td>Alto</td><td>F3–B♭4</td><td>C5–D5</td></tr>
             <tr><td>Soprano</td><td>A3–D5</td><td>around F5</td></tr></table>
+          <p><b>Workshop · run the three steps on Happy Birthday.</b> Its highest note sits in phrase three: "Happy <b>birth</b>-day dear…" leaps up an octave (in C, that is <b>G5</b>) — ① highest note found; ② suppose your relaxed ceiling is <b>E5</b>; ③ the gap is 3 semitones → take the whole song <b>down 3</b>. Hear phrase three in three versions and feel where the peak lands:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:7,7,19,16,12,11,9">🔊 Original C: peak G5 (a shout for most)</span>
+            <span class="chip" data-play="mel:4,4,16,13,9,8,6">🔊 Down 3 (A major): peak E5 (just right)</span>
+            <span class="chip" data-play="mel:-5,-5,7,4,0,-1,-3">🔊 Escape hatch: the octave below, peak G4 (anyone can)</span>
+          </div>
           <p style="color:var(--muted)">Two working notes: men covering songs by female vocalists usually drop <b>4–5 semitones</b> (or sing the octave below); choosing a key for group singing, defer to the <b>narrowest range</b> in the room. Transposing loses nothing — the numerals of ⑭㉑ and the textures of ㉛ all shift intact: this level's "shape-preserving move".</p>
         </div>
       </details>`;
@@ -1954,6 +1969,45 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>Extra: the pentatonic scale — chinoiserie by subtraction (gong-shang-jue-zhi-yu)</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>One subtraction.</b> Take the major scale's seven notes and remove <b>4 (F) and 7 (B)</b>: what remains is <b>1 2 3 5 6</b> — the <b>pentatonic scale</b> (Chinese: "gong"). The two deleted notes are precisely level ⑪'s restless <b>magnet tones</b> (4 sliding to 3, 7 nudging into 1) — the surviving five are all placid, and <b>no two of them sit a half step apart</b>. Compare:</p>
+          <div class="row">
+            <span class="chip" data-play="majscale:0">🔊 Seven-note major (E–F and B–C half steps hide inside)</span>
+            <span class="chip" data-play="mel:0,2,4,7,9,12">🔊 Pentatonic gong (1 2 3 5 6 — only whole steps and minor 3rds)</span>
+          </div>
+          <p><b>No half steps = no thorns.</b> Half steps clash when sounded together (level ①'s narrowest interval); the pentatonic set contains none, so <b>any handful of its notes rings as one</b>. Verify by fistful:</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,2,4,7,9">🔊 All five at once (seamless, like bells)</span>
+            <span class="chip" data-play="notes:0,2,4,5,7,11">🔊 Add 4 and 7 back and grab again (E–F, B–C start fighting)</span>
+          </div>
+          <p><b>Gong-shang-jue-zhi-yu = "taking turns as tonic", pentatonic edition.</b> This level just played that game on seven white keys; play it again on five notes and you get China's five traditional modes:</p>
+          <table class="ctab"><tr><th>Mode</th><th>Starts on</th><th>Degrees</th><th>Color in a word</th><th>Hear</th></tr>
+            <tr><td><b>Gong 宫</b></td><td>1 (C)</td><td>1 2 3 5 6</td><td>upright, sunlit (major-like)</td><td class="play" data-play="mel:0,2,4,7,9,12">▶</td></tr>
+            <tr><td>Shang 商</td><td>2 (D)</td><td>2 3 5 6 1</td><td>crisp, drifting</td><td class="play" data-play="mel:2,4,7,9,12,14">▶</td></tr>
+            <tr><td>Jue 角</td><td>3 (E)</td><td>3 5 6 1 2</td><td>faint, rare</td><td class="play" data-play="mel:4,7,9,12,14,16">▶</td></tr>
+            <tr><td>Zhi 徵</td><td>5 (G)</td><td>5 6 1 2 3</td><td>open, ringing</td><td class="play" data-play="mel:7,9,12,14,16,19">▶</td></tr>
+            <tr><td><b>Yu 羽</b></td><td>6 (A)</td><td>6 1 2 3 5</td><td>wistful, winding (minor-like)</td><td class="play" data-play="mel:9,12,14,16,19,21">▶</td></tr></table>
+          <p style="color:var(--muted)">Exactly level ㉑'s perspective flip: gong↔yu is the pentatonic world's major↔relative minor. Chinese-style pop lands phrase ends on 6 (yu) and 2 (shang) constantly — that is where the wistfulness lives.</p>
+          <p><b>The black-key easter egg.</b> The piano's five black keys (F♯ G♯ A♯ C♯ D♯) <b>are a pentatonic scale</b> (F♯ gong) — close your eyes, touch only black keys, and chinoiserie comes out:</p>
+          <div class="row"><span class="chip" data-play="mel:6,8,10,13,15,18">🔊 Black keys, low to high (chinoiserie built in)</span></div>
+          <p><b>The improvisation safety net (hands on).</b> Stringing it together: the backing loops inside the C-major diatonic set, and your hand holds only pentatonic notes — both magnet tones are off your keys, so <b>whatever you tap, whenever, however long, nothing collides</b>. How to play: tap the backing once → press Loop → then improvise freely on the tiles below. Two mottos: <b>long notes first, runs later</b>; <b>end a phrase on 1 for repose, on 6 for wistfulness</b> (gong close vs yu close — even improvising keeps its reasons):</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:gongVamp">🔊 Backing: C–Am–F–C (play once & register)</span>
+            <span class="chip" data-play="kloop" style="border-color:var(--p3)">🔄 Loop</span>
+          </div>
+          <div class="row" style="gap:6px">
+            <span class="chip" data-play="tap:0">1<br><small>C4</small></span><span class="chip" data-play="tap:2">2<br><small>D4</small></span><span class="chip" data-play="tap:4">3<br><small>E4</small></span><span class="chip" data-play="tap:7">5<br><small>G4</small></span><span class="chip" data-play="tap:9">6<br><small>A4</small></span><span class="chip" data-play="tap:12">1̇<br><small>C5</small></span><span class="chip" data-play="tap:14">2̇<br><small>D5</small></span><span class="chip" data-play="tap:16">3̇<br><small>E5</small></span><span class="chip" data-play="tap:19">5̇<br><small>G5</small></span><span class="chip" data-play="tap:21">6̇<br><small>A5</small></span>
+          </div>
+          <p><b>The classics agree.</b> Pentatonic is no Chinese monopoly — it is the common denominator of folk song worldwide:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 Dvořák, New World Largo theme (the whole line uses only 1 2 3 5 6)</span>
+            <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 Amazing Grace, opening (purely pentatonic too)</span>
+          </div>
+          <p style="color:var(--muted)">Songwriting recipe: the usual "Chinese style" formula = <b>pentatonic melody + level ⑭'s pop chords</b> — harmony walks 1645/4536 as ever; only the melody's palette shrinks to 1 2 3 5 6, with phrase ends favoring yu (6) and shang (2).</p>
+        </div>
+      </details>
+
       <p><b>The wrap · using this when transcribing.</b> On meeting a "circling, never-home" passage: <b>① confirm nobody presses</b> (no leading tone nudging into the tonic) → <b>② catch the signature note</b> (usually seated in the landmark chord: ♭VII's root, the major IV's 3rd…) → <b>③ place it on the spectrum</b>. Exactly the modal branch of level ㉞'s step ④.</p>
 
       <p><b>Coda · can modes switch inside one song?</b> Yes — in three doses: <b>one slot</b> ＝ borrowing (level ㉒, that F→Fm flash); <b>one section</b> ＝ section-level switching (verse in one mode, chorus in another — the extra below); <b>the whole song</b> ＝ residency (this level's home turf). Level ㉒'s "frequency watershed" was really the two ends of this continuum; the middle dose unfolds below:</p>
@@ -2081,7 +2135,8 @@ function teachEN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted)">This level's drills: why the lift exists, modulation vs transposition, recognizing the relative switch, and modulation by ear (half step / whole step / none). This also closes the course — your ear can now hear which floor a song is on.</p>`;
+      <p style="color:var(--muted)">Map hint: when choosing a modulation target, consult level ㉓'s circle of fifths — closer keys share more notes and switch more smoothly; the bulldozer's half/whole-step neighbors sit far apart on the circle, which is exactly why they feel like a sudden change of scenery.</p>
+      <p style="color:var(--muted)">This level's drills: why the lift exists, modulation vs transposition, recognizing the relative switch, and modulation by ear (half step / whole step / none). That completes the advanced-harmony arc — your ear now hears which floor a song is on; levels ㉚–㉞ add the last pieces of sounding like a real record.</p>`;
 
     case "function": return `
       <p>The chords in a key each have a "job", grouped by job into three <b>functions</b> — matching a journey: <b>home → setting out → tension → coming home</b> (the three functions man the first three stations; "coming home" means arriving back at "home" — which is the tension's release). First, let's pin down the metaphor itself:</p>
@@ -2907,20 +2962,33 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>The classics agree · harmonic minor in the masters</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>Für Elise (Beethoven):</b> the famous opening tickle is E and D♯ — a <b>half-step neighbor</b> rubbing back and forth — then a stepwise fall into A; and the left hand that follows is the <b>Am ↔ E</b> swing: E is precisely this level's forged <b>capital V</b> (with G♯). The whole piece breathes on that i↔V pendulum:</p>
+          <div class="row">
+            <span class="chip" data-play="mel:16,15,16,15,16,11,14,12,9">🔊 Opening line: E–D♯–E–D♯–E–B–D–C–A</span>
+            <span class="chip" data-play="mkprog:1,V,1">🔊 Its left-hand skeleton: Am → E → Am (i–V–i)</span>
+          </div>
+          <p><b>The Swan Lake theme (Tchaikovsky, moved to A minor):</b> in the swan's head-lifting phrase, the second-to-last note is <b>G♯ — the leading tone</b>: the whole ache hangs on that half step and lets go only on landing at A. Without level ⑲'s hack, the swan cannot lift its head:</p>
+          <div class="row"><span class="chip" data-play="mel:4,9,11,12,11,9,8,9">🔊 Theme: E–A–B–C–B–A–G♯–A (G♯ suspends, A releases)</span></div>
+          <p style="color:var(--muted)">Both pieces do one thing: install the artificial leading tone as minor's "must-go-home" spring — three centuries from Beethoven straight into pop ballads.</p>
+        </div>
+      </details>
+
       <details class="note"><summary>Extra: the hack's side effect, and the third minor: melodic minor</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>Sentence 1 · raising 7 left a gap.</b> After G becomes G♯, the scale's step from degree 6 to 7 (F → G♯) spans <b>three half steps</b> — an <b>augmented second</b>. Fine inside chords, but a <b>melody</b> climbing the scale suddenly lurches with an exotic flavor (flamenco / Middle-Eastern). Hear that single step, then the ordinary whole step for contrast:</p>
+          <p><b>Raising 7 left a gap.</b> After G becomes G♯, the scale's step from degree 6 to 7 (F → G♯) spans <b>three half steps</b> — an <b>augmented second</b>. Fine inside chords, but a <b>melody</b> climbing the scale suddenly lurches with an exotic flavor (flamenco / Middle-Eastern). Hear that single step, then the ordinary whole step for contrast:</p>
           <div class="row">
             <span class="chip" data-play="mel:5,8">🔊 The augmented-second stair: F → G♯ (three half steps — one stride into the exotic)</span>
             <span class="chip" data-play="mel:5,7">🔊 Control · plain whole step: F → G (two half steps, unremarkable)</span>
           </div>
-          <p><b>Sentence 2 · the fix: raise 6 as well, and the gap closes.</b> F becomes F♯, so F♯ → G♯ is a whole step again — the rising line glides straight into the leading tone. That is <b>melodic minor (ascending)</b>: both 6 and 7 raised. All three minors rising, side by side (A minor):</p>
+          <p><b>The fix: raise 6 as well, and the gap closes.</b> F becomes F♯, so F♯ → G♯ is a whole step again — the rising line glides straight into the leading tone. That is <b>melodic minor (ascending)</b>: both 6 and 7 raised. All three minors rising, side by side (A minor):</p>
           <div class="row">
             <span class="chip" data-play="mel:-3,-1,0,2,4,5,7,9">🔊 Natural minor up: F and G stay (dark, but G→A has no pull)</span>
             <span class="chip" data-play="mel:-3,-1,0,2,4,5,8,9">🔊 Harmonic minor up: only G♯ (pull installed, but F→G♯ lurches)</span>
             <span class="chip" data-play="mel:-3,-1,0,2,4,6,8,9">🔊 Melodic minor up: F♯ and G♯ (pull intact, stair smoothed)</span>
           </div>
-          <p><b>Sentence 3 · going down needs no leading tone, so both revert.</b> A leading tone's whole job is to nudge <b>up</b> into the tonic; a falling line never uses it, so 6 and 7 both naturalize — melodic minor descending = natural minor. One line to remember: <b>raise on the way up, restore on the way down</b>:</p>
+          <p><b>Going down needs no leading tone, so both revert.</b> A leading tone's whole job is to nudge <b>up</b> into the tonic; a falling line never uses it, so 6 and 7 both naturalize — melodic minor descending = natural minor. One line to remember: <b>raise on the way up, restore on the way down</b>:</p>
           <div class="row"><span class="chip" data-play="mel:4,6,8,9,7,5,4">🔊 E–F♯–G♯–A rising (raised), A–G–F–E falling (restored) — the same spot, two faces</span></div>
           <p style="color:var(--muted)">Pop usage: at the chord level, pop runs almost entirely on <b>natural + harmonic</b> (levels ⑯ and ⑲); melodic minor lives mostly in <b>melody lines and jazz</b>. Hence its home here in an extra — recognize it by ear and you are equipped.</p>
         </div>
@@ -3225,9 +3293,10 @@ function teachEN(mId){
             <span class="chip" data-play="seq:picMaj">🔊 Picardy: Am → Dm → E7 → A (one last ray of light)</span>
           </div>
           <p style="color:var(--muted)">Perfectly symmetric with this level: it borrows I from the <i>parallel major's</i> list. One note moves (C→C♯) and the song's verdict turns from a sigh into release.</p>
+          <p style="color:var(--muted)">The grandmaster of the move: <b>nearly every minor-key Bach chorale ends Picardy</b> — a whole piece sighing in minor, then the final chord raises its third and lets in one beam of light. A three-century-old formula that film scores still use unchanged.</p>
         </div>
       </details>
-      <p style="color:var(--muted)">Map hint: when choosing a modulation target, consult level ㉓'s circle of fifths — closer keys share more notes and switch more smoothly; the bulldozer's half/whole-step neighbors sit far apart on the circle, which is exactly why they feel like a sudden change of scenery.</p>`;
+`;
 
     case "rhythm": return `
       <p>The previous 29 levels answered <i>which</i> chord to play; this one answers <b>when</b>. The same 1564 changes sparse or dense, on this beat or that — and feels worlds apart. This is <b>harmonic rhythm</b>, the last puzzle piece of "sounding like a real song".</p>
@@ -3241,12 +3310,12 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: meter — how often does the heavy beat return? (3/4 beyond 4/4)</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · "how many beats per group" is a choice.</b> The default above groups beats in 4 (written <b>4/4</b>), but <b>3 per group (3/4)</b> exists too — the accent returns every 3 beats: count <b>1</b>-2-3, <b>1</b>-2-3. Metronome only, two heartbeats compared:</p>
+          <p><b>"how many beats per group" is a choice.</b> The default above groups beats in 4 (written <b>4/4</b>), but <b>3 per group (3/4)</b> exists too — the accent returns every 3 beats: count <b>1</b>-2-3, <b>1</b>-2-3. Metronome only, two heartbeats compared:</p>
           <div class="row">
             <span class="chip" data-play="hr:tonic:8">🔊 Grouped in four (count 1-2-3-4 — a walking pulse)</span>
             <span class="chip" data-play="hr:tonic:6:3">🔊 Grouped in three (count 1-2-3 — a spinning pulse)</span>
           </div>
-          <p><b>Sentence 2 · same chords, new meter, whole new character.</b> Not one note moves — only the accent cycle changes from 4 to 3 — and 1564 turns from "pop song" into "waltz/folk", swaying at once:</p>
+          <p><b>Same chords, new meter, whole new character.</b> Not one note moves — only the accent cycle changes from 4 to 3 — and 1564 turns from "pop song" into "waltz/folk", swaying at once:</p>
           <div class="row">
             <span class="chip" data-play="hr:pp1564:4">🔊 1564 in 4/4 (pop default, striding forward)</span>
             <span class="chip" data-play="hr:pp1564:3:3">🔊 1564 in 3/4 (3 beats per bar — it starts to spin)</span>
@@ -3307,24 +3376,26 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: the pickup — songs that do not open on beat 1</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · plenty of pop lines do not start on beat 1.</b> Phrases often enter <b>from the tail of the previous bar</b>, two or three syllables early, so that the <b>stressed word</b> lands on the next bar's beat 1 — the <b>pickup</b> (anacrusis). Different from anticipation: that was the chord layer arriving <b>half a beat</b> early as flavor; the pickup is the <b>whole phrase's</b> entrance design, often a beat or two ahead.</p>
-          <p><b>Sentence 2 · hear the pair.</b> The same three syllables: left, the square start — all three inside the bar, stress first; right, the pickup — two syllables take a running start on beats 3 and 4, and the third slams onto the downbeat. Aligning stressed word with strong beat is the pickup's entire purpose:</p>
+          <p><b>Plenty of pop lines do not start on beat 1.</b> Phrases often enter <b>from the tail of the previous bar</b>, two or three syllables early, so that the <b>stressed word</b> lands on the next bar's beat 1 — the <b>pickup</b> (anacrusis). Different from anticipation: that was the chord layer arriving <b>half a beat</b> early as flavor; the pickup is the <b>whole phrase's</b> entrance design, often a beat or two ahead.</p>
+          <p><b>Hear the pair.</b> The same three syllables: left, the square start — all three inside the bar, stress first; right, the pickup — two syllables take a running start on beats 3 and 4, and the third slams onto the downbeat. Aligning stressed word with strong beat is the pickup's entire purpose:</p>
           <div class="row">
             <span class="chip" data-play="pickup:strong">🔊 Square start: open on beat 1</span>
             <span class="chip" data-play="pickup:weak">🔊 Pickup: run up on 3–4 → stressed word on beat 1</span>
           </div>
           <p style="color:var(--muted)">The counting trick for coming in with a backing track: <b>open on "3, 4", hand the stressed word to "1"</b>. If you always feel half a line late when singing along, you are probably hearing the pickup's run-up as beat 1 — find the stressed word first, then count backwards to the entrance.</p>
+          <p><b>Living proof · Happy Birthday IS a pickup (and in 3/4).</b> "Hap-py" rides <b>beat 3</b> of the previous bar (two eighths), and "birth-" slams onto the new bar's beat 1 — the most-sung song on earth does not open on 1. Listen and count along:</p>
+          <div class="row"><span class="chip" data-play="pickup:hb">🔊 Hap-py | birth-day to you (with a 3/4 metronome: the heavy tick is beat 1 — the run-up rides beat 3)</span></div>
         </div>
       </details>
 
       <details class="note"><summary>Extra: the turnaround — split the last bar in two and swing the loop home</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · a loop's seam wants lubrication.</b> When a progression circles, the instant the last slot wraps to the first is a seam (level ⑭'s "loop interface"). Oldies and jazz lubricate it the same way: <b>split the final bar into two chords</b> — one extra push on the way out that swings the music back to the top. The trade name: the <b>turnaround</b>. Compare on 1645:</p>
+          <p><b>A loop's seam wants lubrication.</b> When a progression circles, the instant the last slot wraps to the first is a seam (level ⑭'s "loop interface"). Oldies and jazz lubricate it the same way: <b>split the final bar into two chords</b> — one extra push on the way out that swings the music back to the top. The trade name: the <b>turnaround</b>. Compare on 1645:</p>
           <div class="row">
             <span class="chip" data-play="hr:hrTAno:4">🔊 Square version: C·Am·F·G one bar each → back to C (a flat seam)</span>
             <span class="chip" data-play="hr:hrTA:4.4.4.2.2.4">🔊 Turnaround: last bar splits into Dm7(2)→G7(2) → swings back to C</span>
           </div>
-          <p><b>Sentence 2 · lift the split bar out on its own.</b> Inside the full loop the split is easy to miss — so hear just <b>the final bar plus the landing</b>: on the left, G owns all four beats (one stride through the door); on the right, the same four beats are cut into <b>Dm7 (beats 1–2) + G7 (beats 3–4)</b> — same landing on C, but with an extra kick at the doorstep:</p>
+          <p><b>Lift the split bar out on its own.</b> Inside the full loop the split is easy to miss — so hear just <b>the final bar plus the landing</b>: on the left, G owns all four beats (one stride through the door); on the right, the same four beats are cut into <b>Dm7 (beats 1–2) + G7 (beats 3–4)</b> — same landing on C, but with an extra kick at the doorstep:</p>
           <div class="row">
             <span class="chip" data-play="hr:hrTA1:4">🔊 The bar as-is: G (all 4 beats) → C (one stride in)</span>
             <span class="chip" data-play="hr:hrTA2:2.2.4">🔊 The bar split: Dm7(2)→G7(2) → C (two quick steps in)</span>
@@ -3335,14 +3406,14 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: texture — what it is, who its relatives are, and how it teams with density</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · what is "texture"?</b> The same chord — same notes, even the same layout — can make its entrance <b>inside the beat</b> in different ways: all three notes <b>landing together</b> (block, like a stamp); <b>unfolding low to high</b> (arpeggio, like water); or <b>bass first, upper notes spreading, a full-chord accent at the tail</b> (combo — a real pianist's hand). That manner of entrance is <b>texture</b>. Verify by hand — tap the right button to switch the playing style, then tap <b>the same C</b> on the left, back and forth:</p>
+          <p><b>What is "texture"?</b> The same chord — same notes, even the same layout — can make its entrance <b>inside the beat</b> in different ways: all three notes <b>landing together</b> (block, like a stamp); <b>unfolding low to high</b> (arpeggio, like water); or <b>bass first, upper notes spreading, a full-chord accent at the tail</b> (combo — a real pianist's hand). That manner of entrance is <b>texture</b>. Verify by hand — tap the right button to switch the playing style, then tap <b>the same C</b> on the left, back and forth:</p>
           <div class="row">
             <span class="chip" data-play="seq:tonic">🔊 The same C (entering in the current style)</span>
             <span class="chip" data-play="arpToggle">${styleLabel()}</span>
           </div>
           <p style="color:var(--muted)">Mind what you just heard: switching styles changed <b>no chord, no note, no register</b> — only the <b>order in which the notes appear within the beat</b>. That is the whole definition: <b>timing inside the beat</b>.</p>
 
-          <p><b>Sentence 2 · the division of labor among three look-alikes.</b> One governs space; two govern time (one micro, one macro):</p>
+          <p><b>The division of labor among three look-alikes.</b> One governs space; two govern time (one micro, one macro):</p>
           <table class="ctab"><tr><th>Concept</th><th>Governs</th><th>Change it and…</th><th>Where</th></tr>
             <tr><td><b>Voicing</b></td><td>which <b>heights</b> the notes occupy (space)</td><td>thickness and shade change</td><td>level ㉘</td></tr>
             <tr><td><b>Texture</b></td><td>how notes enter <b>within the beat</b> (time · micro)</td><td>stamp ↔ stream</td><td>level ㉛</td></tr>
@@ -3353,7 +3424,7 @@ function teachEN(mId){
             <span class="chip" data-play="seq:vcOpen">🔊 Voicing B: open C3·G3·E4 (spread — heights change, order does not)</span>
           </div>
 
-          <p><b>Sentence 3 · now verify texture and harmonic rhythm (density) are independent too.</b> The same 1564, two experiments — texture fixed while density changes (between beats), then density fixed while texture changes (within the beat):</p>
+          <p><b>Now verify texture and harmonic rhythm (density) are independent too.</b> The same 1564, two experiments — texture fixed while density changes (between beats), then density fixed while texture changes (within the beat):</p>
           <div class="row">
             <span class="chip" data-play="hr:pp1564:4">🔊 Exp 1 · between beats: once per bar (density)</span>
             <span class="chip" data-play="hr:pp1564:2">🔊 Exp 1 · between beats: every two beats (density)</span>
@@ -3416,6 +3487,18 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>The classics agree · Bach's C-major Prelude: one texture carries a whole piece</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>The piece owns exactly one figure.</b> The first prelude of Bach's Well-Tempered Clavier (BWV 846) runs thirty-odd bars on <b>a single texture from first note to last</b>: five notes per bar, cycled in 16ths as "low, next-low, upper trio — upper trio again" — chords change, the figure never does. First its harmonic skeleton (block version): the opening four bars are <b>C → Dm7/C → G7/B → C</b> — level ⑥'s sevenths, level ⑤'s <b>2-5-1</b>, level ⑨'s inverted bass (C–C–B–C, a half-step concession), all present three centuries early:</p>
+          <div class="row">
+            <span class="chip" data-play="tex:bachPre:block4">🔊 The skeleton (block): C → Dm7/C → G7/B → C</span>
+            <span class="chip" data-play="tex:bachPre:bach">🔊 Bach's own texture: same four chords, cycling 16ths</span>
+          </div>
+          <p><b>It proves this level's central claim.</b> The piece's "content" is almost entirely the harmony walking while the texture stands stock-still — and nobody finds it monotonous, because <b>the texture's flow substitutes for melody</b>. The strongest possible evidence that texture is an independent knob: lock the knob in one position and you can still write an immortal piece.</p>
+          <p style="color:var(--muted)">The figure is now in your toolbox: "Bach broken" appears in the texture drills and the playground — try dressing level ⑭'s pop loops in it; the classical garment fits pop harmony surprisingly well.</p>
+        </div>
+      </details>
+
       <details class="note" open><summary><b>Stop 3 · Texture ≠ density: two independent hands</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p>"Playing denser" comes in two utterly different kinds: <b>denser texture</b> = more motion within the beat (this level's knob); <b>denser harmonic rhythm</b> = chords changing more often between beats (level ㉚'s knob). Three experiments on the same 1645:</p>
@@ -3457,13 +3540,13 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: textures stack — the "layering" of real arrangements</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · a real song is not a single choice.</b> The eight patterns above played one at a time, but in a real arrangement they <b>coexist</b>: the bassist plays one (a bass line), the keys hold another (a pad), a guitar or right hand sprinkles a third (arpeggio filigree) — each layer keeps its own texture, and the stack is what you call "the backing". First, meet each layer alone:</p>
+          <p><b>A real song is not a single choice.</b> The eight patterns above played one at a time, but in a real arrangement they <b>coexist</b>: the bassist plays one (a bass line), the keys hold another (a pad), a guitar or right hand sprinkles a third (arpeggio filigree) — each layer keeps its own texture, and the stack is what you call "the backing". First, meet each layer alone:</p>
           <div class="row">
             <span class="chip" data-play="texlayer:bass">🔊 Low layer: bass line (C3 region, half-note roots — the foundation)</span>
             <span class="chip" data-play="texlayer:pad">🔊 Mid layer: pad (C4 region, whole-bar soft hold — the walls)</span>
             <span class="chip" data-play="texlayer:arp">🔊 High layer: filigree (C5 region, 16th arpeggios — the lattice)</span>
           </div>
-          <p><b>Sentence 2 · the stack.</b> All three at once — note that each layer <b>owns one register</b> (low/mid/high never collide: level ㉘'s make-way principle, arrangement edition), so the ear hears all three textures clearly:</p>
+          <p><b>The stack.</b> All three at once — note that each layer <b>owns one register</b> (low/mid/high never collide: level ㉘'s make-way principle, arrangement edition), so the ear hears all three textures clearly:</p>
           <div class="row"><span class="chip" data-play="texlayer:all">🔊 All three: bass + pad + filigree (suddenly it sounds like a record)</span></div>
           <p style="color:var(--muted)">That is the whole principle of layering: <b>layering = several textures stacked by register</b>. When transcribing, "the bass walks halves, something holds the middle, arpeggios glitter on top" is exactly this stack, peeled apart layer by layer.</p>
         </div>
@@ -3617,6 +3700,30 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary><b>Workshop · harmonizing Ode to Joy (the three-step method on a real classic)</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>Why this tune:</b> Beethoven's melody is nearly all stepwise and four-square — the cleanest possible target for the three-step method. First the bare melody — note it comes in two phrases, near-identical except <b>the endings</b>: phrase 1 stops on 2 (D), phrase 2 lands on 1 (C):</p>
+          <div class="row">
+            <span class="chip" data-play="mc:ode:melody">🔊 Phrase 1, bare: E E F G | G F E D | C C D E | E D D—</span>
+            <span class="chip" data-play="mc:ode2:melody">🔊 Phrase 2, bare: same head, tail becomes …E D | D C C—</span>
+          </div>
+          <p><b>Step 1 · anchors and candidates.</b> Take each two-beat strong note as an anchor: E, F, G, E, C, D, E, D. List the three hosts per anchor; the pivotal choices:</p>
+          <table class="ctab"><tr><th>Anchor</th><th>Three hosts</th><th>Pick · why</th></tr>
+            <tr><td>F (slot 2)</td><td>F · Dm · B°</td><td><b>F</b> — B° too thorny, Dm bends the bass line; F gives the bass a clean C→F leap</td></tr>
+            <tr><td>G (slot 3)</td><td>C · G · Em</td><td><b>G</b> — the slot's weak F leans 7th-ward and the phrase is opening up: push with V</td></tr>
+            <tr><td>D (phrase-end long note)</td><td>G · Dm · B°</td><td><b>G</b> — phrase 1 must not close: hanging on V = level ⑫'s half cadence</td></tr></table>
+          <p><b>Step 2 · string the bass line, then hear the whole phrase.</b> The chosen run is <b>C–F–G–C | C–G–C–G</b>, bass singing C↗F↗G↘C. The good version (every anchor seated in its chord) vs a botched one (two errors hidden — try blind-spotting them first):</p>
+          <div class="row">
+            <span class="chip" data-play="mc:ode:good">🔊 Good: C F G C | C G C G (tail left hanging)</span>
+            <span class="chip" data-play="mc:ode:bad">🔊 Botched: two "left hanging outside" spots — can you hear where?</span>
+          </div>
+          <p style="color:var(--muted)">Answers: slot 2's strong F was set over a G chord (F is not in G·B·D — clash); the phrase-end long D was set back over C (D hangs outside C·E·G — the period never lands, it just dangles). Both are Principle 2 — "long/strong notes need chord tones" — in negative.</p>
+          <p><b>Step 3 · choose the cadence by intent.</b> Phrase 1: half cadence (hang on V; the listener knows more is coming). Phrase 2 ends on 1, set <b>…G→C</b> — a full close. The two phrases together are level ⑫'s question→answer, straight from the textbook:</p>
+          <div class="row"><span class="chip" data-play="mc:ode2:good">🔊 Phrase 2: C F G C | C G G→C (period lands)</span></div>
+          <p style="color:var(--muted)">Debrief: the whole Ode used only C, F and G — three chords, three steps, and even Beethoven's anthem-grade melody yields. Any four-square melody you meet from now on: run this exact pipeline.</p>
+        </div>
+      </details>
+
       <details class="note"><summary><b>Extra: chords chosen — one garment still missing: texture</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p>The three-step method only decides <b>what chords to wear</b>; how that harmony <b>moves inside the beat</b> is level ㉛'s texture knob — the very next decision after harmonizing. Same phrase E E D D C—, same approved C–G–C–C, three outfits:</p>
@@ -3631,14 +3738,14 @@ function teachEN(mId){
 
       <details class="note"><summary>Extra: a second voice for the melody — singing harmony</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>Sentence 1 · why does a chorus thicken the moment it opens?</b> Someone is singing <b>a second line</b> beside the lead — and nine-tenths of pop vocal harmony is <b>parallel thirds</b>: whatever the lead sings, the harmony follows <b>two scale steps up</b>. Note: count steps, not fixed semitones — the scale alternates major and minor thirds by itself (level ②'s dividend). Hear this level's old friend, E E D D C—:</p>
+          <p><b>Why does a chorus thicken the moment it opens?</b> Someone is singing <b>a second line</b> beside the lead — and nine-tenths of pop vocal harmony is <b>parallel thirds</b>: whatever the lead sings, the harmony follows <b>two scale steps up</b>. Note: count steps, not fixed semitones — the scale alternates major and minor thirds by itself (level ②'s dividend). Hear this level's old friend, E E D D C—:</p>
           <div class="row">
             <span class="chip" data-play="mc:sun:melody">🔊 Lead alone (one singer)</span>
             <span class="chip" data-play="vh:sun:par">🔊 Parallel thirds added (two singers — instantly thicker)</span>
           </div>
-          <p><b>Sentence 2 · when the top is crowded, move the whole line a sixth below.</b> If the lead sits high, drop the harmony an octave: thirds above become <b>sixths below</b> (same notes, different floor) — looser on the ear:</p>
+          <p><b>When the top is crowded, move the whole line a sixth below.</b> If the lead sits high, drop the harmony an octave: thirds above become <b>sixths below</b> (same notes, different floor) — looser on the ear:</p>
           <div class="row"><span class="chip" data-play="vh:sun:six">🔊 Sixths-below version (harmony sinks under the lead)</span></div>
-          <p><b>Sentence 3 · hitting an outside note? yield one slot.</b> Strict parallels are no iron law: syllables 3–4 (D D) sit on the G chord, and the parallel third gives F — not in G (G·B·D). It grazes a G7 color, common enough in pop as-is; to sit perfectly, <b>yield those two slots to B below</b> (G's third, a chord tone). Compare:</p>
+          <p><b>Hitting an outside note? yield one slot.</b> Strict parallels are no iron law: syllables 3–4 (D D) sit on the G chord, and the parallel third gives F — not in G (G·B·D). It grazes a G7 color, common enough in pop as-is; to sit perfectly, <b>yield those two slots to B below</b> (G's third, a chord tone). Compare:</p>
           <div class="row">
             <span class="chip" data-play="vh:sun:par">🔊 Strict parallels (F leaning over D — faintly suspended)</span>
             <span class="chip" data-play="vh:sun:adj">🔊 One slot yielded (those beats move to B — locked to the G chord)</span>
@@ -3824,7 +3931,8 @@ function teachCN(mId){
       <details class="note" open><summary>为什么只学大调音阶？</summary>
         <p style="color:var(--muted);line-height:1.7">音阶有很多(自然小调、和声小调、各种调式…)。我们先只学<b>大调音阶</b>，
         因为它是整个调性体系的"原型尺子"——小调、调式都可以看作它的变体。先把大调的台阶模式
-        和由它推出的和弦彻底吃透，日后再扩展其他音阶会非常快。</p>
+        和由它推出的和弦彻底吃透，日后再扩展其他音阶会非常快。彩蛋预告：把大调去掉两个音就是「五声音阶」（中国风的骨架），㉗关末尾有专门拓展，还能即兴：</p>
+        <div class="row"><span class="chip" data-play="mel:0,2,4,7,9,12">🔊 偷听一下：1 2 3 5 6（五声）</span></div>
       </details>`;
 
     case "key": return `
@@ -3897,6 +4005,14 @@ function teachCN(mId){
         <tr><td class="play" data-play="majscale:5">F 大调</td><td class="play" data-play="natminor:2">D 小调</td><td>F G A B♭ C D E</td><td>1 个降号(B♭)</td></tr>
       </table>
       <p style="color:var(--muted)">小提醒：点着听时你会发现两条音阶起点不同(比如 C 大调从 C4 弹到 C5，A 小调从 A3 弹到 A4)——<b>八度不影响"算不算同一批音"</b>。说"音相同"指的是<b>音名</b>那 7 个字母(C D E F G A B)完全一样；同名的音不管在哪个八度(C4、C5……)，在调式构成里都当作同一个音。</p>
+
+      <details class="note"><summary>名曲印证 · 《月光》开头只是小调主和弦的分解</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p>贝多芬《月光奏鸣曲》第一乐章的开头（原曲 C♯ 小调，这里移到 A 小调示意）：右手翻来覆去只弹 <b>Am 的三个音 A–C–E</b>，低音按住长音——夜色的全部来源就是<b>小三和弦的色彩 × 三连音分解的织体</b>，一个新和弦都不用。听这个轮转：</p>
+          <div class="row"><span class="chip" data-play="mel:-3,0,4,-3,0,4,-3,0,4">🔊 A–C–E 轮转（月光式分解，慢速示意）</span></div>
+          <p style="color:var(--muted)">这正是后面两关的预告：和弦表只说"用哪些音"（本关的小调色彩），<b>怎么动</b>是㉛关织体的事——大师课第一页就把两个旋钮分得清清楚楚。</p>
+        </div>
+      </details>
 
       <p style="color:var(--muted)">下面的练习：听辨大调/小调、找关系大小调、在键盘上把一个小调按出来。</p>`;
 
@@ -4285,9 +4401,9 @@ function teachCN(mId){
       <p>同一段进行换了调，<b>具体和弦名变了，但级数(罗马数字)不变</b>——这就是乐手能"任意调即兴/扒谱"的底层能力。</p>
       <p style="color:var(--muted)">练习会跨 C/G/D/A/F/B♭ 多个调，双向考你：罗马数字→实际和弦、实际和弦→罗马数字、整段进行移调。</p>
 
-      <details class="note" open><summary><b>🎓 毕业总复习 · 全部套路任意调重听一遍</b></summary>
+      <details class="note" open><summary><b>🎓 主线总复习 · 全部套路任意调重听一遍</b></summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p>移调是主线的"最后一块拼图"——现在把前面学过的<b>所有套路</b>放在一起：随便换调、随便循环、随便切齐奏/分解/综合，亲手验证"级数不变，走遍各调"。（通关后别走：㉔关起还有六关<b>流行和声进阶篇</b>等着你。）</p>
+          <p>移调是主线的"最后一块拼图"——现在把前面学过的<b>所有套路</b>放在一起：随便换调、随便循环、随便切齐奏/分解/综合，亲手验证"级数不变，走遍各调"。（复习完别走：㉔关起的<b>流行和声进阶篇</b>一路排到㉞关的扒歌毕业考。）</p>
           <p><b>大调六大套路</b>(第⑭关)。先放一张七级速查表(以 C 大调为例，每格可点；换调听套路时<b>数字与罗马不变</b>，音名请按目标调自行对译——本关练的正是这个)：</p>
           <table class="ctab"><tr><th>数字</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr>
             <tr><th>罗马</th><td>I</td><td>ii</td><td>iii</td><td>IV</td><td>V</td><td>vi</td><td>vii°</td></tr>
@@ -4333,34 +4449,40 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：五度圈：十二个调的一张钟面</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 这张图是什么。</b>把 12 个大调按「相邻两格相差一个纯五度」排成钟面：<b>顺时针走一格＝主音升五度＝调号多一个 ♯</b>（C→G→D→A…），逆时针一格＝多一个 ♭（C→F→B♭…）。外圈是大调，内圈同格住着它的<b>关系小调</b>（㉑关「同一批音、换个户主」的那位）。圈上每个键都能点——点外圈听大调音阶、点内圈听小调音阶：</p>
+          <p><b>这张图是什么。</b>把 12 个大调按「相邻两格相差一个纯五度」排成钟面：<b>顺时针走一格＝主音升五度＝调号多一个 ♯</b>（C→G→D→A…），逆时针一格＝多一个 ♭（C→F→B♭…）。外圈是大调，内圈同格住着它的<b>关系小调</b>（㉑关「同一批音、换个户主」的那位）。圈上每个键都能点——点外圈听大调音阶、点内圈听小调音阶：</p>
           ${fifthsSVG()}
-          <p><b>第二句 · 距离＝相似度。</b>钟面上挨得越近的调，共享的音越多：<b>相邻两格共享 6 个音、只差 1 个</b>——亲耳验证，C 大调 vs 右邻 G 大调（只有 F↔F♯ 一个不同），再 vs 正对面的 F♯ 大调（6 个音都换了，完全陌生）：</p>
+          <p><b>距离＝相似度。</b>钟面上挨得越近的调，共享的音越多：<b>相邻两格共享 6 个音、只差 1 个</b>——亲耳验证，C 大调 vs 右邻 G 大调（只有 F↔F♯ 一个不同），再 vs 正对面的 F♯ 大调（6 个音都换了，完全陌生）：</p>
           <div class="row">
             <span class="chip" data-play="majscale:0">🔊 C 大调音阶（基准）</span>
             <span class="chip" data-play="majscale:7">🔊 右邻 G 大调（只换一个音，几乎是亲戚）</span>
             <span class="chip" data-play="majscale:6">🔊 对面 F♯ 大调（音几乎全换，像外语）</span>
           </div>
-          <p><b>第三句 · 这张图在课程里到处都在用。</b>① <b>转调（㉙）</b>挑邻居最顺——共享音多，听感无缝；② <b>副属（㉔）</b>＝顺时针看一格：任何和弦的「专属 V7」就是它右边那格的属七（想推 Dm 就借 A7——A 在 D 右边）；③ <b>调号（③）</b>顺逆时针数格就是 ♯/♭ 的个数。一张图，三门课的地图。</p>
+          <p><b>这张图在课程里到处都在用。</b>① <b>转调（㉙）</b>挑邻居最顺——共享音多，听感无缝；② <b>副属（㉔）</b>＝顺时针看一格：任何和弦的「专属 V7」就是它右边那格的属七（想推 Dm 就借 A7——A 在 D 右边）；③ <b>调号（③）</b>顺逆时针数格就是 ♯/♭ 的个数。一张图，三门课的地图。</p>
           <p style="color:var(--muted)">移调小抄：歌太高/太低时，沿圈挪 1–2 格调号变化最小、乐手最省事——这正是本关「整体平移」在圈上的样子。</p>
         </div>
       </details>
 
       <details class="note"><summary>拓展：为自己的嗓子定调：移调的歌手用法</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 原唱的调不是你的调。</b>歌是按原唱者的音域定的调；你翻唱时唯一该问的是「<b>这首歌的最高音，落不落在我舒服的音区里</b>」。KTV 的升降键、吉他的变调夹，干的都是本关的活：整体平移。</p>
-          <p><b>第二句 · 三步定调法。</b>① 找出歌里的<b>最高音</b>（多半在副歌）；② 找到<b>自己</b>能放松唱到的最高音（清嗓子从低往高哼，最后一个不喊的音）；③ 两者的差距＝<b>移调量</b>，整首平移即可。亲耳体会"同一句、三个音区"——想象自己跟着唱：</p>
+          <p><b>原唱的调不是你的调。</b>歌是按原唱者的音域定的调；你翻唱时唯一该问的是「<b>这首歌的最高音，落不落在我舒服的音区里</b>」。KTV 的升降键、吉他的变调夹，干的都是本关的活：整体平移。</p>
+          <p><b>三步定调法。</b>① 找出歌里的<b>最高音</b>（多半在副歌）；② 找到<b>自己</b>能放松唱到的最高音（清嗓子从低往高哼，最后一个不喊的音）；③ 两者的差距＝<b>移调量</b>，整首平移即可。亲耳体会"同一句、三个音区"——想象自己跟着唱：</p>
           <div class="row">
             <span class="chip" data-play="mel:4,4,2,2,0">🔊 偏低（闷在喉咙里，使不上劲）</span>
             <span class="chip" data-play="mel:16,16,14,14,12">🔊 合适（句子顶点正好在亮处）</span>
             <span class="chip" data-play="mel:23,23,21,21,19">🔊 偏高（顶点要喊了——往下移调吧）</span>
           </div>
-          <p><b>第三句 · 大致的参照（每个人都有出入，以自己的②为准）：</b></p>
+          <p><b>大致的参照（每个人都有出入，以自己的②为准）：</b></p>
           <table class="ctab"><tr><th>声部</th><th>舒适区（大约）</th><th>放松的最高音（大约）</th></tr>
             <tr><td>男低/男中</td><td>G2–C4</td><td>D4–E4</td></tr>
             <tr><td>男高</td><td>C3–E4</td><td>G4 上下</td></tr>
             <tr><td>女低/女中</td><td>F3–B♭4</td><td>C5–D5</td></tr>
             <tr><td>女高</td><td>A3–D5</td><td>F5 上下</td></tr></table>
+          <p><b>实战 · 拿《生日歌》走一遍三步法。</b>它的最高音在第三句：「祝你<b>生</b>日快乐」的"生"字向上跳八度（C 调里是 <b>G5</b>）——①最高音找到了；②假设你放松能唱到 <b>E5</b>；③差 3 个半音 → 整首<b>降 3</b>。听三个版本的第三句，感受顶点落在哪里：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:7,7,19,16,12,11,9">🔊 C 调原样：顶点 G5（多数人要喊）</span>
+            <span class="chip" data-play="mel:4,4,16,13,9,8,6">🔊 降 3 个半音（A 调）：顶点 E5（正好）</span>
+            <span class="chip" data-play="mel:-5,-5,7,4,0,-1,-3">🔊 逃生方案：低八度唱，顶点 G4（人人都行）</span>
+          </div>
           <p style="color:var(--muted)">两个常用小抄：男声唱女声原唱的歌，常整体<b>降 4–5 个半音</b>（或低八度唱）；合唱选调要迁就<b>音域最窄</b>的人。移调不丢任何东西——⑭㉑的级数关系、㉛的织体全都原样平移，这正是本关反复强调的「保形」。</p>
         </div>
       </details>`;
@@ -4951,6 +5073,45 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>拓展：五声音阶：减法做出的中国风（宫商角徵羽）</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>一道减法。</b>大调七个音，去掉 <b>4（F）和 7（B）</b>，剩下 <b>1 2 3 5 6</b>——这就是<b>五声音阶</b>（中国叫「宫」）。删掉的恰好是⑪关那两个最不安分的「磁铁音」（4 想滑回 3、7 想蹭进 1）——剩下五位个个安分，而且<b>彼此之间一个半音都没有</b>。对比听：</p>
+          <div class="row">
+            <span class="chip" data-play="majscale:0">🔊 七声大调（里面藏着 E–F、B–C 两对半音）</span>
+            <span class="chip" data-play="mel:0,2,4,7,9,12">🔊 五声「宫」（1 2 3 5 6——台阶全是全音或小三度）</span>
+          </div>
+          <p><b>没有半音＝没有刺。</b>半音同响会"打架"（①关讲过的最窄音程）；五声内部没有半音，于是<b>任意几个音抓在一起都浑然</b>。亲手验证——五声一把抓 vs 七声一把抓：</p>
+          <div class="row">
+            <span class="chip" data-play="notes:0,2,4,7,9">🔊 五声全按（浑然一团，像钟磬）</span>
+            <span class="chip" data-play="notes:0,2,4,5,7,11">🔊 掺进 4 和 7 再按（E–F、B–C 开始打架）</span>
+          </div>
+          <p><b>宫商角徵羽＝五声版的「轮流当主音」。</b>本关刚玩过七个白键轮流当家；同一个游戏在五个音上再玩一遍，就是中国传统的五个调式——名字依次叫<b>宫、商、角、徵、羽</b>：</p>
+          <table class="ctab"><tr><th>调式</th><th>从哪个音起</th><th>音级</th><th>色彩一词</th><th>听</th></tr>
+            <tr><td><b>宫</b></td><td>1（C）</td><td>1 2 3 5 6</td><td>明朗端正（大调感）</td><td class="play" data-play="mel:0,2,4,7,9,12">▶</td></tr>
+            <tr><td>商</td><td>2（D）</td><td>2 3 5 6 1</td><td>清峻游移</td><td class="play" data-play="mel:2,4,7,9,12,14">▶</td></tr>
+            <tr><td>角</td><td>3（E）</td><td>3 5 6 1 2</td><td>幽细少见</td><td class="play" data-play="mel:4,7,9,12,14,16">▶</td></tr>
+            <tr><td>徵</td><td>5（G）</td><td>5 6 1 2 3</td><td>开阔嘹亮</td><td class="play" data-play="mel:7,9,12,14,16,19">▶</td></tr>
+            <tr><td><b>羽</b></td><td>6（A）</td><td>6 1 2 3 5</td><td>婉转惆怅（小调感）</td><td class="play" data-play="mel:9,12,14,16,19,21">▶</td></tr></table>
+          <p style="color:var(--muted)">和㉑关「视角翻转」一模一样：宫↔羽就是五声世界的大调↔关系小调。华语流行的中国风歌曲，句尾大量落 6（羽）和 2（商），惆怅感正来自这里。</p>
+          <p><b>黑键彩蛋。</b>钢琴上五个黑键（F♯ G♯ A♯ C♯ D♯）<b>恰好是一套五声音阶</b>（F♯ 宫）——闭着眼睛只摸黑键，弹出来就是中国风：</p>
+          <div class="row"><span class="chip" data-play="mel:6,8,10,13,15,18">🔊 黑键从低到高（自带中国风）</span></div>
+          <p><b>即兴安全网（动手玩）。</b>原理串起来：伴奏在 C 大调顺阶里绕圈，你手里只有五声音——两个磁铁音都不在手上，<b>点哪个、何时点、点多久都不会撞</b>。玩法：先点伴奏听一遍 → 按「循环」让它转起来 → 然后在下面的音砖上随手即兴。两句口诀：<b>先长音再短句</b>（别急着跑动）；<b>句尾落 1 最安稳、落 6 最惆怅</b>（宫收 vs 羽收——连即兴都有步步有理）：</p>
+          <div class="row">
+            <span class="chip" data-play="kloopseq:gongVamp">🔊 伴奏：C–Am–F–C（听一遍并登记）</span>
+            <span class="chip" data-play="kloop" style="border-color:var(--p3)">🔄 循环</span>
+          </div>
+          <div class="row" style="gap:6px">
+            <span class="chip" data-play="tap:0">1<br><small>C4</small></span><span class="chip" data-play="tap:2">2<br><small>D4</small></span><span class="chip" data-play="tap:4">3<br><small>E4</small></span><span class="chip" data-play="tap:7">5<br><small>G4</small></span><span class="chip" data-play="tap:9">6<br><small>A4</small></span><span class="chip" data-play="tap:12">1̇<br><small>C5</small></span><span class="chip" data-play="tap:14">2̇<br><small>D5</small></span><span class="chip" data-play="tap:16">3̇<br><small>E5</small></span><span class="chip" data-play="tap:19">5̇<br><small>G5</small></span><span class="chip" data-play="tap:21">6̇<br><small>A5</small></span>
+          </div>
+          <p><b>名曲印证。</b>五声不是中国独有——它是全世界民歌的公约数：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 德沃夏克《自新世界》主题（整句只用 1 2 3 5 6）</span>
+            <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 《奇异恩典》开头（同样纯五声）</span>
+          </div>
+          <p style="color:var(--muted)">写歌小抄：「中国风」的常用配方＝<b>五声旋律 + ⑭关的流行和弦</b>——和声照常走 1645/4536，只把旋律的用料换成 1 2 3 5 6，句尾多落羽（6）商（2）。</p>
+        </div>
+      </details>
+
       <p><b>收束 · 扒歌时怎么用？</b>听到「绕圈不回家」的段落，按三步走：<b>① 确认没人催</b>（找不到导音半音蹭进主音）→ <b>② 揪出特征音</b>（通常就坐在标志和弦里：♭VII 的根音、大 IV 的三音…）→ <b>③ 对照光谱定调式</b>。这正是㉞关四步法第④步「辨色彩」的调式分支。</p>
 
       <p><b>尾声 · 调式可以在一首歌里切换吗？</b>可以，而且按「剂量」分三档：<b>一格</b>＝离调借用（㉒关，F→Fm 那一闪）；<b>一段</b>＝段落级切换（主歌一种调式、副歌另一种——见下面拓展）；<b>整曲</b>＝常驻（本关的主场）。㉒关说的「频率分水岭」其实是这条连续谱的两端，中间那档展开如下：</p>
@@ -5078,7 +5239,8 @@ function teachCN(mId){
         </div>
       </details>
 
-      <p style="color:var(--muted)">本关练习：升半调的目的、转调 vs 移调辨析、关系切换的识别、转调盲听（升半音 / 升全音 / 没转）。这也是整门课的收官——耳朵已经能听出歌的"楼层"了。</p>`;
+      <p style="color:var(--muted)">地图提示：挑转调目的地时看㉓关的五度圈——挨得越近的调共享音越多、转得越顺；推土机的半音/全音邻居反而在圈上离得远，所以才显得"突然换了天地"。</p>
+      <p style="color:var(--muted)">本关练习：升半调的目的、转调 vs 移调辨析、关系切换的识别、转调盲听（升半音 / 升全音 / 没转）。进阶和声到此集齐——耳朵已经能听出歌的"楼层"了；接下来㉚–㉞再把「像真歌」的最后几块拼图装上。</p>`;
 
     case "function": return `
       <p>一个调里的和弦各有"职责"，按职责分三类<b>功能</b>——对应一段旅程：<b>家 → 出发 → 紧张 → 回家</b>(三类功能依次坐镇前三站，"回家"就是重新回到"家"——也就是紧张的释放)。先把这个比喻本身说清楚：</p>
@@ -5911,20 +6073,33 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>名曲印证 · 和声小调在大师手里</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>《致爱丽丝》（贝多芬）：</b>开头那段著名的搔痒，是 E 和 D♯ 的<b>半音邻音</b>来回蹭，随后顺阶梯落进 A——左手紧跟着就是 <b>Am ↔ E</b> 的来回：E 正是本关魔改出的<b>大写 V</b>（带 G♯），整首曲子靠这对 i↔V 的呼吸摆动：</p>
+          <div class="row">
+            <span class="chip" data-play="mel:16,15,16,15,16,11,14,12,9">🔊 开头旋律：E–D♯–E–D♯–E–B–D–C–A</span>
+            <span class="chip" data-play="mkprog:1,V,1">🔊 它的左手骨架：Am → E → Am（i–V–i）</span>
+          </div>
+          <p><b>《天鹅湖》主题（柴可夫斯基，移到 A 小调）：</b>天鹅一抬头的那句，倒数第二个音正是 <b>G♯（导音）</b>——全句的揪心感就吊在这半音上，落回 A 才松手。没有⑲关的魔改，这只天鹅抬不起头：</p>
+          <div class="row"><span class="chip" data-play="mel:4,9,11,12,11,9,8,9">🔊 主题：E–A–B–C–B–A–G♯–A（G♯ 吊住，A 收）</span></div>
+          <p style="color:var(--muted)">两首都在做同一件事：用人造导音给小调装上「必须回家」的弹簧——三百年来从贝多芬用到流行抒情歌。</p>
+        </div>
+      </details>
+
       <details class="note"><summary>拓展：魔改的副作用与第三种小调：旋律小调</summary>
         <div style="line-height:1.8;color:#e9e3ff">
-          <p><b>第一句 · 升 7 留下了一道豁口。</b>把 G 升成 G♯ 装上导音之后，音阶里第 6 步到第 7 步（F → G♯）变成了<b>三个半音</b>的大台阶——叫<b>增二度</b>。和弦里没问题，但<b>旋律</b>顺着音阶往上爬时，这一步会突然蹦出一股异域感（弗拉门戈/中东味）。先单独听这一步，再对比正常的全音：</p>
+          <p><b>升 7 留下了一道豁口。</b>把 G 升成 G♯ 装上导音之后，音阶里第 6 步到第 7 步（F → G♯）变成了<b>三个半音</b>的大台阶——叫<b>增二度</b>。和弦里没问题，但<b>旋律</b>顺着音阶往上爬时，这一步会突然蹦出一股异域感（弗拉门戈/中东味）。先单独听这一步，再对比正常的全音：</p>
           <div class="row">
             <span class="chip" data-play="mel:5,8">🔊 增二度台阶：F → G♯（三个半音，一步跨出异域感）</span>
             <span class="chip" data-play="mel:5,7">🔊 对照·普通全音：F → G（两个半音，平平无奇）</span>
           </div>
-          <p><b>第二句 · 补救：把 6 也升了，豁口就抹平了。</b>F 升成 F♯，F♯ → G♯ 恢复成全音——上行旋律一路顺滑直达导音。这就是<b>旋律小调（上行）</b>：6、7 都升。三种小调上行连听对比（A 小调）：</p>
+          <p><b>补救：把 6 也升了，豁口就抹平了。</b>F 升成 F♯，F♯ → G♯ 恢复成全音——上行旋律一路顺滑直达导音。这就是<b>旋律小调（上行）</b>：6、7 都升。三种小调上行连听对比（A 小调）：</p>
           <div class="row">
             <span class="chip" data-play="mel:-3,-1,0,2,4,5,7,9">🔊 自然小调上行：…F、G 都不升（暗，但 G→A 没吸力）</span>
             <span class="chip" data-play="mel:-3,-1,0,2,4,5,8,9">🔊 和声小调上行：只升 G♯（有吸力，但 F→G♯ 蹦台阶）</span>
             <span class="chip" data-play="mel:-3,-1,0,2,4,6,8,9">🔊 旋律小调上行：F♯、G♯ 都升（吸力在、台阶也平）</span>
           </div>
-          <p><b>第三句 · 下行不需要导音，就还原。</b>导音的全部意义是「向上蹭进主音」；旋律往<b>下</b>走时根本用不上它，于是 6、7 双双还原——旋律小调下行＝自然小调。一句话记：<b>上行升、下行还</b>：</p>
+          <p><b>下行不需要导音，就还原。</b>导音的全部意义是「向上蹭进主音」；旋律往<b>下</b>走时根本用不上它，于是 6、7 双双还原——旋律小调下行＝自然小调。一句话记：<b>上行升、下行还</b>：</p>
           <div class="row"><span class="chip" data-play="mel:4,6,8,9,7,5,4">🔊 E–F♯–G♯–A 上行（升），A–G–F–E 下行（还原）——同一处的两副面孔</span></div>
           <p style="color:var(--muted)">流行歌怎么用：和弦层面基本只用<b>自然+和声</b>两套（⑯⑲关的全部内容）；旋律小调主要活在<b>旋律线和爵士</b>里。所以本课程把它放在拓展——认识它、听出它，够用了。</p>
         </div>
@@ -6231,9 +6406,10 @@ function teachCN(mId){
             <span class="chip" data-play="seq:picMaj">🔊 皮卡迪：Am → Dm → E7 → A（最后一束光）</span>
           </div>
           <p style="color:var(--muted)">原理与本关完全对称：从"平行大调"的清单里借走它的 I。只动一个音（C→C♯），整首歌的结论就从"叹息"改成了"释然"。</p>
+          <p style="color:var(--muted)">这招的祖师爷：<b>巴赫的小调众赞歌几乎首首以皮卡迪收尾</b>——整曲在小调里叹息，最后一个和弦把三音升起来放一束光。三百年前的定式，今天的电影配乐照用不误。</p>
         </div>
       </details>
-      <p style="color:var(--muted)">地图提示：挑转调目的地时看㉓关的五度圈——挨得越近的调共享音越多、转得越顺；推土机的半音/全音邻居反而在圈上离得远，所以才显得"突然换了天地"。</p>`;
+`;
  
     case "rhythm": return `
       <p>前面 29 关解决了「换<b>什么</b>和弦」；这一关解决「<b>什么时候</b>换」。同一套 1564，换得疏、换得密、换在哪一拍，听感天差地别——这件事叫<b>和声节奏 (Harmonic Rhythm)</b>，是「听起来像真歌」的最后一块拼图。</p>
@@ -6247,12 +6423,12 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：拍号：重音几拍回来一次？（4/4 之外还有 3/4）</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 「几拍一组」是可以选的。</b>上面默认 4 拍一组（记作 <b>4/4</b>），但也可以 <b>3 拍一组（3/4）</b>——重音每 3 拍回来一次，数「<b>1</b>-2-3、<b>1</b>-2-3」。先光听节拍器对比两种心跳：</p>
+          <p><b>「几拍一组」是可以选的。</b>上面默认 4 拍一组（记作 <b>4/4</b>），但也可以 <b>3 拍一组（3/4）</b>——重音每 3 拍回来一次，数「<b>1</b>-2-3、<b>1</b>-2-3」。先光听节拍器对比两种心跳：</p>
           <div class="row">
             <span class="chip" data-play="hr:tonic:8">🔊 四拍一组（数 1-2-3-4，走路感）</span>
             <span class="chip" data-play="hr:tonic:6:3">🔊 三拍一组（数 1-2-3，旋转感）</span>
           </div>
-          <p><b>第二句 · 同一套和弦，换个拍号气质全变。</b>音一个不动，只把重音周期从 4 改成 3——1564 立刻从「流行歌」变成「华尔兹/民谣」，整段开始摇曳：</p>
+          <p><b>同一套和弦，换个拍号气质全变。</b>音一个不动，只把重音周期从 4 改成 3——1564 立刻从「流行歌」变成「华尔兹/民谣」，整段开始摇曳：</p>
           <div class="row">
             <span class="chip" data-play="hr:pp1564:4">🔊 4/4 的 1564（流行标配，平稳向前）</span>
             <span class="chip" data-play="hr:pp1564:3:3">🔊 3/4 的 1564（每小节 3 拍——开始旋转摇曳）</span>
@@ -6313,24 +6489,26 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：弱起 pickup：开口不在第 1 拍的歌</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 大量流行歌不从第 1 拍开口。</b>乐句常常从<b>上一小节的末尾</b>提前两三个字进来，把<b>重音字</b>安顿在下小节的第 1 拍上——这叫<b>弱起（pickup / 弱拍起唱）</b>。它和抢拍不同：抢拍是和弦层提前<b>半拍</b>的风味；弱起是<b>整个乐句</b>的起点设计，常常提前一两拍。</p>
-          <p><b>第二句 · 听对比。</b>同样三个字（想象"我-愿-意"），左边强起：三个字全在本小节、重音字打头；右边弱起：前两个字踩着上小节的 3、4 拍助跑，"意"字正好砸在重拍上——重音字和重拍对齐，是弱起全部的目的：</p>
+          <p><b>大量流行歌不从第 1 拍开口。</b>乐句常常从<b>上一小节的末尾</b>提前两三个字进来，把<b>重音字</b>安顿在下小节的第 1 拍上——这叫<b>弱起（pickup / 弱拍起唱）</b>。它和抢拍不同：抢拍是和弦层提前<b>半拍</b>的风味；弱起是<b>整个乐句</b>的起点设计，常常提前一两拍。</p>
+          <p><b>听对比。</b>同样三个字（想象"我-愿-意"），左边强起：三个字全在本小节、重音字打头；右边弱起：前两个字踩着上小节的 3、4 拍助跑，"意"字正好砸在重拍上——重音字和重拍对齐，是弱起全部的目的：</p>
           <div class="row">
             <span class="chip" data-play="pickup:strong">🔊 强起：1 拍开口（字字落在本小节）</span>
             <span class="chip" data-play="pickup:weak">🔊 弱起：3、4 拍助跑 → 重音字落第 1 拍</span>
           </div>
           <p style="color:var(--muted)">跟伴奏进字的口诀：<b>数着「3、4」开口，重音字交给「1」</b>。扒歌/对词时如果总觉得自己慢半句，多半是把弱起的助跑字当成了第 1 拍——先找重音字、再倒推开口点。</p>
+          <p><b>活例 · 《生日歌》就是弱起（而且是 3/4 拍）。</b>"祝-你"两个字踩在上一小节的<b>第 3 拍</b>（两个半拍），"生"字砸在新小节第 1 拍——全世界传唱最广的歌，开口就不在 1 上。听旋律自己数一遍：</p>
+          <div class="row"><span class="chip" data-play="pickup:hb">🔊 祝-你｜生-日-快-乐（带 3/4 节拍器：重「嗒」是第 1 拍，"祝你"踩在第 3 拍上助跑）</span></div>
         </div>
       </details>
 
       <details class="note"><summary>拓展：回头格 turnaround：末小节塞两个和弦，把歌兜回开头</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 循环的「接缝」需要润滑。</b>套路绕圈时，最后一格转回第一格的瞬间是个接缝（⑭关讲过「循环接口」）。老歌和爵士的惯用润滑剂：<b>把最后一小节拆成两个和弦</b>，临走前加速一蹬，顺势兜回开头——这格行话叫 <b>turnaround（回头格）</b>。对比听 1645：</p>
+          <p><b>循环的「接缝」需要润滑。</b>套路绕圈时，最后一格转回第一格的瞬间是个接缝（⑭关讲过「循环接口」）。老歌和爵士的惯用润滑剂：<b>把最后一小节拆成两个和弦</b>，临走前加速一蹬，顺势兜回开头——这格行话叫 <b>turnaround（回头格）</b>。对比听 1645：</p>
           <div class="row">
             <span class="chip" data-play="hr:hrTAno:4">🔊 规整版：C·Am·F·G 各一小节 → 回 C（接缝平淡）</span>
             <span class="chip" data-play="hr:hrTA:4.4.4.2.2.4">🔊 回头版：末小节拆成 Dm7(2拍)→G7(2拍) → 兜回 C（顺势一蹬）</span>
           </div>
-          <p><b>第二句 · 把「一拆二」那一小节单独拎出来。</b>整圈里不容易看清拆的是哪一下——现在只听<b>末小节＋落点</b>这两小节：左边 G 独占四拍（一步迈进家门）；右边同样四拍被切成 <b>Dm7(前两拍)＋G7(后两拍)</b>——落点同样是 C，但临门多蹬了一脚：</p>
+          <p><b>把「一拆二」那一小节单独拎出来。</b>整圈里不容易看清拆的是哪一下——现在只听<b>末小节＋落点</b>这两小节：左边 G 独占四拍（一步迈进家门）；右边同样四拍被切成 <b>Dm7(前两拍)＋G7(后两拍)</b>——落点同样是 C，但临门多蹬了一脚：</p>
           <div class="row">
             <span class="chip" data-play="hr:hrTA1:4">🔊 原样末小节：G(独占4拍) → C（一步进门）</span>
             <span class="chip" data-play="hr:hrTA2:2.2.4">🔊 拆二末小节：Dm7(2拍)→G7(2拍) → C（蹬两级台阶进门）</span>
@@ -6341,14 +6519,14 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：织体：先说清它是什么、和谁是亲戚，再谈它和密度怎么配合</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 什么叫「织体」？</b>同一个和弦——同一批音、甚至同一摆位——在<b>拍子内部</b>可以有不同的「出场方式」：三个音<b>同时落下</b>（齐奏/柱式，像盖章）；<b>从低到高依次散开</b>（分解/琶音，像水流）；或者<b>低音先落底、上方再铺开、句尾整和弦点题</b>（综合，模仿真实钢琴伴奏的手）。这个「出场方式」就叫<b>织体 (texture)</b>。亲手验证——先点右边按钮换一种弹法，再点左边<b>同一个 C</b>，来回几次：</p>
+          <p><b>什么叫「织体」？</b>同一个和弦——同一批音、甚至同一摆位——在<b>拍子内部</b>可以有不同的「出场方式」：三个音<b>同时落下</b>（齐奏/柱式，像盖章）；<b>从低到高依次散开</b>（分解/琶音，像水流）；或者<b>低音先落底、上方再铺开、句尾整和弦点题</b>（综合，模仿真实钢琴伴奏的手）。这个「出场方式」就叫<b>织体 (texture)</b>。亲手验证——先点右边按钮换一种弹法，再点左边<b>同一个 C</b>，来回几次：</p>
           <div class="row">
             <span class="chip" data-play="seq:tonic">🔊 同一个 C（按当前弹法出场）</span>
             <span class="chip" data-play="arpToggle">${styleLabel()}</span>
           </div>
           <p style="color:var(--muted)">注意你刚才听到的：换弹法时<b>和弦没变、音没变、高低摆位也没变</b>——变的只有「这些音在拍子里出现的先后」。这就是织体的全部定义：<b>拍内的时间安排</b>。</p>
 
-          <p><b>第二句 · 它和两位近亲的分工。</b>三个最容易混的概念，其实各管一件事——一个管空间、两个管时间（一微观一宏观）：</p>
+          <p><b>它和两位近亲的分工。</b>三个最容易混的概念，其实各管一件事——一个管空间、两个管时间（一微观一宏观）：</p>
           <table class="ctab"><tr><th>概念</th><th>管什么</th><th>改了它，什么变</th><th>在哪学</th></tr>
             <tr><td><b>排列 voicing</b></td><td>音摆在哪些<b>高度</b>（空间）</td><td>厚薄、明暗的质感</td><td>㉘关</td></tr>
             <tr><td><b>织体 texture</b></td><td>音在<b>拍内</b>怎么出场（时间·微观）</td><td>盖章感 ↔ 水流感</td><td>㉛关</td></tr>
@@ -6359,7 +6537,7 @@ function teachCN(mId){
             <span class="chip" data-play="seq:vcOpen">🔊 排列 B：开放 C3·G3·E4（拉开——变高度，不变先后）</span>
           </div>
 
-          <p><b>第三句 · 现在验证织体与和声节奏（密度）也互相独立。</b>同一个 1564 做两组实验——先固定织体、只改密度（拍间）；再固定密度、只改织体（拍内）：</p>
+          <p><b>现在验证织体与和声节奏（密度）也互相独立。</b>同一个 1564 做两组实验——先固定织体、只改密度（拍间）；再固定密度、只改织体（拍内）：</p>
           <div class="row">
             <span class="chip" data-play="hr:pp1564:4">🔊 实验一·改「拍间」：一小节一换（密度层）</span>
             <span class="chip" data-play="hr:pp1564:2">🔊 实验一·改「拍间」：两拍一换（密度层）</span>
@@ -6422,6 +6600,18 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>名曲印证 · 巴赫《C 大调前奏曲》：一种织体撑起整首曲子</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>这首曲子只有一个花样。</b>巴赫《平均律》第一首前奏曲（BWV 846），全曲三十多个小节<b>从头到尾只用一种织体</b>：每小节五个音，按「低-次低-上三重·上三重再来一遍」的 16 分轮转——和弦换、花样永远不换。先听它的和声骨架（柱式版），前四小节竟是 <b>C → Dm7/C → G7/B → C</b>：⑥关的七和弦、⑤关的 <b>2-5-1</b>、⑨关的转位低音（C–C–B–C 半音让步），三百年前一应俱全：</p>
+          <div class="row">
+            <span class="chip" data-play="tex:bachPre:block4">🔊 和声骨架（柱式版）：C → Dm7/C → G7/B → C</span>
+            <span class="chip" data-play="tex:bachPre:bach">🔊 巴赫原织体：同四个和弦，16 分轮转</span>
+          </div>
+          <p><b>它证明了本关的核心论点。</b>整首曲子的"内容"几乎全是和声在走，织体一动不动——却没人觉得单调，因为<b>织体的流动感替代了旋律</b>。这正是「织体是独立旋钮」的最强证据：旋钮拧死在一个位置，照样成传世名曲。</p>
+          <p style="color:var(--muted)">这个花样已收进你的工具箱：织体测验、自由实验台里都有「巴赫分解」——拿它配⑭关的流行套路试试，古典外衣穿在流行和声上意外地搭。</p>
+        </div>
+      </details>
+
       <details class="note" open><summary><b>第三站 · 织体 ≠ 密度：两只独立的手</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p>「越弹越密」有两种完全不同的密法：<b>织体变密</b>＝拍内动作变多（本关旋钮）；<b>密度变密</b>＝拍间换和弦变勤（㉚关旋钮）。同一个 1645 做三组实验：</p>
@@ -6463,13 +6653,13 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：织体可以叠：真实编曲的「分层」</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 真歌不是单选题。</b>前面八种织体一次只演示一种，但真实编曲里它们<b>同时存在</b>：贝斯手弹一种（低音线）、键盘垫一种（铺底）、吉他或钢琴右手点一种（琶音点缀）——每层各持一种织体，叠起来才是"一首歌的伴奏"。先把三层各自单听认清楚：</p>
+          <p><b>真歌不是单选题。</b>前面八种织体一次只演示一种，但真实编曲里它们<b>同时存在</b>：贝斯手弹一种（低音线）、键盘垫一种（铺底）、吉他或钢琴右手点一种（琶音点缀）——每层各持一种织体，叠起来才是"一首歌的伴奏"。先把三层各自单听认清楚：</p>
           <div class="row">
             <span class="chip" data-play="texlayer:bass">🔊 低层：贝斯线（C3 区，二分音根音——地基）</span>
             <span class="chip" data-play="texlayer:pad">🔊 中层：铺底（C4 区，整小节轻按——墙）</span>
             <span class="chip" data-play="texlayer:arp">🔊 高层：点缀（C5 区，16 分琶音——窗花）</span>
           </div>
-          <p><b>第二句 · 合体。</b>三层同时响——注意每层<b>占一个音区</b>（低/中/高互不打架，正是㉘关「让路」原则的编曲版），耳朵能同时听清三种织体：</p>
+          <p><b>合体。</b>三层同时响——注意每层<b>占一个音区</b>（低/中/高互不打架，正是㉘关「让路」原则的编曲版），耳朵能同时听清三种织体：</p>
           <div class="row"><span class="chip" data-play="texlayer:all">🔊 三层齐上：贝斯 + 铺底 + 点缀（瞬间像一首真歌）</span></div>
           <p style="color:var(--muted)">这就是「编曲分层」的全部原理：<b>分层 ＝ 多种织体按音区叠放</b>。扒歌时听出"低音在走二分、中间有垫、上面有琶音"，其实就是把这一层层剥开来认。</p>
         </div>
@@ -6623,6 +6813,30 @@ function teachCN(mId){
         </div>
       </details>
 
+      <details class="note"><summary><b>实战 · 给《欢乐颂》配和弦（拿真名曲走一遍三步法）</b></summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>选这首的原因：</b>贝多芬这条旋律几乎全是级进、句式方正，是练三步法最干净的靶子。先听素颜旋律——注意它有两句，长得几乎一样，只有<b>句尾不同</b>：第一句停在 2（D），第二句落回 1（C）：</p>
+          <div class="row">
+            <span class="chip" data-play="mc:ode:melody">🔊 第一句素颜：E E F G | G F E D | C C D E | E D D—</span>
+            <span class="chip" data-play="mc:ode2:melody">🔊 第二句素颜：同头，句尾改 …E D | D C C—</span>
+          </div>
+          <p><b>第一步 · 列锚点和候选。</b>每两拍取强拍音当锚点：E、F、G、E、C、D、E、D。按「一个音住三家」列候选，几处关键选择：</p>
+          <table class="ctab"><tr><th>锚点</th><th>三家候选</th><th>选谁 · 为什么</th></tr>
+            <tr><td>F（第2格）</td><td>F · Dm · B°</td><td><b>F</b>——B° 太刺、Dm 低音线不顺；F 让低音 C→F 跳得干脆</td></tr>
+            <tr><td>G（第3格）</td><td>C · G · Em</td><td><b>G</b>——这格的弱拍音 F 是七音方向、且句子正要张开，用 V 推</td></tr>
+            <tr><td>D（句尾长音）</td><td>G · Dm · B°</td><td><b>G</b>——第一句不想结束，V 上悬着＝⑫关的半终止</td></tr></table>
+          <p><b>第二步 · 串低音线再整句听。</b>选完的进行是 <b>C–F–G–C｜C–G–C–G</b>，低音 C↗F↗G↘C 起伏歌唱。配好版（每个锚点都坐进当拍和弦）vs 配砸版（藏了两处错，试试先盲听找错再看答案）：</p>
+          <div class="row">
+            <span class="chip" data-play="mc:ode:good">🔊 配好版：C F G C | C G C G（句尾悬着）</span>
+            <span class="chip" data-play="mc:ode:bad">🔊 配砸版：藏着两处"挂在外面"——能听出在哪吗？</span>
+          </div>
+          <p style="color:var(--muted)">答案：第 2 格的强拍 F 被配上了 G 和弦（F 不在 G·B·D 里，撞）；句尾长音 D 被配回了 C（D 挂在 C·E·G 外，句号没按下去反而悬得难受）。两处都是原理二「长音/强拍找内音」的反面教材。</p>
+          <p><b>第三步 · 句尾按意图选终止。</b>第一句半终止（V 悬着，听众知道还有下文）；第二句句尾落 1，配 <b>…G→C</b> 全终止——两句连起来正是⑫关「问→答」的教科书：</p>
+          <div class="row"><span class="chip" data-play="mc:ode2:good">🔊 第二句：C F G C | C G G→C（句号落地）</span></div>
+          <p style="color:var(--muted)">复盘：整首《欢乐颂》只用了 C、F、G 三个和弦——三步法跑完，连贝多芬的国歌级旋律也不过如此。下次拿到任何方正的旋律，照这个流程走即可。</p>
+        </div>
+      </details>
+
       <details class="note"><summary><b>拓展：配完和弦，还差一件衣服：织体</b></summary>
         <div style="line-height:1.85;color:#e9e3ff">
           <p>三步法定下的只是「<b>穿什么</b>和弦」；这套和弦在拍子里<b>怎么动</b>，是㉛关的织体旋钮——选完和弦之后的下一个决定。听同一句 E E D D C—、同一套配好的 C–G–C–C，换三件外衣：</p>
@@ -6637,14 +6851,14 @@ function teachCN(mId){
 
       <details class="note"><summary>拓展：给旋律配第二条人声：唱和声</summary>
         <div style="line-height:1.85;color:#e9e3ff">
-          <p><b>第一句 · 副歌为什么一开口就变厚？</b>因为有人在主旋律旁边唱<b>另一条人声</b>——流行和声唱法的九成是<b>平行三度</b>：主旋律唱什么，和声声部沿着音阶<b>往上数两级</b>跟着唱。注意是「数两级」不是「加固定半音」——音阶自己会把大小三度排好（②关音阶的红利）。听本关的老朋友 E E D D C—：</p>
+          <p><b>副歌为什么一开口就变厚？</b>因为有人在主旋律旁边唱<b>另一条人声</b>——流行和声唱法的九成是<b>平行三度</b>：主旋律唱什么，和声声部沿着音阶<b>往上数两级</b>跟着唱。注意是「数两级」不是「加固定半音」——音阶自己会把大小三度排好（②关音阶的红利）。听本关的老朋友 E E D D C—：</p>
           <div class="row">
             <span class="chip" data-play="mc:sun:melody">🔊 只有主旋律（一个人唱）</span>
             <span class="chip" data-play="vh:sun:par">🔊 加平行三度（两个人唱——瞬间变厚）</span>
           </div>
-          <p><b>第二句 · 三度上面挤的时候，整条搬到六度下面。</b>主旋律偏高、上方没空间时，把和声整条移低八度——三度上方变成<b>六度下方</b>（同一批音，换个楼层），听感更松：</p>
+          <p><b>三度上面挤的时候，整条搬到六度下面。</b>主旋律偏高、上方没空间时，把和声整条移低八度——三度上方变成<b>六度下方</b>（同一批音，换个楼层），听感更松：</p>
           <div class="row"><span class="chip" data-play="vh:sun:six">🔊 六度下方版（和声沉到主旋律下面）</span></div>
-          <p><b>第三句 · 撞到和弦外音，就让一格。</b>严格平行不是铁律：这句第 3、4 个字（D D）落在 G 和弦上，平行三度给出的 F 不在 G（G·B·D）里——蹭出 G7 的七音色彩，流行里直接用也常见；想唱得完全服帖，就把那两格<b>让到三度下方的 B</b>（G 的三音，和弦内音）。对比：</p>
+          <p><b>撞到和弦外音，就让一格。</b>严格平行不是铁律：这句第 3、4 个字（D D）落在 G 和弦上，平行三度给出的 F 不在 G（G·B·D）里——蹭出 G7 的七音色彩，流行里直接用也常见；想唱得完全服帖，就把那两格<b>让到三度下方的 B</b>（G 的三音，和弦内音）。对比：</p>
           <div class="row">
             <span class="chip" data-play="vh:sun:par">🔊 严格平行（D 上面顶着 F，微微发悬）</span>
             <span class="chip" data-play="vh:sun:adj">🔊 让一格（那两拍换到 B，完全贴住 G 和弦）</span>
@@ -6777,6 +6991,7 @@ function bindTeachPlays(root){
       const _silent = cmd==="kswitch"||cmd==="mkswitch"||cmd==="arpToggle"||cmd==="kloop"
         || cmd.startsWith("ksel:")||cmd.startsWith("mksel:");
       const _loopSwitch = loopTimer && (cmd.startsWith("kloopset:")||cmd.startsWith("kloopseq:")||cmd.startsWith("mkloopseq:")); // 循环转着时点循环套路＝下一圈无缝切换，不该打断
+      if(cmd.startsWith("tap:")){ await initAudio(); synth.triggerAttackRelease(semiToName(+cmd.slice(4),60),"4n",Tone.now(),0.9); return; } // 即兴点按：直接发声，绝不打断伴奏循环
       if(!_silent && !_loopSwitch){ if(loopTimer) stopLoop(); stopAllSound(); }
       if(cmd.startsWith("semi:")){
         const s=cmd.slice(5).split(",").map(Number);
@@ -6892,6 +7107,7 @@ function bindTeachPlays(root){
       else if(cmd.startsWith("mtex:")){ const a=cmd.split(":"); await playMelTex(a[1],a[2],a[3]); } // 配好的和弦×织体外衣
       else if(cmd.startsWith("texlayer:")){ await playTexLayers(cmd.slice(9)); } // 编曲分层：bass/pad/arp/all
       else if(cmd.startsWith("vh:")){ const a=cmd.split(":"); await playVH(a[1],a[2]); } // 唱和声：主旋律+第二人声
+      else if(cmd==="pickup:hb"){ await playHBday(); } // 生日歌弱起（3/4 带节拍器）
       else if(cmd.startsWith("pickup:")){ await playPickup(cmd.slice(7)==="weak"); } // 弱起 vs 强起
       else if(cmd==="songmini"){ await playSongMini(); } // 整歌微缩：两条曲线同推
       else if(cmd.startsWith("tosb:")){ // 把一条套路发到自由实验台（不发声，直接跳转）
@@ -6937,6 +7153,8 @@ const SEQS = {
   canonO: [[0,4,7],[7,11,14],[9,12,16],[5,9,12]], // C G Am F 原位
   canon2: [[0,4,7],[7,11,14]],                    // C G 两小节短对(织体测验用，控制时长)
   introA: [[0,4,7],[5,9,12],[0,4,7],[5,9,12]],    // 前奏/尾奏示例：I–IV 来回(立氛围、报调性)
+  gongVamp:[[0,4,7],[-3,0,4],[5,9,12],[0,4,7]],   // 五声即兴伴奏：C–Am–F–C 柔和绕圈(顺阶内，给五声旋律当安全网)
+  bachPre: [[0,4,7,12,16],[0,2,9,14,17],[-1,2,7,11,17],[0,4,7,12,16]], // 巴赫 BWV846 前四小节：C → Dm7/C → G7/B → C（ii7–V7–I + 低音 C C B C）
   preB:   [[5,9,12],[7,11,14],[5,9,12],[7,11,14]],// 预副歌示例：IV–V 来回抬坡(憋住蓄力)
   brB:    [[2,5,9],[5,9,12],[2,5,9],[5,9,12]],    // 桥段示例：ii–IV 来回(离家换景，刻意不碰 I)
   outB:   [[5,9,12],[0,4,7],[5,9,12],[0,4,7]],    // 尾奏示例：IV–I 阿门式变格收束(⑬关)
@@ -7234,6 +7452,12 @@ const MELODIES = {
     plain:[[5,9,12],[7,11,14],[4,7,11],[9,12,16]],
     am7:[[5,9,12],[7,11,14],[4,7,11],[9,12,16,19]],
     am9:[[5,9,12],[7,11,14],[4,7,11],[9,12,16,19,23]]},
+  // 贝多芬《欢乐颂》（C 大调简化）。第一句尾落 2(D)=半终止悬着；第二句尾落 1(C)=全终止句号
+  ode: {mel:[4,4,5,7, 7,5,4,2, 0,0,2,4, 4,2,2,null], per:2,
+        good:[[12,16,19],[17,21,24],[7,11,14],[12,16,19],[12,16,19],[7,11,14],[12,16,19],[7,11,14]],   // C F G C | C G C G(半终止)
+        bad: [[12,16,19],[7,11,14],[7,11,14],[12,16,19],[12,16,19],[7,11,14],[12,16,19],[12,16,19]]},  // 错两处：F 强拍撞 G；句尾长音 D 挂在 C 外
+  ode2:{mel:[4,4,5,7, 7,5,4,2, 0,0,2,4, 2,0,0,null], per:2,
+        good:[[12,16,19],[17,21,24],[7,11,14],[12,16,19],[12,16,19],[7,11,14],[7,11,14],[12,16,19]]},  // 第二句：…G→C 全终止落地
   probe1:{mel:[4,null,null,null], per:4, good:[[12,16,19]], bad:[[14,17,21]]},  // 单拍对照：长音 E 坐进 C(三音) vs 挂在 Dm 外(还蹭着内音 F 的半音)
   probe2:{mel:[0,null,null,null], per:4, good:[[12,16,19]], bad:[[7,11,14]]},   // 单拍对照：长音 C 坐进 C(根音) vs 挂在 G 外(正是 Gsus4 的挂留音)
 };
@@ -7309,6 +7533,15 @@ const TEX_PATTERNS={
     for(let i=0;i<beats*4;i++){
       const x=i%2? cs[0] : cs[0]-12;
       synth.triggerAttackRelease(semiToName(x,60),"16n",now+t0+i*TEX_BEAT/4,0.7);
+      ev.push({midis:[60+x],t:t0+i*TEX_BEAT/4,dur:"16n"});
+    }
+  },
+  bach:(cs,t0,beats,now,ev)=>{ // 巴赫分解(BWV846式)：五个音按 1-2-3-4-5-3-4-5 的16分花样循环；三和弦自动补高八度凑五音
+    const p=[...cs]; while(p.length<5) p.push(p[p.length-3]+12);
+    const idx=[0,1,2,3,4,2,3,4];
+    for(let i=0;i<beats*4;i++){
+      const x=p[idx[i%8]];
+      synth.triggerAttackRelease(semiToName(x,60),"16n",now+t0+i*TEX_BEAT/4,0.72);
       ev.push({midis:[60+x],t:t0+i*TEX_BEAT/4,dur:"16n"});
     }
   },
@@ -7404,6 +7637,15 @@ async function playPickup(weak){
   [[0,4,7],[0,4,7]].forEach((cs,i)=>{ synth.triggerAttackRelease(cs.map(x=>semiToName(x,48)),"1n",now+i*4*B,0.38);
     ev.push({midis:cs.map(x=>48+x),t:i*4*B,dur:"1n"}); });
   const notes = weak ? [[2,7,"4n"],[3,9,"4n"],[4,12,"2n"]] : [[4,12,"4n"],[5,14,"4n"],[6,16,"2n"]];
+  notes.forEach(([k,m,dur])=>{ synth.triggerAttackRelease(semiToName(m,60),dur,now+k*B,0.95);
+    ev.push({midis:[60+m],t:k*B,dur,mel:true}); });
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// ㉚ 生日歌弱起演示：3/4 节拍器（重音=每小节第1拍），"祝你"两个八分踩第3拍，"生"砸下小节第1拍
+async function playHBday(){
+  await initAudio(); const now=Tone.now(); const ev=[]; const B=0.55;
+  for(let k=0;k<9;k++) synth.triggerAttackRelease(k%3===0?"E6":"B5","16n",now+k*B,k%3===0?0.45:0.16); // 三拍一组×3小节
+  const notes=[[2,7,"8n"],[2.5,7,"8n"],[3,9,"4n"],[4,7,"4n"],[5,12,"4n"],[6,11,"2n"]]; // 祝 你 | 生 日 快 | 乐—
   notes.forEach(([k,m,dur])=>{ synth.triggerAttackRelease(semiToName(m,60),dur,now+k*B,0.95);
     ev.push({midis:[60+m],t:k*B,dur,mel:true}); });
   lastPlayed=ev; markPlayUntil(ev);
@@ -8002,9 +8244,6 @@ function fifthsSVG(){
     g+=`<g data-play="natminor:${mr-12}" style="cursor:pointer"><circle cx="${mx.toFixed(1)}" cy="${my.toFixed(1)}" r="15" style="fill:rgba(92,230,192,.14);stroke:var(--line)"/><text x="${mx.toFixed(1)}" y="${(my+4).toFixed(1)}" text-anchor="middle" style="fill:#bdb6e3;font-size:10.5px">${MIN[i]}</text></g>`;
   });
   return `<div style="display:flex;justify-content:center"><svg viewBox="0 0 300 300" style="max-width:340px;width:100%">
-    <defs><marker id="fofArr" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" style="fill:var(--muted)"/></marker></defs>
-    <path d="M 196 36 A 122 122 0 0 1 254 96" fill="none" style="stroke:var(--muted)" marker-end="url(#fofArr)"/>
-    <text x="262" y="52" style="fill:var(--muted);font-size:10px">${tr("顺时针＝升五度(+♯)","clockwise = up a 5th (+♯)")}</text>
     <text x="150" y="146" text-anchor="middle" style="fill:#e9e3ff;font-size:13px;font-weight:700">${tr("五度圈","Circle of 5ths")}</text>
     <text x="150" y="163" text-anchor="middle" style="fill:var(--muted);font-size:9.5px">${tr("外圈大调·内圈关系小调(均可点)","outer majors · inner relatives (tap)")}</text>
     ${g}</svg></div>`;
@@ -9868,12 +10107,14 @@ function q_rhythm(concept){
 const TEXL={pad:["长音铺底","Sustained pad"],block4:["柱式四分","Quarter-note block"],pulse8:["八分脉冲","Eighth-note pulse"],
   bassChord:["低音+和弦分工","Bass + chord division"],alberti:["Alberti 低音","Alberti bass"],flow16:["流水16分","16th-note stream"],
   syncop:["切分 comping","Syncopated comping"],octTrem:["八度震音","Octave tremolo"],
-  swing8:["swing 八分","Swing eighths"],flowBass:["低音+流水","Bass + stream"]};
+  swing8:["swing 八分","Swing eighths"],flowBass:["低音+流水","Bass + stream"],
+  bach:["巴赫分解","Bach broken"]};
 const TEXHINT={pad:["整小节按住不动","held for the whole bar"],block4:["每拍整和弦盖章","one full stamp per beat"],
   pulse8:["每拍两下、反拍轻","two hits per beat, off-beats lighter"],bassChord:["低音拍1落底、右手拍2起","bass on 1, chords from beat 2"],
   alberti:["低-高-中-高转圈","low-high-mid-high cycle"],flow16:["两个八度上行下行铺满","two octaves up and down, wall to wall"],
   syncop:["和弦专挑反拍下手","chords strike only off-beats"],octTrem:["低音两个八度16分打点","bass hammers 16ths across two octaves"],
-  swing8:["前长后短 2:1","long-short 2:1"],flowBass:["根音落底+上方流水","roots below, stream above"]};
+  swing8:["前长后短 2:1","long-short 2:1"],flowBass:["根音落底+上方流水","roots below, stream above"],
+  bach:["1-2-3-4-5-3-4-5 的16分轮转","16ths cycling 1-2-3-4-5-3-4-5"]};
 function q_texture(concept){
   if(concept==="texclass"){
     if(Math.random()<0.55){ // 听辨四大类
@@ -11126,7 +11367,7 @@ const SB_GROUPS=[
 const SB_TOKENS={}; for(const [,g] of SB_GROUPS) Object.assign(SB_TOKENS,g);
 const SB_KEYS={"C":0,"D♭":1,"D":2,"E♭":3,"E":4,"F":5,"F♯":6,"G":7,"A♭":8,"A":9,"B♭":10,"B":11};
 const SB_KEYLIST=Object.keys(SB_KEYS);
-const SB_TEXNAMES=["pad","block4","pulse8","bassChord","alberti","flow16","syncop","swing8","octTrem","flowBass"];
+const SB_TEXNAMES=["pad","block4","pulse8","bassChord","alberti","flow16","syncop","swing8","octTrem","flowBass","bach"];
 const SB_MAX=49, SB_VMUL=[0,0.5,0.8,1.08]; // 音量 1/2/3 → 力度倍率
 const SB_TEMPOS={slow:[0.62,"慢板 ~75","slow ~75"],mid:[0.48,"中速 ~100","medium ~100"],fast:[0.37,"快歌 ~130","fast ~130"]};
 let sb={tempo:"mid",steps:[{k:"C",t:"1",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"5",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"6",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"4",b:4,x:"bassChord",v:2,a:0}]};
@@ -11215,6 +11456,12 @@ const SB_DEMOS=[
      _S("C","4",4,"swing8",2),_S("C","4m",4,"swing8",1),_S("C","1",4,"syncop",2),_S("C","5s",4,"syncop",2),
      _S("C","1",2,"swing8",3),_S("C","6",2,"swing8",3),_S("C","2",2,"syncop",3),_S("C","5s",2,"syncop",3),
      _S("C","2",4,"pad",1),_S("C","1",4,"pad",1)]},
+ {id:"bachpop", cn:"巴赫外衣 · 古典织体穿流行和声（18步）", en:"Bach's coat on pop harmony (18 steps)",
+  d:[_S("C","1",4,"bach",2),_S("C","5",4,"bach",2),_S("C","6",4,"bach",2),_S("C","3",4,"bach",2),
+     _S("C","4",4,"bach",2),_S("C","1",4,"bach",2),_S("C","4",4,"bach",2),_S("C","5",4,"bach",2),
+     _S("C","1",2,"bach",3),_S("C","5",2,"bach",3),_S("C","6",2,"bach",3),_S("C","3",2,"bach",3),
+     _S("C","4",2,"bach",3),_S("C","1",2,"bach",3),_S("C","2m7",2,"bach",3),_S("C","5s",2,"bach",3),
+     _S("C","1M7",4,"pad",1),_S("C","1",4,"pad",1)]},
  {id:"modal", cn:"调式 vamp · Mixolydian→Dorian（18步）", en:"Modal vamps: Mixolydian → Dorian (18 steps)",
   d:[_S("C","1",4,"pulse8",2),_S("C","b7",4,"pulse8",2),_S("C","1",4,"syncop",2),_S("C","b7",4,"syncop",2),
      _S("C","1",2,"pulse8",3),_S("C","b7",2,"pulse8",3),_S("C","1",2,"syncop",3),_S("C","b7",2,"syncop",3),
