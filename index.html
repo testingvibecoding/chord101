@@ -910,6 +910,8 @@ function teachEN(mId){
           <p>The opening of Beethoven's Moonlight Sonata, first movement (originally C♯ minor; sketched here in A minor): the right hand cycles nothing but <b>Am's three notes, A–C–E</b>, over a held bass — the entire moonlight is <b>minor-triad color × triplet-arpeggio texture</b>, not one extra chord. Hear the cycle:</p>
           <div class="row"><span class="chip" data-play="mel:-3,0,4,-3,0,4,-3,0,4">🔊 A–C–E cycling (Moonlight-style arpeggio, slow sketch)</span></div>
           <p style="color:var(--muted)">A preview of two later levels in one page of a master: the chord chart only says <b>which notes</b> (this level's minor color); <b>how they move</b> belongs to texture, level ㉛ — the two knobs kept perfectly separate.</p>
+          <p><b>One more opening · Chopin's Funeral March:</b> its weight, too, needs only two natural-minor members — <b>i and VI</b> (in A minor: Am and F), swinging like a slow pendulum. Pick any two of minor's family with your eyes closed and the mood is already in the room:</p>
+          <div class="row"><span class="chip" data-play="mkprog:1,6,1,6">🔊 The funeral sway: Am ↔ F (the i ↔ VI pendulum)</span></div>
         </div>
       </details>
 
@@ -917,6 +919,8 @@ function teachEN(mId){
     case "triad": return `
       <p>The <b>triad</b> is the basic building block of harmony — three notes stacked up: <b>root + 3rd + 5th</b>.
       Change the middle 3rd and the color changes completely.</p>
+      <p style="color:var(--muted)">One classic, one blow: the opening of Vivaldi's Spring — do-mi-mi-mi-re-do-sol — is built on the major triad's three notes (do·mi·sol). The triad is no textbook invention; it is the first breath musicians have drawn for three centuries:</p>
+      <div class="row"><span class="chip" data-play="rmel:0.24:12x1,16x2,16x2,16x1,14x1,12x1,19x5">🔊 The Spring theme: C–E–E–E–D–C–G (cradled entirely in the C major triad)</span></div>
       <div class="row">
         <span class="chip" data-play="chord:maj:0">🔊 Major triad · bright</span>
         <span class="chip" data-play="chord:min:0">🔊 Minor triad · melancholy</span>
@@ -1687,6 +1691,20 @@ function teachEN(mId){
         </div>
       </details>
 
+      <details class="note"><summary>Extra: the impressionist filter trick — planing</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>Functional harmony vs color blocks.</b> Every chord so far has held a job: ii prepares, V pushes, I is home (level ⑪). A century ago Debussy played it backwards: <b>pick a shape you love (say maj7) and slide the whole block in parallel</b> — no jobs, no in-key/out-of-key, the ear tracking only that shape's color. The move is called <b>planing</b>. Compare:</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:ii51">🔊 Functional: Dm7→G7→Cmaj7 (every chord on duty)</span>
+            <span class="chip" data-play="seq:plane1">🔊 Planing: Cmaj7 carried up to D, E♭ and back (one shape, pure color)</span>
+          </div>
+          <p><b>Why no collision?</b> Mid-slide, plenty of notes leave C major (Dmaj7's F♯, all of E♭maj7) — but because <b>the shape is identical at every step</b>, the ear hears "one block of color in motion", not wrong notes: the shape's consistency temporarily stands in for tonal gravity.</p>
+          <p><b>Pop usage.</b> City-pop and neo-soul dream transitions live on it: slide a couple of notches, then hand the phrase back to functional harmony for the period — filter for atmosphere, function for landing:</p>
+          <div class="row"><span class="chip" data-play="seq:planePop">🔊 The hybrid: Fmaj7→E♭maj7 slide → a 2-5-1 period to close</span></div>
+          <p style="color:var(--muted)">Dosage note: planing is <b>spice for intros and transitions</b> — slide a whole section and the music loses its floor (no home); after sliding, catch the listener with V→I (level ⑫).</p>
+        </div>
+      </details>
+
       <p style="color:var(--muted)">This level's drills: the makeup of add9, telling add9 from sus2 and from C9, blind-hearing plain / maj7 / add9, picking a filter by mood, and building add9 chords.</p>`;
 
     case "passdim": return `
@@ -1898,6 +1916,12 @@ function teachEN(mId){
             <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian: Dm–G (dark-bright alternation — breathing)</span>
           </div>
           ${keyBar(false,true)}
+          <p><b>The classics agree · Greensleeves and its battle of the 6th.</b> This Renaissance song survives in <b>two rival versions</b>, split exactly on Dorian's signature note: sing the 6th degree as <b>B♭ natural-minor</b> (purer dark) or as the <b>raised B</b> = Dorian (nostalgia glowing through the dark). One phrase, both ways (tonic D):</p>
+          <div class="row">
+            <span class="chip" data-play="rmel:0.3:14x2,17x2,19x1,21x1.5,23x0.5,21x1,19x2,16x2">🔊 Raised-6 version (B♮): Dorian's loose nostalgia</span>
+            <span class="chip" data-play="rmel:0.3:14x2,17x2,19x1,21x1.5,22x0.5,21x1,19x2,16x2">🔊 Natural-6 version (B♭): natural minor's pure dark</span>
+          </div>
+          <p style="color:var(--muted)">Five centuries without a verdict — because both are beautiful. Which is precisely this level's thesis: <b>one signature note, one color</b>; hear the 6th and you have named the school.</p>
           <p><b>⑤ The hook.</b> ⚠ Do not hear Dm–G as "ii–V in C major": a ii–V reports back to C; this loop <b>never visits C — home is Dm</b>. Same chords, different address.</p>
         </div>
       </details>
@@ -2003,6 +2027,7 @@ function teachEN(mId){
           <div class="row">
             <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 Dvořák, New World Largo theme (the whole line uses only 1 2 3 5 6)</span>
             <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 Amazing Grace, opening (purely pentatonic too)</span>
+            <span class="chip" data-play="mel:16,14,12,14,16,19,16,14,12,14,16">🔊 Grieg, Morning Mood opening (3-2-1-2-3-5: pentatonic again)</span>
           </div>
           <p style="color:var(--muted)">Songwriting recipe: the usual "Chinese style" formula = <b>pentatonic melody + level ⑭'s pop chords</b> — harmony walks 1645/4536 as ever; only the melody's palette shrinks to 1 2 3 5 6, with phrase ends favoring yu (6) and shang (2).</p>
         </div>
@@ -3150,7 +3175,7 @@ function teachEN(mId){
             <tr><td class="play" data-play="kloopseq:pp4536">4536</td><td>IV–V–iii–vi</td><td>The Royal Road: anime, J-pop choruses</td><td>⑭</td><td class="play" data-play="tosb:4,5,3,6">⌁</td></tr>
             <tr><td class="play" data-play="kloopseq:pp4321">4321</td><td>IV–iii–ii–I</td><td>Silky stairs down: R&B, city pop</td><td>⑭</td><td class="play" data-play="tosb:4,3,2,1">⌁</td></tr>
             <tr><td class="play" data-play="kloopseq:pp1625">1625</td><td>I–vi–ii–V</td><td>Jazz turnaround: oldies, Christmas songs</td><td>⑭</td><td class="play" data-play="tosb:1,6,2,5">⌁</td></tr>
-            <tr><td class="play" data-play="kseq:canonS">Canon</td><td>I–V–vi–iii–IV–I–IV–V</td><td>The wedding/graduation staircase</td><td>⑩</td><td class="play" data-play="tosb:1,5,6,3,4,1,4,5">⌁</td></tr>
+            <tr><td class="play" data-play="kseq:canon8">Canon</td><td>I–V–vi–iii–IV–I–IV–V</td><td>The wedding/graduation staircase</td><td>⑩</td><td class="play" data-play="tosb:1,5,6,3,4,1,4,5">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mLoop">1637</td><td>i–VI–III–VII</td><td>Minor universal: dark epic, EDM</td><td>here</td><td class="play" data-play="tosb:6,4,1,5">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mEpic">1765</td><td>i–VII–VI–V7</td><td>Andalusian descent: flamenco, fateful rock</td><td>here</td><td class="play" data-play="tosb:6,5,4,3s">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mUp671">671</td><td>VI–VII–i</td><td>Ascending charge: anime/EDM pre-chorus</td><td>here</td><td class="play" data-play="tosb:4,5,6">⌁</td></tr>
@@ -3320,6 +3345,8 @@ function teachEN(mId){
             <span class="chip" data-play="hr:pp1564:4">🔊 1564 in 4/4 (pop default, striding forward)</span>
             <span class="chip" data-play="hr:pp1564:3:3">🔊 1564 in 3/4 (3 beats per bar — it starts to spin)</span>
           </div>
+          <p style="color:var(--muted)">The classics agree: Brahms's Lullaby lives in 3/4 — count "<b>1</b>-2-3" under its "3-3-5" opening and every phrase swings on the triple-time cradle:</p>
+          <div class="row"><span class="chip" data-play="rmel:0.42:4x0.5,4x0.5,7x2,4x0.5,4x0.5,7x2,4x1,7x1,12x1,11x2,9x1,9x1.5,7x2.5">🔊 Lullaby opening: E E G— | E E G— | E G C5 | B— A | A G—</span></div>
           <p style="color:var(--muted)">Why? Strong-weak-mid-weak walks a line; strong-weak-weak turns in place — the accent <b>cycle</b> decides how the body wants to move.</p>
           <p><b>3/4's cousin: 6/8 (the slow-song sway).</b> That 6/8 mentioned in passing, unpacked: one bar holds <b>six quick pulses in two groups of three</b> (count <b>1</b>23<b>4</b>56 — 1 heaviest, 4 second). The difference from 3/4 is not speed but the <b>number of big beats</b>: 3/4 walks three slow beats in a line; 6/8 has <b>two big beats</b>, each wrapping three small ones — so 6/8 <b>rocks</b> (side to side) while 3/4 <b>spins</b> (three-step circles). Standard issue for ballads, lullabies and slow blues:</p>
           <div class="row">
@@ -3457,6 +3484,16 @@ function teachEN(mId){
           <div class="row"><span class="chip" data-play="texm:block4">🔊 Homophony: same tune + block-chord backing</span></div>
           <p><b>③ Polyphony: several independent lines interweaving.</b> Nobody accompanies anybody; every line is a melody. Fugues and rounds are the extreme; the counter-melody that sneaks into a final chorus is its pop-sized version. Listen: a second, half-note line below <b>walking its own walk</b>:</p>
           <div class="row"><span class="chip" data-play="texm:poly">🔊 Polyphony: tune + one independent counter-line</span></div>
+          <p style="color:var(--muted)">One classic, one blow: Pachelbel's Canon is named <b>canon = a round</b> — the three violins play <b>one and the same line</b>, each entering eight beats late, chasing itself, over the staircase chords of level ⑩. Hear a two-voice miniature; the second voice (an octave below) enters only at slot three:</p>
+          <table class="ctab"><tr><th>Slot</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+            <tr><td>Chords (staircase ⑩)</td><td>C</td><td>G</td><td>Am</td><td>Em</td><td>F</td><td>C</td><td>F</td><td>G</td><td>C</td><td>G</td></tr>
+            <tr><td><b>Voice 1</b></td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td><td>—</td><td>—</td></tr>
+            <tr><td><b>Voice 2</b> (octave below)</td><td>—</td><td>—</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td></tr></table>
+          <p style="color:var(--muted)">The two rows are <b>letter-for-letter identical</b> — one is simply slid two slots right; that slide is the round's whole secret. And the magic follows: each note lands on a <b>different chord</b> the second time around (E sits inside C first, inside Am next), so one line grows two harmonic colors — exactly why polyphony rewards repeated listening. While playing, highlight whichever voice you want to follow — its note plus the entire chord of that slot light up in <b>gold</b>, slot by slot:</p>
+          <div class="row">
+            <span class="chip" data-play="canonround:1">🔊 Play · highlight voice 1 (the leader)</span>
+            <span class="chip" data-play="canonround:2">🔊 Play · highlight voice 2 (the chaser)</span>
+          </div>
           <p><b>④ Heterophony: several versions of the same melody at once.</b> Everyone sings the same phrase, each ornamenting freely — the daily bread of folk ensembles. Listen: an embellishing companion an octave below, circling the same tune:</p>
           <div class="row"><span class="chip" data-play="texm:hetero">🔊 Heterophony: tune + its ornamented twin</span></div>
           <p style="color:var(--muted)">Field guide: <b>count the lines, ask the relationship</b> — one line = monophony; one master, many servants = homophony; all equals = polyphony; one line with body doubles = heterophony.</p>
@@ -3589,6 +3626,7 @@ function teachEN(mId){
           </div>
           <p>The line can keep going: F♯ falls to F (that slot's top note is the root of an F chord), then to E (enter E7), then home — <b>six chromatic stairs in one breath</b>, the skeleton of countless jazz ballads:</p>
           <div class="row"><span class="chip" data-play="mkseq:lcMinFull">🔊 Full run: Am→AmM7→Am7→Am6→F→E7→Am</span></div>
+          <p style="color:var(--muted)">The classic source: the most famous full page of "pin the top, sink the bottom by half steps" is <b>Chopin's E-minor Prelude (Op. 28 No. 4)</b> — the right hand repeats two notes while the left hand's chords sink chromatically for a page on end; all the grief rides that undercurrent. The full run above is its miniature skeleton.</p>
           ${mKeyBar()}
         </div>
       </details>
@@ -3786,6 +3824,9 @@ function teachEN(mId){
             <tr><td>F–C–F–C (IV–I Amen ⑬)</td><td>slow · pad · the plagal close, gentlest of all</td><td class="play" data-play="tex:outB:pad">▶</td></tr></table>
           <p style="color:var(--muted)">Three resemblances, said outright: ① <b>intro ≈ outro</b> — bookending is the convention, so both first examples deliberately share one material (one opens the door, one closes it); ② intro ex.2 and chorus ex.1 are <b>the same 1564</b> — intros are often "the chorus, thinned", leaking the hook early; ③ the two chorus rows share <b>an identical setting</b> (two-beat changes × bass + stream), only the starting chord differs — <b>dense and full is the chorus's ID card; which progression you use is the free choice</b>.</p>
           <p><b>Parts breathe in eight-bar phrases.</b> Pop inhales in units of 4/8 bars — the first 4 like a question, the next 4 like an answer (level ㉑'s loops run exactly 8 bars in two laps; no coincidence). Count to 8 in any song and you will land on a seam more often than not.</p>
+          <p><b>A part smaller than the phrase: the motif.</b> A hook's smallest unit is a <b>few-note motif</b> grown by "repetition plus small change" — grandmaster demonstration: Beethoven's Fifth opens with four notes, short-short-short-LONG, then hammers them again <b>one step lower</b>; two strokes raise a whole symphony (sketched in A minor):</p>
+          <div class="row"><span class="chip" data-play="rmel:0.3:16x0.5,16x0.5,16x0.5,12x3,rx1,14x0.5,14x0.5,14x0.5,11x4">🔊 The Fate motif: short-short-short-LONG | once more, a step down</span></div>
+          <p style="color:var(--muted)">Pop choruses use the same recipe: take a three-to-five-note motif, repeat it once verbatim, then once shifted up or down — when transcribing, hearing "this line is the last line, moved house" gets you half the melody for free.</p>
           <p><b>Hear the map as sound.</b> This 8-bar miniature compresses the standard verse → pre-chorus → chorus lift: the texture curve (pad → pulse → bass+stream) and the density curve (one per bar → two-beat changes in the chorus) <b>pushed together</b> — level ㉛'s "two hands pushing at once", realized:</p>
           <div class="row"><span class="chip" data-play="songmini">🔊 Song miniature: verse (still·sparse) → pre-chorus (moving·still sparse) → chorus (moving·dense)</span></div>
           <p style="color:var(--muted)">Cross-check: level ㉛'s texture curve moved one hand only; here the chorus moves density too — notice the chords audibly changing more often. When transcribing, run this map backwards: a section suddenly denser and fuller means "the chorus starts here".</p>
@@ -4011,6 +4052,8 @@ function teachCN(mId){
           <p>贝多芬《月光奏鸣曲》第一乐章的开头（原曲 C♯ 小调，这里移到 A 小调示意）：右手翻来覆去只弹 <b>Am 的三个音 A–C–E</b>，低音按住长音——夜色的全部来源就是<b>小三和弦的色彩 × 三连音分解的织体</b>，一个新和弦都不用。听这个轮转：</p>
           <div class="row"><span class="chip" data-play="mel:-3,0,4,-3,0,4,-3,0,4">🔊 A–C–E 轮转（月光式分解，慢速示意）</span></div>
           <p style="color:var(--muted)">这正是后面两关的预告：和弦表只说"用哪些音"（本关的小调色彩），<b>怎么动</b>是㉛关织体的事——大师课第一页就把两个旋钮分得清清楚楚。</p>
+          <p><b>再听一首的开头 · 肖邦《葬礼进行曲》：</b>它的沉重也只用两个自然小调成员——<b>i 和 VI</b>（移到 A 小调＝Am 和 F）来回摇摆，像缓慢的钟摆。小调全家闭着眼睛挑两个，气质就已经到位：</p>
+          <div class="row"><span class="chip" data-play="mkprog:1,6,1,6">🔊 葬礼式摇摆：Am ↔ F（i ↔ VI 的钟摆）</span></div>
         </div>
       </details>
 
@@ -4019,6 +4062,8 @@ function teachCN(mId){
     case "triad": return `
       <p><b>三和弦</b>是最基础的"和声积木"，由三个音叠起来：<b>根音 + 三度 + 五度</b>。
       改变中间那个三度，颜色就完全变了。</p>
+      <p style="color:var(--muted)">名曲一击：维瓦尔第《四季·春》开嗓的「do-mi-mi-mi-re-do-sol」，骨架就是大三和弦的三个音（do·mi·sol）——三和弦不是教科书的发明，是音乐家三百年来开嗓的第一口气：</p>
+      <div class="row"><span class="chip" data-play="rmel:0.24:12x1,16x2,16x2,16x1,14x1,12x1,19x5">🔊 《春》主题：C–E–E–E–D–C–G（全在 C 大三和弦的怀里）</span></div>
       <div class="row">
         <span class="chip" data-play="chord:maj:0">🔊 大三和弦·明亮</span>
         <span class="chip" data-play="chord:min:0">🔊 小三和弦·忧郁</span>
@@ -4747,7 +4792,7 @@ function teachCN(mId){
             <span class="chip" data-play="notes:-3,0,4,7">🔊 Am7（柔化）</span>
             <span class="chip" data-play="notes:-3,0,4,7,11">🔊 Am9（松弛）</span>
           </div>
-          <p style="color:var(--muted)">名片回收：第⑬关拆过的 F/G，爵士谱上常写作 <b>G9sus4</b>——你其实早听过 9 音的声音了。</p>
+          <p style="color:var(--muted)">回顾：第⑬关拆过的 F/G，爵士谱上常写作 <b>G9sus4</b>——你其实早听过 9 音的声音了。</p>
         </div>
       </details>
 
@@ -4789,6 +4834,20 @@ function teachCN(mId){
             <span class="chip" data-play="notes:-5,-1,5,9,16">🔊 豪华套房 G13（G·B·F·A·E——省五音、叠 9 和 13）</span>
           </div>
           <p style="color:var(--muted)">记住方向就好：<b>数字越大，离骨架越远，越是"氛围"而不是"功能"</b>。</p>
+        </div>
+      </details>
+
+      <details class="note"><summary>拓展：印象派的滤镜玩法：平行滑动 planing</summary>
+        <div style="line-height:1.85;color:#e9e3ff">
+          <p><b>功能和声 vs 色块和声。</b>课程至今的和弦都有「职务」：ii 备转、V 推门、I 回家（⑪关）。一百多年前德彪西反着玩：<b>挑一个好听的形状（比如 maj7），整块端着平移</b>——不问职务、不管调内调外，耳朵抓的只是那个形状的色彩。这招叫 <b>planing（平行滑动）</b>。对比听：</p>
+          <div class="row">
+            <span class="chip" data-play="kseq:ii51">🔊 功能版：Dm7→G7→Cmaj7（每个和弦都有任务）</span>
+            <span class="chip" data-play="seq:plane1">🔊 planing 版：Cmaj7 端着滑到 D、E♭ 再滑回（同一形状，只剩色彩）</span>
+          </div>
+          <p><b>为什么不打架？</b>平移途中很多音明明出了 C 大调（D maj7 的 F♯、E♭maj7 整个），但因为<b>形状每一格都一模一样</b>，耳朵把它听成「同一块颜色在移动」而不是「错音」——形状的一致性暂时顶替了调性的引力。</p>
+          <p><b>流行乐怎么用。</b>City Pop、neo-soul 的梦幻过门常用它：滑两格过瘾，句尾再交回功能和声按句号——滤镜负责氛围、功能负责落地：</p>
+          <div class="row"><span class="chip" data-play="seq:planePop">🔊 混血版：Fmaj7→E♭maj7 滑两格 → 2-5-1 句号收尾</span></div>
+          <p style="color:var(--muted)">用量提醒：planing 是<b>过门/前奏的香料</b>——整段都滑会失重（没有家），滑完记得用 V→I 把听众接住（⑫关）。</p>
         </div>
       </details>
 
@@ -5002,6 +5061,12 @@ function teachCN(mId){
             <span class="chip" data-play="kloopseq:doLoop">🔁 Dorian：Dm–G（一暗一亮，呼吸感）</span>
           </div>
           ${keyBar(false,true)}
+          <p><b>名曲印证 · 《绿袖子》的第 6 音之争。</b>这首文艺复兴老歌流传下来<b>两派唱法</b>，分歧恰好就在 Dorian 的特征音上：第 6 级唱<b>还原 B♭</b>＝纯粹的自然小调（更暗）；唱<b>升 6 的 B</b>＝Dorian（暗中透亮的怀旧）。同一句各听一遍（D 为主音）：</p>
+          <div class="row">
+            <span class="chip" data-play="rmel:0.3:14x2,17x2,19x1,21x1.5,23x0.5,21x1,19x2,16x2">🔊 升 6 版（B♮）：Dorian 的松弛怀旧</span>
+            <span class="chip" data-play="rmel:0.3:14x2,17x2,19x1,21x1.5,22x0.5,21x1,19x2,16x2">🔊 还原 6 版（B♭）：自然小调的纯暗</span>
+          </div>
+          <p style="color:var(--muted)">五百年争不出对错——因为两版各美其美。这恰是本关的核心：<b>一个特征音，一种色彩</b>，听出第 6 音就听出了门派。</p>
           <p><b>⑤ 钩子。</b>⚠ 别把 Dm–G 听成「C 大调的 ii–V」：ii–V 是要回 C 交差的；这段循环<b>从不去 C，家就在 Dm</b>。和弦一样，住址不同。</p>
         </div>
       </details>
@@ -5107,6 +5172,7 @@ function teachCN(mId){
           <div class="row">
             <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 德沃夏克《自新世界》主题（整句只用 1 2 3 5 6）</span>
             <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 《奇异恩典》开头（同样纯五声）</span>
+            <span class="chip" data-play="mel:16,14,12,14,16,19,16,14,12,14,16">🔊 格里格《晨曲》开头（3-2-1-2-3-5：还是五声）</span>
           </div>
           <p style="color:var(--muted)">写歌小抄：「中国风」的常用配方＝<b>五声旋律 + ⑭关的流行和弦</b>——和声照常走 1645/4536，只把旋律的用料换成 1 2 3 5 6，句尾多落羽（6）商（2）。</p>
         </div>
@@ -6262,7 +6328,7 @@ function teachCN(mId){
             <tr><td class="play" data-play="kloopseq:pp4536">4536</td><td>IV–V–iii–vi</td><td>王道进行：日系动漫、JPOP 副歌</td><td>⑭</td><td class="play" data-play="tosb:4,5,3,6">⌁</td></tr>
             <tr><td class="play" data-play="kloopseq:pp4321">4321</td><td>IV–iii–ii–I</td><td>丝滑下楼梯：R&B、城市流行</td><td>⑭</td><td class="play" data-play="tosb:4,3,2,1">⌁</td></tr>
             <tr><td class="play" data-play="kloopseq:pp1625">1625</td><td>I–vi–ii–V</td><td>爵士回头格：老歌、圣诞歌</td><td>⑭</td><td class="play" data-play="tosb:1,6,2,5">⌁</td></tr>
-            <tr><td class="play" data-play="kseq:canonS">卡农</td><td>I–V–vi–iii–IV–I–IV–V</td><td>婚礼/毕业季的下行台阶</td><td>⑩</td><td class="play" data-play="tosb:1,5,6,3,4,1,4,5">⌁</td></tr>
+            <tr><td class="play" data-play="kseq:canon8">卡农</td><td>I–V–vi–iii–IV–I–IV–V</td><td>婚礼/毕业季的下行台阶</td><td>⑩</td><td class="play" data-play="tosb:1,5,6,3,4,1,4,5">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mLoop">1637</td><td>i–VI–III–VII</td><td>小调万能：暗黑史诗、电音</td><td>本关</td><td class="play" data-play="tosb:6,4,1,5">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mEpic">1765</td><td>i–VII–VI–V7</td><td>安达卢西亚下行：弗拉门戈、宿命摇滚</td><td>本关</td><td class="play" data-play="tosb:6,5,4,3s">⌁</td></tr>
             <tr><td class="play" data-play="mkloopseq:mUp671">671</td><td>VI–VII–i</td><td>上行冲锋：动漫/EDM 进副歌</td><td>本关</td><td class="play" data-play="tosb:4,5,6">⌁</td></tr>
@@ -6433,6 +6499,8 @@ function teachCN(mId){
             <span class="chip" data-play="hr:pp1564:4">🔊 4/4 的 1564（流行标配，平稳向前）</span>
             <span class="chip" data-play="hr:pp1564:3:3">🔊 3/4 的 1564（每小节 3 拍——开始旋转摇曳）</span>
           </div>
+          <p style="color:var(--muted)">名曲印证：勃拉姆斯《摇篮曲》就活在 3/4 里——「3-3-5」的开头跟着「<b>1</b>-2-3」数，每个乐句都荡在三拍的秋千上：</p>
+          <div class="row"><span class="chip" data-play="rmel:0.42:4x0.5,4x0.5,7x2,4x0.5,4x0.5,7x2,4x1,7x1,12x1,11x2,9x1,9x1.5,7x2.5">🔊 摇篮曲开头：E E G— | E E G— | E G C5 | B— A | A G—</span></div>
           <p style="color:var(--muted)">为什么会这样？「强-弱-次强-弱」走直线，「强-弱-弱」原地转圈——重音的<b>周期</b>决定身体想怎么动。</p>
           <p><b>3/4 的近亲：6/8（慢歌的摇摆）。</b>刚才提了一嘴的 6/8 展开说：一小节<b>六个快拍、分成 3+3 两组</b>（数「<b>1</b>23<b>4</b>56」，1 最重、4 次重）。它和 3/4 的区别不在快慢，在<b>大拍数</b>：3/4 是三个慢拍走直线，6/8 是<b>两个大拍</b>、每个大拍里裹着三个小拍——所以 6/8 听起来是「摇晃」（两边摆），3/4 是「旋转」（三步转圈）。抒情慢歌、摇篮曲、蓝调慢板的标配：</p>
           <div class="row">
@@ -6570,6 +6638,16 @@ function teachCN(mId){
           <div class="row"><span class="chip" data-play="texm:block4">🔊 主调：同一旋律 + 柱式伴奏</span></div>
           <p><b>③ 复调 polyphony：几条独立的线互相缠绕。</b>没有谁伴奏谁，条条都是旋律——赋格、卡农轮唱是极致；流行歌副歌后段加进来的对位副旋律是它的轻量版。听：下方多了一条<b>自己走自己的</b>二分音线：</p>
           <div class="row"><span class="chip" data-play="texm:poly">🔊 复调：旋律 + 一条独立对位线</span></div>
+          <p style="color:var(--muted)">名曲一击：帕赫贝尔《卡农》的曲名 <b>canon ＝ 轮唱</b>——三把小提琴拉的是<b>同一条旋律</b>，只是各自迟八拍进入、自己追自己；下面的台阶和弦（⑩关）从头到尾托着它们。听一个两声部的迷你版，注意第二声部（低八度）从第三格才进来：</p>
+          <table class="ctab"><tr><th>格</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
+            <tr><td>和弦（台阶圈⑩）</td><td>C</td><td>G</td><td>Am</td><td>Em</td><td>F</td><td>C</td><td>F</td><td>G</td><td>C</td><td>G</td></tr>
+            <tr><td><b>声部 1</b></td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td><td>—</td><td>—</td></tr>
+            <tr><td><b>声部 2</b>（低八度）</td><td>—</td><td>—</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td></tr></table>
+          <p style="color:var(--muted)">两行音名<b>一字不差</b>，只是整行右移两格——轮唱的全部秘密就在这一下平移。妙处随之而来：同一个音两次落下时<b>配到的和弦不同</b>（E 第一次坐在 C 里、第二次坐在 Am 里），同一条线因此长出两种和声颜色——这正是复调耐听的原因。播放时想盯哪条就高亮哪条——所选声部的音和它当格所在的整个和弦会以<b>金色</b>逐格点亮：</p>
+          <div class="row">
+            <span class="chip" data-play="canonround:1">🔊 播放 · 高亮声部 1（先行）</span>
+            <span class="chip" data-play="canonround:2">🔊 播放 · 高亮声部 2（追赶）</span>
+          </div>
           <p><b>④ 支声 heterophony：同一条旋律的几个版本同时进行。</b>大家唱的是同一句，但各自加花——民乐合奏、民歌帮腔的常态。听：低八度有个爱加花的同伴，绕着同一条旋律走：</p>
           <div class="row"><span class="chip" data-play="texm:hetero">🔊 支声：旋律 + 它的加花版同行</span></div>
           <p style="color:var(--muted)">判别口诀：<b>数线、问关系</b>——一条线＝单声；一主多仆＝主调；条条平等＝复调；同一条线开分身＝支声。</p>
@@ -6702,6 +6780,7 @@ function teachCN(mId){
           </div>
           <p>这条线走完还能继续：F♯ 落到 F（这格顶音正是 F 和弦的根音）、再到 E（E7 登场），最后回家——<b>六步半音下楼</b>一气呵成，无数爵士抒情歌的骨架：</p>
           <div class="row"><span class="chip" data-play="mkseq:lcMinFull">🔊 完整版：Am→AmM7→Am7→Am6→F→E7→Am</span></div>
+          <p style="color:var(--muted)">名曲出处：这条「上面钉住、下面半音下沉」的手法，最著名的一整页就是<b>肖邦 e 小调前奏曲（Op.28 No.4）</b>——右手只反复两个音，左手和弦沿半音整整沉了一页纸，悲伤全靠下面那条暗流抬走。上面的完整版就是它的迷你骨架。</p>
           ${mKeyBar()}
         </div>
       </details>
@@ -6899,6 +6978,9 @@ function teachCN(mId){
             <tr><td>F–C–F–C（IV–I 阿门式⑬）</td><td>慢 · 铺底 · 变格收束最安详</td><td class="play" data-play="tex:outB:pad">▶</td></tr></table>
           <p style="color:var(--muted)">直说三处「像」：① <b>前奏≈尾奏</b>——首尾呼应是惯例，所以两边例1刻意用同一份材料（一个开门、一个关门）；② 前奏例2与副歌例1是<b>同一条 1564</b>——前奏常常就是「副歌的薄版」，先漏一点题；③ 副歌两例<b>配置一模一样</b>（两拍一换 × 低音+流水），只换了起点——<b>密与满才是副歌的身份证，用哪条套路反而自由</b>。</p>
           <p><b>零件内部还有呼吸：八小节短语。</b>流行歌以 4/8 小节为一口气——前 4 小节像「问」、后 4 小节像「答」（㉑关的套路绕两圈正好 8 小节，这不是巧合）。听任何歌时心里数到 8，十有八九正赶上段落换气。</p>
+          <p><b>比短语更小的零件：动机 motif。</b>记忆点（hook）的最小单位是一个<b>几个音的小动机</b>，靠「重复 + 小变化」长成整段——祖师爷级示范：贝多芬《命运》开头，「短短短长」四个音敲一遍，<b>整体降一级再敲一遍</b>，两锤就立起一座交响曲（移到 A 小调示意）：</p>
+          <div class="row"><span class="chip" data-play="rmel:0.3:16x0.5,16x0.5,16x0.5,12x3,rx1,14x0.5,14x0.5,14x0.5,11x4">🔊 命运动机：短短短·长 ｜ 降一级再来一遍</span></div>
+          <p style="color:var(--muted)">流行歌的副歌 hook 同一配方：抓一个三五个音的动机，原样重复一次、再移高或移低重复一次——扒歌时听出"这句是上一句搬家"，旋律就记下一半了。</p>
           <p><b>把地图听成声音。</b>下面这条 8 小节微缩 demo 浓缩了「主歌→预副歌→副歌」的标准升级：织体曲线（铺底→脉冲→低音+流水）和密度曲线（一小节一换→副歌两拍一换）<b>两条曲线同推</b>——这正是㉛关末尾说的"两只手一起推"：</p>
           <div class="row"><span class="chip" data-play="songmini">🔊 整歌微缩：主歌(静·疏) → 预副歌(动·仍疏) → 副歌(动·密)</span></div>
           <p style="color:var(--muted)">对照：㉛关的「织体曲线」只动织体一只手；这条 demo 副歌段连密度一起动了——注意副歌里和弦换得明显变勤。扒歌时反过来用这张地图：听出某段忽然变密变满，就该写下「副歌从这里开始」。</p>
@@ -7107,6 +7189,8 @@ function bindTeachPlays(root){
       else if(cmd.startsWith("mtex:")){ const a=cmd.split(":"); await playMelTex(a[1],a[2],a[3]); } // 配好的和弦×织体外衣
       else if(cmd.startsWith("texlayer:")){ await playTexLayers(cmd.slice(9)); } // 编曲分层：bass/pad/arp/all
       else if(cmd.startsWith("vh:")){ const a=cmd.split(":"); await playVH(a[1],a[2]); } // 唱和声：主旋律+第二人声
+      else if(cmd.startsWith("rmel:")){ const a=cmd.split(":"); await playRMel(+a[1], a[2]); } // 带节奏旋律
+      else if(cmd.startsWith("canonround:")){ await playCanonRound(+cmd.slice(11)); } // 卡农轮唱（参数=高亮哪个声部）
       else if(cmd==="pickup:hb"){ await playHBday(); } // 生日歌弱起（3/4 带节拍器）
       else if(cmd.startsWith("pickup:")){ await playPickup(cmd.slice(7)==="weak"); } // 弱起 vs 强起
       else if(cmd==="songmini"){ await playSongMini(); } // 整歌微缩：两条曲线同推
@@ -7155,6 +7239,8 @@ const SEQS = {
   introA: [[0,4,7],[5,9,12],[0,4,7],[5,9,12]],    // 前奏/尾奏示例：I–IV 来回(立氛围、报调性)
   gongVamp:[[0,4,7],[-3,0,4],[5,9,12],[0,4,7]],   // 五声即兴伴奏：C–Am–F–C 柔和绕圈(顺阶内，给五声旋律当安全网)
   bachPre: [[0,4,7,12,16],[0,2,9,14,17],[-1,2,7,11,17],[0,4,7,12,16]], // 巴赫 BWV846 前四小节：C → Dm7/C → G7/B → C（ii7–V7–I + 低音 C C B C）
+  plane1: [[0,4,7,11],[2,6,9,13],[3,7,10,14],[2,6,9,13],[0,4,7,11]],   // planing：Cmaj7 整块平移 D、E♭ 再滑回（形状不变，调性悬置）
+  planePop:[[5,9,12,16],[3,7,10,14],[2,5,9,12],[7,11,14,17],[0,4,7,11]], // 流行落地：Fmaj7→E♭maj7 滑两格 → Dm7→G7→Cmaj7 交回功能
   preB:   [[5,9,12],[7,11,14],[5,9,12],[7,11,14]],// 预副歌示例：IV–V 来回抬坡(憋住蓄力)
   brB:    [[2,5,9],[5,9,12],[2,5,9],[5,9,12]],    // 桥段示例：ii–IV 来回(离家换景，刻意不碰 I)
   outB:   [[5,9,12],[0,4,7],[5,9,12],[0,4,7]],    // 尾奏示例：IV–I 阿门式变格收束(⑬关)
@@ -7252,6 +7338,7 @@ const SEQS = {
   invG:   [[7,11,14],[11,14,19],[14,19,23]],// G: G B D → B D G → D G B
   // 卡农下行：低音 C4 B3 A3 G3 F3 走台阶；斜杠和弦都用转位弹法，各声部就近移动
   canonS: [[0,4,7],[-1,2,7],[-3,0,4],[-5,0,4],[-7,-3,0]], // C → G/B(B3 D4 G4) → Am → C/G(G3 C4 E4) → F
+  canon8: [[0,4,7],[-5,-1,2],[-3,0,4],[-8,-5,-1],[-7,-3,0],[0,4,7],[-7,-3,0],[-5,-1,2]], // 完整卡农八和弦圈 C G Am Em F C F G（贴中央C，轮唱与名片墙用）
   // 四大流行套路 (C 大调)
   pp1564: [[0,4,7],[7,11,14],[9,12,16],[5,9,12]],   // C G Am F
   pp4536: [[5,9,12],[7,11,14],[4,7,11],[9,12,16]],  // F G Em Am
@@ -7639,6 +7726,50 @@ async function playPickup(weak){
   const notes = weak ? [[2,7,"4n"],[3,9,"4n"],[4,12,"2n"]] : [[4,12,"4n"],[5,14,"4n"],[6,16,"2n"]];
   notes.forEach(([k,m,dur])=>{ synth.triggerAttackRelease(semiToName(m,60),dur,now+k*B,0.95);
     ev.push({midis:[60+m],t:k*B,dur,mel:true}); });
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// 带节奏的旋律：tokens=[semi]x[beats]，r=休止；unit=每拍秒数。灯光时值按拍长就近取档
+async function playRMel(unit, list){
+  await initAudio(); const now=Tone.now(); const ev=[]; let t=0;
+  for(const tk of list.split(",")){
+    const [a,b]=tk.split("x"); const beats=+b;
+    if(a!=="r"){
+      const m=+a, durLab=beats>=2?"2n":beats>=1?"4n":"8n";
+      synth.triggerAttackRelease(semiToName(m,60), Math.max(0.12,beats*unit*0.92), now+t, 0.95);
+      ev.push({midis:[60+m],t,dur:durLab,mel:true});
+    }
+    t+=beats*unit;
+  }
+  lastPlayed=ev; markPlayUntil(ev);
+}
+// ㉛ 卡农轮唱：帕赫贝尔第一小提琴句（移到 C），第二声部迟两格、低八度进入——曲名 canon=轮唱
+async function playCanonRound(hl){
+  await initAudio(); const now=Tone.now(); const ev=[]; const SLOT=1.1; // 每格=一个和弦
+  const mel=[16,14,12,11,9,7,9,11]; // E5 D5 C5 B4 A4 G4 A4 B4：原曲第一小提琴的八个二分音
+  for(let k=0;k<10;k++){ // 和弦垫底：卡农台阶绕一圈再补两格，托住迟到的声部2
+    const cs=SEQS.canon8[k%8];
+    synth.triggerAttackRelease(cs.map(x=>semiToName(x-12,60)),"2n",now+k*SLOT,0.32);
+    ev.push({midis:[],t:k*SLOT,dur:"2n"}); // 琴键交给金色通道点亮（空 midis 只保留清屏节奏，避免紫色盖金色）
+  }
+  mel.forEach((m,k)=>{ // 声部1
+    const on=hl!==2;
+    synth.triggerAttackRelease(semiToName(m,60),"2n",now+k*SLOT,on?0.95:0.5);
+    if(!on) ev.push({midis:[60+m],t:k*SLOT,dur:"2n"}); // 未选中的声部走紫色常规通道
+  });
+  mel.forEach((m,k)=>{ // 声部2（低八度，迟两格）：同一条线自己追自己
+    const on=hl===2;
+    synth.triggerAttackRelease(semiToName(m-12,60),"2n",now+(k+2)*SLOT,on?0.95:0.5);
+    if(!on) ev.push({midis:[48+m],t:(k+2)*SLOT,dur:"2n"});
+  });
+  // 金色通道：所选声部逐格点亮「该声部的音 + 当格整个和弦」，格末滚动切换，结尾全熄
+  mel.forEach((m,k)=>{
+    const slot=hl===2?k+2:k;
+    const vm0=hl===2?48+m:60+m;
+    const golds=[vm0, ...SEQS.canon8[slot%8].map(x=>48+x)];
+    ev.push({midis:golds, t:slot*SLOT+0.07, dur:"16n", hint:true});
+  });
+  const endSlot=(hl===2?9:7)*SLOT+SLOT-0.03;
+  ev.push({midis:[], t:endSlot, dur:"16n", hint:true}); // 所选声部唱完即熄金
   lastPlayed=ev; markPlayUntil(ev);
 }
 // ㉚ 生日歌弱起演示：3/4 节拍器（重音=每小节第1拍），"祝你"两个八分踩第3拍，"生"砸下小节第1拍
