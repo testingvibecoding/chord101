@@ -223,6 +223,11 @@
   .langbar button{background:#241f44;border:1px solid #3a3360;color:#8f86b8;font-weight:800;font-size:12px;
     padding:5px 10px;border-radius:8px;cursor:pointer}
   .langbar button.on{background:#3a2f6e;color:#ffd96b;border-color:#6a5acd}
+  /* 颜色优先级兜底：金色(hint)与绿色(vto)重申在最后并加 !important，确保不被紫色 reveal 覆盖 */
+  .key.w.hint{background:linear-gradient(180deg,#fff3c4,#ffd96b) !important}
+  .key.b.hint{background:linear-gradient(180deg,#caa23a,#8f6f14) !important}
+  .key.w.vto{background:linear-gradient(180deg,#bff0e0,#5ce6a0) !important;box-shadow:0 0 16px 3px #5ce6a0 inset}
+  .key.b.vto{background:linear-gradient(180deg,#7fe3bf,#2bbf8c) !important;box-shadow:0 0 12px 2px #5ce6a0}
 </style>
 </head>
 <body>
@@ -1378,9 +1383,9 @@ function teachEN(mId){
             <tr><td>Soprano</td><td>A3–D5</td><td>around F5</td></tr></table>
           <p><b>Workshop · run the three steps on Happy Birthday.</b> Its highest note sits in phrase three: "Happy <b>birth</b>-day dear…" leaps up an octave (in C, that is <b>G5</b>) — ① highest note found; ② suppose your relaxed ceiling is <b>E5</b>; ③ the gap is 3 semitones → take the whole song <b>down 3</b>. Hear phrase three in three versions and feel where the peak lands:</p>
           <div class="row">
-            <span class="chip" data-play="mel:7,7,19,16,12,11,9">🔊 Original C: peak G5 (a shout for most)</span>
-            <span class="chip" data-play="mel:4,4,16,13,9,8,6">🔊 Down 3 (A major): peak E5 (just right)</span>
-            <span class="chip" data-play="mel:-5,-5,7,4,0,-1,-3">🔊 Escape hatch: the octave below, peak G4 (anyone can)</span>
+            <span class="chip" data-play="rmel:0.45:7x0.5,7x0.5,19x2,16x1,12x2,11x1,9x3">🔊 Original C: peak G5 (a shout for most)</span>
+            <span class="chip" data-play="rmel:0.45:4x0.5,4x0.5,16x2,13x1,9x2,8x1,6x3">🔊 Down 3 (A major): peak E5 (just right)</span>
+            <span class="chip" data-play="rmel:0.45:-5x0.5,-5x0.5,7x2,4x1,0x2,-1x1,-3x3">🔊 Escape hatch: the octave below, peak G4 (anyone can)</span>
           </div>
           <p style="color:var(--muted)">Two working notes: men covering songs by female vocalists usually drop <b>4–5 semitones</b> (or sing the octave below); choosing a key for group singing, defer to the <b>narrowest range</b> in the room. Transposing loses nothing — the numerals of ⑭㉑ and the textures of ㉛ all shift intact: this level's "shape-preserving move".</p>
         </div>
@@ -2003,7 +2008,7 @@ function teachEN(mId){
           <p><b>No half steps = no thorns.</b> Half steps clash when sounded together (level ①'s narrowest interval); the pentatonic set contains none, so <b>any handful of its notes rings as one</b>. Verify by fistful:</p>
           <div class="row">
             <span class="chip" data-play="notes:0,2,4,7,9">🔊 All five at once (seamless, like bells)</span>
-            <span class="chip" data-play="notes:0,2,4,5,7,11">🔊 Add 4 and 7 back and grab again (E–F, B–C start fighting)</span>
+            <span class="chip" data-play="notes:0,2,4,5,7,9,11">🔊 Add 4 and 7 back — all seven at once (E–F, B–C start fighting)</span>
           </div>
           <p><b>Gong-shang-jue-zhi-yu = "taking turns as tonic", pentatonic edition.</b> This level just played that game on seven white keys; play it again on five notes and you get China's five traditional modes:</p>
           <table class="ctab"><tr><th>Mode</th><th>Starts on</th><th>Degrees</th><th>Color in a word</th><th>Hear</th></tr>
@@ -2025,8 +2030,8 @@ function teachEN(mId){
           </div>
           <p><b>The classics agree.</b> Pentatonic is no Chinese monopoly — it is the common denominator of folk song worldwide:</p>
           <div class="row">
-            <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 Dvořák, New World Largo theme (the whole line uses only 1 2 3 5 6)</span>
-            <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 Amazing Grace, opening (purely pentatonic too)</span>
+            <span class="chip" data-play="rmel:0.45:4x1.5,7x0.5,7x2,4x1.5,2x0.5,0x2,2x1,4x1,7x1.5,4x0.5,2x3">🔊 Dvořák, New World Largo theme (the whole line uses only 1 2 3 5 6)</span>
+            <span class="chip" data-play="rmel:0.5:-5x1,0x2,4x0.5,0x0.5,4x2,2x1,0x2,-3x1,-5x3">🔊 Amazing Grace, opening (purely pentatonic too)</span>
             <span class="chip" data-play="mel:16,14,12,14,16,19,16,14,12,14,16">🔊 Grieg, Morning Mood opening (3-2-1-2-3-5: pentatonic again)</span>
           </div>
           <p style="color:var(--muted)">Songwriting recipe: the usual "Chinese style" formula = <b>pentatonic melody + level ⑭'s pop chords</b> — harmony walks 1645/4536 as ever; only the melody's palette shrinks to 1 2 3 5 6, with phrase ends favoring yu (6) and shang (2).</p>
@@ -2991,11 +2996,11 @@ function teachEN(mId){
         <div style="line-height:1.85;color:#e9e3ff">
           <p><b>Für Elise (Beethoven):</b> the famous opening tickle is E and D♯ — a <b>half-step neighbor</b> rubbing back and forth — then a stepwise fall into A; and the left hand that follows is the <b>Am ↔ E</b> swing: E is precisely this level's forged <b>capital V</b> (with G♯). The whole piece breathes on that i↔V pendulum:</p>
           <div class="row">
-            <span class="chip" data-play="mel:16,15,16,15,16,11,14,12,9">🔊 Opening line: E–D♯–E–D♯–E–B–D–C–A</span>
+            <span class="chip" data-play="rmel:0.19:16x1,15x1,16x1,15x1,16x1,11x1,14x1,12x1,9x4">🔊 Opening line: E–D♯–E–D♯–E–B–D–C–A—</span>
             <span class="chip" data-play="mkprog:1,V,1">🔊 Its left-hand skeleton: Am → E → Am (i–V–i)</span>
           </div>
           <p><b>The Swan Lake theme (Tchaikovsky, moved to A minor):</b> in the swan's head-lifting phrase, the second-to-last note is <b>G♯ — the leading tone</b>: the whole ache hangs on that half step and lets go only on landing at A. Without level ⑲'s hack, the swan cannot lift its head:</p>
-          <div class="row"><span class="chip" data-play="mel:4,9,11,12,11,9,8,9">🔊 Theme: E–A–B–C–B–A–G♯–A (G♯ suspends, A releases)</span></div>
+          <div class="row"><span class="chip" data-play="rmel:0.4:4x3,9x1,11x1,12x1,11x1,9x1,8x1,9x3">🔊 Theme: E—A–B–C–B–A–G♯–A— (G♯ suspends, A releases)</span></div>
           <p style="color:var(--muted)">Both pieces do one thing: install the artificial leading tone as minor's "must-go-home" spring — three centuries from Beethoven straight into pop ballads.</p>
         </div>
       </details>
@@ -3487,13 +3492,10 @@ function teachEN(mId){
           <p style="color:var(--muted)">One classic, one blow: Pachelbel's Canon is named <b>canon = a round</b> — the three violins play <b>one and the same line</b>, each entering eight beats late, chasing itself, over the staircase chords of level ⑩. Hear a two-voice miniature; the second voice (an octave below) enters only at slot three:</p>
           <table class="ctab"><tr><th>Slot</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
             <tr><td>Chords (staircase ⑩)</td><td>C</td><td>G</td><td>Am</td><td>Em</td><td>F</td><td>C</td><td>F</td><td>G</td><td>C</td><td>G</td></tr>
-            <tr><td><b>Voice 1</b></td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td><td>—</td><td>—</td></tr>
-            <tr><td><b>Voice 2</b> (octave below)</td><td>—</td><td>—</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td></tr></table>
-          <p style="color:var(--muted)">The two rows are <b>letter-for-letter identical</b> — one is simply slid two slots right; that slide is the round's whole secret. And the magic follows: each note lands on a <b>different chord</b> the second time around (E sits inside C first, inside Am next), so one line grows two harmonic colors — exactly why polyphony rewards repeated listening. While playing, highlight whichever voice you want to follow — its note plus the entire chord of that slot light up in <b>gold</b>, slot by slot:</p>
-          <div class="row">
-            <span class="chip" data-play="canonround:1">🔊 Play · highlight voice 1 (the leader)</span>
-            <span class="chip" data-play="canonround:2">🔊 Play · highlight voice 2 (the chaser)</span>
-          </div>
+            <tr><td style="color:#ffd75e"><b>Voice 1</b></td><td style="color:#ffd75e">E</td><td style="color:#ffd75e">D</td><td style="color:#ffd75e">C</td><td style="color:#ffd75e">B</td><td style="color:#ffd75e">A</td><td style="color:#ffd75e">G</td><td style="color:#ffd75e">A</td><td style="color:#ffd75e">B</td><td style="color:#ffd75e">—</td><td style="color:#ffd75e">—</td></tr>
+            <tr><td style="color:#7fe3bf"><b>Voice 2</b> (octave below)</td><td style="color:#7fe3bf">—</td><td style="color:#7fe3bf">—</td><td style="color:#7fe3bf">E</td><td style="color:#7fe3bf">D</td><td style="color:#7fe3bf">C</td><td style="color:#7fe3bf">B</td><td style="color:#7fe3bf">A</td><td style="color:#7fe3bf">G</td><td style="color:#7fe3bf">A</td><td style="color:#7fe3bf">B</td></tr></table>
+          <p style="color:var(--muted)">The two rows are <b>letter-for-letter identical</b> — one is simply slid two slots right; that slide is the round's whole secret. And the magic follows: each note lands on a <b>different chord</b> the second time around (E sits inside C first, inside Am next), so one line grows two harmonic colors — exactly why polyphony rewards repeated listening. Playback matches the table: <b style="color:#ffd75e">voice 1 = gold</b>, <b style="color:#7fe3bf">voice 2 = green</b>, chords = purple:</p>
+          <div class="row"><span class="chip" data-play="canonround">🔊 Play the round (voice 1 gold · voice 2 green · chords purple)</span></div>
           <p><b>④ Heterophony: several versions of the same melody at once.</b> Everyone sings the same phrase, each ornamenting freely — the daily bread of folk ensembles. Listen: an embellishing companion an octave below, circling the same tune:</p>
           <div class="row"><span class="chip" data-play="texm:hetero">🔊 Heterophony: tune + its ornamented twin</span></div>
           <p style="color:var(--muted)">Field guide: <b>count the lines, ask the relationship</b> — one line = monophony; one master, many servants = homophony; all equals = polyphony; one line with body doubles = heterophony.</p>
@@ -3626,7 +3628,8 @@ function teachEN(mId){
           </div>
           <p>The line can keep going: F♯ falls to F (that slot's top note is the root of an F chord), then to E (enter E7), then home — <b>six chromatic stairs in one breath</b>, the skeleton of countless jazz ballads:</p>
           <div class="row"><span class="chip" data-play="mkseq:lcMinFull">🔊 Full run: Am→AmM7→Am7→Am6→F→E7→Am</span></div>
-          <p style="color:var(--muted)">The classic source: the most famous full page of "pin the top, sink the bottom by half steps" is <b>Chopin's E-minor Prelude (Op. 28 No. 4)</b> — the right hand repeats two notes while the left hand's chords sink chromatically for a page on end; all the grief rides that undercurrent. The full run above is its miniature skeleton.</p>
+          <p style="color:var(--muted)">The classic source — the same trick upside down, "<b>pin the top, sink the bottom by half steps</b>": <b>Chopin's E-minor Prelude (Op. 28 No. 4)</b>, where the right hand repeats two notes while the left hand's chords sink chromatically for a page on end; all the grief rides that undercurrent. A miniature sketch (top E frozen, the two lower voices taking turns to drop a half step, landing on the dominant):</p>
+          <div class="row"><span class="chip" data-play="seq:chopSink">🔊 Chopin-style sketch: top pinned · chromatic undercurrent · landing on V</span></div>
           ${mKeyBar()}
         </div>
       </details>
@@ -4524,9 +4527,9 @@ function teachCN(mId){
             <tr><td>女高</td><td>A3–D5</td><td>F5 上下</td></tr></table>
           <p><b>实战 · 拿《生日歌》走一遍三步法。</b>它的最高音在第三句：「祝你<b>生</b>日快乐」的"生"字向上跳八度（C 调里是 <b>G5</b>）——①最高音找到了；②假设你放松能唱到 <b>E5</b>；③差 3 个半音 → 整首<b>降 3</b>。听三个版本的第三句，感受顶点落在哪里：</p>
           <div class="row">
-            <span class="chip" data-play="mel:7,7,19,16,12,11,9">🔊 C 调原样：顶点 G5（多数人要喊）</span>
-            <span class="chip" data-play="mel:4,4,16,13,9,8,6">🔊 降 3 个半音（A 调）：顶点 E5（正好）</span>
-            <span class="chip" data-play="mel:-5,-5,7,4,0,-1,-3">🔊 逃生方案：低八度唱，顶点 G4（人人都行）</span>
+            <span class="chip" data-play="rmel:0.45:7x0.5,7x0.5,19x2,16x1,12x2,11x1,9x3">🔊 C 调原样：顶点 G5（多数人要喊）</span>
+            <span class="chip" data-play="rmel:0.45:4x0.5,4x0.5,16x2,13x1,9x2,8x1,6x3">🔊 降 3 个半音（A 调）：顶点 E5（正好）</span>
+            <span class="chip" data-play="rmel:0.45:-5x0.5,-5x0.5,7x2,4x1,0x2,-1x1,-3x3">🔊 逃生方案：低八度唱，顶点 G4（人人都行）</span>
           </div>
           <p style="color:var(--muted)">两个常用小抄：男声唱女声原唱的歌，常整体<b>降 4–5 个半音</b>（或低八度唱）；合唱选调要迁就<b>音域最窄</b>的人。移调不丢任何东西——⑭㉑的级数关系、㉛的织体全都原样平移，这正是本关反复强调的「保形」。</p>
         </div>
@@ -5148,7 +5151,7 @@ function teachCN(mId){
           <p><b>没有半音＝没有刺。</b>半音同响会"打架"（①关讲过的最窄音程）；五声内部没有半音，于是<b>任意几个音抓在一起都浑然</b>。亲手验证——五声一把抓 vs 七声一把抓：</p>
           <div class="row">
             <span class="chip" data-play="notes:0,2,4,7,9">🔊 五声全按（浑然一团，像钟磬）</span>
-            <span class="chip" data-play="notes:0,2,4,5,7,11">🔊 掺进 4 和 7 再按（E–F、B–C 开始打架）</span>
+            <span class="chip" data-play="notes:0,2,4,5,7,9,11">🔊 掺回 4 和 7、七声全按（E–F、B–C 开始打架）</span>
           </div>
           <p><b>宫商角徵羽＝五声版的「轮流当主音」。</b>本关刚玩过七个白键轮流当家；同一个游戏在五个音上再玩一遍，就是中国传统的五个调式——名字依次叫<b>宫、商、角、徵、羽</b>：</p>
           <table class="ctab"><tr><th>调式</th><th>从哪个音起</th><th>音级</th><th>色彩一词</th><th>听</th></tr>
@@ -5170,8 +5173,8 @@ function teachCN(mId){
           </div>
           <p><b>名曲印证。</b>五声不是中国独有——它是全世界民歌的公约数：</p>
           <div class="row">
-            <span class="chip" data-play="mel:4,7,7,4,2,0,2,4,7,4,2">🔊 德沃夏克《自新世界》主题（整句只用 1 2 3 5 6）</span>
-            <span class="chip" data-play="mel:-5,0,4,0,4,2,0,-3,-5">🔊 《奇异恩典》开头（同样纯五声）</span>
+            <span class="chip" data-play="rmel:0.45:4x1.5,7x0.5,7x2,4x1.5,2x0.5,0x2,2x1,4x1,7x1.5,4x0.5,2x3">🔊 德沃夏克《自新世界》主题（整句只用 1 2 3 5 6）</span>
+            <span class="chip" data-play="rmel:0.5:-5x1,0x2,4x0.5,0x0.5,4x2,2x1,0x2,-3x1,-5x3">🔊 《奇异恩典》开头（同样纯五声）</span>
             <span class="chip" data-play="mel:16,14,12,14,16,19,16,14,12,14,16">🔊 格里格《晨曲》开头（3-2-1-2-3-5：还是五声）</span>
           </div>
           <p style="color:var(--muted)">写歌小抄：「中国风」的常用配方＝<b>五声旋律 + ⑭关的流行和弦</b>——和声照常走 1645/4536，只把旋律的用料换成 1 2 3 5 6，句尾多落羽（6）商（2）。</p>
@@ -6143,11 +6146,11 @@ function teachCN(mId){
         <div style="line-height:1.85;color:#e9e3ff">
           <p><b>《致爱丽丝》（贝多芬）：</b>开头那段著名的搔痒，是 E 和 D♯ 的<b>半音邻音</b>来回蹭，随后顺阶梯落进 A——左手紧跟着就是 <b>Am ↔ E</b> 的来回：E 正是本关魔改出的<b>大写 V</b>（带 G♯），整首曲子靠这对 i↔V 的呼吸摆动：</p>
           <div class="row">
-            <span class="chip" data-play="mel:16,15,16,15,16,11,14,12,9">🔊 开头旋律：E–D♯–E–D♯–E–B–D–C–A</span>
+            <span class="chip" data-play="rmel:0.19:16x1,15x1,16x1,15x1,16x1,11x1,14x1,12x1,9x4">🔊 开头旋律：E–D♯–E–D♯–E–B–D–C–A—</span>
             <span class="chip" data-play="mkprog:1,V,1">🔊 它的左手骨架：Am → E → Am（i–V–i）</span>
           </div>
           <p><b>《天鹅湖》主题（柴可夫斯基，移到 A 小调）：</b>天鹅一抬头的那句，倒数第二个音正是 <b>G♯（导音）</b>——全句的揪心感就吊在这半音上，落回 A 才松手。没有⑲关的魔改，这只天鹅抬不起头：</p>
-          <div class="row"><span class="chip" data-play="mel:4,9,11,12,11,9,8,9">🔊 主题：E–A–B–C–B–A–G♯–A（G♯ 吊住，A 收）</span></div>
+          <div class="row"><span class="chip" data-play="rmel:0.4:4x3,9x1,11x1,12x1,11x1,9x1,8x1,9x3">🔊 主题：E—A–B–C–B–A–G♯–A—（G♯ 吊住，A 收）</span></div>
           <p style="color:var(--muted)">两首都在做同一件事：用人造导音给小调装上「必须回家」的弹簧——三百年来从贝多芬用到流行抒情歌。</p>
         </div>
       </details>
@@ -6641,13 +6644,10 @@ function teachCN(mId){
           <p style="color:var(--muted)">名曲一击：帕赫贝尔《卡农》的曲名 <b>canon ＝ 轮唱</b>——三把小提琴拉的是<b>同一条旋律</b>，只是各自迟八拍进入、自己追自己；下面的台阶和弦（⑩关）从头到尾托着它们。听一个两声部的迷你版，注意第二声部（低八度）从第三格才进来：</p>
           <table class="ctab"><tr><th>格</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>9</th><th>10</th></tr>
             <tr><td>和弦（台阶圈⑩）</td><td>C</td><td>G</td><td>Am</td><td>Em</td><td>F</td><td>C</td><td>F</td><td>G</td><td>C</td><td>G</td></tr>
-            <tr><td><b>声部 1</b></td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td><td>—</td><td>—</td></tr>
-            <tr><td><b>声部 2</b>（低八度）</td><td>—</td><td>—</td><td>E</td><td>D</td><td>C</td><td>B</td><td>A</td><td>G</td><td>A</td><td>B</td></tr></table>
-          <p style="color:var(--muted)">两行音名<b>一字不差</b>，只是整行右移两格——轮唱的全部秘密就在这一下平移。妙处随之而来：同一个音两次落下时<b>配到的和弦不同</b>（E 第一次坐在 C 里、第二次坐在 Am 里），同一条线因此长出两种和声颜色——这正是复调耐听的原因。播放时想盯哪条就高亮哪条——所选声部的音和它当格所在的整个和弦会以<b>金色</b>逐格点亮：</p>
-          <div class="row">
-            <span class="chip" data-play="canonround:1">🔊 播放 · 高亮声部 1（先行）</span>
-            <span class="chip" data-play="canonround:2">🔊 播放 · 高亮声部 2（追赶）</span>
-          </div>
+            <tr style="color:#ffd75e"><td style="color:#ffd75e"><b>声部 1</b></td><td style="color:#ffd75e">E</td><td style="color:#ffd75e">D</td><td style="color:#ffd75e">C</td><td style="color:#ffd75e">B</td><td style="color:#ffd75e">A</td><td style="color:#ffd75e">G</td><td style="color:#ffd75e">A</td><td style="color:#ffd75e">B</td><td style="color:#ffd75e">—</td><td style="color:#ffd75e">—</td></tr>
+            <tr style="color:#7fe3bf"><td style="color:#7fe3bf"><b>声部 2</b>（低八度）</td><td style="color:#7fe3bf">—</td><td style="color:#7fe3bf">—</td><td style="color:#7fe3bf">E</td><td style="color:#7fe3bf">D</td><td style="color:#7fe3bf">C</td><td style="color:#7fe3bf">B</td><td style="color:#7fe3bf">A</td><td style="color:#7fe3bf">G</td><td style="color:#7fe3bf">A</td><td style="color:#7fe3bf">B</td></tr></table>
+          <p style="color:var(--muted)">两行音名<b>一字不差</b>，只是整行右移两格——轮唱的全部秘密就在这一下平移。妙处随之而来：同一个音两次落下时<b>配到的和弦不同</b>（E 第一次坐在 C 里、第二次坐在 Am 里），同一条线因此长出两种和声颜色——这正是复调耐听的原因。播放配色与表格一致：<b style="color:#ffd75e">声部 1＝金色</b>、<b style="color:#7fe3bf">声部 2＝绿色</b>、和弦＝紫色：</p>
+          <div class="row"><span class="chip" data-play="canonround">🔊 播放轮唱（声部1金 · 声部2绿 · 和弦紫）</span></div>
           <p><b>④ 支声 heterophony：同一条旋律的几个版本同时进行。</b>大家唱的是同一句，但各自加花——民乐合奏、民歌帮腔的常态。听：低八度有个爱加花的同伴，绕着同一条旋律走：</p>
           <div class="row"><span class="chip" data-play="texm:hetero">🔊 支声：旋律 + 它的加花版同行</span></div>
           <p style="color:var(--muted)">判别口诀：<b>数线、问关系</b>——一条线＝单声；一主多仆＝主调；条条平等＝复调；同一条线开分身＝支声。</p>
@@ -6780,7 +6780,8 @@ function teachCN(mId){
           </div>
           <p>这条线走完还能继续：F♯ 落到 F（这格顶音正是 F 和弦的根音）、再到 E（E7 登场），最后回家——<b>六步半音下楼</b>一气呵成，无数爵士抒情歌的骨架：</p>
           <div class="row"><span class="chip" data-play="mkseq:lcMinFull">🔊 完整版：Am→AmM7→Am7→Am6→F→E7→Am</span></div>
-          <p style="color:var(--muted)">名曲出处：这条「上面钉住、下面半音下沉」的手法，最著名的一整页就是<b>肖邦 e 小调前奏曲（Op.28 No.4）</b>——右手只反复两个音，左手和弦沿半音整整沉了一页纸，悲伤全靠下面那条暗流抬走。上面的完整版就是它的迷你骨架。</p>
+          <p style="color:var(--muted)">名曲出处：把这招倒过来用——「<b>上面钉住、下面半音下沉</b>」——最著名的一整页就是<b>肖邦 e 小调前奏曲（Op.28 No.4）</b>：右手只反复两个音，左手和弦沿半音整整沉了一页纸，悲伤全靠下面那条暗流抬走。听一个迷你示意（顶音 E 一动不动，下面两个声部轮流下半音、最后落进属和弦）：</p>
+          <div class="row"><span class="chip" data-play="seq:chopSink">🔊 肖邦式示意：顶音钉死 · 下方半音暗流 · 落 V</span></div>
           ${mKeyBar()}
         </div>
       </details>
@@ -7190,7 +7191,7 @@ function bindTeachPlays(root){
       else if(cmd.startsWith("texlayer:")){ await playTexLayers(cmd.slice(9)); } // 编曲分层：bass/pad/arp/all
       else if(cmd.startsWith("vh:")){ const a=cmd.split(":"); await playVH(a[1],a[2]); } // 唱和声：主旋律+第二人声
       else if(cmd.startsWith("rmel:")){ const a=cmd.split(":"); await playRMel(+a[1], a[2]); } // 带节奏旋律
-      else if(cmd.startsWith("canonround:")){ await playCanonRound(+cmd.slice(11)); } // 卡农轮唱（参数=高亮哪个声部）
+      else if(cmd==="canonround"){ await playCanonRound(); } // 卡农轮唱：声部1金·声部2绿·和弦紫
       else if(cmd==="pickup:hb"){ await playHBday(); } // 生日歌弱起（3/4 带节拍器）
       else if(cmd.startsWith("pickup:")){ await playPickup(cmd.slice(7)==="weak"); } // 弱起 vs 强起
       else if(cmd==="songmini"){ await playSongMini(); } // 整歌微缩：两条曲线同推
@@ -7240,6 +7241,8 @@ const SEQS = {
   gongVamp:[[0,4,7],[-3,0,4],[5,9,12],[0,4,7]],   // 五声即兴伴奏：C–Am–F–C 柔和绕圈(顺阶内，给五声旋律当安全网)
   bachPre: [[0,4,7,12,16],[0,2,9,14,17],[-1,2,7,11,17],[0,4,7,12,16]], // 巴赫 BWV846 前四小节：C → Dm7/C → G7/B → C（ii7–V7–I + 低音 C C B C）
   plane1: [[0,4,7,11],[2,6,9,13],[3,7,10,14],[2,6,9,13],[0,4,7,11]],   // planing：Cmaj7 整块平移 D、E♭ 再滑回（形状不变，调性悬置）
+  chopSink:[[9,12,16],[8,12,16],[8,11,16],[7,11,16],[7,10,16],[6,10,16],[6,9,16],[5,9,16],[4,8,11,16]], // 肖邦式示意：顶音 E5 钉死，下方两声部严格交替下半音，落 E(V)——e小调前奏曲的骨架手法
+
   planePop:[[5,9,12,16],[3,7,10,14],[2,5,9,12],[7,11,14,17],[0,4,7,11]], // 流行落地：Fmaj7→E♭maj7 滑两格 → Dm7→G7→Cmaj7 交回功能
   preB:   [[5,9,12],[7,11,14],[5,9,12],[7,11,14]],// 预副歌示例：IV–V 来回抬坡(憋住蓄力)
   brB:    [[2,5,9],[5,9,12],[2,5,9],[5,9,12]],    // 桥段示例：ii–IV 来回(离家换景，刻意不碰 I)
@@ -7743,33 +7746,24 @@ async function playRMel(unit, list){
   lastPlayed=ev; markPlayUntil(ev);
 }
 // ㉛ 卡农轮唱：帕赫贝尔第一小提琴句（移到 C），第二声部迟两格、低八度进入——曲名 canon=轮唱
-async function playCanonRound(hl){
+async function playCanonRound(){
   await initAudio(); const now=Tone.now(); const ev=[]; const SLOT=1.1; // 每格=一个和弦
   const mel=[16,14,12,11,9,7,9,11]; // E5 D5 C5 B4 A4 G4 A4 B4：原曲第一小提琴的八个二分音
-  for(let k=0;k<10;k++){ // 和弦垫底：卡农台阶绕一圈再补两格，托住迟到的声部2
+  for(let k=0;k<10;k++){ // 和弦＝紫色
     const cs=SEQS.canon8[k%8];
     synth.triggerAttackRelease(cs.map(x=>semiToName(x-12,60)),"2n",now+k*SLOT,0.32);
-    ev.push({midis:[],t:k*SLOT,dur:"2n"}); // 琴键交给金色通道点亮（空 midis 只保留清屏节奏，避免紫色盖金色）
+    ev.push({midis:cs.map(x=>48+x),t:k*SLOT,dur:"2n"});
   }
-  mel.forEach((m,k)=>{ // 声部1
-    const on=hl!==2;
-    synth.triggerAttackRelease(semiToName(m,60),"2n",now+k*SLOT,on?0.95:0.5);
-    if(!on) ev.push({midis:[60+m],t:k*SLOT,dur:"2n"}); // 未选中的声部走紫色常规通道
+  mel.forEach((m,k)=>{ // 声部1＝金色（hint 通道，逐音滚动）
+    synth.triggerAttackRelease(semiToName(m,60),"2n",now+k*SLOT,0.9);
+    ev.push({midis:[60+m],t:k*SLOT+0.07,dur:"16n",hint:true});
   });
-  mel.forEach((m,k)=>{ // 声部2（低八度，迟两格）：同一条线自己追自己
-    const on=hl===2;
-    synth.triggerAttackRelease(semiToName(m-12,60),"2n",now+(k+2)*SLOT,on?0.95:0.5);
-    if(!on) ev.push({midis:[48+m],t:(k+2)*SLOT,dur:"2n"});
+  ev.push({midis:[],t:8*SLOT-0.05,dur:"16n",hint:true}); // 声部1唱完即清金，不残留到后两格
+  mel.forEach((m,k)=>{ // 声部2＝绿色（低八度，迟两格）
+    synth.triggerAttackRelease(semiToName(m-12,60),"2n",now+(k+2)*SLOT,0.85);
+    ev.push({midis:[48+m],t:(k+2)*SLOT,dur:"2n",mel:true});
   });
-  // 金色通道：所选声部逐格点亮「该声部的音 + 当格整个和弦」，格末滚动切换，结尾全熄
-  mel.forEach((m,k)=>{
-    const slot=hl===2?k+2:k;
-    const vm0=hl===2?48+m:60+m;
-    const golds=[vm0, ...SEQS.canon8[slot%8].map(x=>48+x)];
-    ev.push({midis:golds, t:slot*SLOT+0.07, dur:"16n", hint:true});
-  });
-  const endSlot=(hl===2?9:7)*SLOT+SLOT-0.03;
-  ev.push({midis:[], t:endSlot, dur:"16n", hint:true}); // 所选声部唱完即熄金
+  ev.push({midis:[],t:10*SLOT+0.02,dur:"16n",hint:true}); // 结尾兜底清金（绿/紫由末事件熄灯例程清）
   lastPlayed=ev; markPlayUntil(ev);
 }
 // ㉚ 生日歌弱起演示：3/4 节拍器（重音=每小节第1拍），"祝你"两个八分踩第3拍，"生"砸下小节第1拍
@@ -10619,7 +10613,7 @@ function renderQuestion(){
     <div id="deepPanel"></div>
   `;
   showDock(cur.kind==="build"); // 底部悬浮键盘
-  if(cur.flashStart) startHintBlink(cur.flashStart); // 题目一出现就闪烁位置参考(题面本来就写明了起始音，纯理论也能作答)
+  // 位置参考的闪烁改为按「播放」后才开始（doPlay 里触发）——避免教学区点播时题目按钮提前闪
   const doPlay=()=>{
     if(loopTimer) stopLoop();   // 教学区循环还在转就先停——做题时不叠音
     stopAllSound();             // 上一题的声音(含未响完的排程)先清场
@@ -11810,8 +11804,10 @@ function lightAlong(rootSel="#piano"){
         keys.forEach(k=>k.classList.add(ev.mel ? "vto" : "reveal"));
       });
     }, at+70);
-    if(idx===lastPlayed.length-1) later(()=>{ clearAll(); clearHint(); }, at+70+durToMs(ev.dur)); // 末尾全部熄灭
   });
+  // 末尾全熄：按全部事件（含金色 hint）的最大结束时刻统一排程——声音停，颜色就停
+  const endMs=lastPlayed.reduce((m,e)=>Math.max(m, e.t*1000+70+durToMs(e.dur)), 0);
+  later(()=>{ clearAll(); clearHint(); }, endMs+30);
 }
 // 讲解区静态键盘示意图：lo..hi 范围，marks={midi:类名} 给指定键上色(sel=音阶内/绿，hint=重点/黄)
 // 只标音名(不标数字行避免重叠)；黑键全部标名(此处用降号名)；整体收窄居左
