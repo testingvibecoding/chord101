@@ -294,7 +294,7 @@ function makeSynth(){
   return sy;
 }
 /* ---- 🎨 音色：合成（内置兜底）/ 钢琴采样 / 全音色库（后两者需联网下载，未就绪前自动用合成）---- */
-let timbre="pno"; // 钢琴采样已内置：默认即用真实钢琴音色（本地解码，离线可用）；合成器/全音色库可手动切换
+let timbre="syn"; // 默认合成器（即时、稳）；切换到“钢琴采样”时才加载内置采样，全音色库需联网
 let pnoSampler=null, pnoReady=false, pnoLoading=false, pnoAdapter=null;
 let gmPlayer=null, gmScriptLoading=false, gmLoaded={}, gmInflight={}, gmWatch=0;
 function gmPreset(prog){ return String((+prog||0)*10).padStart(4,"0")+"_FluidR3_GM_sf2_file"; } // GM 程序号→FluidR3 preset 名
@@ -11799,7 +11799,7 @@ function sbValidStep(st){ return st&&(st.k in SB_KEYS)&&SB_TOKENS[st.t]&&[2,3,4]
 function sbLoad(){ try{ const j=JSON.parse(localStorage.getItem("sandbox3")||"null");
   if(j&&j.tempo&&!sbValidTempo(j.tempo)) j.tempo={slow:"70",mid:"100",fast:"130"}[j.tempo]||sbNormTempo(j.tempo); // 旧三档/异常值迁移
   if(j&&Array.isArray(j.steps)&&j.steps.length>=1&&j.steps.length<=SB_MAX&&j.steps.every(sbValidStep)&&sbValidTempo(j.tempo)) sb=j; }catch(e){}
-  if(_sbFirstLoad){ _sbFirstLoad=false; timbre="pno"; if(sb){ if(sb.gmc&&!GM_RE.test(sb.gmc)) sb.gmc=null; if(sb.gmm&&!GM_RE.test(sb.gmm)) sb.gmm=null; } } // 刚打开：默认钢琴；采样在首次手势后才解码（iOS 要求上下文 running）
+  if(_sbFirstLoad){ _sbFirstLoad=false; timbre="syn"; if(sb){ if(sb.gmc&&!GM_RE.test(sb.gmc)) sb.gmc=null; if(sb.gmm&&!GM_RE.test(sb.gmm)) sb.gmm=null; } } // 刚打开：默认合成器，不自动加载采样/音色库
   else sbApplyTimbre(); }
 function sbSave(){ try{ localStorage.setItem("sandbox3", JSON.stringify(sb)); }catch(e){} }
 function sbChordOf(st){ const r0=SB_KEYS[st.k], off=r0>6?r0-12:r0; return SB_TOKENS[st.t].cs.map(x=>x+off); }
