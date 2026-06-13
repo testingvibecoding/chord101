@@ -294,7 +294,7 @@ function makeSynth(){
   return sy;
 }
 /* ---- 🎨 音色：合成（内置兜底）/ 钢琴采样 / 全音色库（后两者需联网下载，未就绪前自动用合成）---- */
-let timbre=(()=>{ const t=localStorage.getItem("sbTimbre"); return ["syn","pno","gm"].includes(t)?t:"syn"; })();
+let timbre="syn"; // 所有浏览器/会话一律默认先用合成器音色；采样/音色库需用户手动切换
 let pnoSampler=null, pnoReady=false, pnoLoading=false, pnoAdapter=null;
 let gmPlayer=null, gmScriptLoading=false, gmLoaded={}, gmInflight={}, gmWatch=0;
 function gmPreset(prog){ return String((+prog||0)*10).padStart(4,"0")+"_FluidR3_GM_sf2_file"; } // GM 程序号→FluidR3 preset 名
@@ -11784,11 +11784,13 @@ function sbValidTempo(t){ const n=+t; return Number.isFinite(n)&&n>=60&&n<=300&&
 function sbBeat(){ return 60/(+sb.tempo); } // 拍长（秒）
 let sb={tempo:"100",steps:[{k:"C",t:"1",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"5",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"6",b:4,x:"bassChord",v:2,a:0},{k:"C",t:"4",b:4,x:"bassChord",v:2,a:0}]};
 let sbTimer=null, sbPos=0; // sbPos=当前/暂停所在步：停止保留、自然播完归零、续播由此起
+let _sbFirstLoad=true; // 本次会话第一次进实验台：音色强制合成器（默认）
 function sbValidStep(st){ return st&&(st.k in SB_KEYS)&&SB_TOKENS[st.t]&&[2,3,4].includes(st.b)&&TEX_PATTERNS[st.x]&&[1,2,3].includes(st.v)&&[0,1].includes(st.a||0)&&(st.m===undefined||typeof st.m==="string"); }
 function sbLoad(){ try{ const j=JSON.parse(localStorage.getItem("sandbox3")||"null");
   if(j&&j.tempo&&!sbValidTempo(j.tempo)) j.tempo={slow:"70",mid:"100",fast:"130"}[j.tempo]||sbNormTempo(j.tempo); // 旧三档/异常值迁移
   if(j&&Array.isArray(j.steps)&&j.steps.length>=1&&j.steps.length<=SB_MAX&&j.steps.every(sbValidStep)&&sbValidTempo(j.tempo)) sb=j; }catch(e){}
-  sbApplyTimbre(); }
+  if(_sbFirstLoad){ _sbFirstLoad=false; timbre="syn"; if(sb){ if(sb.gmc&&!GM_RE.test(sb.gmc)) sb.gmc=null; if(sb.gmm&&!GM_RE.test(sb.gmm)) sb.gmm=null; } } // 刚打开：合成器优先，不自动下载采样/音色库
+  else sbApplyTimbre(); }
 function sbSave(){ try{ localStorage.setItem("sandbox3", JSON.stringify(sb)); }catch(e){} }
 function sbChordOf(st){ const r0=SB_KEYS[st.k], off=r0>6?r0-12:r0; return SB_TOKENS[st.t].cs.map(x=>x+off); }
 let sbStepTimers=[];
