@@ -293,19 +293,79 @@ function makeSynth(){
   sy.volume.value = -8;
   return sy;
 }
+/* ---- 🎨 音色：合成（内置兜底）/ 钢琴采样 / 全音色库（后两者需联网下载，未就绪前自动用合成）---- */
+let timbre=(()=>{ const t=localStorage.getItem("sbTimbre"); return ["syn","pno","gm"].includes(t)?t:"syn"; })();
+let pnoSampler=null, pnoReady=false, pnoLoading=false, pnoAdapter=null;
+let gmPlayer=null, gmReady=false, gmLoading=false, gmChord=null;
+function jitAdapter(tag, fire, onStop){ // 准时制：>0.3s 后的事件挂定时器到点再创建声源（采样/GM 无复音上限，整曲一次性创建几千个源会卡死）
+  const timers=new Set(), LEAD=0.3;
+  const ad={ volume:{value:0},
+    triggerAttackRelease:(n,d,t,v)=>{ try{
+      const now=Tone.now();
+      if(t===undefined||t-now<=LEAD){ fire(n,d,t,v); }
+      else{ const id=setTimeout(()=>{ timers.delete(id); try{ fire(n,d,t,v); }catch(e){} }, Math.max(0,(t-now-LEAD)*1000)); timers.add(id); }
+    }catch(e){} },
+    releaseAll:()=>{ timers.forEach(clearTimeout); timers.clear(); try{ onStop(); }catch(e){} }, // 停止＝取消所有未来事件＋放掉在响的
+    dispose:()=>{ timers.forEach(clearTimeout); timers.clear(); } };
+  ad["_"+tag]=true; return ad;
+}
+function timbreReady(){ return timbre==="syn" || (timbre==="pno"&&pnoReady) || (timbre==="gm"&&gmReady); } // 采样/音色库下载完才算就绪
+function timbreLoadToast(){ toast("⏬ "+tr("音色下载中，缓冲完成后才能播放（单键试听仍用合成）","Timbre downloading — playback unlocks once buffered (single-key preview uses synth)")); }
+function pickSynth(){ // 和弦声部音色路由：选了采样/音色库且已下载完 → 用之；否则合成器兜底（任何异常也回落合成器）
+  try{
+  if(timbre==="pno"&&pnoReady&&pnoSampler){
+    if(!pnoAdapter) pnoAdapter=jitAdapter("smp",(n,d,t,v)=>pnoSampler.triggerAttackRelease(n,d,t,v),()=>pnoSampler.releaseAll()); // 采样器全局只此一份，硬停止不销毁
+    return pnoAdapter;
+  }
+  if(timbre==="gm"&&gmReady&&gmPlayer){ if(!gmChord) gmChord=gmInst("0000_FluidR3_GM_sf2_file"); return gmChord; }
+  }catch(e){}
+  return makeSynth();
+}
+function gmInst(presetName){ // WebAudioFont 适配成 Tone 风格接口（带 JIT 调度）
+  const fire=(n,d,t,v)=>{
+    const m=String(n).replace("♯","#").match(/^([A-G]#?)(-?\d+)$/); if(!m) return;
+    const midi=(+m[2]+1)*12+NOTE_NAMES.indexOf(m[1]); if(midi<0) return;
+    const ctx=Tone.getContext().rawContext, sec=typeof d==="number"?d:durToMs(d)/1000;
+    gmPlayer.queueWaveTable(ctx, ctx.destination, window["_tone_"+presetName], t===undefined?ctx.currentTime:t, midi, Math.max(0.08,sec), Math.min(1,(v===undefined?0.8:v))*0.6);
+  };
+  return jitAdapter("gm", fire, ()=>gmPlayer.cancelQueue(Tone.getContext().rawContext));
+}
+function loadPno(){ if(pnoSampler||pnoLoading) return; pnoLoading=true;
+  const urls={}; ["A0","C1","D#1","F#1","A1","C2","D#2","F#2","A2","C3","D#3","F#3","A3","C4","D#4","F#4","A4","C5","D#5","F#5","A5","C6","D#6","F#6","A6","C7","D#7","F#7","A7","C8"].forEach(n=>urls[n]=n.replace("#","s")+".mp3");
+  try{
+    pnoSampler=new Tone.Sampler({urls, baseUrl:"https://tonejs.github.io/audio/salamander/", release:1,
+      onload:()=>{ pnoReady=true; pnoLoading=false; if(audioReady) stopAllSound(); toast("🎹 "+tr("钢琴采样已就绪","Piano samples ready")); },
+      onerror:()=>{ pnoLoading=false; pnoSampler=null; if(timbre==="pno"){ timbre="syn"; localStorage.setItem("sbTimbre","syn"); const sl=document.getElementById("timbreSel"); if(sl) sl.value="syn"; } toast("⚠️ "+tr("钢琴采样下载失败（需联网），已切回合成音色","Piano sample download failed (needs internet) — reverted to synth")); }
+    }).toDestination();
+  }catch(e){ pnoLoading=false; pnoSampler=null; }
+}
+function loadGM(){ if(gmReady||gmLoading) return; gmLoading=true;
+  const fail=()=>{ gmLoading=false; if(timbre==="gm"){ timbre="syn"; localStorage.setItem("sbTimbre","syn"); const sl=document.getElementById("timbreSel"); if(sl) sl.value="syn"; } toast("⚠️ "+tr("音色库下载失败（需联网），已切回合成音色","GM library download failed (needs internet) — reverted to synth")); };
+  const add=(src,cb)=>{ const sc=document.createElement("script"); sc.src=src; sc.onload=cb; sc.onerror=fail; document.body.appendChild(sc); };
+  add("https://surikov.github.io/webaudiofont/npm/dist/WebAudioFontPlayer.js",async()=>{ try{
+    await initAudio(); const ctx=Tone.getContext().rawContext;
+    gmPlayer=new WebAudioFontPlayer();
+    gmPlayer.loader.startLoad(ctx,"https://surikov.github.io/webaudiofontdata/sound/0000_FluidR3_GM_sf2_file.js","_tone_0000_FluidR3_GM_sf2_file");
+    gmPlayer.loader.startLoad(ctx,"https://surikov.github.io/webaudiofontdata/sound/0730_FluidR3_GM_sf2_file.js","_tone_0730_FluidR3_GM_sf2_file");
+    gmPlayer.loader.waitLoad(()=>{ // 下载+解码全部完成才标记就绪
+      gmReady=true; gmLoading=false; if(audioReady) stopAllSound();
+      toast("🎼 "+tr("全音色库就绪（和弦=钢琴 · 主旋律=长笛）","GM library ready (chords=piano · melody=flute)"));
+    });
+  }catch(e){ fail(); } });
+}
 async function initAudio(){
   if(audioReady) return;
   await Tone.start();
   reverbBus = new Tone.Reverb({decay:1.4, wet:0.18}).toDestination();
-  synth = makeSynth();
+  synth = pickSynth();
   audioReady = true;
 }
 // 硬停止：立刻终止「正在响 + 已排程还没响」的所有声音。
 // Tone.js 无法单独撤销已排程的音，最可靠的办法是把旧 synth 整只废弃、换一只新的（混响总线保留）。
 function stopAllSound(){
   if(!audioReady) return;
-  try{ synth.releaseAll(); synth.dispose(); }catch(e){}
-  synth = makeSynth();
+  try{ synth.releaseAll(); synth.dispose(); }catch(e){} // 采样/GM 适配器 dispose 为空操作，已下载音色不会被销毁
+  synth = pickSynth();
   if(melSynth){ try{ melSynth.releaseAll(); melSynth.dispose(); }catch(e){} melSynth=null; } // 旋律音色同步清场，下次播放按需重建
   playUntil = 0; // 旧声音已清场，循环不必再等
   const pno=document.querySelector('#piano');
@@ -7194,6 +7254,7 @@ function bindTeachPlays(root){
         || cmd.startsWith("ksel:")||cmd.startsWith("mksel:");
       const _loopSwitch = loopTimer && (cmd.startsWith("kloopset:")||cmd.startsWith("kloopseq:")||cmd.startsWith("mkloopseq:")); // 循环转着时点循环套路＝下一圈无缝切换，不该打断
       if(cmd.startsWith("tap:")){ await initAudio(); synth.triggerAttackRelease(semiToName(+cmd.slice(4),60),"4n",Tone.now(),0.9); return; } // 即兴点按：直接发声，绝不打断伴奏循环
+      if(!_silent && !timbreReady()){ timbreLoadToast(); return; } // 缓冲优先：音色没下载完不放整段演示
       if(!_silent && !_loopSwitch){ if(loopTimer) stopLoop(); stopAllSound(); }
       if(cmd.startsWith("semi:")){
         const s=cmd.slice(5).split(",").map(Number);
@@ -11631,6 +11692,8 @@ const SB_GROUPS=[
 const SB_TOKENS={}; for(const [,g] of SB_GROUPS) Object.assign(SB_TOKENS,g);
 let melSynth=null; // 主旋律专用音色（正弦底、起音快），与和弦声部分开
 function makeMelSynth(){
+  if(timbre==="pno"&&pnoReady) return jitAdapter("smp",(n,d,t,v)=>pnoSampler.triggerAttackRelease(n,d,t,v),()=>pnoSampler.releaseAll());
+  if(timbre==="gm"&&gmReady) return gmInst("0730_FluidR3_GM_sf2_file"); // 主旋律=长笛
   const sy=new Tone.PolySynth(Tone.Synth,{oscillator:{type:"sine"},envelope:{attack:0.012,decay:0.18,sustain:0.55,release:0.7}}).connect(reverbBus);
   sy.volume.value=-3; return sy;
 }
@@ -11719,6 +11782,7 @@ function sbStop(){ if(sbTimer){ clearTimeout(sbTimer); sbTimer=null; } sbClearHl
   const d=document.getElementById("dkLoop"); if(d) d.textContent="🔄 "+tr("循环","Loop");
   const p=document.getElementById("dkPlay"); if(p) p.textContent="▶ "+tr("播放","Play"); }
 async function sbPlayOnce(from){
+  if(!timbreReady()){ timbreLoadToast(); return 0; } // 缓冲优先：音色未就绪不开播
   if(from===undefined) from=Math.min(sbPos, Math.max(0,sb.steps.length-1)); // 不带参数=从暂停处续播
   from=from||0;
   await initAudio(); const now=Tone.now(); const ev=[]; let t=0; const marks=[];
@@ -11771,6 +11835,7 @@ async function sbPlayOnce(from){
   return t;
 }
 async function sbPlayStep(i){ // 行内单听：只放这一步（带本步音量/织体/拍数），行同步高亮
+  if(!timbreReady()){ timbreLoadToast(); return; }
   sbStop(); await initAudio(); const now=Tone.now(); const ev=[];
   const st=sb.steps[i]; if(!st) return;
   const beat0=TEX_BEAT; TEX_BEAT=sbBeat();
@@ -12541,7 +12606,14 @@ function renderPiano(buildMode){
     <div class="lbl" style="flex-wrap:wrap;gap:6px">
       <span${state.flow==="sandbox"?' style="display:none"':''}>${buildMode?tr("🖱️ 点击琴键来选择（再点取消）","🖱️ Click keys to select (click again to undo)"):tr("🔊 点任意键听单音 · 上排=级数 下排=音名","🔊 Tap any key · top row = degrees, bottom = note names")}</span>
       ${state.flow==="sandbox"?sbDockBar():""}
-      <button class="revealb" id="revealBtn">👁 ${tr("揭示刚才的音","Reveal last notes")}</button>
+      <div style="display:flex;gap:8px;align-items:center;margin-left:auto">
+        <select id="timbreSel" title="${tr("采样/音色库需联网下载，下载完成后才会启用","Sampled timbres download once online; enabled only after the download completes")}" style="background:var(--bg2);color:#e9e3ff;border:1px solid var(--line);border-radius:7px;padding:5px 4px;font-size:12px">
+          <option value="syn"${timbre==="syn"?" selected":""}>🎛 ${tr("合成","Synth")}</option>
+          <option value="pno"${timbre==="pno"?" selected":""}>🎹 ${tr("钢琴采样","Piano samples")}</option>
+          ${state.flow==="sandbox"?`<option value="gm"${timbre==="gm"?" selected":""}>🎼 ${tr("全音色库","GM library")}</option>`:""}
+        </select>
+        <button class="revealb" id="revealBtn">👁 ${tr("揭示刚才的音","Reveal last notes")}</button>
+      </div>
     </div>
     ${state.flow==="sandbox"?'<div id="sbReason" style="display:none;position:absolute;bottom:calc(100% + 8px);left:0;right:0;text-align:center;font-size:12.5px;line-height:1.5;color:#ffd75e;padding:4px 14px;background:rgba(24,18,48,.62);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-top:1px solid rgba(255,215,94,.45);border-bottom:1px solid rgba(255,215,94,.45);box-shadow:0 4px 18px rgba(0,0,0,.35);pointer-events:none;z-index:5"></div>':""}
     <div class="piano" id="piano">${pianoInner}</div>
@@ -12567,6 +12639,12 @@ function bindPiano(buildMode){
     k.onpointerleave=release;
     k.onpointercancel=release;
   });
+  const tsel=document.getElementById("timbreSel");
+  if(tsel){ tsel.onchange=()=>{ timbre=tsel.value; localStorage.setItem("sbTimbre",timbre);
+    if(timbre==="pno"&&!pnoReady){ loadPno(); toast("⏬ "+tr("正在下载钢琴采样（需联网）…缓冲完成后自动启用","Downloading piano samples (needs internet)… enabled once buffered")); }
+    else if(timbre==="gm"&&!gmReady){ loadGM(); toast("⏬ "+tr("正在下载全音色库（需联网）…缓冲完成后自动启用","Downloading GM library (needs internet)… enabled once buffered")); }
+    if(audioReady) stopAllSound(); // 立刻按新音色重建（就绪前单键试听用合成）
+  }; }
   const rb=document.getElementById("revealBtn");
   if(rb) rb.onclick=revealLast;
 }
