@@ -375,9 +375,27 @@ function sbApplyTimbre(){ // 把曲目自带的音色配置应用到全局并触
 async function initAudio(){
   if(audioReady) return;
   await Tone.start();
+  try{ const c=Tone.getContext(); const raw=c&&c.rawContext; if(raw&&raw.state!=="running"&&raw.resume) await raw.resume(); }catch(e){} // iOS：上下文可能停在 suspended，显式 resume
   reverbBus = new Tone.Reverb({decay:1.4, wet:0.18}).toDestination();
   synth = pickSynth();
   audioReady = true;
+}
+/* iOS Safari 解锁：首次触摸时唤醒音频上下文 + 把音频会话切到 playback（这样侧边静音拨片下也能出声）。桌面端无副作用，且只跑一次。 */
+let _audioUnlocked=false;
+async function unlockAudio(){
+  if(_audioUnlocked) return; _audioUnlocked=true;
+  try{ await Tone.start(); const c=Tone.getContext(), raw=c&&c.rawContext;
+    if(raw){ if(raw.state!=="running"&&raw.resume) raw.resume();
+      // 播一段极短静音缓冲，迫使 iOS 真正启动音频硬件
+      try{ const b=raw.createBuffer(1,1,22050), src=raw.createBufferSource(); src.buffer=b; src.connect(raw.destination); (src.start||src.noteOn).call(src,0); }catch(e){}
+    }
+  }catch(e){}
+  // 静音 <audio> 元素：让 iOS 把会话归为可在静音档播放的 playback 类
+  try{ if(typeof Audio==="function"){ const a=new Audio(); a.muted=true; a.setAttribute("playsinline",""); a.src="data:audio/mp3;base64,//uQxAAAAAAAAAAAAAAAAAAAAAAAWGluZwAAAA8AAAACAAACcQCA"; const p=a.play(); if(p&&p.catch) p.catch(()=>{}); } }catch(e){}
+}
+if(typeof document!=="undefined" && document.addEventListener){
+  const _u=()=>{ unlockAudio(); };
+  ["touchend","pointerdown","mousedown","keydown"].forEach(ev=>{ try{ document.addEventListener(ev,_u,{once:false,passive:true,capture:true}); }catch(e){ try{ document.addEventListener(ev,_u,true); }catch(_){} } });
 }
 // 硬停止：立刻终止「正在响 + 已排程还没响」的所有声音。
 // Tone.js 无法单独撤销已排程的音，最可靠的办法是把旧 synth 整只废弃、换一只新的（混响总线保留）。
@@ -12553,25 +12571,25 @@ const SB_DEMOS=[
      {k:"D",t:"4",b:4,x:"pad",v:2,a:0,m:"6 5 3 ~"},
      {k:"D",t:"1",b:4,x:"pad",v:1,a:0,m:"1 ~ ~ ~"}
  ]},
- {id:"film",cn:"极简东方 · 五声筝韵(GM 筝 + 弦乐铺底)",en:"Minimal East-Asian: pentatonic koto + string bed",tempo:"60",tim:"gm",gmc:"0480_FluidR3_GM_sf2_file",gmm:"1070_FluidR3_GM_sf2_file",d:[
-     {k:"C",t:"1",b:4,x:"pad",v:1,a:0,m:"5 ~ 6 ~"},
-     {k:"C",t:"6m7",b:4,x:"pad",v:1,a:0,m:"1+ ~ 6 ~"},
+ {id:"film",cn:"极简东方 · 五声(羽管键琴 + 合成弦乐)",en:"Minimal pentatonic: harpsichord + synth strings",tempo:"60",tim:"gm",gmc:"0500_FluidR3_GM_sf2_file",gmm:"0060_FluidR3_GM_sf2_file",d:[
+     {k:"C",t:"1",b:4,x:"alberti",v:1,a:0,m:"5 3 5 6"},
+     {k:"C",t:"6m7",b:4,x:"alberti",v:1,a:0,m:"1+ 6 5 3"},
      {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 1+ 6"},
      {k:"C",t:"6m7",b:4,x:"alberti",v:2,a:0,m:"6 1+ 2+ 1+"},
      {k:"C",t:"4",b:4,x:"alberti",v:2,a:0,m:"1+ 6 5 3"},
-     {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 5 ~"},
+     {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 5 3"},
      {k:"C",t:"2m7",b:4,x:"alberti",v:2,a:0,m:"2+ 1+ 6 5"},
      {k:"C",t:"5",b:4,x:"alberti",v:2,a:0,m:"5 6 5 2"},
      {k:"C",t:"6m7",b:4,x:"alberti",v:2,a:0,m:"6 5 3 2"},
-     {k:"C",t:"4",b:4,x:"alberti",v:2,a:0,m:"1+ 6 5 ~"},
+     {k:"C",t:"4",b:4,x:"alberti",v:2,a:0,m:"1+ 6 5 3"},
      {k:"C",t:"1",b:4,x:"flow16",v:2,a:0,m:"5_6 1+ 6 5"},
      {k:"C",t:"6m7",b:4,x:"flow16",v:2,a:0,m:"6 1+_2+ 1+ 6"},
      {k:"C",t:"4",b:4,x:"flow16",v:2,a:0,m:"1+ 6_5 3 5"},
-     {k:"C",t:"1",b:4,x:"flow16",v:2,a:0,m:"5 6_5 3 ~"},
+     {k:"C",t:"1",b:4,x:"flow16",v:2,a:0,m:"5 6_5 3 2"},
      {k:"C",t:"2m7",b:4,x:"flow16",v:2,a:0,m:"2+ 1+_6 5 6"},
      {k:"C",t:"5",b:4,x:"flow16",v:2,a:0,m:"5 6_1+ 2+ 5"},
      {k:"C",t:"6m7",b:4,x:"flow16",v:2,a:0,m:"6 5_3 2 3"},
-     {k:"C",t:"4",b:4,x:"flow16",v:2,a:0,m:"1+ 6_5 6 ~"},
+     {k:"C",t:"4",b:4,x:"flow16",v:2,a:0,m:"1+ 6_5 6 5"},
      {k:"C",t:"1",b:4,x:"flow16",v:3,a:0,m:"1+ 2+_3+ 5+ 3+"},
      {k:"C",t:"6m7",b:4,x:"flow16",v:3,a:0,m:"6+ 5+_3+ 2+ 1+"},
      {k:"C",t:"4",b:4,x:"flow16",v:3,a:0,m:"1+_2+ 3+ 5+ 6+"},
@@ -12579,18 +12597,18 @@ const SB_DEMOS=[
      {k:"C",t:"5",b:4,x:"flow16",v:3,a:0,m:"5+ 3+ 2+ 5"},
      {k:"C",t:"6m7",b:4,x:"flow16",v:3,a:0,m:"6 1+_3+ 5+ 3+"},
      {k:"C",t:"4",b:4,x:"flow16",v:3,a:0,m:"1+ 6 5 3"},
-     {k:"C",t:"5",b:4,x:"flow16",v:3,a:0,m:"2+ 5 2 ~"},
+     {k:"C",t:"5",b:4,x:"flow16",v:3,a:0,m:"2+ 5 2 5"},
      {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 1+ 6"},
      {k:"C",t:"6m7",b:4,x:"alberti",v:2,a:0,m:"6 1+ 2+ 1+"},
      {k:"C",t:"4",b:4,x:"alberti",v:2,a:0,m:"1+ 6 5 3"},
-     {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 5 ~"},
+     {k:"C",t:"1",b:4,x:"alberti",v:2,a:0,m:"5 6 5 3"},
      {k:"C",t:"2m7",b:4,x:"alberti",v:1,a:0,m:"2+ 1+ 6 5"},
      {k:"C",t:"5",b:4,x:"alberti",v:1,a:0,m:"5 6 5 2"},
      {k:"C",t:"6m7",b:4,x:"alberti",v:1,a:0,m:"6 5 3 2"},
-     {k:"C",t:"4",b:4,x:"alberti",v:1,a:0,m:"1+ 6 5 ~"},
-     {k:"C",t:"4",b:4,x:"pad",v:1,a:0,m:"1+ 6 5 3"},
-     {k:"C",t:"6m7",b:4,x:"pad",v:1,a:0,m:"6 5 3 2"},
-     {k:"C",t:"1",b:4,x:"pad",v:1,a:0,m:"3 2 1 ~"}
+     {k:"C",t:"4",b:4,x:"alberti",v:1,a:0,m:"1+ 6 5 3"},
+     {k:"C",t:"4",b:4,x:"block4",v:1,a:0,m:"1+ 6 5 3"},
+     {k:"C",t:"6m7",b:4,x:"block4",v:1,a:0,m:"6 5 3 2"},
+     {k:"C",t:"1",b:4,x:"block4",v:1,a:0,m:"5 3 2 1"}
  ]},
  {id:"full",cn:"整歌一遍 · 前奏→主歌→预副→副歌→桥→副歌→尾奏(钢琴+弦乐)",en:"A whole song: intro→verse→pre→chorus→bridge→chorus→outro (piano + strings)",tempo:"95",tim:"gm",gmc:"0000_FluidR3_GM_sf2_file",gmm:"0480_FluidR3_GM_sf2_file",d:[
      {k:"C",t:"1",b:4,x:"pad",v:1,a:0,m:"1 ~ 3 ~"},
