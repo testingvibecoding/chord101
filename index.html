@@ -238,7 +238,7 @@
 <div class="wrap">
   <div class="topbar">
     <div class="brand" id="brandTxt"><span class="logo">🎹</span> 和弦与调式 · 互动课堂</div>
-    <div class="xp"><span class="star">★</span> <span id="xpval">0</span> <span id="xpword">经验</span></div>
+    <div class="xp" id="xpBox" style="cursor:pointer" title="点击设置 / 修改名字 · click to set or change name"><span id="userBox" style="display:none"></span><span class="star">★</span> <span id="xpval">0</span> <span id="xpword">经验</span></div>
   </div>
   <div id="app"></div>
 </div>
@@ -635,7 +635,40 @@ function moduleProgress(mId){
 function moduleUnlocked(idx){
   return true; // 测试期间全部解锁（原本需上一关掌握60%）
 }
-function addXp(n){ state.xp+=n; document.getElementById("xpval").textContent=state.xp; }
+
+/* ====== 本地进度存档（单存档 · 按用户名，仅存本机 localStorage，无需密码）====== */
+const SAVE_KEY = "chordCourse_save_v1";
+let userName = "";
+function saveProgress(){
+  try{ localStorage.setItem(SAVE_KEY, JSON.stringify({ name:userName, xp:state.xp, mastery:state.mastery, ts:Date.now() })); }catch(e){}
+}
+function loadProgress(){ // 返回 true=读到存档
+  try{
+    const j = JSON.parse(localStorage.getItem(SAVE_KEY) || "null");
+    if(j){
+      userName = j.name || "";   // 名字可选：没填也照样恢复经验/进度
+      state.xp = +j.xp || 0;
+      // 按当前模块结构逐项合并，旧存档缺新关也不会出错
+      if(j.mastery) MODULES.forEach(m=>{ const src=j.mastery[m.id]; if(src) m.concepts.forEach(c=>{ if(typeof src[c]==="number") state.mastery[m.id][c]=src[c]; }); });
+      return true;
+    }
+  }catch(e){}
+  return false;
+}
+function refreshUserBox(){
+  const xv=document.getElementById("xpval"); if(xv) xv.textContent=state.xp;
+  const ub=document.getElementById("userBox");
+  if(ub){
+    if(userName){ ub.textContent="👤 "+userName+" · "; ub.style.display=""; } // 有名字：显示在经验值前
+    else { ub.textContent=""; ub.style.display="none"; }                       // 没名字：只显示经验值
+  }
+}
+function changeName(){
+  const n=(prompt(tr("设置 / 修改用户名（进度保存在本机这个名字下，无需密码）：","Set / change your name (progress is saved under this name on this device, no password):"), userName||"")||"").trim();
+  if(n){ userName=n; saveProgress(); refreshUserBox(); toast("👤 "+tr("当前用户：","User: ")+userName); }
+}
+function ensureUser(){ loadProgress(); } // 启动只读本机进度（名字可选，不强制询问）；经验始终自动累积
+function addXp(n){ state.xp+=n; document.getElementById("xpval").textContent=state.xp; saveProgress(); }
 
 /* ============================================================
    语言切换 CN / EN（界面级；正文逐步双语化）
@@ -10990,7 +11023,7 @@ function finishAnswer(correct){
     fb.innerHTML=`<div class="t">✅ ${tr("答对了！+10 经验","Correct! +10 XP")}</div><div>${exTxt}</div>`;
     confetti();
   } else {
-    ms[concept]=0; // 答错重置，会更频繁回来
+    ms[concept]=0; saveProgress(); // 答错重置，会更频繁回来
     if(cur._fp) seenQs.delete(cur._fp); // 答错的题允许再次出现
     fb.className="feedback bad show";
     fb.innerHTML=`<div class="t">❌ ${tr("再听一次～这个会再回来考你","Listen again — this one will come back")}</div><div>${exTxt}</div>`;
@@ -13279,6 +13312,9 @@ if("scrollRestoration" in history) history.scrollRestoration="manual"; // 刷新
 document.querySelectorAll(".langbar button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
 const _fab=document.getElementById("homeFab");
 if(_fab) _fab.onclick=()=>{ stopLoop(); stopAllSound(); renderHome(); };
+const _xpBox=document.getElementById("xpBox"); if(_xpBox) _xpBox.onclick=changeName; // 点经验值区设置/修改名字
+ensureUser();      // 读本机进度（名字可选，不弹窗）
+refreshUserBox();  // 顶栏：有名字才显示在经验值前，否则只显示经验值
 renderHome();
 window.scrollTo(0,0);
 </script>
